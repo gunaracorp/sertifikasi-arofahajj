@@ -1,0 +1,77 @@
+name: Prisma 8 PostgreSQL production validation
+
+on:
+  pull_request:
+    branches: [main]
+
+  push:
+    branches:
+      - main
+      - fix/hostinger-turbopack-build-20261027
+
+jobs:
+  validate:
+    runs-on: ubuntu-26.04
+    timeout-minutes: 25
+    services:
+      postgres:
+        image: postgres:16
+        env:
+          POSTGRES_DB: arofahajj_test
+          POSTGRES_USER: pp_test
+          POSTGRES_PASSWORD: pp_test_only
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd "pg_isready -U pp_test -d arofahajj_test"
+          --health-interval 5s
+          --health-timeout 5s
+          --health-retries 20
+    env:
+      DATABASE_URL: "postgresql://pp_test:pp_test_only@127.0.0.1:5432/arofahajj_test"
+      ADMIN_PASSWORD: ci-only-not-a-production-secret
+      ADMIN_SECRET: ci-only-secret-0123456789abcdef0123456789abcdef
+      CRON_SECRET: ci-only-cron-secret-0123456789abcdef0123456789
+      PAYMENT_DEMO_MODE: "false"
+      FOLLOWUP_SWEEP_MINUTES: "0"
+      NEXT_TELEMETRY_DISABLED: "1"
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v7
+      - name: Set up Node.js 24
+        uses: actions/setup-node@v7
+        with:
+          node-version: "24"
+      - name: Install dependencies and emit Prisma 8 contract
+        run: npm install --no-audit --no-fund
+      - name: Confirm Prisma ORM version
+        run: npx prisma --version
+      - name: Validate Prisma 8 contract emission
+        run: npm run prisma8:emit
+      - name: Initialize the CI PostgreSQL schema
+        run: npm run db:init
+      - name: Verify the Prisma 8 database contract
+        run: npm run db:verify
+      - name: Run production build
+        env:
+          NEXT_CPU_COUNT: "2"
+        run: npm run build
+      - name: Start standalone production server and smoke-test follow-up API
+        run: |
+          PORT=3000 HOSTNAME=127.0.0.1 npm run start > /tmp/arofahajj-next.log 2>&1 &
+          server_pid=$!
+          trap 'kill "$server_pid" 2>/dev/null || true' EXIT
+          ready=0
+          for attempt in $(seq 1 45); do
+            if curl --fail --silent http://127.0.0.1:3000/api/version >/dev/null; then
+              ready=1
+              break
+            fi
+            sleep 2
+          done
+          if [ "$ready" -ne 1 ]; then
+            cat /tmp/arofahajj-next.log
+            echo "Standalone server did not become ready" >&2
+            exit 1
+          fi
+          npm run test:followup
