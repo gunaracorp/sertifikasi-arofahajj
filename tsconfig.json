@@ -40,6 +40,8 @@
   "exclude": [
     "node_modules",
     "examples/**",
-    "upload/backup-universe-v0/**"
+    "upload/**",
+    "skills/**",
+    "scripts/**"
   ]
 }
