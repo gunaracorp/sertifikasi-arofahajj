@@ -10,6 +10,7 @@ import { MotionProvider } from "@/components/motion/motion-provider";
 import VitalsReporter from "@/components/seo/vitals-reporter";
 import { LanguageProvider } from "@/lib/i18n/language-provider";
 import { SITE_URL, LEGAL_ENTITY } from "@/lib/site";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -232,6 +233,7 @@ export default function RootLayout({
             <SeoJsonLd />
             <Analytics />
             <VitalsReporter />
+            <SpeedInsights />
             <Toaster />
             {/* ROADMAP-99 langkah 5: Floating WhatsApp CTA sitewide —
                 komponen menyembunyikan dirinya di /, /admin, /webmaster,
