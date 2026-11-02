@@ -1,0 +1,24 @@
+{
+  "name": "Arofahajj Universe — Haji & Umrah, Perizinan & Sertifikasi",
+  "short_name": "Arofahajj",
+  "description": "Platform Haji & Umrah, perizinan usaha (NIB, PT, CV, PMA, PPIU/PPIH) & sertifikasi terlengkap Indonesia. PT AROFAH GLOBAL SISTEM. Garansi 100%.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#faf7ef",
+  "theme_color": "#171208",
+  "lang": "id",
+  "icons": [
+    {
+      "src": "/logo-icon.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/logo-icon-white.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ]
+}

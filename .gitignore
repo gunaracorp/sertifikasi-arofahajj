@@ -1,2 +1,87 @@
-skills/
-node_modules/
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# dependencies
+node_modules
+/.pnp
+.pnp.*
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/versions
+
+# testing
+/coverage
+
+# next.js
+/.next/
+/out/
+
+# production
+/build
+
+# misc
+.DS_Store
+*.pem
+
+# debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# env files (can opt-in for committing if needed)
+.env*
+
+# vercel
+.vercel
+
+
+# typescript
+*.tsbuildinfo
+next-env.d.ts
+local-*
+.claude
+.z-ai-config
+*.log
+dev.log
+dev.out.log
+test
+prompt
+
+server.log
+# Skills directory
+/skills/
+/arofahajj-v1.4.0
+
+# backup database lokal (Langkah 68)
+/backups
+
+# Prisma generated artifacts must not be committed
+/src/generated/
+/generated/
+
+# Local/production SQLite databases must never be committed
+/db/*.db
+/db/*.db-*
+
+# Sandbox/embedded PostgreSQL artifacts (regenerable)
+/db/pgdata/
+/db/icu60/
+/db/pg.log
+/migrations/
+/.zscripts/
+/dev.log
+/bun.lock
+/package-lock.json
+/backups/
+/tool-results/
+
+# embedded postgres data (sandbox)
+.pgdata
+postgres.log
+dev.log
+
+# SEO auto-ping (state snapshot & kursor rotasi — mesin, bukan kode)
+.seo/
+scripts/tmp-dev.css
