@@ -83,7 +83,7 @@ const GROUPS: { id: CertGroup; icon: typeof Award; blurb: string; href: string }
 
 export function CertificationsSection() {
   return (
-    <section id="produk" aria-labelledby="sertifikasi-heading" className="band-emerald pattern-grid-dark relative overflow-hidden scroll-mt-20">
+    <section id="produk" aria-labelledby="sertifikasi-heading" className="band-sun pattern-grid relative overflow-hidden scroll-mt-20">
       <div aria-hidden="true" className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-gold/50 to-transparent" />
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 md:py-24">
         {/* Heading */}
@@ -91,10 +91,10 @@ export function CertificationsSection() {
           <p className="text-[11px] font-bold uppercase tracking-[0.22em] text-gold">
             Produk Andalan — Travel Ibadah &amp; Aviasi
           </p>
-          <h2 id="sertifikasi-heading" className="mt-3 font-display text-3xl md:text-5xl font-medium tracking-tight leading-[1.1] text-emerald-50 text-balance">
+          <h2 id="sertifikasi-heading" className="mt-3 font-display text-3xl md:text-5xl font-medium tracking-tight leading-[1.1] text-foreground text-balance">
             Tiga kunci legalitas bisnis haji &amp; umrah — <em className="text-gold">plus tiket global IATA.</em>
           </h2>
-          <p className="mt-4 text-emerald-100/70 leading-relaxed md:text-lg">
+          <p className="mt-4 text-foreground/70 leading-relaxed md:text-lg">
             Empat produk yang paling dicari travel di Indonesia — kini bisa dipesan langsung, dengan garansi
             100% uang kembali dan dokumentasi transparan per tahap. Semua dibangun di atas regulasi terkini
             (PMHU 2/2026, OSS-RBA, KBLI 79121 &amp; 79122).
@@ -112,7 +112,7 @@ export function CertificationsSection() {
                   href={p.cta.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex w-full items-center justify-center gap-1.5 rounded-lg bg-gold px-4 py-2.5 text-sm font-bold text-gold-foreground shadow-md shadow-gold/20 transition-all hover:brightness-110"
+                  className="inline-flex w-full items-center justify-center gap-1.5 rounded-lg bg-primary px-4 py-2.5 text-sm font-bold text-primary-foreground shadow-md shadow-primary/20 transition-all hover:bg-primary/90"
                 >
                   <PhoneCall className="h-4 w-4" aria-hidden />
                   {p.cta.label}
@@ -121,7 +121,7 @@ export function CertificationsSection() {
                 <a
                   key="cta"
                   href={p.cta.href}
-                  className="btn-shine inline-flex w-full items-center justify-center gap-1.5 rounded-lg bg-gold px-4 py-2.5 text-sm font-bold text-gold-foreground shadow-md shadow-gold/20 transition-all hover:brightness-110"
+                  className="btn-shine inline-flex w-full items-center justify-center gap-1.5 rounded-lg bg-primary px-4 py-2.5 text-sm font-bold text-primary-foreground shadow-md shadow-primary/20 transition-all hover:bg-primary/90"
                 >
                   <Wallet className="h-4 w-4" aria-hidden />
                   {p.cta.label}
@@ -130,25 +130,25 @@ export function CertificationsSection() {
             return (
               <article
                 key={p.id}
-                className="glass-dark card-lift flex flex-col rounded-2xl p-6 transition-all hover:border-gold/40"
+                className="glass-bright card-lift flex flex-col rounded-2xl p-6 transition-all hover:border-gold/50"
               >
                 <div className="flex items-center justify-between gap-2">
                   <div className="flex h-11 w-11 items-center justify-center rounded-lg border border-gold/35 bg-gold/10 text-gold">
                     <Icon className="h-5 w-5" aria-hidden />
                   </div>
-                  <span className="rounded-full border border-emerald-50/15 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wide text-emerald-100/60">
+                  <span className="rounded-full border border-primary/15 bg-primary/5 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wide text-foreground/55">
                     {p.chip}
                   </span>
                 </div>
 
-                <h3 className="mt-4 font-display text-2xl font-medium text-emerald-50">{p.title}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-emerald-100/65">{p.desc}</p>
+                <h3 className="mt-4 font-display text-2xl font-medium text-foreground">{p.title}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-foreground/65">{p.desc}</p>
 
-                <div className="mt-4 pt-4 border-t border-emerald-50/10">
+                <div className="mt-4 pt-4 border-t border-primary/10">
                   <p className="font-display text-3xl text-gold">{p.price}</p>
-                  <p className="mt-1 text-xs text-emerald-100/55">
+                  <p className="mt-1 text-xs text-foreground/55">
                     {p.duration}
-                    {p.note ? <span className="text-emerald-100/45"> · {p.note}</span> : null}
+                    {p.note ? <span className="text-foreground/45"> · {p.note}</span> : null}
                   </p>
                 </div>
 
@@ -156,7 +156,7 @@ export function CertificationsSection() {
                   {cta}
                   <a
                     href={p.secondary.href}
-                    className="flex w-full items-center justify-center gap-1.5 text-sm font-semibold text-emerald-100/75 hover:text-gold"
+                    className="flex w-full items-center justify-center gap-1.5 text-sm font-semibold text-foreground/70 hover:text-primary"
                   >
                     {p.secondary.label}
                     <ArrowRight className="h-4 w-4" aria-hidden />
@@ -169,11 +169,11 @@ export function CertificationsSection() {
 
         {/* Katalog sertifikasi lengkap */}
         <div className="mt-14 flex items-center gap-4">
-          <h3 className="font-display text-xl md:text-2xl text-emerald-50 shrink-0">
+          <h3 className="font-display text-xl md:text-2xl text-foreground shrink-0">
             Katalog {CERT_STATS.total} sertifikasi
           </h3>
-          <div aria-hidden="true" className="h-px flex-1 bg-emerald-50/15" />
-          <Link href="/layanan/kategori/sertifikasi" className="shrink-0 inline-flex items-center gap-1.5 text-sm font-semibold text-gold hover:underline">
+          <div aria-hidden="true" className="h-px flex-1 bg-primary/15" />
+          <Link href="/layanan/kategori/sertifikasi" className="shrink-0 inline-flex items-center gap-1.5 text-sm font-semibold text-primary hover:underline">
             Lihat semua <ArrowRight className="h-4 w-4" aria-hidden />
           </Link>
         </div>
@@ -185,41 +185,41 @@ export function CertificationsSection() {
               <Link
                 key={g.id}
                 href={g.id === "travel-ibadah" ? "/layanan/kategori/sertifikasi" : g.href}
-                className="group flex items-center gap-3 rounded-xl border border-emerald-50/12 bg-emerald-50/[0.04] px-4 py-3.5 transition-all hover:border-gold/40 hover:bg-emerald-50/[0.08] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold/50"
+                className="group flex items-center gap-3 rounded-xl border border-primary/15 bg-white/70 px-4 py-3.5 transition-all hover:border-gold/50 hover:bg-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold/50"
               >
-                <Icon className="h-5 w-5 shrink-0 text-gold" aria-hidden />
+                <Icon className="h-5 w-5 shrink-0 text-primary" aria-hidden />
                 <div className="min-w-0">
-                  <p className="font-bold text-sm text-emerald-50 leading-tight">{CERT_GROUP_LABEL[g.id]}</p>
-                  <p className="mt-0.5 truncate text-xs text-emerald-100/55">{g.blurb}</p>
+                  <p className="font-bold text-sm text-foreground leading-tight">{CERT_GROUP_LABEL[g.id]}</p>
+                  <p className="mt-0.5 truncate text-xs text-foreground/55">{g.blurb}</p>
                 </div>
-                <ArrowRight className="h-4 w-4 ml-auto shrink-0 text-emerald-100/40 transition-transform group-hover:translate-x-0.5 group-hover:text-gold" aria-hidden />
+                <ArrowRight className="h-4 w-4 ml-auto shrink-0 text-foreground/40 transition-transform group-hover:translate-x-0.5 group-hover:text-primary" aria-hidden />
               </Link>
             );
           })}
         </div>
 
         {/* Catatan regulasi terbaru + CTA */}
-        <div className="mt-10 flex flex-col gap-4 rounded-2xl border border-gold/30 bg-gold/[0.06] p-5 md:flex-row md:items-center md:justify-between">
+        <div className="mt-10 flex flex-col gap-4 rounded-2xl border border-gold/40 bg-gold/10 p-5 md:flex-row md:items-center md:justify-between">
           <div className="flex items-start gap-3">
             <FileCheck2 className="mt-0.5 h-5 w-5 shrink-0 text-gold" aria-hidden />
-            <p className="text-sm leading-relaxed text-emerald-50/85">
+            <p className="text-sm leading-relaxed text-foreground/85">
               <span className="font-bold text-gold">Baru 2026:</span> ISO 9001:2026 resmi terbit (16 Sep 2026) &amp; standar travel
               haji-umrah diperbarui via PMHU 2/2026.{" "}
-              <span className="text-emerald-100/60">Jangan sampai dokumen Anda dibangun di atas regulasi basi — kami pakai yang terkini.</span>
+              <span className="text-foreground/60">Jangan sampai dokumen Anda dibangun di atas regulasi basi — kami pakai yang terkini.</span>
             </p>
           </div>
           <div className="flex shrink-0 flex-wrap gap-2">
-            <Button asChild className="bg-gold text-gold-foreground hover:bg-gold/90">
+            <Button asChild className="bg-primary text-primary-foreground hover:bg-primary/90">
               <a href={`https://wa.me/6281222345856?text=${encodeURIComponent("Halo, saya mau konsultasi sertifikasi (BPW/PPIU/PIHK/IATA/ISO/halal)")}`} target="_blank" rel="noopener noreferrer">
                 <PhoneCall className="h-4 w-4" aria-hidden /> Konsultasi Gratis
               </a>
             </Button>
-            <Button asChild variant="outline" className="border-emerald-50/30 text-emerald-50 hover:bg-emerald-50/10 hover:text-emerald-50">
+            <Button asChild variant="outline" className="border-primary/25 text-foreground hover:bg-primary/5 hover:text-foreground">
               <Link href="/layanan/sertifikasi/dki-jakarta">
                 <Building2 className="h-4 w-4" aria-hidden /> Sertifikasi × {CERT_REGION_STATS.provinces} Provinsi
               </Link>
             </Button>
-            <Button asChild variant="outline" className="border-emerald-50/30 text-emerald-50 hover:bg-emerald-50/10 hover:text-emerald-50">
+            <Button asChild variant="outline" className="border-primary/25 text-foreground hover:bg-primary/5 hover:text-foreground">
               <Link href="/layanan/kategori/sertifikasi">
                 <ShieldCheck className="h-4 w-4" aria-hidden /> Katalog {CERT_STATS.total} Sertifikasi
               </Link>
@@ -227,7 +227,7 @@ export function CertificationsSection() {
           </div>
         </div>
 
-        <p className="mt-4 hidden items-center gap-1.5 text-xs text-emerald-100/50 sm:flex">
+        <p className="mt-4 hidden items-center gap-1.5 text-xs text-foreground/50 sm:flex">
           <Building2 className="h-3.5 w-3.5" aria-hidden /> Jasa konsultan — biaya resmi lembaga/instansi terpisah &amp; transparan di penawaran.
         </p>
       </div>

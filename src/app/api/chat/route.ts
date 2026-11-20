@@ -3,6 +3,7 @@ import ZAI from "z-ai-web-dev-sdk";
 import { db } from "@/lib/db";
 import { isLangCode, langEnglishName } from "@/lib/i18n/languages";
 import { notifyNewLead } from "@/lib/notify";
+import { GURU_MODE_ADDENDUM } from "@/lib/guru-prompt";
 
 // ============================================================
 // POST /api/chat — Konsultan AI Perizinan 24/7
@@ -49,7 +50,7 @@ Selalu dorong percakapan ke arah user meninggalkan nama + nomor WhatsApp untuk k
 JANGAN:
 - Jangan mengarang KBLI code secara spesifik jika ragu (boleh menyebut contoh umum)
 - Jangan menjanjikan pasti selesai dalam waktu tertentu tanpa "estimasi"
-- Jangan menjawab topik di luar bisnis/perizinan/pajak usaha — arahkan kembali dengan sopan`;
+- Jangan menjawab topik di luar bisnis/perizinan/pajak usaha — arahkan kembali dengan sopan` + GURU_MODE_ADDENDUM;
 
 export async function POST(req: NextRequest) {
   try {

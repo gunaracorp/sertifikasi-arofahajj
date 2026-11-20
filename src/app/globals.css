@@ -145,25 +145,29 @@
 }
 
 /* ============================================================
-   AROFAHAJJ — Custom Styles (Redesign "Zamrud & Emas")
+   AROFAHAJJ — Custom Styles (Redesign "Zamrud & Emas Terang")
+   Catatan revisi owner (ketum): seluruh band gelap dibuang —
+   identitas zamrud & emas dipertahankan tapi di atas kanvas
+   porcelain yang cerah penuh. Klas .band-emerald* lama dihapus.
    ============================================================ */
 
-/* Band gelap zamrud — section premium (hero, produk andalan, CTA) */
-.band-emerald {
+/* Band terang "Fajar Porcelain" — section premium (hero, produk
+   andalan, CTA): pancaran aurora emas & mint di atas kertas terang */
+.band-sun {
   background:
-    radial-gradient(ellipse 90% 70% at 88% -10%, oklch(0.60 0.11 80/ 0.13), transparent 55%),
-    radial-gradient(ellipse 70% 55% at 6% 110%, oklch(0.62 0.10 168/ 0.22), transparent 60%),
-    linear-gradient(180deg, oklch(0.255 0.032 168) 0%, oklch(0.225 0.028 168) 100%);
-  color: oklch(0.965 0.012 115);
+    radial-gradient(ellipse 90% 70% at 88% -10%, oklch(0.90 0.06 95/ 0.50), transparent 55%),
+    radial-gradient(ellipse 70% 55% at 6% 110%, oklch(0.90 0.05 168/ 0.45), transparent 60%),
+    linear-gradient(180deg, oklch(0.972 0.014 165) 0%, oklch(0.988 0.008 130) 100%);
+  color: oklch(0.30 0.05 168);
 }
 
-/* Band zamrud paling dalam — hero & footer */
-.band-emerald-deep {
+/* Band terang paling hangat — hero */
+.band-sun-deep {
   background:
-    radial-gradient(ellipse 80% 60% at 82% -12%, oklch(0.62 0.12 80/ 0.16), transparent 52%),
-    radial-gradient(ellipse 65% 55% at 8% 112%, oklch(0.58 0.10 168/ 0.26), transparent 58%),
-    linear-gradient(180deg, oklch(0.215 0.030 168) 0%, oklch(0.185 0.024 170) 100%);
-  color: oklch(0.965 0.012 115);
+    radial-gradient(ellipse 80% 60% at 82% -12%, oklch(0.88 0.075 95/ 0.55), transparent 52%),
+    radial-gradient(ellipse 65% 55% at 8% 112%, oklch(0.87 0.06 168/ 0.50), transparent 58%),
+    linear-gradient(180deg, oklch(0.966 0.018 165) 0%, oklch(0.985 0.012 140) 100%);
+  color: oklch(0.27 0.05 168);
 }
 
 /* Hero gradient versi kertas (dipakai halaman lain) — aurora zamrud+emas */
@@ -193,11 +197,12 @@
   border: 1px solid oklch(0.80 0.12 160/ 0.2);
 }
 
-/* Kartu kaca gelap khusus di band zamrud (form hero, tiket produk) */
-.glass-dark {
-  background: oklch(1 0 0/ 0.05);
+/* Kartu kaca putih premium — di atas band terang (form hero, tiket produk) */
+.glass-bright {
+  background: oklch(1 0 0/ 0.85);
   backdrop-filter: blur(14px);
-  border: 1px solid oklch(0.965 0.012 115/ 0.14);
+  border: 1px solid oklch(0.45 0.085 168/ 0.14);
+  box-shadow: 0 24px 60px -28px oklch(0.45 0.085 168/ 0.28);
 }
 
 /* Text gradient brand — zamrud → emas (identitas dua nada) */
@@ -262,12 +267,10 @@
 /* Grid pattern halus untuk section terang — PSEUDO-ELEMENT overlay
    agar tidak menimpa background band/gradient di elemen yang sama
    (konflik kaskade background-image vs shorthand background). */
-.pattern-grid,
-.pattern-grid-dark {
+.pattern-grid {
   position: relative;
 }
-.pattern-grid::before,
-.pattern-grid-dark::before {
+.pattern-grid::before {
   content: "";
   position: absolute;
   inset: 0;
@@ -278,12 +281,7 @@
   background-size: 44px 44px;
 }
 
-/* Grid pattern gelap — hairline gading di atas band zamrud */
-.pattern-grid-dark::before {
-  background-image:
-    linear-gradient(oklch(0.965 0.012 115/ 0.05) 1px, transparent 1px),
-    linear-gradient(90deg, oklch(0.965 0.012 115/ 0.05) 1px, transparent 1px);
-}
+
 
 /* Shimmer effect untuk badge premium (emas logo) */
 @keyframes shimmer {

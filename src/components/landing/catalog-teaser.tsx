@@ -45,7 +45,7 @@ export function CatalogTeaser() {
               </div>
               <a
                 href={waLink(`Halo Arofahajj Universe, saya tertarik dengan Paket "${b.name}".`)}
-                className="mt-4 inline-block w-full rounded-xl bg-emerald-950 px-4 py-2.5 text-center text-sm font-bold text-white transition hover:bg-emerald-900"
+                className="mt-4 inline-block w-full rounded-xl bg-primary px-4 py-2.5 text-center text-sm font-bold text-primary-foreground transition hover:bg-primary/90"
               >
                 Konsultasi Paket Ini
               </a>
@@ -62,7 +62,7 @@ export function CatalogTeaser() {
           <div className="flex shrink-0 flex-wrap gap-3">
             <Link
               href="/katalog"
-              className="rounded-xl bg-emerald-950 px-5 py-3 text-sm font-bold text-white transition hover:bg-emerald-900"
+              className="rounded-xl bg-primary px-5 py-3 text-sm font-bold text-primary-foreground transition hover:bg-primary/90"
             >
               Jelajahi Katalog →
             </Link>

@@ -189,9 +189,9 @@ export function AdminDeploy() {
       className="fixed bottom-4 left-4 z-[60] w-[360px] max-w-[calc(100vw-2rem)] overflow-hidden rounded-2xl border border-emerald-950/20 bg-card text-card-foreground shadow-2xl"
     >
       {/* Header */}
-      <div className="flex items-center justify-between gap-2 bg-[oklch(0.23_0.03_78)] px-4 py-2.5 text-white">
+      <div className="flex items-center justify-between gap-2 bg-primary px-4 py-2.5 text-primary-foreground">
         <p className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider">
-          <ShieldCheck className="h-4 w-4 text-amber-400" aria-hidden="true" />
+          <ShieldCheck className="h-4 w-4 text-gold" aria-hidden="true" />
           Deploy Hosting · Privat
         </p>
         <div className="flex items-center gap-1">

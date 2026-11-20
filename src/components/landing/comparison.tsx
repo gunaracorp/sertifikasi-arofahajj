@@ -34,12 +34,12 @@ export function Comparison() {
           <div className="overflow-x-auto scrollbar-thin">
             <table className="w-full text-sm min-w-[640px]">
               <thead>
-                <tr className="bg-[oklch(0.23_0.03_78)] text-white">
+                <tr className="bg-primary text-primary-foreground">
                   <th className="px-5 py-4 text-left font-bold text-xs uppercase tracking-wider w-[30%]">
                     Fitur
                   </th>
                   <th className="px-5 py-4 text-left font-bold text-xs uppercase tracking-wider w-[35%]">
-                    <span className="text-emerald-300">★ Arofahajj Universe</span>
+                    <span className="text-gold">★ Arofahajj Universe</span>
                   </th>
                   <th className="px-5 py-4 text-left font-bold text-xs uppercase tracking-wider w-[35%]">
                     Praktik Umum Konsultan Lain
