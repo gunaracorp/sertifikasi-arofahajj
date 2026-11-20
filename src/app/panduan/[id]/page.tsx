@@ -262,7 +262,7 @@ export default async function PanduanPage({
         )}
 
         {/* CTA money page */}
-        <div className="mt-12 flex flex-col sm:flex-row items-center gap-3 rounded-2xl bg-gradient-to-r from-primary to-amber-800 p-6 text-primary-foreground">
+        <div className="mt-12 flex flex-col sm:flex-row items-center gap-3 rounded-2xl bg-gradient-to-r from-primary to-emerald-900 p-6 text-primary-foreground">
           <p className="text-sm font-semibold flex-1 text-center sm:text-left">
             Mau {guide.name} diurus sampai terbit tanpa Anda pusing? Tim kami siap bantu.
           </p>

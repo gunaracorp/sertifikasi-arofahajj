@@ -66,18 +66,18 @@ function RecoveryPanel() {
   }
 
   return (
-    <Card className="border-amber-800/40 bg-amber-950/30 shadow-none">
+    <Card className="border-emerald-900/40 bg-emerald-950/30 shadow-none">
       <CardContent className="p-4 space-y-3">
         <div className="flex flex-wrap items-center justify-between gap-2">
-          <p className="flex items-center gap-1.5 text-sm font-bold text-amber-200">
+          <p className="flex items-center gap-1.5 text-sm font-bold text-emerald-200">
             <ShoppingCart aria-hidden className="h-4 w-4" /> Pemulihan Checkout Terbengkalai
-            <Badge variant="outline" className="border-amber-500/30 bg-amber-500/10 text-[10px] text-amber-300">Langkah 12</Badge>
+            <Badge variant="outline" className="border-emerald-600/30 bg-emerald-600/10 text-[10px] text-emerald-300">Langkah 12</Badge>
           </p>
           <Button
             size="sm"
             onClick={runSweep}
             disabled={sweeping}
-            className="h-8 bg-amber-700 text-white hover:bg-amber-800"
+            className="h-8 bg-emerald-800 text-white hover:bg-emerald-900"
           >
             {sweeping ? "Menjalankan…" : "Jalankan Sweep"}
           </Button>
@@ -85,11 +85,11 @@ function RecoveryPanel() {
         <div className="grid grid-cols-2 gap-2 text-xs sm:grid-cols-4">
           <div className="rounded-lg bg-stone-900/60 p-2.5">
             <p className="text-stone-400">Jatuh tempo dikejar</p>
-            <p className="mt-0.5 text-lg font-extrabold text-amber-300">{loading ? "—" : data?.stats.due ?? 0}</p>
+            <p className="mt-0.5 text-lg font-extrabold text-emerald-300">{loading ? "—" : data?.stats.due ?? 0}</p>
           </div>
           <div className="rounded-lg bg-stone-900/60 p-2.5">
             <p className="text-stone-400">Nilai mengendap</p>
-            <p className="mt-0.5 text-lg font-extrabold text-amber-300">{loading ? "—" : formatRp(data?.stats.abandonedValue ?? 0)}</p>
+            <p className="mt-0.5 text-lg font-extrabold text-emerald-300">{loading ? "—" : formatRp(data?.stats.abandonedValue ?? 0)}</p>
           </div>
           <div className="rounded-lg bg-stone-900/60 p-2.5">
             <p className="text-stone-400">Sequence selesai</p>
@@ -129,7 +129,7 @@ function RecoveryPanel() {
                     rel="noreferrer"
                     aria-label={`Chat ${c.customerName} — step ${c.nextStep}`}
                   >
-                    <Button size="sm" variant="outline" className="h-7 border-amber-800 px-2 text-[11px] text-amber-300 hover:bg-amber-950/40">
+                    <Button size="sm" variant="outline" className="h-7 border-emerald-900 px-2 text-[11px] text-emerald-300 hover:bg-emerald-950/40">
                       💬 Chat (step {c.nextStep})
                     </Button>
                   </a>
@@ -166,9 +166,9 @@ interface OrdersData {
 }
 
 const ORDER_STATUSES = [
-  { value: "PENDING", label: "Menunggu", color: "bg-amber-500/15 text-amber-300 border-amber-500/30" },
-  { value: "PAID", label: "Lunas ✓", color: "bg-amber-500/15 text-amber-300 border-amber-500/30" },
-  { value: "CHALLENGE", label: "Diperiksa", color: "bg-orange-500/15 text-orange-300 border-orange-500/30" },
+  { value: "PENDING", label: "Menunggu", color: "bg-emerald-600/15 text-emerald-300 border-emerald-600/30" },
+  { value: "PAID", label: "Lunas ✓", color: "bg-emerald-600/15 text-emerald-300 border-emerald-600/30" },
+  { value: "CHALLENGE", label: "Diperiksa", color: "bg-emerald-600/15 text-emerald-300 border-emerald-600/30" },
   { value: "FAILED", label: "Gagal", color: "bg-rose-500/15 text-rose-300 border-rose-500/30" },
   { value: "EXPIRED", label: "Kedaluwarsa", color: "bg-stone-500/15 text-stone-300 border-stone-500/30" },
   { value: "CANCELLED", label: "Dibatalkan", color: "bg-stone-500/15 text-stone-400 border-stone-500/30" },
@@ -228,12 +228,12 @@ export function OrdersTab() {
 
       {/* Metrik pendapatan */}
       <div className="grid grid-cols-2 gap-3 lg:grid-cols-4">
-        <Card className="border-amber-800/40 bg-amber-950/40 shadow-none">
+        <Card className="border-emerald-900/40 bg-emerald-950/40 shadow-none">
           <CardContent className="p-4">
-            <p className="flex items-center gap-1.5 text-xs font-semibold text-amber-300/80">
+            <p className="flex items-center gap-1.5 text-xs font-semibold text-emerald-300/80">
               <Wallet aria-hidden className="h-3.5 w-3.5" /> Total Pendapatan (Lunas)
             </p>
-            <p className="mt-1.5 text-2xl font-extrabold text-amber-300">{formatRp(data?.paidTotal ?? 0)}</p>
+            <p className="mt-1.5 text-2xl font-extrabold text-emerald-300">{formatRp(data?.paidTotal ?? 0)}</p>
           </CardContent>
         </Card>
         {(["PAID", "PENDING", "FAILED"] as const).map((s) => (
@@ -310,7 +310,7 @@ export function OrdersTab() {
                           <p className="mt-0.5 font-sans text-[10px] text-stone-500">{relativeTime(o.createdAt)}</p>
                         </TableCell>
                         <TableCell className="max-w-[180px] truncate text-sm text-stone-200">{o.serviceName}</TableCell>
-                        <TableCell className="text-sm font-bold text-amber-300">{formatRp(o.amount)}</TableCell>
+                        <TableCell className="text-sm font-bold text-emerald-300">{formatRp(o.amount)}</TableCell>
                         <TableCell className="text-sm text-stone-200">
                           {o.customerName}
                           <p className="text-[10px] text-stone-500">{o.customerPhone}</p>

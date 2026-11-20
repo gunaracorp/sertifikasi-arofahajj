@@ -90,29 +90,29 @@ export default function PaketPage() {
 
       <nav aria-label="Breadcrumb" className="border-b border-stone-100 bg-stone-50/60">
         <div className="mx-auto max-w-6xl px-4 py-3 text-sm text-stone-500">
-          <Link href="/" className="hover:text-amber-800">Beranda</Link>
+          <Link href="/" className="hover:text-emerald-900">Beranda</Link>
           <span className="mx-2">/</span>
           <span className="font-medium text-stone-700" aria-current="page">Paket Bundel</span>
         </div>
       </nav>
 
       {/* HERO */}
-      <section className="bg-gradient-to-b from-amber-950 via-amber-950 to-amber-900 text-white">
+      <section className="bg-gradient-to-b from-emerald-950 via-emerald-950 to-emerald-950 text-white">
         <div className="mx-auto max-w-6xl px-4 py-14 md:py-20">
-          <p className="mb-3 inline-block rounded-full bg-amber-400/20 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-amber-300">
+          <p className="mb-3 inline-block rounded-full bg-amber-400/20 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-emerald-300">
             Bundel Terlaris
           </p>
           <h1 className="max-w-3xl text-3xl font-bold leading-tight md:text-5xl">
             {BUNDLES.length} Paket Bundel — Semua Izin Sekali Jalan
           </h1>
-          <p className="mt-4 max-w-2xl text-amber-100/90 md:text-lg">
+          <p className="mt-4 max-w-2xl text-emerald-100/90 md:text-lg">
             Kombinasi layanan paling sering dipesan klien kami: pendirian badan usaha + izin
             inti + pendampingan, dengan harga lebih hemat daripada beli satuan.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
             <a
               href={waLink("Halo Arofahajj Universe, saya ingin konsultasi paket bundel yang cocok untuk usaha saya.")}
-              className="rounded-xl bg-amber-400 px-5 py-3 text-sm font-bold text-amber-950 transition hover:bg-amber-300"
+              className="rounded-xl bg-amber-400 px-5 py-3 text-sm font-bold text-emerald-950 transition hover:bg-emerald-300"
             >
               Pilih Paket Bersama Konsultan
             </a>
@@ -120,7 +120,7 @@ export default function PaketPage() {
               Atau lihat katalog per layanan →
             </Link>
           </div>
-          <p className="mt-6 text-xs text-amber-200/70">
+          <p className="mt-6 text-xs text-emerald-200/70">
             Total potensi hemat seluruh paket: {fmtRange(totalHemat, null)} · Harga adalah jasa
             konsultan; biaya resmi pemerintah dihitung terpisah.
           </p>
@@ -129,8 +129,8 @@ export default function PaketPage() {
 
       {/* CHECKOUT INSTAN — paket harga tetap, bayar langsung */}
       <section className="mx-auto max-w-6xl px-4 pt-14" aria-labelledby="checkout-instan">
-        <div className="rounded-2xl border-2 border-amber-700/20 bg-amber-50/60 p-7 md:p-9">
-          <p className="inline-block rounded-full bg-amber-800 px-3 py-1 text-[11px] font-bold uppercase tracking-wider text-white">
+        <div className="rounded-2xl border-2 border-emerald-800/20 bg-emerald-50/60 p-7 md:p-9">
+          <p className="inline-block rounded-full bg-emerald-900 px-3 py-1 text-[11px] font-bold uppercase tracking-wider text-white">
             Bayar Langsung — Tanpa Nunggu
           </p>
           <h2 id="checkout-instan" className="mt-3 text-2xl font-bold text-stone-900 md:text-3xl">
@@ -142,15 +142,18 @@ export default function PaketPage() {
             terkonfirmasi otomatis. Tanpa admin, tanpa antre WhatsApp.
           </p>
           <div className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
-            {PACKAGES.filter((p) => p.popular || p.price <= 650_000).slice(0, 8).map((p) => (
+            {/* Redesign 2026: kapasitas 8→10 agar PRODUK ANDALAN (BPW,
+                GO UMRAH/PPIU, GO HAJI PLUS/PIHK) selalu tampil di hub paket
+                — permintaan owner ketiga produk ini harus live di mana-mana. */}
+            {PACKAGES.filter((p) => p.popular || p.price <= 650_000).slice(0, 10).map((p) => (
               <Link
                 key={p.id}
                 href={`/checkout?paket=${p.id}`}
-                className="group rounded-xl border border-amber-200 bg-white p-4 transition hover:border-amber-500 hover:shadow-md"
+                className="group rounded-xl border border-emerald-200 bg-white p-4 transition hover:border-emerald-600 hover:shadow-md"
               >
                 <p className="text-sm font-bold text-stone-900 leading-snug">{p.name}</p>
-                <p className="mt-1.5 text-lg font-extrabold text-amber-800">{fmtRupiah(p.price)}</p>
-                <p className="mt-1 text-[11px] font-semibold text-amber-700 group-hover:underline">
+                <p className="mt-1.5 text-lg font-extrabold text-emerald-900">{fmtRupiah(p.price)}</p>
+                <p className="mt-1 text-[11px] font-semibold text-emerald-800 group-hover:underline">
                   Pesan & bayar sekarang →
                 </p>
               </Link>
@@ -166,13 +169,13 @@ export default function PaketPage() {
             <article
               key={b.name}
               className={`flex flex-col rounded-2xl border bg-white p-7 shadow-sm transition hover:shadow-lg ${
-                b.badge === "FLAGSHIP" ? "border-amber-300 ring-1 ring-amber-200" : "border-stone-200"
+                b.badge === "FLAGSHIP" ? "border-emerald-300 ring-1 ring-emerald-200" : "border-stone-200"
               }`}
             >
               <div className="flex flex-wrap items-center gap-2">
                 {b.badge && (
                   <span className={`rounded-full px-3 py-1 text-[11px] font-bold uppercase tracking-wide ${
-                    b.badge === "FLAGSHIP" ? "bg-amber-400 text-amber-950" : "bg-amber-100 text-amber-900"
+                    b.badge === "FLAGSHIP" ? "bg-amber-400 text-emerald-950" : "bg-emerald-100 text-emerald-950"
                   }`}>
                     {b.badge}
                   </span>
@@ -183,8 +186,8 @@ export default function PaketPage() {
               </h2>
               <p className="mt-1 text-sm text-stone-600">{b.audience}</p>
               <div className="mt-4 flex flex-wrap items-baseline gap-3">
-                <p className="text-3xl font-extrabold text-amber-900">{fmtRange(b.price, null)}</p>
-                <p className="rounded-full bg-amber-50 px-2.5 py-1 text-xs font-bold text-amber-700">
+                <p className="text-3xl font-extrabold text-emerald-950">{fmtRange(b.price, null)}</p>
+                <p className="rounded-full bg-emerald-50 px-2.5 py-1 text-xs font-bold text-emerald-800">
                   Hemat {fmtIdr(b.save)} dibanding satuan
                 </p>
               </div>
@@ -193,7 +196,7 @@ export default function PaketPage() {
                 <ul className="mt-2 space-y-1.5">
                   {b.includes.map((i) => (
                     <li key={i} className="flex items-start gap-2 text-sm text-stone-700">
-                      <span className="mt-0.5 text-amber-700" aria-hidden>✓</span>
+                      <span className="mt-0.5 text-emerald-800" aria-hidden>✓</span>
                       {i}
                     </li>
                   ))}
@@ -201,7 +204,7 @@ export default function PaketPage() {
               </div>
               <a
                 href={waLink(`Halo Arofahajj Universe, saya tertarik dengan Paket "${b.name}". Mohon info lebih lanjut.`)}
-                className="mt-5 rounded-xl bg-amber-900 px-5 py-3 text-center text-sm font-bold text-white transition hover:bg-amber-800"
+                className="mt-5 rounded-xl bg-emerald-950 px-5 py-3 text-center text-sm font-bold text-white transition hover:bg-emerald-900"
               >
                 Ambil Paket Ini via WhatsApp
               </a>
@@ -222,8 +225,8 @@ export default function PaketPage() {
           {FAQ.map((f) => (
             <details key={f.q} className="group rounded-xl border border-stone-200 bg-white p-5 open:shadow-sm">
               <summary className="cursor-pointer list-none font-semibold text-stone-900">
-                <span className="mr-2 text-amber-800 group-open:hidden" aria-hidden>+</span>
-                <span className="mr-2 hidden text-amber-800 group-open:inline" aria-hidden>−</span>
+                <span className="mr-2 text-emerald-900 group-open:hidden" aria-hidden>+</span>
+                <span className="mr-2 hidden text-emerald-900 group-open:inline" aria-hidden>−</span>
                 {f.q}
               </summary>
               <p className="mt-3 pl-6 text-sm leading-relaxed text-stone-600">{f.a}</p>

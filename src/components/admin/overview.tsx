@@ -36,7 +36,7 @@ interface OverviewData {
   generatedAt: string;
 }
 
-const CHART_COLORS = ["#d97706", "#fbbf24", "#a16207", "#ca8a04", "#fb7185", "#a8a29e"];
+const CHART_COLORS = ["#059669", "#34d399", "#065f46", "#b98a2f", "#fb7185", "#a8a29e"];
 const STATUS_LABEL: Record<string, string> = {
   NEW: "Baru", CONTACTED: "Dihubungi", CONSULTED: "Konsultasi",
   CLOSED_WON: "Closing", CLOSED_LOST: "Hilang",
@@ -57,7 +57,7 @@ function ChartTip({ active, payload, label }: { active?: boolean; payload?: Arra
   );
 }
 
-function Spark({ data, color = "#d97706" }: { data: Series; color?: string }) {
+function Spark({ data, color = "#059669" }: { data: Series; color?: string }) {
   const tail = data.slice(-14);
   return (
     <div className="h-10 w-full" aria-hidden>
@@ -112,9 +112,9 @@ function KpiCard({
 function Funnel({ byStatus, total }: { byStatus: OverviewData["byStatus"]; total: number }) {
   const count = (arr: string[]) => byStatus.filter((s) => arr.includes(s.status)).reduce((a, b) => a + b.count, 0);
   const stages = [
-    { label: "Leads Masuk", n: total, color: "from-amber-500 to-amber-400" },
+    { label: "Leads Masuk", n: total, color: "from-emerald-600 to-amber-400" },
     { label: "Dihubungi+", n: count(["CONTACTED", "CONSULTED", "CLOSED_WON", "CLOSED_LOST"]), color: "from-teal-500 to-teal-400" },
-    { label: "Konsultasi+", n: count(["CONSULTED", "CLOSED_WON", "CLOSED_LOST"]), color: "from-amber-500 to-amber-400" },
+    { label: "Konsultasi+", n: count(["CONSULTED", "CLOSED_WON", "CLOSED_LOST"]), color: "from-emerald-600 to-amber-400" },
     { label: "Closing", n: count(["CLOSED_WON"]), color: "from-lime-500 to-lime-400" },
   ];
   const max = Math.max(total, 1);
@@ -142,11 +142,11 @@ function Funnel({ byStatus, total }: { byStatus: OverviewData["byStatus"]; total
 }
 
 const ACT_META: Record<string, { icon: React.ElementType; cls: string }> = {
-  lead: { icon: UserPlus, cls: "text-amber-400 bg-amber-500/10 border-amber-500/25" },
+  lead: { icon: UserPlus, cls: "text-amber-400 bg-emerald-600/10 border-emerald-600/25" },
   consult: { icon: CalendarClock, cls: "text-purple-400 bg-purple-500/10 border-purple-500/25" },
   chat: { icon: MessageSquare, cls: "text-teal-400 bg-teal-500/10 border-teal-500/25" },
-  check: { icon: SearchCheck, cls: "text-amber-400 bg-amber-500/10 border-amber-500/25" },
-  doc: { icon: FileSearch, cls: "text-orange-400 bg-orange-500/10 border-orange-500/25" },
+  check: { icon: SearchCheck, cls: "text-amber-400 bg-emerald-600/10 border-emerald-600/25" },
+  doc: { icon: FileSearch, cls: "text-emerald-400 bg-emerald-600/10 border-emerald-600/25" },
   sub: { icon: Mail, cls: "text-lime-400 bg-lime-500/10 border-lime-500/25" },
   road: { icon: Map, cls: "text-stone-300 bg-stone-500/10 border-stone-500/25" },
 };
@@ -175,13 +175,13 @@ export function OverviewTab() {
         <KpiCard icon={Activity} label="Leads 7 Hari" value={kpis.leads7.toLocaleString("id-ID")}
           sub={`${kpis.consultsPending} konsultasi menunggu`} />
         <KpiCard icon={MessageSquare} label="Chat 24 Jam" value={kpis.chat24h.toLocaleString("id-ID")}
-          sub={`${kpis.chatSessions} sesi percakapan total`} sparkColor="#a16207" />
+          sub={`${kpis.chatSessions} sesi percakapan total`} sparkColor="#065f46" />
         <KpiCard icon={SearchCheck} label="Cek Izin 7 Hari" value={kpis.checks7.toLocaleString("id-ID")}
-          sub="AI license checker" spark={series.checks} sparkColor="#fbbf24" />
+          sub="AI license checker" spark={series.checks} sparkColor="#34d399" />
         <KpiCard icon={FileSearch} label="Dokumen Dianalisis" value={kpis.docsTotal.toLocaleString("id-ID")}
           sub="AI document checker" spark={series.docs} sparkColor="#fb923c" />
         <KpiCard icon={Mail} label="Subscriber" value={kpis.subsTotal.toLocaleString("id-ID")}
-          sub={`+${kpis.subs30} bulan ini`} up={kpis.subs30 > 0} spark={series.subs} sparkColor="#ca8a04" />
+          sub={`+${kpis.subs30} bulan ini`} up={kpis.subs30 > 0} spark={series.subs} sparkColor="#b98a2f" />
       </section>
 
       {/* ---------- Grafik utama ---------- */}
@@ -196,15 +196,15 @@ export function OverviewTab() {
                 <AreaChart data={series.leads} margin={{ top: 6, right: 6, bottom: 0, left: -18 }}>
                   <defs>
                     <linearGradient id="gLead" x1="0" y1="0" x2="0" y2="1">
-                      <stop offset="0%" stopColor="#d97706" stopOpacity={0.45} />
-                      <stop offset="100%" stopColor="#d97706" stopOpacity={0} />
+                      <stop offset="0%" stopColor="#059669" stopOpacity={0.45} />
+                      <stop offset="100%" stopColor="#059669" stopOpacity={0} />
                     </linearGradient>
                   </defs>
                   <CartesianGrid strokeDasharray="3 3" stroke="#3f3f46" strokeOpacity={0.4} vertical={false} />
                   <XAxis dataKey="label" tick={{ fill: "#78716c", fontSize: 11 }} tickLine={false} axisLine={false} interval={5} />
                   <YAxis tick={{ fill: "#78716c", fontSize: 11 }} tickLine={false} axisLine={false} allowDecimals={false} />
                   <Tooltip content={<ChartTip />} cursor={{ stroke: "#57534e", strokeOpacity: 0.4 }} />
-                  <Area type="monotone" dataKey="c" name="Leads" stroke="#d97706" strokeWidth={2.2} fill="url(#gLead)" />
+                  <Area type="monotone" dataKey="c" name="Leads" stroke="#059669" strokeWidth={2.2} fill="url(#gLead)" />
                 </AreaChart>
               </ResponsiveContainer>
             </div>
@@ -329,14 +329,14 @@ export function OverviewTab() {
                     </div>
                     <SourceBadge source={l.source} />
                     <StatusBadge status={l.status} />
-                    <Badge variant="outline" className="border-amber-500/30 bg-amber-500/10 text-amber-300">
+                    <Badge variant="outline" className="border-emerald-600/30 bg-emerald-600/10 text-emerald-300">
                       {formatRp(l.estimatedValue)}
                     </Badge>
                     <a
                       href={waLink(l.whatsapp, `Halo ${l.name}, saya tim Arofahajj Universe. Menindaklanjuti ketertarikan Anda — ada yang bisa kami bantu?`)}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex min-h-[36px] items-center gap-1.5 rounded-lg border border-stone-700 bg-stone-900 px-3 text-xs font-semibold text-stone-200 transition hover:border-amber-500/40 hover:text-amber-300"
+                      className="inline-flex min-h-[36px] items-center gap-1.5 rounded-lg border border-stone-700 bg-stone-900 px-3 text-xs font-semibold text-stone-200 transition hover:border-emerald-600/40 hover:text-emerald-300"
                     >
                       Chat WA <ExternalLink aria-hidden className="h-3 w-3" />
                     </a>

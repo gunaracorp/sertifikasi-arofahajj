@@ -88,9 +88,9 @@ async function compressImage(file: File): Promise<{ dataUrl: string; previewUrl:
 function statusIcon(status: DocStatus) {
   switch (status) {
     case "ok":
-      return <CheckCircle2 className="h-5 w-5 text-amber-700 shrink-0" aria-hidden />;
+      return <CheckCircle2 className="h-5 w-5 text-emerald-800 shrink-0" aria-hidden />;
     case "warning":
-      return <AlertTriangle className="h-5 w-5 text-amber-500 shrink-0" aria-hidden />;
+      return <AlertTriangle className="h-5 w-5 text-emerald-600 shrink-0" aria-hidden />;
     case "error":
       return <XCircle className="h-5 w-5 text-red-600 shrink-0" aria-hidden />;
     default:
@@ -103,7 +103,7 @@ function severityStyle(sev: Severity) {
     case "high":
       return { badge: "bg-red-100 text-red-700 border-red-200", icon: <TriangleAlert className="h-4 w-4" aria-hidden /> };
     case "medium":
-      return { badge: "bg-amber-100 text-amber-700 border-amber-200", icon: <AlertTriangle className="h-4 w-4" aria-hidden /> };
+      return { badge: "bg-emerald-100 text-emerald-800 border-emerald-200", icon: <AlertTriangle className="h-4 w-4" aria-hidden /> };
     default:
       return { badge: "bg-muted text-muted-foreground border-border", icon: <Info className="h-4 w-4" aria-hidden /> };
   }
@@ -330,16 +330,16 @@ export function DocumentChecker() {
       {result && !loading && (
         <div className="space-y-5">
           {source === "fallback" && (
-            <div className="rounded-xl border border-amber-200 bg-amber-50 p-3.5 text-sm text-amber-800 flex items-start gap-2">
+            <div className="rounded-xl border border-emerald-200 bg-emerald-50 p-3.5 text-sm text-emerald-900 flex items-start gap-2">
               <Info className="h-4 w-4 mt-0.5 shrink-0" aria-hidden />
               Analisis AI sedang sibuk — berikut checklist manual dari tim kami. Coba unggah ulang untuk analisis AI penuh.
             </div>
           )}
 
           {/* Ringkasan */}
-          <div className={`rounded-2xl border p-5 ${result.relevant ? "bg-card" : "bg-amber-50 border-amber-200"}`}>
+          <div className={`rounded-2xl border p-5 ${result.relevant ? "bg-card" : "bg-emerald-50 border-emerald-200"}`}>
             {!result.relevant && (
-              <p className="text-sm text-amber-800 mb-2 font-medium">
+              <p className="text-sm text-emerald-900 mb-2 font-medium">
                 Foto yang terdeteksi tampaknya bukan dokumen legalitas — berikut apa yang AI lihat:
               </p>
             )}
@@ -359,7 +359,7 @@ export function DocumentChecker() {
               </div>
               <Progress value={result.legibilityScore} aria-label={`Keterbacaan foto ${result.legibilityScore} dari 100`} />
               {result.legibilityScore < 55 && (
-                <p className="text-xs text-amber-700 mt-1.5 flex items-center gap-1">
+                <p className="text-xs text-emerald-800 mt-1.5 flex items-center gap-1">
                   <HelpCircle className="h-3.5 w-3.5" aria-hidden /> Foto kurang jelas — hasil pemeriksaan bisa melewatkan detail. Disarankan foto ulang dengan cahaya lebih baik.
                 </p>
               )}

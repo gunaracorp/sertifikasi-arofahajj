@@ -45,7 +45,7 @@ export function ChatsTab() {
                     className={cn(
                       "w-full rounded-xl border p-3 text-left transition",
                       active === s.sessionId
-                        ? "border-amber-500/40 bg-amber-500/10"
+                        ? "border-emerald-600/40 bg-emerald-600/10"
                         : "border-stone-800 bg-stone-950/60 hover:border-stone-700"
                     )}
                   >
@@ -55,7 +55,7 @@ export function ChatsTab() {
                     <div className="mt-1.5 flex items-center gap-2">
                       <span className="text-[11px] text-stone-500">{s.count} pesan · {relativeTime(s.lastAt)}</span>
                       {s.leadCaptured && (
-                        <Badge className="border-amber-500/30 bg-amber-500/15 text-[10px] text-amber-300" variant="outline">
+                        <Badge className="border-emerald-600/30 bg-emerald-600/15 text-[10px] text-emerald-300" variant="outline">
                           <Sparkles aria-hidden className="mr-1 h-3 w-3" /> Lead!
                         </Badge>
                       )}
@@ -85,7 +85,7 @@ export function ChatsTab() {
                       className={cn(
                         "max-w-[80%] rounded-2xl px-4 py-2.5 text-sm leading-relaxed",
                         isUser
-                          ? "rounded-br-sm bg-amber-500/15 text-amber-50"
+                          ? "rounded-br-sm bg-emerald-600/15 text-emerald-50"
                           : "rounded-bl-sm border border-stone-800 bg-stone-950/80 text-stone-200"
                       )}
                     >

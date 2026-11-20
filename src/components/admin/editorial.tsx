@@ -25,15 +25,15 @@ import type { EditorialBoard, EditorialSlotView, EditorialPillar } from "@/lib/e
 // ============================================================
 
 const PILLAR_STYLE: Record<EditorialPillar, string> = {
-  PANDUAN: "bg-amber-500/15 text-amber-300 border border-amber-500/30",
+  PANDUAN: "bg-emerald-600/15 text-emerald-300 border border-emerald-600/30",
   REGULASI: "bg-sky-500/15 text-sky-300 border border-sky-500/30",
-  PAJAK: "bg-amber-500/15 text-amber-300 border border-amber-500/30",
+  PAJAK: "bg-emerald-600/15 text-emerald-300 border border-emerald-600/30",
 };
 
 const STATUS_META: Record<string, { label: string; cls: string }> = {
   PLANNED: { label: "Rencana", cls: "bg-stone-700/40 text-stone-300 border border-stone-600" },
-  DRAFTED: { label: "Draft", cls: "bg-amber-500/15 text-amber-300 border border-amber-500/30" },
-  PUBLISHED: { label: "Terbit", cls: "bg-amber-500/15 text-amber-300 border border-amber-500/30" },
+  DRAFTED: { label: "Draft", cls: "bg-emerald-600/15 text-emerald-300 border border-emerald-600/30" },
+  PUBLISHED: { label: "Terbit", cls: "bg-emerald-600/15 text-emerald-300 border border-emerald-600/30" },
   SKIPPED: { label: "Dilewati", cls: "bg-rose-500/10 text-rose-300 border border-rose-500/30" },
 };
 
@@ -62,7 +62,7 @@ function TopicPicker({ pillar, onPick, onClose }: {
           <button
             key={t.title}
             onClick={() => { onPick(t); onClose(); }}
-            className="block w-full rounded-lg border border-stone-800 bg-stone-900/60 p-2.5 text-left transition-colors hover:border-amber-500/40 hover:bg-stone-900"
+            className="block w-full rounded-lg border border-stone-800 bg-stone-900/60 p-2.5 text-left transition-colors hover:border-emerald-600/40 hover:bg-stone-900"
           >
             <p className="text-xs font-semibold leading-snug text-stone-200">{t.title}</p>
             <p className="mt-1 truncate text-[11px] text-stone-500">
@@ -187,9 +187,9 @@ export function EditorialBoard({ posts, onOpenEditor }: {
 
       {/* Info cara kerja */}
       <div className="rounded-2xl border border-stone-800 bg-stone-900/40 p-4 text-xs leading-relaxed text-stone-500">
-        <strong className="text-stone-300">Ritme 3×/minggu:</strong> Senin = <span className="text-amber-300">Panduan</span> ·
+        <strong className="text-stone-300">Ritme 3×/minggu:</strong> Senin = <span className="text-emerald-300">Panduan</span> ·
         Rabu = <span className="text-sky-300">Regulasi (berita)</span> ·
-        Jumat = <span className="text-amber-300">Tips Pajak</span>. Kalender 12 minggu digulir otomatis dari bank topik kurasi —
+        Jumat = <span className="text-emerald-300">Tips Pajak</span>. Kalender 12 minggu digulir otomatis dari bank topik kurasi —
         klik <strong className="text-amber-400">Tulis draft</strong> untuk membuat artikel CMS yang sudah terisi judul, kategori,
         kata kunci, sudut pandang, dan kerangka H2. Slot yang artikelnya dihapus akan kembali menjadi rencana.
       </div>
@@ -210,13 +210,13 @@ export function EditorialBoard({ posts, onOpenEditor }: {
             <section
               key={week.weekStart}
               className={`rounded-2xl border bg-stone-900/40 p-4 ${
-                week.isCurrent ? "border-amber-500/40 shadow-[inset_0_0_0_1px_rgba(217,119,6,0.15)]" : "border-stone-800"
+                week.isCurrent ? "border-emerald-600/40 shadow-[inset_0_0_0_1px_rgba(217,119,6,0.15)]" : "border-stone-800"
               } ${week.isPast ? "opacity-60" : ""}`}
             >
               <div className="flex flex-wrap items-center gap-2">
                 <h3 className="text-sm font-bold text-stone-100">Minggu {week.label}</h3>
                 {week.isCurrent && (
-                  <Badge className="rounded-full bg-amber-500/15 text-amber-300 border border-amber-500/30 text-[10px]">
+                  <Badge className="rounded-full bg-emerald-600/15 text-emerald-300 border border-emerald-600/30 text-[10px]">
                     MINGGU INI
                   </Badge>
                 )}
@@ -291,7 +291,7 @@ export function EditorialBoard({ posts, onOpenEditor }: {
                                 <span className={st.cls + " rounded-full px-2 py-0.5 font-semibold"}>{st.label}</span>
                                 {slot.focusKeyword && <span className="font-mono">kw: {slot.focusKeyword}</span>}
                                 {slot.post && (
-                                  <span className="font-mono text-amber-500/80">/blog/{slot.post.slug}</span>
+                                  <span className="font-mono text-emerald-600/80">/blog/{slot.post.slug}</span>
                                 )}
                               </div>
                             </>
@@ -303,7 +303,7 @@ export function EditorialBoard({ posts, onOpenEditor }: {
                           {editing ? (
                             <>
                               <Button size="sm" onClick={() => void saveEdit(slot.id)} disabled={busyId === slot.id}
-                                className="bg-amber-700 font-bold hover:bg-amber-800">
+                                className="bg-emerald-800 font-bold hover:bg-emerald-900">
                                 {busyId === slot.id ? <Loader2 aria-hidden className="mr-1.5 h-3.5 w-3.5 animate-spin" /> : <Save aria-hidden className="mr-1.5 h-3.5 w-3.5" />}
                                 Simpan
                               </Button>
@@ -315,7 +315,7 @@ export function EditorialBoard({ posts, onOpenEditor }: {
                           ) : slot.status === "PLANNED" && (
                             <>
                               <Button size="sm" onClick={() => void startDraft(slot)} disabled={busyId === slot.id}
-                                className="bg-amber-700 font-bold hover:bg-amber-800">
+                                className="bg-emerald-800 font-bold hover:bg-emerald-900">
                                 {busyId === slot.id ? <Loader2 aria-hidden className="mr-1.5 h-3.5 w-3.5 animate-spin" /> : <Plus aria-hidden className="mr-1.5 h-3.5 w-3.5" />}
                                 Tulis draft
                               </Button>
@@ -338,7 +338,7 @@ export function EditorialBoard({ posts, onOpenEditor }: {
                           {slot.status === "DRAFTED" && (
                             <>
                               <Button size="sm" onClick={() => openLinkedPost(slot)}
-                                className="bg-amber-600 font-bold hover:bg-amber-800">
+                                className="bg-emerald-700 font-bold hover:bg-emerald-900">
                                 <PencilLine aria-hidden className="mr-1.5 h-3.5 w-3.5" /> Lanjutkan draft
                               </Button>
                               <Button variant="outline" size="sm" onClick={() => window.open(`/blog/${slot.post?.slug}`, "_blank")}
@@ -350,7 +350,7 @@ export function EditorialBoard({ posts, onOpenEditor }: {
                           {slot.status === "PUBLISHED" && (
                             <>
                               <Button size="sm" onClick={() => openLinkedPost(slot)}
-                                className="border-amber-500/40 bg-amber-500/10 text-amber-300 hover:bg-amber-500/20">
+                                className="border-emerald-600/40 bg-emerald-600/10 text-emerald-300 hover:bg-emerald-600/20">
                                 <PencilLine aria-hidden className="mr-1.5 h-3.5 w-3.5" /> Edit
                               </Button>
                               <Button variant="outline" size="sm" onClick={() => window.open(`/blog/${slot.post?.slug}`, "_blank")}

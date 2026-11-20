@@ -39,10 +39,10 @@ import { useLanguage } from "@/lib/i18n/language-provider";
 
 function riskBadgeClass(risk: string): string {
   const r = risk.toLowerCase();
-  if (r === "rendah") return "bg-amber-100 text-amber-900 dark:bg-amber-950/40 dark:text-amber-300";
+  if (r === "rendah") return "bg-emerald-100 text-emerald-950 dark:bg-emerald-950/40 dark:text-emerald-300";
   if (r.startsWith("menengah rendah")) return "bg-lime-100 text-lime-800 dark:bg-lime-900/40 dark:text-lime-300";
   if (r === "menengah") return "bg-yellow-100 text-yellow-800 dark:bg-yellow-900/40 dark:text-yellow-300";
-  if (r.startsWith("menengah tinggi")) return "bg-orange-100 text-orange-800 dark:bg-orange-900/40 dark:text-orange-300";
+  if (r.startsWith("menengah tinggi")) return "bg-emerald-100 text-emerald-900 dark:bg-emerald-950/40 dark:text-emerald-300";
   if (r === "tinggi") return "bg-red-100 text-red-800 dark:bg-red-900/40 dark:text-red-300";
   return "bg-stone-100 text-stone-700 dark:bg-stone-800 dark:text-stone-300";
 }

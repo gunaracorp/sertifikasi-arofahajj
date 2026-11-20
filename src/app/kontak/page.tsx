@@ -433,13 +433,13 @@ export default function KontakPage() {
             {/* TASIKMALAYA — kantor pusat */}
             <article className="animate-fade-up reveal-1 overflow-hidden rounded-2xl border border-border/70 bg-card">
               <div className="relative flex h-40 items-center justify-center overflow-hidden bg-[oklch(0.205_0.03_78)] sm:h-44">
-                <div className="absolute -right-8 -top-8 h-32 w-32 rounded-full bg-amber-500/10 blur-2xl" aria-hidden="true" />
+                <div className="absolute -right-8 -top-8 h-32 w-32 rounded-full bg-emerald-600/10 blur-2xl" aria-hidden="true" />
                 <div className="absolute -bottom-10 -left-10 h-36 w-36 rounded-full bg-amber-400/10 blur-2xl" aria-hidden="true" />
                 <div className="relative flex flex-col items-center gap-2 text-center">
-                  <span className="flex h-12 w-12 items-center justify-center rounded-full border border-amber-400/40 bg-amber-500/10">
+                  <span className="flex h-12 w-12 items-center justify-center rounded-full border border-amber-400/40 bg-emerald-600/10">
                     <MapPin className="h-5 w-5 text-amber-400" aria-hidden="true" />
                   </span>
-                  <span className="text-xs font-semibold uppercase tracking-[0.18em] text-amber-200">
+                  <span className="text-xs font-semibold uppercase tracking-[0.18em] text-emerald-200">
                     Kantor Pusat — Tasikmalaya
                   </span>
                 </div>
@@ -464,13 +464,13 @@ export default function KontakPage() {
             {/* BANDUNG — jangkauan area */}
             <article className="animate-fade-up reveal-2 overflow-hidden rounded-2xl border border-border/70 bg-card">
               <div className="relative flex h-40 items-center justify-center overflow-hidden bg-[oklch(0.205_0.03_78)] sm:h-44">
-                <div className="absolute -left-8 -top-8 h-32 w-32 rounded-full bg-amber-500/10 blur-2xl" aria-hidden="true" />
+                <div className="absolute -left-8 -top-8 h-32 w-32 rounded-full bg-emerald-600/10 blur-2xl" aria-hidden="true" />
                 <div className="absolute -bottom-10 -right-10 h-36 w-36 rounded-full bg-amber-400/10 blur-2xl" aria-hidden="true" />
                 <div className="relative flex flex-col items-center gap-2 text-center">
-                  <span className="flex h-12 w-12 items-center justify-center rounded-full border border-amber-400/40 bg-amber-500/10">
+                  <span className="flex h-12 w-12 items-center justify-center rounded-full border border-amber-400/40 bg-emerald-600/10">
                     <Building2 className="h-5 w-5 text-amber-400" aria-hidden="true" />
                   </span>
-                  <span className="text-xs font-semibold uppercase tracking-[0.18em] text-amber-200">
+                  <span className="text-xs font-semibold uppercase tracking-[0.18em] text-emerald-200">
                     Kantor Cabang — Bandung
                   </span>
                 </div>

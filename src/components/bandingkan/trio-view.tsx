@@ -12,11 +12,11 @@ import { WHATSAPP_NUMBER } from "@/lib/landing-data";
 const BEST_STYLES = [
   "bg-primary/[0.06] border border-primary/20",
   "bg-gold/[0.06] border border-gold/20",
-  "bg-amber-500/[0.06] border border-amber-500/20",
+  "bg-emerald-600/[0.06] border border-emerald-600/20",
 ];
 
 function PartyBadge({ short, variant }: { short: string; variant: number }) {
-  const styles = ["bg-primary/10 text-primary", "bg-gold/10 text-gold", "bg-amber-500/10 text-amber-700"];
+  const styles = ["bg-primary/10 text-primary", "bg-gold/10 text-gold", "bg-emerald-600/10 text-emerald-800"];
   return <span className={`rounded-full px-2.5 py-1 text-xs font-bold ${styles[variant]}`}>{short}</span>;
 }
 

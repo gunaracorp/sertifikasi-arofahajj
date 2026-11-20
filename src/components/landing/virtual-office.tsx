@@ -29,7 +29,7 @@ export function VirtualOfficeSection() {
   return (
     <section
       id="virtual-office"
-      className="relative overflow-hidden bg-gradient-to-b from-amber-950 via-[oklch(0.23_0.03_78)] to-amber-950 text-amber-50"
+      className="relative overflow-hidden bg-gradient-to-b from-emerald-950 via-[oklch(0.23_0.03_78)] to-emerald-950 text-emerald-50"
       aria-labelledby="vo-heading"
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-14 md:py-20">
@@ -42,7 +42,7 @@ export function VirtualOfficeSection() {
             Virtual Office — Alamat Bisnis di{" "}
             <span className="text-gold">SCBD, Sudirman & 30 Kota</span>
           </h2>
-          <p className="mt-4 text-amber-100/85 leading-relaxed">
+          <p className="mt-4 text-emerald-100/85 leading-relaxed">
             Gedung korporat nyata + resepsionis + penerimaan surat. Dokumen resmi untuk NIB, PKP,
             rekening bank & marketplace. Mulai <strong className="text-gold">Rp 650rb/bulan</strong> —
             aktif 1-2 hari kerja, tanpa datang ke kantor.
@@ -56,8 +56,8 @@ export function VirtualOfficeSection() {
               key={p.id}
               className={`relative rounded-2xl border p-6 transition-all hover:shadow-xl ${
                 p.popular
-                  ? "border-gold/50 bg-amber-50/10"
-                  : "border-amber-100/20 bg-amber-50/5"
+                  ? "border-gold/50 bg-emerald-50/10"
+                  : "border-emerald-100/20 bg-emerald-50/5"
               }`}
             >
               {p.popular && (
@@ -68,14 +68,14 @@ export function VirtualOfficeSection() {
               <h3 className="font-bold text-lg">{p.name}</h3>
               <p className="mt-1.5 flex items-baseline gap-1.5">
                 <span className="text-2xl font-extrabold text-gold">{p.priceMonthly}</span>
-                <span className="text-xs text-amber-100/70">· {p.priceYearly}</span>
+                <span className="text-xs text-emerald-100/70">· {p.priceYearly}</span>
               </p>
-              <p className="mt-2 text-sm text-amber-100/75 leading-relaxed line-clamp-2">{p.desc}</p>
+              <p className="mt-2 text-sm text-emerald-100/75 leading-relaxed line-clamp-2">{p.desc}</p>
               <ul className="mt-4 space-y-1.5 text-sm">
                 {p.features.slice(0, 3).map((f) => (
                   <li key={f} className="flex items-start gap-2">
                     <CheckCircle2 className="h-4 w-4 shrink-0 mt-0.5 text-gold" aria-hidden />
-                    <span className="leading-snug text-amber-100/90">{f}</span>
+                    <span className="leading-snug text-emerald-100/90">{f}</span>
                   </li>
                 ))}
               </ul>
@@ -101,17 +101,17 @@ export function VirtualOfficeSection() {
           ].map((f) => (
             <div
               key={f.t}
-              className="flex items-center gap-2.5 rounded-xl border border-amber-100/15 bg-amber-50/5 px-4 py-3 text-sm"
+              className="flex items-center gap-2.5 rounded-xl border border-emerald-100/15 bg-emerald-50/5 px-4 py-3 text-sm"
             >
               <f.icon className="h-4.5 w-4.5 shrink-0 text-gold" aria-hidden />
-              <span className="text-amber-100/90">{f.t}</span>
+              <span className="text-emerald-100/90">{f.t}</span>
             </div>
           ))}
         </div>
 
         {/* Lokasi premium */}
         <div className="mt-8 flex flex-wrap items-center justify-center gap-2">
-          <span className="flex items-center gap-1.5 text-sm font-semibold text-amber-100/70">
+          <span className="flex items-center gap-1.5 text-sm font-semibold text-emerald-100/70">
             <MapPin className="h-4 w-4 text-gold" aria-hidden />
             Lokasi premium:
           </span>
@@ -119,7 +119,7 @@ export function VirtualOfficeSection() {
             <Link
               key={l.slug}
               href={`/layanan/virtual-office-address-${l.slug}`}
-              className="rounded-full border border-amber-100/25 bg-amber-50/5 px-3.5 py-1.5 text-sm font-medium transition-all hover:border-gold hover:text-gold"
+              className="rounded-full border border-emerald-100/25 bg-emerald-50/5 px-3.5 py-1.5 text-sm font-medium transition-all hover:border-gold hover:text-gold"
             >
               {l.area}
             </Link>
@@ -136,12 +136,12 @@ export function VirtualOfficeSection() {
         <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-3">
           <Link
             href="/virtual-office"
-            className="inline-flex items-center gap-2 rounded-xl bg-gold px-7 py-3.5 font-bold text-amber-950 shadow-lg transition-all hover:brightness-105 min-h-[44px]"
+            className="inline-flex items-center gap-2 rounded-xl bg-gold px-7 py-3.5 font-bold text-emerald-950 shadow-lg transition-all hover:brightness-105 min-h-[44px]"
           >
             Lihat Semua Paket & 48 Lokasi
             <ArrowRight className="h-5 w-5" aria-hidden />
           </Link>
-          <span className="text-sm text-amber-100/70">
+          <span className="text-sm text-emerald-100/70">
             {cities.length} kota · 6 paket · garansi uang kembali 100%
           </span>
         </div>

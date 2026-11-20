@@ -102,14 +102,14 @@ function FreshnessBadge({ iso }: { iso?: string }) {
   if (!Number.isFinite(h)) return null;
   if (h < 24) {
     return (
-      <span className="inline-flex items-center gap-1 rounded-full bg-amber-500/10 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide text-amber-700 dark:text-amber-400">
+      <span className="inline-flex items-center gap-1 rounded-full bg-emerald-600/10 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide text-emerald-800 dark:text-amber-400">
         <Sparkles className="h-3 w-3" aria-hidden="true" /> Terbaru
       </span>
     );
   }
   if (h > 24 * 30) {
     return (
-      <span className="inline-flex items-center gap-1 rounded-full bg-amber-500/10 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide text-amber-600 dark:text-amber-500">
+      <span className="inline-flex items-center gap-1 rounded-full bg-emerald-600/10 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide text-emerald-700 dark:text-emerald-600">
         <AlertTriangle className="h-3 w-3" aria-hidden="true" /> &gt; 30 hari — pertimbangkan rebuild
       </span>
     );
@@ -186,7 +186,7 @@ export function AdminDeploy() {
   return (
     <aside
       aria-label="Admin Deploy Console (privat)"
-      className="fixed bottom-4 left-4 z-[60] w-[360px] max-w-[calc(100vw-2rem)] overflow-hidden rounded-2xl border border-amber-950/20 bg-card text-card-foreground shadow-2xl"
+      className="fixed bottom-4 left-4 z-[60] w-[360px] max-w-[calc(100vw-2rem)] overflow-hidden rounded-2xl border border-emerald-950/20 bg-card text-card-foreground shadow-2xl"
     >
       {/* Header */}
       <div className="flex items-center justify-between gap-2 bg-[oklch(0.23_0.03_78)] px-4 py-2.5 text-white">
@@ -223,7 +223,7 @@ export function AdminDeploy() {
                 Panel ini hanya untuk pemilik situs. Masukkan password admin:
               </label>
               <div className="flex items-center gap-2">
-                <KeyRound className="h-4 w-4 shrink-0 text-amber-700" aria-hidden="true" />
+                <KeyRound className="h-4 w-4 shrink-0 text-emerald-800" aria-hidden="true" />
                 <Input
                   id="admin-pass"
                   type="password"
@@ -279,8 +279,8 @@ export function AdminDeploy() {
                           <span
                             className={`rounded-full px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide ${
                               info.mode === "light"
-                                ? "bg-amber-500/10 text-amber-700 dark:text-amber-400"
-                                : "bg-amber-500/10 text-amber-600 dark:text-amber-500"
+                                ? "bg-emerald-600/10 text-emerald-800 dark:text-amber-400"
+                                : "bg-emerald-600/10 text-emerald-700 dark:text-emerald-600"
                             }`}
                             title={info.modeLabel}
                           >
@@ -362,7 +362,7 @@ export function AdminDeploy() {
                             </span>
                             {fresh && (
                               <span
-                                className="h-1.5 w-1.5 shrink-0 rounded-full bg-amber-500"
+                                className="h-1.5 w-1.5 shrink-0 rounded-full bg-emerald-600"
                                 title="Diperbarui dalam 24 jam terakhir"
                               />
                             )}
@@ -386,7 +386,7 @@ export function AdminDeploy() {
                   })}
                 </ul>
                 <p className="mt-2 flex items-start gap-1.5 text-[10.5px] leading-relaxed text-muted-foreground">
-                  <Sparkles className="mt-0.5 h-3 w-3 shrink-0 text-amber-500" aria-hidden="true" />
+                  <Sparkles className="mt-0.5 h-3 w-3 shrink-0 text-emerald-600" aria-hidden="true" />
                   Titik hijau = diperbarui dalam 24 jam terakhir. Daftar &amp; tanggal mengikuti
                   rebuild terakhir (pack-info.json schema v2).
                 </p>

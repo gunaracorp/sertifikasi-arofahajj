@@ -59,9 +59,9 @@ const SCALES = [
 
 function riskColor(level: string): string {
   const l = level.toLowerCase();
-  if (l.includes("rendah") && !l.includes("menengah")) return "bg-amber-100 text-amber-900 dark:bg-amber-950/40 dark:text-amber-300";
+  if (l.includes("rendah") && !l.includes("menengah")) return "bg-emerald-100 text-emerald-950 dark:bg-emerald-950/40 dark:text-emerald-300";
   if (l.includes("menengah rendah")) return "bg-lime-100 text-lime-800 dark:bg-lime-900/40 dark:text-lime-300";
-  if (l.includes("menengah tinggi")) return "bg-amber-100 text-amber-800 dark:bg-amber-900/40 dark:text-amber-300";
+  if (l.includes("menengah tinggi")) return "bg-emerald-100 text-emerald-900 dark:bg-emerald-950/40 dark:text-emerald-300";
   if (l.includes("tinggi")) return "bg-red-100 text-red-800 dark:bg-red-900/40 dark:text-red-300";
   return "bg-stone-100 text-stone-700 dark:bg-stone-800 dark:text-stone-300";
 }
@@ -378,15 +378,15 @@ export function LicenseChecker() {
 
                   {/* Warnings */}
                   {result.warnings?.length > 0 && (
-                    <Card className="border-amber-300/50 bg-amber-50/60 dark:bg-amber-950/20 dark:border-amber-900/40">
+                    <Card className="border-emerald-300/50 bg-emerald-50/60 dark:bg-emerald-950/20 dark:border-emerald-950/40">
                       <CardContent className="p-4 md:p-5">
-                        <h4 className="flex items-center gap-2 font-bold text-sm text-amber-700 dark:text-amber-400">
+                        <h4 className="flex items-center gap-2 font-bold text-sm text-emerald-800 dark:text-amber-400">
                           <AlertTriangle className="h-4 w-4" />
                           Perhatian Penting
                         </h4>
                         <ul className="mt-2.5 space-y-1.5">
                           {result.warnings.map((w, i) => (
-                            <li key={i} className="text-[13px] text-amber-800 dark:text-amber-300/90 flex items-start gap-2">
+                            <li key={i} className="text-[13px] text-emerald-900 dark:text-emerald-300/90 flex items-start gap-2">
                               <ShieldAlert className="h-3.5 w-3.5 mt-0.5 shrink-0" />
                               {w}
                             </li>

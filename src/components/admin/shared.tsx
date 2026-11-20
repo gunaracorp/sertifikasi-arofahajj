@@ -45,10 +45,10 @@ export function waLink(wa: string, text?: string): string {
 // ---------- Status visual ----------
 
 export const LEAD_STATUSES = [
-  { value: "NEW", label: "Baru", color: "bg-amber-500/15 text-amber-300 border-amber-500/30" },
+  { value: "NEW", label: "Baru", color: "bg-emerald-600/15 text-emerald-300 border-emerald-600/30" },
   { value: "CONTACTED", label: "Dihubungi", color: "bg-teal-500/15 text-teal-300 border-teal-500/30" },
   { value: "CONSULTED", label: "Konsultasi", color: "bg-purple-500/15 text-purple-300 border-purple-500/30" },
-  { value: "CLOSED_WON", label: "Closing ✓", color: "bg-amber-500/15 text-amber-300 border-amber-500/30" },
+  { value: "CLOSED_WON", label: "Closing ✓", color: "bg-emerald-600/15 text-emerald-300 border-emerald-600/30" },
   { value: "CLOSED_LOST", label: "Hilang", color: "bg-rose-500/15 text-rose-300 border-rose-500/30" },
 ] as const;
 
@@ -63,10 +63,10 @@ export function StatusBadge({ status }: { status: string }) {
 
 export function SourceBadge({ source }: { source: string }) {
   const map: Record<string, string> = {
-    landing: "bg-amber-500/10 text-amber-300 border-amber-500/25",
+    landing: "bg-emerald-600/10 text-emerald-300 border-emerald-600/25",
     chat: "bg-teal-500/10 text-teal-300 border-teal-500/25",
-    checker: "bg-amber-500/10 text-amber-300 border-amber-500/25",
-    popup: "bg-orange-500/10 text-orange-300 border-orange-500/25",
+    checker: "bg-emerald-600/10 text-emerald-300 border-emerald-600/25",
+    popup: "bg-emerald-600/10 text-emerald-300 border-emerald-600/25",
     konsultasi: "bg-purple-500/10 text-purple-300 border-purple-500/25",
   };
   return (

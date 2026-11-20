@@ -208,9 +208,9 @@ export default async function LayananDetailPage({
       {/* Breadcrumb */}
       <nav aria-label="Breadcrumb" className="border-b border-stone-100 bg-stone-50/60">
         <div className="mx-auto max-w-6xl px-4 py-3 text-sm text-stone-500">
-          <Link href="/" className="hover:text-amber-800">Beranda</Link>
+          <Link href="/" className="hover:text-emerald-900">Beranda</Link>
           <span className="mx-2">/</span>
-          <Link href="/katalog" className="hover:text-amber-800">Katalog 500 Layanan</Link>
+          <Link href="/katalog" className="hover:text-emerald-900">Katalog 500 Layanan</Link>
           <span className="mx-2">/</span>
           <span className="hidden sm:inline">{s.kategori}</span>
           <span className="mx-2 hidden sm:inline">/</span>
@@ -219,31 +219,31 @@ export default async function LayananDetailPage({
       </nav>
 
       {/* HERO + HARGA */}
-      <section className="bg-gradient-to-b from-amber-950 via-amber-950 to-amber-900 text-white">
+      <section className="bg-gradient-to-b from-emerald-950 via-emerald-950 to-emerald-950 text-white">
         <div className="mx-auto grid max-w-6xl gap-8 px-4 py-12 md:grid-cols-[1.5fr_1fr] md:py-16">
           <div>
             <div className="flex flex-wrap items-center gap-2">
-              <span className="rounded-lg bg-amber-400/15 px-3 py-1 font-mono text-xs font-bold tracking-wider text-amber-300">
+              <span className="rounded-lg bg-amber-400/15 px-3 py-1 font-mono text-xs font-bold tracking-wider text-emerald-300">
                 {s.kode}
               </span>
-              <span className="rounded-full bg-white/10 px-3 py-1 text-xs font-semibold text-amber-100">
+              <span className="rounded-full bg-white/10 px-3 py-1 text-xs font-semibold text-emerald-100">
                 {s.kategori}
               </span>
-              <span className="rounded-full bg-white/10 px-3 py-1 text-xs font-semibold text-amber-100">
+              <span className="rounded-full bg-white/10 px-3 py-1 text-xs font-semibold text-emerald-100">
                 {s.sub}
               </span>
               {badge && (
-                <span className="rounded-full bg-amber-400 px-3 py-1 text-xs font-bold text-amber-950">
+                <span className="rounded-full bg-amber-400 px-3 py-1 text-xs font-bold text-emerald-950">
                   {badge}
                 </span>
               )}
             </div>
             <h1 className="mt-4 text-3xl font-bold leading-tight md:text-4xl">{s.nama}</h1>
-            <p className="mt-2 text-xs font-medium text-amber-200/70" aria-label="Tanggal pembaruan halaman">
+            <p className="mt-2 text-xs font-medium text-emerald-200/70" aria-label="Tanggal pembaruan halaman">
               Diperbarui {updatedAt}
             </p>
-            <p className="mt-4 max-w-2xl text-amber-100/90 leading-relaxed md:text-lg">{s.deskripsi}</p>
-            <ul className="mt-6 grid gap-2 text-sm text-amber-100/85 sm:grid-cols-2">
+            <p className="mt-4 max-w-2xl text-emerald-100/90 leading-relaxed md:text-lg">{s.deskripsi}</p>
+            <ul className="mt-6 grid gap-2 text-sm text-emerald-100/85 sm:grid-cols-2">
               {cakupanOf(s).map((c) => (
                 <li key={c} className="flex items-start gap-2">
                   <span className="mt-0.5 text-amber-400" aria-hidden>✓</span>
@@ -255,34 +255,34 @@ export default async function LayananDetailPage({
 
           {/* KARTU HARGA */}
           <aside className="h-fit rounded-2xl border border-white/15 bg-white/5 p-6 backdrop-blur md:sticky md:top-24">
-            <p className="text-xs font-semibold uppercase tracking-wider text-amber-300">Harga jasa konsultan</p>
+            <p className="text-xs font-semibold uppercase tracking-wider text-emerald-300">Harga jasa konsultan</p>
             <p className="mt-2 text-lg text-stone-300 line-through">{fmtIdr(s.harga)}</p>
             <p className="text-3xl font-extrabold text-amber-400 md:text-4xl">{fmtIdr(s.harga_diskon)}</p>
-            <p className="mt-1 text-sm font-semibold text-amber-300">
+            <p className="mt-1 text-sm font-semibold text-emerald-300">
               {diskonLabel(s)} · kode item <span className="font-mono">{s.kode}</span>
             </p>
-            <p className="mt-3 rounded-xl bg-amber-400/10 px-3 py-2 text-xs leading-relaxed text-amber-100/90">
+            <p className="mt-3 rounded-xl bg-amber-400/10 px-3 py-2 text-xs leading-relaxed text-emerald-100/90">
               Estimasi proses: {timelineOf(s)}
             </p>
             {/* ROADMAP-99 langkah 8 — social proof per layanan */}
-            <p className="mt-2 flex items-center gap-1.5 rounded-xl bg-amber-400/10 px-3 py-2 text-xs font-semibold text-amber-100">
+            <p className="mt-2 flex items-center gap-1.5 rounded-xl bg-amber-400/10 px-3 py-2 text-xs font-semibold text-emerald-100">
               <Users className="h-3.5 w-3.5 shrink-0" aria-hidden /> ±{proof.label}
             </p>
             <a
               href={waHref}
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-4 block rounded-xl bg-amber-400 px-5 py-3 text-center text-sm font-bold text-amber-950 transition hover:bg-amber-300"
+              className="mt-4 block rounded-xl bg-amber-400 px-5 py-3 text-center text-sm font-bold text-emerald-950 transition hover:bg-emerald-300"
             >
               Pesan via WhatsApp — Kupon {Math.round(s.diskon * 100)}%
             </a>
             <Link
               href={`/checkout?paket=${encodeURIComponent(s.kode)}`}
-              className="mt-2 flex min-h-11 items-center justify-center gap-2 rounded-xl bg-white px-5 py-3 text-center text-sm font-extrabold text-amber-950 shadow-lg transition hover:bg-amber-50"
+              className="mt-2 flex min-h-11 items-center justify-center gap-2 rounded-xl bg-white px-5 py-3 text-center text-sm font-extrabold text-emerald-950 shadow-lg transition hover:bg-emerald-50"
             >
               <ShoppingCart className="h-4 w-4" aria-hidden /> Pesan Sekarang — Bayar Langsung
             </Link>
-            <p className="mt-2 flex items-center justify-center gap-1.5 text-[11px] font-medium text-amber-200/80">
+            <p className="mt-2 flex items-center justify-center gap-1.5 text-[11px] font-medium text-emerald-200/80">
               <Users className="h-3 w-3" aria-hidden /> QRIS, VA semua bank & e-wallet — diproses hari ini
             </p>
             <Link
@@ -291,7 +291,7 @@ export default async function LayananDetailPage({
             >
               Cek Roadmap Izin Usaha →
             </Link>
-            <p className="mt-3 text-[11px] leading-relaxed text-amber-200/70">
+            <p className="mt-3 text-[11px] leading-relaxed text-emerald-200/70">
               * Harga jasa pengurusan; belum termasuk PNBP, notaris, dan uji lab. Dikunci transparan di penawaran resmi.
             </p>
           </aside>
@@ -309,7 +309,7 @@ export default async function LayananDetailPage({
         <ol className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {ALUR.map((a) => (
             <li key={a.step} className="rounded-2xl border border-stone-200 bg-white p-5 shadow-sm">
-              <span className="flex h-9 w-9 items-center justify-center rounded-full bg-amber-900 font-bold text-white" aria-hidden>
+              <span className="flex h-9 w-9 items-center justify-center rounded-full bg-emerald-950 font-bold text-white" aria-hidden>
                 {a.step}
               </span>
               <h3 className="mt-3 font-bold text-stone-900">{a.title}</h3>
@@ -327,26 +327,26 @@ export default async function LayananDetailPage({
             <ul className="mt-6 space-y-3">
               {syaratOf(s).map((t) => (
                 <li key={t} className="flex items-start gap-3 rounded-xl border border-stone-200 bg-white p-4">
-                  <span className="mt-0.5 text-amber-800" aria-hidden>📋</span>
+                  <span className="mt-0.5 text-emerald-900" aria-hidden>📋</span>
                   <span className="text-sm leading-relaxed text-stone-700">{t}</span>
                 </li>
               ))}
             </ul>
             <p className="mt-4 text-sm text-stone-500">
               Belum punya dokumen tertentu? Tim kami bantu mengurusnya lebih dulu —
-              lihat <Link href="/katalog" className="font-semibold text-amber-800 hover:underline">Katalog 500 Layanan</Link>.
+              lihat <Link href="/katalog" className="font-semibold text-emerald-900 hover:underline">Katalog 500 Layanan</Link>.
             </p>
           </div>
-          <div className="rounded-2xl bg-amber-950 p-6 text-white md:p-8">
+          <div className="rounded-2xl bg-emerald-950 p-6 text-white md:p-8">
             <h3 className="text-xl font-bold md:text-2xl">Garansi Proses {SITE_NAME}</h3>
-            <ul className="mt-4 space-y-3 text-sm leading-relaxed text-amber-100/90">
+            <ul className="mt-4 space-y-3 text-sm leading-relaxed text-emerald-100/90">
               <li>✅ Check-list dokumen disepakati di awal — tidak ada biaya kejutan</li>
               <li>✅ Progress dilaporkan berkala sampai izin terbit</li>
               <li>✅ Tersendat karena faktor internal tim? Lanjut tanpa biaya tambahan</li>
               <li>✅ Data klien dilindungi perjanjian kerahasiaan</li>
               <li>✅ Arsip digital final — perpanjangan berikutnya jauh lebih cepat</li>
             </ul>
-            <p className="mt-5 text-xs text-amber-200/70">
+            <p className="mt-5 text-xs text-emerald-200/70">
               Sejak 2009 · PT AROFAH GLOBAL SISTEM · Dipercaya 1.247+ bisnis di 38 provinsi
             </p>
           </div>
@@ -375,7 +375,7 @@ export default async function LayananDetailPage({
             </div>
             <Link
               href="/katalog"
-              className="rounded-xl bg-amber-900 px-5 py-2.5 text-sm font-bold text-white transition hover:bg-amber-800"
+              className="rounded-xl bg-emerald-950 px-5 py-2.5 text-sm font-bold text-white transition hover:bg-emerald-900"
             >
               Lihat Semua {LAYANAN_STATS.total} Layanan →
             </Link>
@@ -385,15 +385,15 @@ export default async function LayananDetailPage({
               <Link
                 key={r.kode}
                 href={`/${slugOf(r)}`}
-                className="group rounded-2xl border border-stone-200 bg-white p-5 shadow-sm transition hover:-translate-y-0.5 hover:border-amber-300 hover:shadow-md"
+                className="group rounded-2xl border border-stone-200 bg-white p-5 shadow-sm transition hover:-translate-y-0.5 hover:border-emerald-300 hover:shadow-md"
               >
-                <span className="font-mono text-[11px] font-bold text-amber-800">{r.kode}</span>
-                <h3 className="mt-1.5 font-bold leading-snug text-stone-900 group-hover:text-amber-900">{r.nama}</h3>
+                <span className="font-mono text-[11px] font-bold text-emerald-900">{r.kode}</span>
+                <h3 className="mt-1.5 font-bold leading-snug text-stone-900 group-hover:text-emerald-950">{r.nama}</h3>
                 <p className="mt-2 text-sm">
                   <span className="text-stone-400 line-through">{fmtIdr(r.harga)}</span>{" "}
-                  <span className="font-extrabold text-amber-900">{fmtIdr(r.harga_diskon)}</span>
+                  <span className="font-extrabold text-emerald-950">{fmtIdr(r.harga_diskon)}</span>
                 </p>
-                <p className="mt-1 text-xs font-semibold text-amber-600">{diskonLabel(r)}</p>
+                <p className="mt-1 text-xs font-semibold text-emerald-700">{diskonLabel(r)}</p>
               </Link>
             ))}
           </div>
@@ -405,13 +405,13 @@ export default async function LayananDetailPage({
                 .slice(0, 5)
                 .map((x) => (
                   <span key={x.kode}>
-                    <Link href={`/katalog#${x.kode}`} className="font-semibold text-amber-800 hover:underline">
+                    <Link href={`/katalog#${x.kode}`} className="font-semibold text-emerald-900 hover:underline">
                       {x.nama}
                     </Link>
                     {" · "}
                   </span>
                 ))}
-              <Link href="/katalog" className="font-semibold text-amber-800 hover:underline">semua →</Link>
+              <Link href="/katalog" className="font-semibold text-emerald-900 hover:underline">semua →</Link>
             </p>
           )}
         </section>
@@ -422,7 +422,7 @@ export default async function LayananDetailPage({
           WhatsApp (invoice bundle) atau checkout tunggal layanan ini. */}
       {bundle.length === 2 && (
         <section className="mx-auto max-w-6xl px-4 pb-14" aria-labelledby="bundle">
-          <div className="rounded-3xl border border-amber-200 bg-gradient-to-br from-amber-50 to-white p-6 md:p-8">
+          <div className="rounded-3xl border border-emerald-200 bg-gradient-to-br from-emerald-50 to-white p-6 md:p-8">
             <h2 id="bundle" className="text-2xl font-bold text-stone-900 md:text-3xl">
               Sering Diambil Bersama — Paket Hemat 10%
             </h2>
@@ -439,7 +439,7 @@ export default async function LayananDetailPage({
                     className="flex items-center justify-between gap-3 rounded-xl border border-stone-200 bg-white px-4 py-3"
                   >
                     <div className="min-w-0">
-                      <p className="text-[11px] font-bold text-amber-800">
+                      <p className="text-[11px] font-bold text-emerald-900">
                         {i + 1}. {item.kode}
                         {self ? " — layanan ini" : ""}
                       </p>
@@ -448,27 +448,27 @@ export default async function LayananDetailPage({
                       ) : (
                         <Link
                           href={`/${slugOf(item)}`}
-                          className="block w-full truncate text-sm font-semibold text-stone-900 hover:text-amber-900 hover:underline"
+                          className="block w-full truncate text-sm font-semibold text-stone-900 hover:text-emerald-950 hover:underline"
                         >
                           {item.nama}
                         </Link>
                       )}
                     </div>
-                    <p className="shrink-0 text-sm font-bold text-amber-900">
+                    <p className="shrink-0 text-sm font-bold text-emerald-950">
                       {fmtIdr(item.harga_diskon)}
                     </p>
                   </li>
                 );
               })}
             </ul>
-            <div className="mt-4 flex flex-wrap items-end justify-between gap-3 rounded-xl bg-amber-700/10 px-4 py-3">
+            <div className="mt-4 flex flex-wrap items-end justify-between gap-3 rounded-xl bg-emerald-800/10 px-4 py-3">
               <div>
                 <p className="text-xs text-stone-500">
                   Total bundle <span className="line-through">{fmtIdr(bundleTotal)}</span>
                 </p>
-                <p className="text-2xl font-extrabold text-amber-900">{fmtIdr(bundlePrice)}</p>
+                <p className="text-2xl font-extrabold text-emerald-950">{fmtIdr(bundlePrice)}</p>
               </div>
-              <span className="rounded-lg bg-amber-800 px-3 py-1.5 text-sm font-bold text-white">
+              <span className="rounded-lg bg-emerald-900 px-3 py-1.5 text-sm font-bold text-white">
                 Hemat {fmtIdr(bundleHemat)}
               </span>
             </div>
@@ -477,7 +477,7 @@ export default async function LayananDetailPage({
                 href={`https://wa.me/${CONTACT.whatsapp}?text=${bundleWa}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex min-h-11 flex-1 items-center justify-center gap-2 rounded-xl bg-amber-800 px-4 py-2.5 text-sm font-bold text-white transition hover:bg-amber-700"
+                className="flex min-h-11 flex-1 items-center justify-center gap-2 rounded-xl bg-emerald-900 px-4 py-2.5 text-sm font-bold text-white transition hover:bg-emerald-800"
               >
                 <MessageCircle className="h-4 w-4" aria-hidden /> Ambil Paket Hemat 3 Layanan
               </a>
@@ -506,8 +506,8 @@ export default async function LayananDetailPage({
             {faq.map((f) => (
               <details key={f.q} className="group rounded-xl border border-stone-200 bg-white p-5 open:shadow-sm">
                 <summary className="cursor-pointer list-none font-semibold text-stone-900">
-                  <span className="mr-2 text-amber-800 group-open:hidden" aria-hidden>+</span>
-                  <span className="mr-2 hidden text-amber-800 group-open:inline" aria-hidden>−</span>
+                  <span className="mr-2 text-emerald-900 group-open:hidden" aria-hidden>+</span>
+                  <span className="mr-2 hidden text-emerald-900 group-open:inline" aria-hidden>−</span>
                   {f.q}
                 </summary>
                 <p className="mt-3 pl-6 text-sm leading-relaxed text-stone-600">{f.a}</p>
@@ -519,17 +519,17 @@ export default async function LayananDetailPage({
 
       {/* FINAL CTA */}
       <section className="mx-auto max-w-6xl px-4 py-16">
-        <div className="rounded-3xl bg-gradient-to-r from-amber-950 to-amber-800 p-8 text-white md:p-12">
+        <div className="rounded-3xl bg-gradient-to-r from-emerald-950 to-emerald-900 p-8 text-white md:p-12">
           <h2 className="text-2xl font-bold md:text-3xl">Siap urus {s.nama} hari ini?</h2>
-          <p className="mt-2 max-w-2xl text-amber-100/90">
+          <p className="mt-2 max-w-2xl text-emerald-100/90">
             Kupon {Math.round(s.diskon * 100)}% berlaku periode ini — sebut kode{" "}
-            <span className="font-mono font-bold text-amber-300">{s.kode}</span> saat chat.
+            <span className="font-mono font-bold text-emerald-300">{s.kode}</span> saat chat.
             Konsultasi awal gratis, tanpa komitmen.
           </p>
           <div className="mt-6 flex flex-wrap gap-3">
             <Link
               href={`/checkout?paket=${encodeURIComponent(s.kode)}`}
-              className="rounded-xl bg-amber-400 px-5 py-3 text-sm font-extrabold text-amber-950 transition hover:bg-amber-300"
+              className="rounded-xl bg-amber-400 px-5 py-3 text-sm font-extrabold text-emerald-950 transition hover:bg-emerald-300"
             >
               Pesan Sekarang — {fmtIdr(s.harga_diskon)}
             </Link>

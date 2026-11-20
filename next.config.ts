@@ -20,6 +20,9 @@ const buildCpus =
 const nextConfig: NextConfig = {
   serverExternalPackages: ["@prisma/orm-postgres"],
   output: "standalone",
+  // Izinkan host preview sandbox memuat aset dev Next.js (font, HMR)
+  // — tanpa ini font next/font/google diblokir cross-origin di preview.
+  allowedDevOrigins: ["*.space-z.ai", "space-z.ai"],
   experimental: {
     cpus: buildCpus,
     // Lower per-worker page-generation concurrency for process-limited builders.

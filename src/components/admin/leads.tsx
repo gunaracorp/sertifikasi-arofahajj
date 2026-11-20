@@ -188,7 +188,7 @@ export function LeadsTab() {
                           <p className="text-sm text-stone-300">{r.businessType}</p>
                           <p className="text-xs text-stone-500">{r.package ?? "—"}</p>
                         </TableCell>
-                        <TableCell className="whitespace-nowrap font-semibold text-amber-300">{formatRp(r.estimatedValue)}</TableCell>
+                        <TableCell className="whitespace-nowrap font-semibold text-emerald-300">{formatRp(r.estimatedValue)}</TableCell>
                         <TableCell><SourceBadge source={r.source} /></TableCell>
                         <TableCell>
                           <Select value={r.status} onValueChange={(v) => changeStatus(r, v)}>
@@ -218,7 +218,7 @@ export function LeadsTab() {
                             <a
                               href={waLink(r.whatsapp, `Halo ${r.name}, saya tim Arofahajj Universe. Menindaklanjuti kebutuhan ${r.businessType} Anda — kapan bisa kami bantu?`)}
                               target="_blank" rel="noopener noreferrer"
-                              className="inline-flex h-8 w-8 items-center justify-center rounded-md text-amber-400 transition hover:bg-amber-500/10"
+                              className="inline-flex h-8 w-8 items-center justify-center rounded-md text-amber-400 transition hover:bg-emerald-600/10"
                               aria-label={`Chat WhatsApp ${r.name}`}
                               title="Chat WhatsApp"
                             >
@@ -272,7 +272,7 @@ export function LeadsTab() {
           </div>
           <DialogFooter>
             <Button variant="ghost" onClick={() => setNoteLead(null)} className="text-stone-400">Batal</Button>
-            <Button onClick={saveNote} disabled={saving} className="bg-amber-500 font-semibold text-stone-950 hover:bg-amber-400">
+            <Button onClick={saveNote} disabled={saving} className="bg-emerald-600 font-semibold text-stone-950 hover:bg-amber-400">
               {saving ? "Menyimpan…" : "Simpan Catatan"}
             </Button>
           </DialogFooter>

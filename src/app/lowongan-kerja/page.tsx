@@ -50,7 +50,7 @@ function WorkTypeBadge({ workType }: { workType: "onsite" | "hybrid" | "remote" 
   const map = {
     onsite: { label: "On-site", cls: "bg-muted text-muted-foreground border-border" },
     hybrid: { label: "Hybrid", cls: "bg-gold/10 text-gold border-gold/20" },
-    remote: { label: "Remote", cls: "bg-amber-100 text-amber-800 border-amber-200" },
+    remote: { label: "Remote", cls: "bg-emerald-100 text-emerald-900 border-emerald-200" },
   } as const;
   const m = map[workType];
   return <span className={`rounded-full border px-2.5 py-0.5 text-xs font-semibold ${m.cls}`}>{m.label}</span>;
@@ -195,11 +195,11 @@ export default function LowonganPage() {
 
       {/* Perhatian anti-penipuan */}
       <section className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 pb-10">
-        <div className="rounded-2xl border border-amber-200 bg-amber-50 p-5">
-          <h2 className="font-bold text-amber-900 flex items-center gap-2 mb-2">
+        <div className="rounded-2xl border border-emerald-200 bg-emerald-50 p-5">
+          <h2 className="font-bold text-emerald-950 flex items-center gap-2 mb-2">
             <CheckCircle2 className="h-5 w-5" aria-hidden /> Perhatian: Rekrutmen Kami 100% Gratis
           </h2>
-          <p className="text-sm text-amber-800 leading-relaxed">
+          <p className="text-sm text-emerald-900 leading-relaxed">
             Arofahajj Universe dan mitranya TIDAK PERNAH memungut biaya lamaran, biaya training, atau biaya
             administrasi apa pun dari pelamar. Jika ada pihak yang mengatasnamakan kami meminta pembayaran, jangan
             transfer — lapor langsung ke WhatsApp resmi kami di bawah. Untuk posisi di LPK mitra, biaya pelatihan

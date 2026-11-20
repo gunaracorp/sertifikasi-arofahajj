@@ -135,23 +135,23 @@ export default function KatalogPage() {
       {/* Breadcrumb */}
       <nav aria-label="Breadcrumb" className="border-b border-stone-100 bg-stone-50/60">
         <div className="mx-auto max-w-6xl px-4 py-3 text-sm text-stone-500">
-          <Link href="/" className="hover:text-amber-800">Beranda</Link>
+          <Link href="/" className="hover:text-emerald-900">Beranda</Link>
           <span className="mx-2">/</span>
           <span className="font-medium text-stone-700" aria-current="page">Katalog 500 Layanan</span>
         </div>
       </nav>
 
       {/* HERO */}
-      <section className="bg-gradient-to-b from-amber-950 via-amber-950 to-amber-900 text-white">
+      <section className="bg-gradient-to-b from-emerald-950 via-emerald-950 to-emerald-950 text-white">
         <div className="mx-auto max-w-6xl px-4 py-14 md:py-20">
-          <p className="mb-3 inline-block rounded-full bg-amber-400/15 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-amber-300">
+          <p className="mb-3 inline-block rounded-full bg-amber-400/15 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-emerald-300">
             Katalog Terpadu · Edisi {new Date().getFullYear()} · Kupon {LAYANAN_STATS.diskonMin}–{LAYANAN_STATS.diskonMax}%
           </p>
           <h1 className="max-w-3xl text-3xl font-bold leading-tight md:text-5xl">
             {LAYANAN_STATS.total} Layanan Jasa Perizinan dalam{" "}
             {LAYANAN_STATS.kategori} Kategori &amp; {LAYANAN_STATS.subKategori} Sub-Kategori
           </h1>
-          <p className="mt-4 max-w-2xl text-amber-100/90 md:text-lg">
+          <p className="mt-4 max-w-2xl text-emerald-100/90 md:text-lg">
             Konsultan jasa pengurusan perizinan terlengkap se-Asia — satu pintu untuk legalitas
             badan usaha, lingkungan, kesehatan &amp; pangan, hingga perizinan sektoral.
             Harga transparan dengan kupon diskon bertingkat.
@@ -165,14 +165,14 @@ export default function KatalogPage() {
             ].map((s) => (
               <div key={s.k} className="rounded-xl bg-white/10 p-4 backdrop-blur">
                 <dd className="text-2xl font-bold md:text-3xl">{s.v}</dd>
-                <dt className="mt-1 text-xs text-amber-200/90">{s.k}</dt>
+                <dt className="mt-1 text-xs text-emerald-200/90">{s.k}</dt>
               </div>
             ))}
           </dl>
           <div className="mt-8 flex flex-wrap gap-3">
             <a
               href={waLink("Halo Arofahajj Universe, saya melihat katalog 500 layanan dan ingin konsultasi kebutuhan izin saya.")}
-              className="rounded-xl bg-amber-400 px-5 py-3 text-sm font-bold text-amber-950 transition hover:bg-amber-300"
+              className="rounded-xl bg-amber-400 px-5 py-3 text-sm font-bold text-emerald-950 transition hover:bg-emerald-300"
             >
               Konsultasi Gratis 15 Menit
             </a>
@@ -184,7 +184,7 @@ export default function KatalogPage() {
               Unduh Katalog PDF ↓
             </a>
           </div>
-          <p className="mt-6 max-w-3xl text-xs leading-relaxed text-amber-200/70">
+          <p className="mt-6 max-w-3xl text-xs leading-relaxed text-emerald-200/70">
             * Angka harga adalah kisaran <strong>jasa konsultan</strong> dan dapat berubah sesuai
             kompleksitas kasus. Biaya resmi pemerintah (PNBP, notaris, uji lab, dsb.) dihitung
             terpisah sesuai regulasi. Kode item seperti <span className="font-mono">BU-PT-001</span> memudahkan Anda mengutip layanan.
@@ -206,13 +206,13 @@ export default function KatalogPage() {
             <a
               key={k.kode}
               href={`#kat-${k.kode}`}
-              className="group rounded-2xl border border-stone-200 bg-white p-6 shadow-sm transition hover:-translate-y-0.5 hover:border-amber-300 hover:shadow-lg"
+              className="group rounded-2xl border border-stone-200 bg-white p-6 shadow-sm transition hover:-translate-y-0.5 hover:border-emerald-300 hover:shadow-lg"
             >
-              <span className="rounded-lg bg-amber-900 px-2.5 py-1 font-mono text-xs font-bold text-white">
+              <span className="rounded-lg bg-emerald-950 px-2.5 py-1 font-mono text-xs font-bold text-white">
                 {k.kode}
               </span>
-              <h3 className="mt-3 font-bold leading-snug text-stone-900 group-hover:text-amber-900">{k.nama}</h3>
-              <p className="mt-2 text-sm font-semibold text-amber-800">
+              <h3 className="mt-3 font-bold leading-snug text-stone-900 group-hover:text-emerald-950">{k.nama}</h3>
+              <p className="mt-2 text-sm font-semibold text-emerald-900">
                 {k.total} layanan · {k.sub.length} sub-kategori
               </p>
               <ul className="mt-3 space-y-1 text-xs text-stone-500">
@@ -221,7 +221,7 @@ export default function KatalogPage() {
                     <span className="font-mono text-stone-400">{sk.kode}</span> {sk.nama}
                   </li>
                 ))}
-                {k.sub.length > 4 && <li className="text-amber-800">+{k.sub.length - 4} lainnya…</li>}
+                {k.sub.length > 4 && <li className="text-emerald-900">+{k.sub.length - 4} lainnya…</li>}
               </ul>
             </a>
           ))}
@@ -259,7 +259,7 @@ export default function KatalogPage() {
               Kombinasi layanan paling sering dibeli — lebih hemat daripada beli satuan.
             </p>
           </div>
-          <Link href="/paket" className="rounded-xl bg-amber-900 px-5 py-3 text-sm font-bold text-white transition hover:bg-amber-800">
+          <Link href="/paket" className="rounded-xl bg-emerald-950 px-5 py-3 text-sm font-bold text-white transition hover:bg-emerald-900">
             Semua {BUNDLES.length} Paket →
           </Link>
         </div>
@@ -267,13 +267,13 @@ export default function KatalogPage() {
           {BUNDLES.slice(0, 3).map((b) => (
             <div key={b.name} className="rounded-2xl border border-stone-200 bg-white p-6 shadow-sm">
               {b.badge && (
-                <span className="rounded-full bg-amber-100 px-2.5 py-1 text-[11px] font-bold uppercase tracking-wide text-amber-900">
+                <span className="rounded-full bg-emerald-100 px-2.5 py-1 text-[11px] font-bold uppercase tracking-wide text-emerald-950">
                   {b.badge}
                 </span>
               )}
               <h3 className="mt-3 font-bold text-stone-900">Paket &ldquo;{b.name}&rdquo;</h3>
-              <p className="mt-1 text-2xl font-extrabold text-amber-900">{fmtRange(b.price, null)}</p>
-              <p className="mt-1 text-xs font-semibold text-amber-600">
+              <p className="mt-1 text-2xl font-extrabold text-emerald-950">{fmtRange(b.price, null)}</p>
+              <p className="mt-1 text-xs font-semibold text-emerald-700">
                 Hemat {fmtRange(b.save, null)} dibanding beli satuan
               </p>
             </div>
@@ -296,7 +296,7 @@ export default function KatalogPage() {
               <Link
                 key={c.code}
                 href={`/katalog/${c.slug}`}
-                className="rounded-full border border-stone-300 bg-white px-4 py-2 text-xs font-semibold text-stone-700 transition hover:border-amber-400 hover:text-amber-900"
+                className="rounded-full border border-stone-300 bg-white px-4 py-2 text-xs font-semibold text-stone-700 transition hover:border-amber-400 hover:text-emerald-950"
               >
                 {c.code}. {c.name}
               </Link>
@@ -309,7 +309,7 @@ export default function KatalogPage() {
       <section id="premium" className="mx-auto max-w-6xl scroll-mt-20 px-4 py-14" aria-labelledby="premium-title">
         <div className="flex flex-wrap items-end justify-between gap-4">
           <div className="max-w-3xl">
-            <p className="inline-flex items-center gap-2 rounded-full bg-amber-50 px-3 py-1 text-xs font-bold text-amber-800">
+            <p className="inline-flex items-center gap-2 rounded-full bg-emerald-50 px-3 py-1 text-xs font-bold text-emerald-900">
               EDISI PREMIUM · {KATALOG_V2_STATS.total} LAYANAN · {KATALOG_V2_STATS.categories} KATEGORI
             </p>
             <h2 id="premium-title" className="mt-3 text-2xl font-bold text-stone-900 md:text-3xl">
@@ -331,7 +331,7 @@ export default function KatalogPage() {
       <section id="pro" className="mx-auto max-w-6xl scroll-mt-20 px-4 py-14" aria-labelledby="pro-title">
         <div className="flex flex-wrap items-end justify-between gap-4">
           <div className="max-w-3xl">
-            <p className="inline-flex items-center gap-2 rounded-full bg-amber-50 px-3 py-1 text-xs font-bold text-amber-800">
+            <p className="inline-flex items-center gap-2 rounded-full bg-emerald-50 px-3 py-1 text-xs font-bold text-emerald-900">
               EDISI PRO · {KATALOG_V3_STATS.total} LAYANAN BARU · {KATALOG_V3_STATS.categories} KATEGORI
             </p>
             <h2 id="pro-title" className="mt-3 text-2xl font-bold text-stone-900 md:text-3xl">
@@ -366,8 +366,8 @@ export default function KatalogPage() {
           {FAQ.map((f) => (
             <details key={f.q} className="group rounded-xl border border-stone-200 bg-white p-5 open:shadow-sm">
               <summary className="cursor-pointer list-none font-semibold text-stone-900">
-                <span className="mr-2 text-amber-800 group-open:hidden" aria-hidden>+</span>
-                <span className="mr-2 hidden text-amber-800 group-open:inline" aria-hidden>−</span>
+                <span className="mr-2 text-emerald-900 group-open:hidden" aria-hidden>+</span>
+                <span className="mr-2 hidden text-emerald-900 group-open:inline" aria-hidden>−</span>
                 {f.q}
               </summary>
               <p className="mt-3 pl-6 text-sm leading-relaxed text-stone-600">{f.a}</p>
@@ -378,9 +378,9 @@ export default function KatalogPage() {
 
       {/* FINAL CTA */}
       <section className="mx-auto max-w-6xl px-4 pb-20">
-        <div className="rounded-3xl bg-gradient-to-r from-amber-950 to-amber-800 p-8 text-white md:p-12">
+        <div className="rounded-3xl bg-gradient-to-r from-emerald-950 to-emerald-900 p-8 text-white md:p-12">
           <h2 className="text-2xl font-bold md:text-3xl">Izin mana yang Anda butuhkan?</h2>
-          <p className="mt-2 max-w-2xl text-amber-100/90">
+          <p className="mt-2 max-w-2xl text-emerald-100/90">
             Ceritakan usaha Anda — dalam 15 menit kami petakan izin yang wajib, urutan
             pengurusan yang benar, dan estimasi biayanya. Gratis, tanpa komitmen.
             Total potensi hemat kupon seluruh katalog: Rp {totalHematJuta} miliar.
@@ -388,7 +388,7 @@ export default function KatalogPage() {
           <div className="mt-6 flex flex-wrap gap-3">
             <a
               href={waLink("Halo Arofahajj Universe, saya ingin konsultasi dari halaman katalog 500 layanan.")}
-              className="rounded-xl bg-amber-400 px-5 py-3 text-sm font-bold text-amber-950 transition hover:bg-amber-300"
+              className="rounded-xl bg-amber-400 px-5 py-3 text-sm font-bold text-emerald-950 transition hover:bg-emerald-300"
             >
               WhatsApp 0812-2234-5856
             </a>

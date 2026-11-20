@@ -77,7 +77,7 @@ export default function PmaRegistrationPage() {
         </nav>
 
         <header className="max-w-3xl">
-          <p className="inline-flex items-center gap-2 rounded-full bg-amber-50 px-3 py-1 text-xs font-bold text-amber-800">LICENSED • PT AROFAH GLOBAL SISTEM • MONEY-BACK GUARANTEE</p>
+          <p className="inline-flex items-center gap-2 rounded-full bg-emerald-50 px-3 py-1 text-xs font-bold text-emerald-900">LICENSED • PT AROFAH GLOBAL SISTEM • MONEY-BACK GUARANTEE</p>
           <h1 className="mt-4 text-3xl font-extrabold tracking-tight sm:text-4xl">
             Company Registration in Indonesia — Done Right, From Day One
           </h1>
@@ -92,11 +92,11 @@ export default function PmaRegistrationPage() {
           {PLANS.map((p) => (
             <article key={p.name} className="rounded-2xl border bg-card p-6 shadow-sm">
               <h2 className="font-bold">{p.name}</h2>
-              <p className="mt-1 text-2xl font-extrabold text-amber-800">{p.price}</p>
+              <p className="mt-1 text-2xl font-extrabold text-emerald-900">{p.price}</p>
               <p className="text-xs text-muted-foreground">Timeline: {p.time}</p>
               <ul className="mt-4 space-y-2 text-sm">
                 {p.items.map((i) => (
-                  <li key={i} className="flex gap-2"><span aria-hidden className="text-amber-700">✓</span>{i}</li>
+                  <li key={i} className="flex gap-2"><span aria-hidden className="text-emerald-800">✓</span>{i}</li>
                 ))}
               </ul>
             </article>
@@ -135,7 +135,7 @@ export default function PmaRegistrationPage() {
             />
           </div>
           <p className="mt-4 text-sm text-muted-foreground">
-            Prefer WhatsApp? <a className="font-semibold text-amber-800 underline" href={`https://wa.me/${CONTACT.whatsapp}`}>Chat {CONTACT.phoneDisplay}</a> (English & Bahasa Indonesia).
+            Prefer WhatsApp? <a className="font-semibold text-emerald-900 underline" href={`https://wa.me/${CONTACT.whatsapp}`}>Chat {CONTACT.phoneDisplay}</a> (English & Bahasa Indonesia).
           </p>
         </section>
 

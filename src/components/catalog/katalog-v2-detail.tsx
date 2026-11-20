@@ -249,7 +249,7 @@ export function KatalogV2Detail({ service: s }: { service: CatalogDetailService 
                 {isV3 ? "Katalog Pro" : "Katalog Premium"} · {s.category}
               </span>
               {s.savings > 0 && (
-                <span className="inline-flex items-center gap-1 rounded-full bg-amber-50 px-3 py-1 text-xs font-bold text-amber-800">
+                <span className="inline-flex items-center gap-1 rounded-full bg-emerald-50 px-3 py-1 text-xs font-bold text-emerald-900">
                   <Percent className="h-3.5 w-3.5" aria-hidden />
                   Diskon {s.discountPct}%
                 </span>
@@ -263,13 +263,13 @@ export function KatalogV2Detail({ service: s }: { service: CatalogDetailService 
             </p>
             <div className="mt-4 flex flex-wrap gap-x-6 gap-y-2 text-sm text-muted-foreground">
               <span className="inline-flex items-center gap-1.5">
-                <Clock className="h-4 w-4 text-amber-700" aria-hidden /> Estimasi: <strong className="text-foreground">{s.estimate}</strong>
+                <Clock className="h-4 w-4 text-emerald-800" aria-hidden /> Estimasi: <strong className="text-foreground">{s.estimate}</strong>
               </span>
               <span className="inline-flex items-center gap-1.5">
-                <CalendarClock className="h-4 w-4 text-amber-700" aria-hidden /> Masa berlaku: <strong className="text-foreground">{s.validity}</strong>
+                <CalendarClock className="h-4 w-4 text-emerald-800" aria-hidden /> Masa berlaku: <strong className="text-foreground">{s.validity}</strong>
               </span>
               <span className="inline-flex items-center gap-1.5">
-                <Building2 className="h-4 w-4 text-amber-700" aria-hidden /> Diterbitkan: <strong className="text-foreground">{s.authority}</strong>
+                <Building2 className="h-4 w-4 text-emerald-800" aria-hidden /> Diterbitkan: <strong className="text-foreground">{s.authority}</strong>
               </span>
             </div>
           </header>
@@ -279,9 +279,9 @@ export function KatalogV2Detail({ service: s }: { service: CatalogDetailService 
               "biaya/jasa pengurusan <layanan>". */}
           <section
             aria-labelledby="ringkasan-cepat"
-            className="mt-8 rounded-2xl border border-amber-200 bg-amber-50/50 p-6"
+            className="mt-8 rounded-2xl border border-emerald-200 bg-emerald-50/50 p-6"
           >
-            <h2 id="ringkasan-cepat" className="flex items-center gap-2 text-sm font-bold uppercase tracking-wide text-amber-900">
+            <h2 id="ringkasan-cepat" className="flex items-center gap-2 text-sm font-bold uppercase tracking-wide text-emerald-950">
               <Sparkles className="h-4 w-4" aria-hidden />
               Ringkasan Cepat
             </h2>
@@ -289,7 +289,7 @@ export function KatalogV2Detail({ service: s }: { service: CatalogDetailService 
             <dl className="mt-4 grid gap-3 text-sm sm:grid-cols-3">
               <div className="rounded-xl bg-card px-4 py-3">
                 <dt className="text-xs text-muted-foreground">Biaya jasa</dt>
-                <dd className="font-bold text-amber-800">mulai {fmtIdr(s.discountPrice)}</dd>
+                <dd className="font-bold text-emerald-900">mulai {fmtIdr(s.discountPrice)}</dd>
               </div>
               <div className="rounded-xl bg-card px-4 py-3">
                 <dt className="text-xs text-muted-foreground">Estimasi proses</dt>
@@ -310,13 +310,13 @@ export function KatalogV2Detail({ service: s }: { service: CatalogDetailService 
               {/* Harga */}
               <section aria-labelledby="harga" className="rounded-2xl border bg-card p-6">
                 <h2 id="harga" className="flex items-center gap-2 text-lg font-bold">
-                  <Banknote className="h-5 w-5 text-amber-700" aria-hidden />
+                  <Banknote className="h-5 w-5 text-emerald-800" aria-hidden />
                   Harga Jasa Pengurusan
                 </h2>
                 <div className="mt-4 flex flex-wrap items-end gap-x-6 gap-y-3">
                   <div>
                     <p className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">Harga diskon</p>
-                    <p className="text-3xl font-extrabold text-amber-800 sm:text-4xl">{fmtIdr(s.discountPrice)}</p>
+                    <p className="text-3xl font-extrabold text-emerald-900 sm:text-4xl">{fmtIdr(s.discountPrice)}</p>
                   </div>
                   {s.normalPrice > s.discountPrice && (
                     <>
@@ -324,7 +324,7 @@ export function KatalogV2Detail({ service: s }: { service: CatalogDetailService 
                         <p className="text-xs text-muted-foreground">Harga normal</p>
                         <p className="text-lg font-semibold text-muted-foreground line-through">{fmtIdr(s.normalPrice)}</p>
                       </div>
-                      <span className="rounded-lg bg-amber-50 px-3 py-1.5 text-sm font-bold text-amber-800">
+                      <span className="rounded-lg bg-emerald-50 px-3 py-1.5 text-sm font-bold text-emerald-900">
                         Hemat {fmtIdr(s.savings)}
                       </span>
                     </>
@@ -335,7 +335,7 @@ export function KatalogV2Detail({ service: s }: { service: CatalogDetailService 
                   <span className="min-w-0">Harga jasa konsultan — biaya resmi pemerintah (PNBP) dibayar terpisah sesuai tarif instansi.
                   Final setelah review kasus: lokasi, kelengkapan dokumen & kompleksitas.</span>
                 </p>
-                <p className="mt-3 flex items-center gap-2 rounded-lg bg-amber-50 px-3 py-2 text-xs font-semibold text-amber-900">
+                <p className="mt-3 flex items-center gap-2 rounded-lg bg-emerald-50 px-3 py-2 text-xs font-semibold text-emerald-950">
                   <Users className="h-3.5 w-3.5 shrink-0" aria-hidden />
                   <span className="min-w-0">±{proof.label}</span>
                 </p>
@@ -345,13 +345,13 @@ export function KatalogV2Detail({ service: s }: { service: CatalogDetailService 
               {requirements.length > 0 && (
                 <section aria-labelledby="syarat" className="rounded-2xl border bg-card p-6">
                   <h2 id="syarat" className="flex items-center gap-2 text-lg font-bold">
-                    <ListChecks className="h-5 w-5 text-amber-700" aria-hidden />
+                    <ListChecks className="h-5 w-5 text-emerald-800" aria-hidden />
                     Syarat Utama
                   </h2>
                   <ul className="mt-4 grid gap-2.5 sm:grid-cols-2">
                     {requirements.map((r) => (
                       <li key={r} className="flex items-start gap-2.5 text-sm leading-relaxed">
-                        <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-amber-700" aria-hidden />
+                        <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-emerald-800" aria-hidden />
                         <span>{r}</span>
                       </li>
                     ))}
@@ -366,7 +366,7 @@ export function KatalogV2Detail({ service: s }: { service: CatalogDetailService 
                   server-rendered + HowToStep schema di @graph atas. */}
               <section aria-labelledby="proses" className="rounded-2xl border bg-card p-6">
                 <h2 id="proses" className="flex items-center gap-2 text-lg font-bold">
-                  <Compass className="h-5 w-5 shrink-0 text-amber-700" aria-hidden />
+                  <Compass className="h-5 w-5 shrink-0 text-emerald-800" aria-hidden />
                   <span className="min-w-0 break-words">Proses Pengurusan — 5 Langkah</span>
                 </h2>
                 <ol className="mt-4 space-y-4">
@@ -374,7 +374,7 @@ export function KatalogV2Detail({ service: s }: { service: CatalogDetailService 
                     <li key={st.name} id={`langkah-${i + 1}`} className="flex gap-3.5">
                       <span
                         aria-hidden
-                        className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-amber-700/10 text-sm font-extrabold text-amber-800"
+                        className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-emerald-800/10 text-sm font-extrabold text-emerald-900"
                       >
                         {i + 1}
                       </span>
@@ -393,7 +393,7 @@ export function KatalogV2Detail({ service: s }: { service: CatalogDetailService 
                   1.000 halaman katalog v2/v3. Deterministik per kode. */}
               <section aria-labelledby="panduan" className="rounded-2xl border bg-card p-6">
                 <h2 id="panduan" className="flex items-center gap-2 text-lg font-bold">
-                  <BookOpen className="h-5 w-5 shrink-0 text-amber-700" aria-hidden />
+                  <BookOpen className="h-5 w-5 shrink-0 text-emerald-800" aria-hidden />
                   <span className="min-w-0 break-words">{richTitle}</span>
                 </h2>
                 <div className="mt-4 space-y-3.5 text-[15px] leading-relaxed text-foreground/90">
@@ -405,20 +405,20 @@ export function KatalogV2Detail({ service: s }: { service: CatalogDetailService 
 
               {/* CATATAN */}
               {s.notes && (
-                <section className="rounded-2xl border border-amber-200 bg-amber-50/60 p-5">
-                  <h2 className="flex items-center gap-2 text-sm font-bold text-amber-900">
+                <section className="rounded-2xl border border-emerald-200 bg-emerald-50/60 p-5">
+                  <h2 className="flex items-center gap-2 text-sm font-bold text-emerald-950">
                     <Sparkles className="h-4 w-4" aria-hidden />
                     Catatan Penting
                   </h2>
-                  <p className="mt-2 text-sm leading-relaxed text-amber-950/90">{s.notes}</p>
+                  <p className="mt-2 text-sm leading-relaxed text-emerald-950/90">{s.notes}</p>
                 </section>
               )}
 
               {/* BUNDLE — sering diambil bersama */}
               {bundle.length === 2 && (
-                <section aria-labelledby="bundle" className="rounded-2xl border border-amber-200 bg-gradient-to-br from-amber-50/70 to-card p-6">
+                <section aria-labelledby="bundle" className="rounded-2xl border border-emerald-200 bg-gradient-to-br from-emerald-50/70 to-card p-6">
                   <h2 id="bundle" className="flex items-center gap-2 text-lg font-bold">
-                    <Sparkles className="h-5 w-5 text-amber-700" aria-hidden />
+                    <Sparkles className="h-5 w-5 text-emerald-800" aria-hidden />
                     Sering Diambil Bersama — Paket Hemat 10%
                   </h2>
                   <p className="mt-1 text-sm text-muted-foreground">
@@ -428,7 +428,7 @@ export function KatalogV2Detail({ service: s }: { service: CatalogDetailService 
                     {[{ code: s.code, name: s.name, discountPrice: s.discountPrice, slug: s.slug, self: true } as const, ...bundle.map((b) => ({ code: b.code, name: b.name, discountPrice: b.discountPrice, slug: b.slug, self: false }))].map((item, i) => (
                       <li key={item.code} className="flex items-center justify-between gap-3 rounded-xl border bg-card px-4 py-3">
                         <div className="min-w-0">
-                          <p className="text-[11px] font-bold text-amber-800">{i + 1}. {item.code}{item.self ? " — layanan ini" : ""}</p>
+                          <p className="text-[11px] font-bold text-emerald-900">{i + 1}. {item.code}{item.self ? " — layanan ini" : ""}</p>
                           {/* block wajib pada <Link>: <a> default inline —
                               truncate tanpa display:block tidak memotong teks,
                               meluberkan scrollWidth di mobile (nama panjang). */}
@@ -440,23 +440,23 @@ export function KatalogV2Detail({ service: s }: { service: CatalogDetailService 
                             </Link>
                           )}
                         </div>
-                        <p className="shrink-0 text-sm font-bold text-amber-800">{fmtIdr(item.discountPrice)}</p>
+                        <p className="shrink-0 text-sm font-bold text-emerald-900">{fmtIdr(item.discountPrice)}</p>
                       </li>
                     ))}
                   </ul>
-                  <div className="mt-4 flex flex-wrap items-end justify-between gap-3 rounded-xl bg-amber-700/10 px-4 py-3">
+                  <div className="mt-4 flex flex-wrap items-end justify-between gap-3 rounded-xl bg-emerald-800/10 px-4 py-3">
                     <div>
                       <p className="text-xs text-muted-foreground">Total bundle <span className="line-through">{fmtIdr(bundleTotal)}</span></p>
-                      <p className="text-2xl font-extrabold text-amber-800">{fmtIdr(bundlePrice)}</p>
+                      <p className="text-2xl font-extrabold text-emerald-900">{fmtIdr(bundlePrice)}</p>
                     </div>
-                    <span className="rounded-lg bg-amber-700 px-3 py-1.5 text-sm font-bold text-white">Hemat {fmtIdr(bundleHemat)}</span>
+                    <span className="rounded-lg bg-emerald-800 px-3 py-1.5 text-sm font-bold text-white">Hemat {fmtIdr(bundleHemat)}</span>
                   </div>
                   <div className="mt-4 flex flex-col gap-2 sm:flex-row">
                     <a
                       href={`https://wa.me/${WHATSAPP_NUMBER}?text=${bundleWa}`}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex min-h-11 flex-1 items-center justify-center gap-2 rounded-lg bg-amber-700 px-4 py-2.5 text-sm font-bold text-white transition hover:bg-amber-800"
+                      className="flex min-h-11 flex-1 items-center justify-center gap-2 rounded-lg bg-emerald-800 px-4 py-2.5 text-sm font-bold text-white transition hover:bg-emerald-900"
                     >
                       <MessageCircle className="h-4 w-4" aria-hidden /> Ambil Paket Hemat 3 Layanan
                     </a>
@@ -474,7 +474,7 @@ export function KatalogV2Detail({ service: s }: { service: CatalogDetailService 
                   + FAQPage schema di @graph atas. */}
               <section aria-labelledby="faq" className="rounded-2xl border bg-card p-6">
                 <h2 id="faq" className="flex items-center gap-2 text-lg font-bold">
-                  <HelpCircle className="h-5 w-5 shrink-0 text-amber-700" aria-hidden />
+                  <HelpCircle className="h-5 w-5 shrink-0 text-emerald-800" aria-hidden />
                   <span className="min-w-0 break-words">Pertanyaan Umum {s.name}</span>
                 </h2>
                 <Accordion type="single" collapsible className="mt-4">
@@ -502,11 +502,11 @@ export function KatalogV2Detail({ service: s }: { service: CatalogDetailService 
                       <Link
                         key={r.code}
                         href={`/layanan/${r.slug}`}
-                        className="group rounded-xl border p-4 transition hover:border-amber-300 hover:bg-accent"
+                        className="group rounded-xl border p-4 transition hover:border-emerald-300 hover:bg-accent"
                       >
-                        <p className="text-xs font-bold text-amber-800">{r.code}</p>
+                        <p className="text-xs font-bold text-emerald-900">{r.code}</p>
                         <p className="mt-1 text-sm font-semibold leading-snug group-hover:text-primary">{r.name}</p>
-                        <p className="mt-1.5 text-sm font-bold text-amber-800">{fmtIdr(r.discountPrice)}</p>
+                        <p className="mt-1.5 text-sm font-bold text-emerald-900">{fmtIdr(r.discountPrice)}</p>
                       </Link>
                     ))}
                   </div>
@@ -525,7 +525,7 @@ export function KatalogV2Detail({ service: s }: { service: CatalogDetailService 
                   /layanan/wilayah/<prov> (pemilihan deterministik per kode). */}
               <section aria-labelledby="jangkauan" className="rounded-2xl border bg-card p-6">
                 <h2 id="jangkauan" className="flex items-center gap-2 text-lg font-bold">
-                  <MapPin className="h-5 w-5 shrink-0 text-amber-700" aria-hidden />
+                  <MapPin className="h-5 w-5 shrink-0 text-emerald-800" aria-hidden />
                   <span className="min-w-0 break-words">Urus {s.name} dari Mana Saja</span>
                 </h2>
                 <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
@@ -537,9 +537,9 @@ export function KatalogV2Detail({ service: s }: { service: CatalogDetailService 
                     <li key={p.href}>
                       <Link
                         href={p.href}
-                        className="inline-flex items-center gap-1.5 rounded-full border px-3.5 py-1.5 text-sm font-semibold transition hover:border-amber-300 hover:bg-accent hover:text-primary"
+                        className="inline-flex items-center gap-1.5 rounded-full border px-3.5 py-1.5 text-sm font-semibold transition hover:border-emerald-300 hover:bg-accent hover:text-primary"
                       >
-                        <MapPin className="h-3.5 w-3.5 text-amber-700" aria-hidden />
+                        <MapPin className="h-3.5 w-3.5 text-emerald-800" aria-hidden />
                         {p.name}
                       </Link>
                     </li>
@@ -559,11 +559,11 @@ export function KatalogV2Detail({ service: s }: { service: CatalogDetailService 
             <aside className="min-w-0 space-y-5">
               <div className="rounded-2xl border bg-card p-6 lg:sticky lg:top-24">
                 <p className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">Siap diurus?</p>
-                <p className="mt-1 text-2xl font-extrabold text-amber-800">{fmtIdr(s.discountPrice)}</p>
+                <p className="mt-1 text-2xl font-extrabold text-emerald-900">{fmtIdr(s.discountPrice)}</p>
                 <div className="mt-4 space-y-2.5">
                   <Link
                     href={checkoutHref}
-                    className="flex min-h-11 w-full items-center justify-center gap-2 rounded-lg bg-amber-700 px-4 py-2.5 text-sm font-extrabold text-white shadow-lg shadow-amber-700/20 transition hover:bg-amber-800"
+                    className="flex min-h-11 w-full items-center justify-center gap-2 rounded-lg bg-emerald-800 px-4 py-2.5 text-sm font-extrabold text-white shadow-lg shadow-emerald-800/20 transition hover:bg-emerald-900"
                   >
                     <ShoppingCart className="h-4 w-4" aria-hidden />
                     Pesan Sekarang — Bayar Langsung
@@ -572,7 +572,7 @@ export function KatalogV2Detail({ service: s }: { service: CatalogDetailService 
                     href={`https://wa.me/${WHATSAPP_NUMBER}?text=${waText}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex min-h-11 w-full items-center justify-center gap-2 rounded-lg border border-amber-700/40 bg-amber-50 px-4 py-2.5 text-sm font-bold text-amber-900 transition hover:bg-amber-100"
+                    className="flex min-h-11 w-full items-center justify-center gap-2 rounded-lg border border-emerald-800/40 bg-emerald-50 px-4 py-2.5 text-sm font-bold text-emerald-950 transition hover:bg-emerald-100"
                   >
                     <MessageCircle className="h-4 w-4" aria-hidden />
                     Tanya Dulu via WhatsApp
@@ -597,11 +597,11 @@ export function KatalogV2Detail({ service: s }: { service: CatalogDetailService 
                     <dd className="font-semibold">{TRUST_METRICS.rating}/5 · {TRUST_METRICS.reviewCount} ulasan</dd>
                   </div>
                   <div className="flex items-center gap-2">
-                    <BadgeCheck className="h-4 w-4 shrink-0 text-amber-700" aria-hidden />
+                    <BadgeCheck className="h-4 w-4 shrink-0 text-emerald-800" aria-hidden />
                     <dd className="text-muted-foreground">{TRUST_METRICS.permitsIssued}+ izin terbit</dd>
                   </div>
                   <div className="flex items-center gap-2">
-                    <ShieldCheck className="h-4 w-4 shrink-0 text-amber-700" aria-hidden />
+                    <ShieldCheck className="h-4 w-4 shrink-0 text-emerald-800" aria-hidden />
                     <dd className="text-muted-foreground">Garansi 100% uang kembali bila gagal karena proses kami</dd>
                   </div>
                 </dl>

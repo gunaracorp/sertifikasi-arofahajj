@@ -326,9 +326,9 @@ export function CmsTab() {
   if (form) {
     const grade =
       audit && audit.score >= 80
-        ? { text: "Siap terbit", cls: "text-amber-300" }
+        ? { text: "Siap terbit", cls: "text-emerald-300" }
         : audit && audit.score >= 50
-          ? { text: "Perlu perbaikan", cls: "text-amber-300" }
+          ? { text: "Perlu perbaikan", cls: "text-emerald-300" }
           : { text: "Lemah", cls: "text-rose-300" };
 
     return (
@@ -347,8 +347,8 @@ export function CmsTab() {
           </h2>
           <Badge className={
             form.status === "PUBLISHED"
-              ? "rounded-full bg-amber-500/15 text-amber-300 border border-amber-500/30"
-              : "rounded-full bg-amber-500/15 text-amber-300 border border-amber-500/30"
+              ? "rounded-full bg-emerald-600/15 text-emerald-300 border border-emerald-600/30"
+              : "rounded-full bg-emerald-600/15 text-emerald-300 border border-emerald-600/30"
           }>
             {form.status === "PUBLISHED" ? "TERBIT" : "DRAFT"}
           </Badge>
@@ -362,7 +362,7 @@ export function CmsTab() {
                 <Eye aria-hidden className="mr-2 h-4 w-4" /> Pratinjau
               </Button>
             )}
-            <Button size="sm" onClick={save} disabled={busy} className="bg-amber-700 font-bold hover:bg-amber-500">
+            <Button size="sm" onClick={save} disabled={busy} className="bg-emerald-800 font-bold hover:bg-emerald-600">
               {busy ? <Loader2 aria-hidden className="mr-2 h-4 w-4 animate-spin" /> : <Save aria-hidden className="mr-2 h-4 w-4" />}
               {form.status === "PUBLISHED" ? "Simpan & Terbitkan" : "Simpan Draft"}
             </Button>
@@ -389,7 +389,7 @@ export function CmsTab() {
                   </Label>
                   <Input id="cms-slug" value={form.slug}
                     onChange={(e) => { setSlugTouched(true); patch({ slug: e.target.value }); }}
-                    placeholder="cara-mengurus-nib-online" className="border-stone-700 bg-stone-950 font-mono text-sm text-amber-300" />
+                    placeholder="cara-mengurus-nib-online" className="border-stone-700 bg-stone-950 font-mono text-sm text-emerald-300" />
                 </div>
                 <div className="grid gap-4 sm:grid-cols-2">
                   <div className="space-y-1.5">
@@ -668,7 +668,7 @@ export function CmsTab() {
             onClick={() => setView(v.id)}
             className={`flex flex-1 items-center justify-center gap-2 rounded-lg px-3 py-2 text-sm font-semibold transition-colors ${
               active
-                ? "bg-amber-500/15 text-amber-300 shadow-[inset_0_0_0_1px_rgba(217,119,6,0.25)]"
+                ? "bg-emerald-600/15 text-emerald-300 shadow-[inset_0_0_0_1px_rgba(217,119,6,0.25)]"
                 : "text-stone-400 hover:bg-stone-800/60 hover:text-stone-200"
             }`}
           >
@@ -719,7 +719,7 @@ export function CmsTab() {
           <Input value={query} onChange={(e) => setQuery(e.target.value)} placeholder="Cari judul / slug…"
             className="border-stone-700 bg-stone-900/60 pl-9 text-stone-100" aria-label="Cari artikel" />
         </div>
-        <Button onClick={openNew} className="bg-amber-700 font-bold hover:bg-amber-500">
+        <Button onClick={openNew} className="bg-emerald-800 font-bold hover:bg-emerald-600">
           <Plus aria-hidden className="mr-2 h-4 w-4" /> Artikel Baru
         </Button>
         <Button variant="outline" size="icon" onClick={() => void load()}
@@ -750,14 +750,14 @@ export function CmsTab() {
           </p>
         )}
         {filtered.map((p) => (
-          <div key={p.id} className="flex flex-wrap items-center gap-3 rounded-2xl border border-stone-800 bg-stone-900/40 p-4 transition-colors hover:border-amber-500/30">
+          <div key={p.id} className="flex flex-wrap items-center gap-3 rounded-2xl border border-stone-800 bg-stone-900/40 p-4 transition-colors hover:border-emerald-600/30">
             <div className="min-w-0 flex-1">
               <div className="flex flex-wrap items-center gap-2">
                 <p className="truncate font-bold text-stone-100">{p.title}</p>
                 <Badge className={
                   p.status === "PUBLISHED"
-                    ? "rounded-full bg-amber-500/15 text-amber-300 border border-amber-500/30 text-[10px]"
-                    : "rounded-full bg-amber-500/15 text-amber-300 border border-amber-500/30 text-[10px]"
+                    ? "rounded-full bg-emerald-600/15 text-emerald-300 border border-emerald-600/30 text-[10px]"
+                    : "rounded-full bg-emerald-600/15 text-emerald-300 border border-emerald-600/30 text-[10px]"
                 }>
                   {p.status === "PUBLISHED" ? "TERBIT" : "DRAFT"}
                 </Badge>
@@ -765,7 +765,7 @@ export function CmsTab() {
                   <Badge className="rounded-full bg-stone-700/50 text-stone-300 border border-stone-600 text-[10px]">noindex</Badge>
                 )}
               </div>
-              <p className="mt-1 truncate font-mono text-xs text-amber-500/80">/blog/{p.slug}</p>
+              <p className="mt-1 truncate font-mono text-xs text-emerald-600/80">/blog/{p.slug}</p>
               <p className="mt-1 text-xs text-stone-500">
                 {p.category} · diperbarui {relativeTime(p.updatedAt)}
               </p>
@@ -777,7 +777,7 @@ export function CmsTab() {
                 <Eye aria-hidden className="mr-1.5 h-3.5 w-3.5" /> Lihat
               </Button>
               <Button variant="outline" size="sm" onClick={() => openEdit(p)}
-                className="border-amber-500/40 bg-amber-500/10 text-amber-300 hover:bg-amber-500/20">
+                className="border-emerald-600/40 bg-emerald-600/10 text-emerald-300 hover:bg-emerald-600/20">
                 <PenLine aria-hidden className="mr-1.5 h-3.5 w-3.5" /> Edit
               </Button>
               <Button variant="outline" size="sm" onClick={() => remove(p)} disabled={busy}

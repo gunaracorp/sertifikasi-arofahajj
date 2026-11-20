@@ -126,9 +126,9 @@ function KbliJsonLd({ page }: { page: NonNullable<ReturnType<typeof getKbliBySlu
 }
 
 const RISK_BADGE: Record<string, string> = {
-  rendah: "bg-amber-100 text-amber-900 border-amber-200",
-  "menengah-rendah": "bg-amber-100 text-amber-800 border-amber-200",
-  "menengah-tinggi": "bg-orange-100 text-orange-800 border-orange-200",
+  rendah: "bg-emerald-100 text-emerald-950 border-emerald-200",
+  "menengah-rendah": "bg-emerald-100 text-emerald-900 border-emerald-200",
+  "menengah-tinggi": "bg-emerald-100 text-emerald-900 border-emerald-200",
   tinggi: "bg-red-100 text-red-800 border-red-200",
 };
 
@@ -408,11 +408,11 @@ export default async function KbliDetailPage({
                 <Scale className="h-5 w-5 text-primary" aria-hidden />
                 Kewajiban Pajak Usaha
               </h2>
-              <div className="rounded-2xl border bg-gradient-to-br from-amber-50/50 to-transparent p-5 dark:from-amber-950/10">
+              <div className="rounded-2xl border bg-gradient-to-br from-emerald-50/50 to-transparent p-5 dark:from-emerald-950/10">
                 <ul className="space-y-2.5">
                   {page.taxNotes.map((note, i) => (
                     <li key={i} className="flex items-start gap-2.5 text-sm leading-relaxed">
-                      <BadgeCheck className="h-4 w-4 mt-0.5 shrink-0 text-amber-600" aria-hidden />
+                      <BadgeCheck className="h-4 w-4 mt-0.5 shrink-0 text-emerald-700" aria-hidden />
                       <span>{note}</span>
                     </li>
                   ))}
@@ -434,8 +434,8 @@ export default async function KbliDetailPage({
               </h2>
               <ul className="space-y-2">
                 {page.incentives.map((inc, i) => (
-                  <li key={i} className="flex items-start gap-2.5 rounded-xl border border-amber-200/60 bg-amber-50/50 dark:border-amber-950/40 dark:bg-amber-950/20 p-3.5 text-sm">
-                    <Sparkles className="h-4 w-4 mt-0.5 shrink-0 text-amber-700" aria-hidden />
+                  <li key={i} className="flex items-start gap-2.5 rounded-xl border border-emerald-200/60 bg-emerald-50/50 dark:border-emerald-950/40 dark:bg-emerald-950/20 p-3.5 text-sm">
+                    <Sparkles className="h-4 w-4 mt-0.5 shrink-0 text-emerald-800" aria-hidden />
                     <span className="leading-snug">{inc}</span>
                   </li>
                 ))}
@@ -563,9 +563,9 @@ export default async function KbliDetailPage({
               </dl>
             </div>
 
-            <div className="rounded-2xl bg-[oklch(0.23_0.03_78)] p-5 text-amber-50">
+            <div className="rounded-2xl bg-[oklch(0.23_0.03_78)] p-5 text-emerald-50">
               <p className="text-sm leading-relaxed">
-                <strong className="text-amber-300">Salah pilih KBLI</strong> bisa bikin pajak lebih berat & izin salah struktur. Konsultasikan gratis sebelum daftar!
+                <strong className="text-emerald-300">Salah pilih KBLI</strong> bisa bikin pajak lebih berat & izin salah struktur. Konsultasikan gratis sebelum daftar!
               </p>
             </div>
           </aside>

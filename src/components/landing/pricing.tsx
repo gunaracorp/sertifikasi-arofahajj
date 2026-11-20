@@ -42,7 +42,7 @@ export function Pricing() {
                 )}
               >
                 {tier.highlight && (
-                  <div className="absolute inset-x-0 top-0 h-1.5 bg-gradient-to-r from-primary via-amber-500 to-gold" />
+                  <div className="absolute inset-x-0 top-0 h-1.5 bg-gradient-to-r from-primary via-emerald-600 to-gold" />
                 )}
                 <CardContent className="p-6 md:p-7 flex flex-col flex-1">
                   <div className="flex items-center justify-between">

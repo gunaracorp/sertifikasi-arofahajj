@@ -70,7 +70,7 @@ export default function BumdesPage() {
         </nav>
 
         <header className="max-w-3xl">
-          <p className="inline-flex items-center gap-2 rounded-full bg-amber-50 px-3 py-1 text-xs font-bold text-amber-800"><Sprout className="h-3.5 w-3.5" aria-hidden />HARGA SOSIAL • 38 PROVINSI • DANA DESA BISA</p>
+          <p className="inline-flex items-center gap-2 rounded-full bg-emerald-50 px-3 py-1 text-xs font-bold text-emerald-900"><Sprout className="h-3.5 w-3.5" aria-hidden />HARGA SOSIAL • 38 PROVINSI • DANA DESA BISA</p>
           <h1 className="mt-4 text-3xl font-extrabold tracking-tight sm:text-4xl">
             BUMDes Legal, Usaha Jalan — Desa Anda Layak Setingkat Perusahaan
           </h1>
@@ -86,11 +86,11 @@ export default function BumdesPage() {
           {PACKAGES.map((p) => (
             <article key={p.name} className="flex flex-col rounded-2xl border bg-card p-6">
               <h2 className="font-bold leading-snug">{p.name}</h2>
-              <p className="mt-2 text-2xl font-extrabold text-amber-800">{p.price}</p>
+              <p className="mt-2 text-2xl font-extrabold text-emerald-900">{p.price}</p>
               <p className="text-xs text-muted-foreground">Timeline: {p.time}</p>
               <ul className="mt-4 flex-1 space-y-2">
                 {p.items.map((i) => (
-                  <li key={i} className="flex gap-2 text-sm"><Check className="mt-0.5 h-4 w-4 shrink-0 text-amber-700" aria-hidden /><span>{i}</span></li>
+                  <li key={i} className="flex gap-2 text-sm"><Check className="mt-0.5 h-4 w-4 shrink-0 text-emerald-800" aria-hidden /><span>{i}</span></li>
                 ))}
               </ul>
             </article>

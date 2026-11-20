@@ -187,8 +187,8 @@ export default function KanalResmiPage() {
 
       {/* Disclaimer transparan */}
       <section className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 pt-8" aria-label="Catatan transparansi">
-        <div className="flex items-start gap-3 rounded-xl border border-amber-500/30 bg-amber-500/5 p-4 text-sm">
-          <Info className="h-4.5 w-4.5 shrink-0 mt-0.5 text-amber-600" aria-hidden />
+        <div className="flex items-start gap-3 rounded-xl border border-emerald-600/30 bg-emerald-600/5 p-4 text-sm">
+          <Info className="h-4.5 w-4.5 shrink-0 mt-0.5 text-emerald-700" aria-hidden />
           <p className="leading-relaxed text-foreground/85">
             <strong>Catatan transparansi:</strong> Arofahajj Universe adalah konsultan swasta
             independen — <strong>tidak berafiliasi</strong> dengan kementerian/lembaga mana pun dan
@@ -287,9 +287,9 @@ export default function KanalResmiPage() {
 
       {/* CTA */}
       <section className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 pb-16">
-        <div className="rounded-2xl bg-[oklch(0.23_0.03_78)] p-8 md:p-10 text-amber-50 text-center">
+        <div className="rounded-2xl bg-[oklch(0.23_0.03_78)] p-8 md:p-10 text-emerald-50 text-center">
           <h2 className="text-2xl font-bold">Butuh Urusan di Instansi Mana Pun di Atas?</h2>
-          <p className="mt-3 text-sm md:text-base text-amber-100/85 max-w-2xl mx-auto leading-relaxed">
+          <p className="mt-3 text-sm md:text-base text-emerald-100/85 max-w-2xl mx-auto leading-relaxed">
             Satu konsultasi gratis — kami petakan instansi apa saja yang relevan untuk usaha Anda,
             berapa biayanya, dan berapa lama. Transparan sejak detik pertama.
           </p>

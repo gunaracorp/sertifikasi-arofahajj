@@ -401,7 +401,7 @@ export default async function JobDetailPage({ params }: { params: Promise<{ slug
             <ul className="space-y-2 text-sm">
               {job.benefits.map((b, i) => (
                 <li key={i} className="flex items-start gap-2">
-                  <CheckCircle2 className="h-4 w-4 text-amber-700 mt-0.5 shrink-0" aria-hidden /> {b}
+                  <CheckCircle2 className="h-4 w-4 text-emerald-800 mt-0.5 shrink-0" aria-hidden /> {b}
                 </li>
               ))}
             </ul>

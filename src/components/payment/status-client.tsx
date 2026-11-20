@@ -55,13 +55,13 @@ function StatusIcon({ status }: { status: string }) {
     );
   if (status === "PENDING")
     return (
-      <div className="mx-auto h-20 w-20 rounded-full bg-amber-100 text-amber-600 flex items-center justify-center">
+      <div className="mx-auto h-20 w-20 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center">
         <Clock3 className={`${cls} animate-pulse`} />
       </div>
     );
   if (status === "CHALLENGE")
     return (
-      <div className="mx-auto h-20 w-20 rounded-full bg-amber-100 text-amber-600 flex items-center justify-center">
+      <div className="mx-auto h-20 w-20 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center">
         <Hourglass className={cls} />
       </div>
     );

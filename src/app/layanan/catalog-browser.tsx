@@ -95,8 +95,8 @@ export function CatalogBrowser({ categories }: Props) {
                 variant="secondary"
                 className={cn(
                   "text-[10px] uppercase tracking-wide shrink-0",
-                  item.category === "perizinan" && "bg-amber-100 text-amber-900 dark:bg-amber-950/40 dark:text-amber-300",
-                  item.category === "pajak" && "bg-amber-100 text-amber-800 dark:bg-amber-900/40 dark:text-amber-300",
+                  item.category === "perizinan" && "bg-emerald-100 text-emerald-950 dark:bg-emerald-950/40 dark:text-emerald-300",
+                  item.category === "pajak" && "bg-emerald-100 text-emerald-900 dark:bg-emerald-950/40 dark:text-emerald-300",
                   item.category === "pmi" && "bg-sky-100 text-sky-800 dark:bg-sky-900/40 dark:text-sky-300"
                 )}
               >

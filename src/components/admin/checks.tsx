@@ -51,10 +51,10 @@ export function ChecksTab() {
   return (
     <Tabs defaultValue="license" className="space-y-4">
       <TabsList className="border border-stone-800 bg-stone-900/60">
-        <TabsTrigger value="license" className="gap-1.5 data-[state=active]:bg-amber-500/15 data-[state=active]:text-amber-300">
+        <TabsTrigger value="license" className="gap-1.5 data-[state=active]:bg-emerald-600/15 data-[state=active]:text-emerald-300">
           <SearchCheck aria-hidden className="h-4 w-4" /> Cek Izin ({lic?.rows.length ?? 0})
         </TabsTrigger>
-        <TabsTrigger value="document" className="gap-1.5 data-[state=active]:bg-amber-500/15 data-[state=active]:text-amber-300">
+        <TabsTrigger value="document" className="gap-1.5 data-[state=active]:bg-emerald-600/15 data-[state=active]:text-emerald-300">
           <FileSearch aria-hidden className="h-4 w-4" /> Cek Dokumen ({doc?.rows.length ?? 0})
         </TabsTrigger>
       </TabsList>
@@ -77,7 +77,7 @@ export function ChecksTab() {
                     </p>
                   </div>
                   {r.whatsapp && (
-                    <Badge variant="outline" className="border-amber-500/30 bg-amber-500/10 text-amber-300">
+                    <Badge variant="outline" className="border-emerald-600/30 bg-emerald-600/10 text-emerald-300">
                       WA +{r.whatsapp.slice(-4).padStart(r.whatsapp.length, "•")}
                     </Badge>
                   )}
@@ -114,7 +114,7 @@ export function ChecksTab() {
                     </p>
                   </div>
                   {r.whatsapp && (
-                    <Badge variant="outline" className="border-amber-500/30 bg-amber-500/10 text-amber-300">
+                    <Badge variant="outline" className="border-emerald-600/30 bg-emerald-600/10 text-emerald-300">
                       WA tercatat
                     </Badge>
                   )}

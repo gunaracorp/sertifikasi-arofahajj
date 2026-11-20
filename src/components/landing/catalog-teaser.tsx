@@ -12,7 +12,7 @@ export function CatalogTeaser() {
     <section id="katalog" className="bg-white py-16 md:py-20" aria-labelledby="katalog-heading">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-2xl">
-          <span className="inline-block rounded-full bg-amber-100 px-3 py-1 text-xs font-bold uppercase tracking-wider text-amber-900">
+          <span className="inline-block rounded-full bg-emerald-100 px-3 py-1 text-xs font-bold uppercase tracking-wider text-emerald-950">
             Katalog Terpadu
           </span>
           <h2 id="katalog-heading" className="mt-3 text-2xl font-bold text-stone-900 md:text-3xl">
@@ -33,19 +33,19 @@ export function CatalogTeaser() {
               className="rounded-2xl border border-stone-200 bg-gradient-to-b from-white to-stone-50 p-6 shadow-sm transition hover:shadow-md"
             >
               {b.badge && (
-                <span className="rounded-full bg-amber-100 px-2.5 py-1 text-[11px] font-bold uppercase tracking-wide text-amber-800">
+                <span className="rounded-full bg-emerald-100 px-2.5 py-1 text-[11px] font-bold uppercase tracking-wide text-emerald-900">
                   {b.badge}
                 </span>
               )}
               <h3 className="mt-3 font-bold text-stone-900">Paket &ldquo;{b.name}&rdquo;</h3>
               <p className="mt-1 text-sm text-stone-600">{b.audience}</p>
               <div className="mt-4 flex items-baseline gap-2">
-                <p className="text-2xl font-extrabold text-amber-900">{fmtRange(b.price, null)}</p>
-                <p className="text-xs font-bold text-amber-600">hemat {fmtRange(b.save, null)}</p>
+                <p className="text-2xl font-extrabold text-emerald-950">{fmtRange(b.price, null)}</p>
+                <p className="text-xs font-bold text-emerald-700">hemat {fmtRange(b.save, null)}</p>
               </div>
               <a
                 href={waLink(`Halo Arofahajj Universe, saya tertarik dengan Paket "${b.name}".`)}
-                className="mt-4 inline-block w-full rounded-xl bg-amber-900 px-4 py-2.5 text-center text-sm font-bold text-white transition hover:bg-amber-800"
+                className="mt-4 inline-block w-full rounded-xl bg-emerald-950 px-4 py-2.5 text-center text-sm font-bold text-white transition hover:bg-emerald-900"
               >
                 Konsultasi Paket Ini
               </a>
@@ -54,7 +54,7 @@ export function CatalogTeaser() {
         </div>
 
         {/* CTA katalog */}
-        <div className="mt-8 flex flex-col items-start gap-4 rounded-2xl border border-amber-200 bg-amber-50/60 p-6 sm:flex-row sm:items-center sm:justify-between">
+        <div className="mt-8 flex flex-col items-start gap-4 rounded-2xl border border-emerald-200 bg-emerald-50/60 p-6 sm:flex-row sm:items-center sm:justify-between">
           <p className="text-sm text-stone-700">
             <strong className="text-stone-900">Butuh izin di luar paket?</strong> Lihat seluruh
             katalog — 31 divisi, mulai Rp 585 ribu.
@@ -62,13 +62,13 @@ export function CatalogTeaser() {
           <div className="flex shrink-0 flex-wrap gap-3">
             <Link
               href="/katalog"
-              className="rounded-xl bg-amber-900 px-5 py-3 text-sm font-bold text-white transition hover:bg-amber-800"
+              className="rounded-xl bg-emerald-950 px-5 py-3 text-sm font-bold text-white transition hover:bg-emerald-900"
             >
               Jelajahi Katalog →
             </Link>
             <Link
               href="/paket"
-              className="rounded-xl border border-amber-300 px-5 py-3 text-sm font-semibold text-amber-950 transition hover:bg-amber-100"
+              className="rounded-xl border border-emerald-300 px-5 py-3 text-sm font-semibold text-emerald-950 transition hover:bg-emerald-100"
             >
               Semua Paket Bundel
             </Link>

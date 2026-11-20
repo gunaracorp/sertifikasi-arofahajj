@@ -39,7 +39,7 @@ export function Comparison() {
                     Fitur
                   </th>
                   <th className="px-5 py-4 text-left font-bold text-xs uppercase tracking-wider w-[35%]">
-                    <span className="text-amber-300">★ Arofahajj Universe</span>
+                    <span className="text-emerald-300">★ Arofahajj Universe</span>
                   </th>
                   <th className="px-5 py-4 text-left font-bold text-xs uppercase tracking-wider w-[35%]">
                     Praktik Umum Konsultan Lain

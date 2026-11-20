@@ -120,7 +120,7 @@ export function ChatWidget() {
         onClick={() => setOpen(!open)}
         className={cn(
           "fixed bottom-5 right-5 z-[60] h-14 w-14 rounded-full shadow-2xl flex items-center justify-center transition-transform hover:scale-105 active:scale-95",
-          "bg-gradient-to-br from-primary to-amber-800 text-primary-foreground",
+          "bg-gradient-to-br from-primary to-emerald-900 text-primary-foreground",
           !open && "animate-pulse-ring"
         )}
         aria-label={open ? "Tutup chat konsultan AI" : "Buka chat konsultan AI"}
@@ -147,19 +147,19 @@ export function ChatWidget() {
             aria-label="Chat dengan Konsultan AI"
           >
             {/* Header */}
-            <div className="bg-gradient-to-r from-primary to-amber-800 px-4 py-3.5 flex items-center gap-3 shrink-0">
+            <div className="bg-gradient-to-r from-primary to-emerald-900 px-4 py-3.5 flex items-center gap-3 shrink-0">
               <div className="relative">
                 <div className="h-10 w-10 rounded-full bg-white/15 flex items-center justify-center border border-white/20">
                   <Bot className="h-5.5 w-5.5 text-white" />
                 </div>
-                <span className="absolute bottom-0 right-0 h-2.5 w-2.5 rounded-full bg-amber-300 border-2 border-amber-800" aria-label="Online" />
+                <span className="absolute bottom-0 right-0 h-2.5 w-2.5 rounded-full bg-emerald-300 border-2 border-emerald-900" aria-label="Online" />
               </div>
               <div className="flex-1 min-w-0">
                 <p className="text-sm font-bold text-white flex items-center gap-1.5">
                   {t("chatTitle")}
-                  <Sparkles className="h-3.5 w-3.5 text-amber-300" />
+                  <Sparkles className="h-3.5 w-3.5 text-emerald-300" />
                 </p>
-                <p className="text-[11px] text-amber-100/85">{t("chatStatus")}</p>
+                <p className="text-[11px] text-emerald-100/85">{t("chatStatus")}</p>
               </div>
               <a
                 href={`https://wa.me/${WHATSAPP_NUMBER}`}

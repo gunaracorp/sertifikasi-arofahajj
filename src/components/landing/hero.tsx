@@ -1,20 +1,23 @@
 "use client";
 
+// ============================================================
+// HERO — Redesign 2026 "Zamrud & Emas Editorial"
+// Beda total dari hero template lama (krem + badge + kartu form
+// identik kompetitor): kini band zamrud gelap megah, judul serif
+// Playfair dengan aksen emas, dan form konsultasi kaca-gelap.
+// Logika submit leads 100% dipertahankan (API + fallback WA +
+// konversi GA4) — hanya kulitnya yang baru.
+// ============================================================
+
 import { useState } from "react";
-import { motion, useReducedMotion } from "framer-motion";
 import { trackEvent } from "@/components/landing/analytics";
-import { EASE, STAGGER } from "@/components/motion/reveal";
 import {
   ShieldCheck,
-  Clock,
-  BadgeCheck,
   ChevronDown,
   CheckCircle2,
   Loader2,
   Star,
-  FileCheck,
-  Building2,
-  Leaf,
+  ArrowRight,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -41,17 +44,18 @@ interface HeroFormState {
   package: string;
 }
 
+const EMPTY_FORM: HeroFormState = {
+  name: "",
+  whatsapp: "",
+  businessType: "",
+  businessDesc: "",
+  package: "Belum tahu",
+};
+
 export function Hero() {
   const { toast } = useToast();
   const { t } = useLanguage();
-  const reduceMotion = useReducedMotion();
-  const [form, setForm] = useState<HeroFormState>({
-    name: "",
-    whatsapp: "",
-    businessType: "",
-    businessDesc: "",
-    package: "Belum tahu",
-  });
+  const [form, setForm] = useState<HeroFormState>(EMPTY_FORM);
   const [submitting, setSubmitting] = useState(false);
   const [done, setDone] = useState(false);
 
@@ -97,167 +101,128 @@ export function Hero() {
     }
   };
 
-  /* Koreografi entrance hero — bahasa gerak seragam (durasi 0.65s,
-     signature ease, stagger 0.1s, rise 24px). Bila pengguna memilih
-     reduced-motion, elemen dirender langsung pada state akhir. */
-  const enter = (delay: number, y = 24) =>
-    reduceMotion
-      ? { initial: false as const, animate: { opacity: 1, y: 0 } }
-      : {
-          initial: { opacity: 0, y, scale: 1 },
-          animate: { opacity: 1, y: 0 },
-          transition: { duration: 0.65, delay, ease: EASE },
-        };
-
   return (
-    <section id="beranda" className="hero-gradient pattern-grid relative overflow-hidden pt-28 pb-16 md:pt-36 md:pb-24">
-      {/* Ambient aurora — zamarud & emas, drift super-halus (transform-only,
-          22s & 28s agar tidak pernah sinkron; delay negatif = fase acak) */}
+    <section
+      id="beranda"
+      className="band-emerald-deep pattern-grid-dark relative overflow-hidden pt-28 pb-20 md:pt-40 md:pb-28"
+    >
+      {/* Ornamen cahaya — kilau emas & zamrud, drift super halus */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute -top-40 -left-40 h-[500px] w-[500px] rounded-full bg-amber-400/25 opacity-25 blur-3xl"
-        style={{ animation: "aurora-drift 22s ease-in-out infinite alternate" }}
+        className="pointer-events-none absolute -top-48 -left-40 h-[520px] w-[520px] rounded-full opacity-30 blur-3xl"
+        style={{ background: "oklch(0.62 0.12 80 / 0.30)", animation: "aurora-drift 22s ease-in-out infinite alternate" }}
       />
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute -bottom-48 -right-40 h-[520px] w-[520px] rounded-full bg-amber-300/20 opacity-20 blur-3xl"
-        style={{ animation: "aurora-drift 28s ease-in-out -11s infinite alternate" }}
+        className="pointer-events-none absolute -bottom-56 -right-40 h-[540px] w-[540px] rounded-full opacity-25 blur-3xl"
+        style={{ background: "oklch(0.62 0.10 168 / 0.35)", animation: "aurora-drift 28s ease-in-out -11s infinite alternate" }}
       />
+      {/* Garis emas tipis pembuka band — tanda tangan identitas baru */}
+      <div aria-hidden="true" className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-gold/60 to-transparent" />
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-8 items-center">
-          {/* Left: Copy — koreografi berurutan badge → judul → paragraf →
-              value props → bukti sosial */}
+        <div className="grid lg:grid-cols-[1.05fr_0.95fr] gap-14 lg:gap-12 items-center">
+          {/* KIRI — Narasi brand dengan tipografi serif editorial */}
           <div className="max-w-xl">
-            <motion.div
-              {...enter(0)}
-              className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/5 px-4 py-1.5 text-xs font-semibold text-primary mb-6"
-            >
-              <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
-              </span>
-              {t("heroBadge")}
-            </motion.div>
+            <p className="animate-fade-up text-[11px] sm:text-xs font-bold uppercase tracking-[0.22em] text-gold">
+              PT Arofah Global Sistem · NIB 2503250053856 · KBLI 79121 &amp; 79122
+            </p>
 
-            <motion.h1
-              {...enter(0.1)}
-              className="text-4xl sm:text-5xl lg:text-[3.4rem] font-extrabold tracking-tight leading-[1.1] text-foreground"
-            >
-              {t("heroTitle1")} <span className="text-gradient-brand">{t("heroHigh1")}</span>,
+            <h1 className="animate-fade-up reveal-1 mt-6 font-display text-4xl sm:text-5xl lg:text-[3.6rem] font-medium leading-[1.08] tracking-tight text-emerald-50">
+              {t("heroTitle1")}{" "}
+              <em className="text-gold">{t("heroHigh1")}</em>
               <br />
-              {t("heroTitle2")} <span className="relative inline-block">{t("heroHigh2")}
+              {t("heroTitle2")}{" "}
+              <span className="relative inline-block">
+                <em className="text-gold">{t("heroHigh2")}</em>
                 <svg className="absolute -bottom-2 left-0 w-full" viewBox="0 0 120 10" fill="none" aria-hidden="true">
-                  <path d="M2 8C30 2 90 2 118 8" stroke="oklch(0.769 0.16 70.08)" strokeWidth="3.5" strokeLinecap="round"/>
+                  <path d="M2 8C30 2 90 2 118 8" stroke="oklch(0.82 0.15 80)" strokeWidth="2.5" strokeLinecap="round" opacity="0.7" />
                 </svg>
               </span>
-            </motion.h1>
+            </h1>
 
-            <motion.p
-              {...enter(0.2)}
-              className="mt-6 text-lg text-muted-foreground leading-relaxed"
-            >
+            <p className="animate-fade-up reveal-2 mt-6 text-lg leading-relaxed text-emerald-100/75">
               {t("heroSubtitle")}
-            </motion.p>
+            </p>
 
-            <ul className="mt-8 space-y-3.5">
+            <ul className="animate-fade-up reveal-3 mt-8 space-y-3.5">
               {[
-                { icon: Clock, text: t("heroBullet1") },
-                { icon: ShieldCheck, text: t("heroBullet2") },
-                { icon: BadgeCheck, text: t("heroBullet3") },
-              ].map((item, i) => (
-                <motion.li
-                  key={i}
-                  {...enter(0.3 + i * STAGGER, 20)}
-                  className="flex items-start gap-3"
-                >
-                  <span className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary">
-                    <item.icon className="h-3.5 w-3.5" />
+                t("heroBullet1"),
+                t("heroBullet2"),
+                t("heroBullet3"),
+              ].map((text, i) => (
+                <li key={i} className="flex items-start gap-3">
+                  <span className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full border border-gold/40 bg-gold/10 text-gold">
+                    <CheckCircle2 className="h-3.5 w-3.5" />
                   </span>
-                  <span className="text-[15px] text-foreground/85">{item.text}</span>
-                </motion.li>
+                  <span className="text-[15px] text-emerald-50/85">{text}</span>
+                </li>
               ))}
             </ul>
 
-            {/* Mini social proof — baris penutup koreografi */}
-            <motion.div {...enter(0.55)} className="mt-8 flex items-center gap-4">
+            {/* Bukti sosial — avatar zamrud + rating emas */}
+            <div className="animate-fade-up reveal-4 mt-9 flex items-center gap-4">
               <div className="flex -space-x-2.5">
                 {["RK", "BS", "AW", "HG"].map((initials, i) => (
                   <div
                     key={i}
-                    className="h-9 w-9 rounded-full border-2 border-white dark:border-card bg-gradient-to-br from-amber-500 to-amber-800 flex items-center justify-center text-[10px] font-bold text-white"
+                    className="h-9 w-9 rounded-full border-2 border-emerald-950/60 bg-gradient-to-br from-emerald-600 to-emerald-900 flex items-center justify-center text-[10px] font-bold text-emerald-50"
                   >
                     {initials}
                   </div>
                 ))}
-                <div className="h-9 w-9 rounded-full border-2 border-white dark:border-card bg-gold flex items-center justify-center text-[9px] font-bold text-gold-foreground">
+                <div className="h-9 w-9 rounded-full border-2 border-emerald-950/60 bg-gold flex items-center justify-center text-[9px] font-bold text-gold-foreground">
                   +1.2k
                 </div>
               </div>
               <div>
                 <div className="flex items-center gap-1" aria-label="Rating 4.9 dari 5">
                   {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="h-3.5 w-3.5 fill-amber-400 text-amber-400" />
+                    <Star key={i} className="h-3.5 w-3.5 fill-gold text-gold" />
                   ))}
-                  <span className="text-sm font-bold ml-1">4.9</span>
+                  <span className="text-sm font-bold ml-1 text-emerald-50">4.9</span>
                 </div>
-                <p className="text-xs text-muted-foreground">{t("heroReviews")}</p>
+                <p className="text-xs text-emerald-100/60">{t("heroReviews")}</p>
               </div>
-            </motion.div>
+            </div>
+
+            {/* CTA berpasangan — emas pejal + outline gading */}
+            <div className="animate-fade-up reveal-5 mt-9 flex flex-wrap items-center gap-3">
+              <a
+                href="#konsultasi"
+                className="btn-shine inline-flex items-center gap-2 rounded-lg bg-gold px-6 py-3 text-sm font-bold text-gold-foreground shadow-lg shadow-gold/25 transition-all hover:brightness-110"
+              >
+                {t("btnSubmit")}
+                <ArrowRight className="h-4 w-4" aria-hidden="true" />
+              </a>
+              <a
+                href="#produk"
+                className="inline-flex items-center gap-2 rounded-lg border border-emerald-50/25 px-6 py-3 text-sm font-semibold text-emerald-50 transition-colors hover:bg-emerald-50/10"
+              >
+                Lihat Produk Andalan
+                <ChevronDown className="h-4 w-4" aria-hidden="true" />
+              </a>
+            </div>
           </div>
 
-          {/* Right: Lead Form — kartu masuk bersamaan dengan value props,
-              scale 0.97→1 untuk kedalaman sinematik */}
-          <motion.div
-            initial={reduceMotion ? false : { opacity: 0, y: 24, scale: 0.97 }}
-            animate={{ opacity: 1, y: 0, scale: 1 }}
-            transition={{ duration: 0.65, delay: 0.3, ease: EASE }}
-            className="relative"
-          >
-            {/* Floating decorative cards */}
-            <div className="card-lift absolute -top-6 -left-4 md:-left-10 glass-card rounded-xl shadow-lg px-4 py-3 animate-float hidden sm:flex items-center gap-2.5 z-10">
-              <div className="h-9 w-9 rounded-lg bg-primary/10 flex items-center justify-center">
-                <FileCheck className="h-4.5 w-4.5 text-primary" />
-              </div>
-              <div>
-                <p className="text-xs font-bold leading-none">NIB Terbit</p>
-                <p className="text-[10px] text-muted-foreground mt-1">Hari ini • 12:40 WIB</p>
-              </div>
-              <CheckCircle2 className="h-4 w-4 text-primary" />
-            </div>
-
-            <div className="card-lift absolute -bottom-5 -right-2 md:-right-6 glass-card rounded-xl shadow-lg px-4 py-3 animate-float-delayed hidden sm:flex items-center gap-2.5 z-10">
-              <div className="h-9 w-9 rounded-lg bg-gold/15 flex items-center justify-center">
-                <Leaf className="h-4.5 w-4.5 text-amber-600" />
-              </div>
-              <div>
-                <p className="text-xs font-bold leading-none">Sertifikat Halal</p>
-                <p className="text-[10px] text-muted-foreground mt-1">Kuliner • Surabaya</p>
-              </div>
-              <CheckCircle2 className="h-4 w-4 text-amber-600" />
-            </div>
-
-            <div className="card-lift relative glass-card rounded-2xl shadow-xl shadow-primary/5 p-6 md:p-8">
+          {/* KANAN — Form konsultasi kaca-gelap (id jangkar #konsultasi) */}
+          <div id="konsultasi" className="animate-fade-up reveal-3 relative scroll-mt-28">
+            <div className="glass-dark rounded-2xl shadow-2xl shadow-emerald-950/50 p-6 md:p-8">
               {done ? (
                 <div className="text-center py-10">
-                  <motion.div
-                    initial={{ scale: 0 }}
-                    animate={{ scale: 1 }}
-                    transition={{ type: "spring", stiffness: 200 }}
-                    className="mx-auto h-16 w-16 rounded-full bg-primary/10 flex items-center justify-center mb-5"
-                  >
-                    <CheckCircle2 className="h-9 w-9 text-primary" />
-                  </motion.div>
-                  <h3 className="text-xl font-bold">{t("successTitle")}</h3>
-                  <p className="mt-3 text-sm text-muted-foreground leading-relaxed max-w-sm mx-auto">
+                  <div className="mx-auto h-16 w-16 rounded-full bg-gold/15 flex items-center justify-center mb-5">
+                    <CheckCircle2 className="h-9 w-9 text-gold" />
+                  </div>
+                  <h3 className="font-display text-2xl text-emerald-50">{t("successTitle")}</h3>
+                  <p className="mt-3 text-sm text-emerald-100/70 leading-relaxed max-w-sm mx-auto">
                     {t("successBody").replace("{name}", form.name)}
                   </p>
                   <Button
                     variant="outline"
-                    className="mt-6 rounded-full"
+                    className="mt-6 rounded-full border-emerald-50/30 text-emerald-50 hover:bg-emerald-50/10 hover:text-emerald-50"
                     onClick={() => {
                       setDone(false);
-                      setForm({ name: "", whatsapp: "", businessType: "", businessDesc: "", package: "Belum tahu" });
+                      setForm(EMPTY_FORM);
                     }}
                   >
                     {t("btnAnother")}
@@ -265,23 +230,23 @@ export function Hero() {
                 </div>
               ) : (
                 <>
-                  <div className="flex items-center justify-between">
+                  <div className="flex items-start justify-between gap-4">
                     <div>
-                      <h2 className="text-lg font-bold">{t("formTitle")}</h2>
-                      <p className="text-sm text-muted-foreground mt-1">
+                      <h2 className="font-display text-2xl font-medium text-emerald-50">{t("formTitle")}</h2>
+                      <p className="text-sm text-emerald-100/60 mt-1">
                         {t("formSubtitle")}
                       </p>
                     </div>
-                    <div className="hidden sm:block text-right shrink-0">
-                      <p className="text-2xl font-extrabold text-primary">{t("labelFree")}</p>
-                      <p className="text-[10px] text-muted-foreground line-through">Rp 650rb</p>
+                    <div className="text-right shrink-0">
+                      <p className="font-display text-2xl text-gold">{t("labelFree")}</p>
+                      <p className="text-[10px] text-emerald-100/40 line-through">Rp 650rb</p>
                     </div>
                   </div>
 
                   <form onSubmit={handleSubmit} className="mt-6 space-y-4">
                     <div className="grid sm:grid-cols-2 gap-4">
                       <div className="space-y-1.5">
-                        <Label htmlFor="hero-name">{t("labelName")}</Label>
+                        <Label htmlFor="hero-name" className="text-emerald-100/80">{t("labelName")}</Label>
                         <Input
                           id="hero-name"
                           placeholder="cth: Budi Santoso"
@@ -289,11 +254,11 @@ export function Hero() {
                           onChange={(e) => setForm({ ...form, name: e.target.value })}
                           required
                           minLength={2}
-                          className="h-11"
+                          className="h-11 border-emerald-50/20 bg-emerald-950/40 text-emerald-50 placeholder:text-emerald-100/35 focus-visible:ring-gold focus-visible:border-gold/50"
                         />
                       </div>
                       <div className="space-y-1.5">
-                        <Label htmlFor="hero-wa">{t("labelWa")}</Label>
+                        <Label htmlFor="hero-wa" className="text-emerald-100/80">{t("labelWa")}</Label>
                         <Input
                           id="hero-wa"
                           type="tel"
@@ -302,21 +267,24 @@ export function Hero() {
                           value={form.whatsapp}
                           onChange={(e) => setForm({ ...form, whatsapp: e.target.value })}
                           required
-                          className="h-11"
+                          className="h-11 border-emerald-50/20 bg-emerald-950/40 text-emerald-50 placeholder:text-emerald-100/35 focus-visible:ring-gold focus-visible:border-gold/50"
                         />
                       </div>
                     </div>
 
                     <div className="grid sm:grid-cols-2 gap-4">
                       <div className="space-y-1.5">
-                        <Label htmlFor="hero-sector">{t("labelSector")}</Label>
+                        <Label htmlFor="hero-sector" className="text-emerald-100/80">{t("labelSector")}</Label>
                         <Select value={form.businessType} onValueChange={(v) => setForm({ ...form, businessType: v })}>
-                          <SelectTrigger id="hero-sector" className="h-11">
+                          <SelectTrigger
+                            id="hero-sector"
+                            className="h-11 border-emerald-50/20 bg-emerald-950/40 text-emerald-50 focus-visible:ring-gold focus-visible:border-gold/50 data-[placeholder]:text-emerald-100/35"
+                          >
                             <SelectValue placeholder={t("phSector")} />
                           </SelectTrigger>
-                          <SelectContent>
+                          <SelectContent className="bg-[oklch(0.235_0.024_168)] border-emerald-50/15 text-emerald-50">
                             {SECTORS.map((s) => (
-                              <SelectItem key={s} value={s}>
+                              <SelectItem key={s} value={s} className="focus:bg-gold/20 focus:text-emerald-50">
                                 {s}
                               </SelectItem>
                             ))}
@@ -324,14 +292,17 @@ export function Hero() {
                         </Select>
                       </div>
                       <div className="space-y-1.5">
-                        <Label htmlFor="hero-package">{t("labelNeed")}</Label>
+                        <Label htmlFor="hero-package" className="text-emerald-100/80">{t("labelNeed")}</Label>
                         <Select value={form.package} onValueChange={(v) => setForm({ ...form, package: v })}>
-                          <SelectTrigger id="hero-package" className="h-11">
+                          <SelectTrigger
+                            id="hero-package"
+                            className="h-11 border-emerald-50/20 bg-emerald-950/40 text-emerald-50 focus-visible:ring-gold focus-visible:border-gold/50"
+                          >
                             <SelectValue placeholder={t("phNeed")} />
                           </SelectTrigger>
-                          <SelectContent>
+                          <SelectContent className="bg-[oklch(0.235_0.024_168)] border-emerald-50/15 text-emerald-50">
                             {PACKAGES.map((p) => (
-                              <SelectItem key={p} value={p}>
+                              <SelectItem key={p} value={p} className="focus:bg-gold/20 focus:text-emerald-50">
                                 {p === "Belum tahu" ? t("pkgNotSure") : t("pkgPrefix").replace("{p}", p)}
                               </SelectItem>
                             ))}
@@ -341,21 +312,21 @@ export function Hero() {
                     </div>
 
                     <div className="space-y-1.5">
-                      <Label htmlFor="hero-desc">{t("labelDesc")}</Label>
+                      <Label htmlFor="hero-desc" className="text-emerald-100/80">{t("labelDesc")}</Label>
                       <Textarea
                         id="hero-desc"
-                        placeholder="cth: Saya mau buka kafe di Bandung, sudah punya tempat, belum punya badan usaha..."
+                        placeholder="cth: Saya mau buka travel umroh di Bandung, sudah punya PT, belum punya izin Kemenag..."
                         rows={2}
                         value={form.businessDesc}
                         onChange={(e) => setForm({ ...form, businessDesc: e.target.value })}
-                        className="resize-none"
+                        className="resize-none border-emerald-50/20 bg-emerald-950/40 text-emerald-50 placeholder:text-emerald-100/35 focus-visible:ring-gold focus-visible:border-gold/50"
                       />
                     </div>
 
                     <Button
                       type="submit"
                       disabled={submitting}
-                      className="btn-shine w-full h-12 rounded-xl font-bold text-base shadow-lg shadow-primary/25 hover:shadow-primary/40 transition-shadow"
+                      className="btn-shine w-full h-12 rounded-lg font-bold text-base bg-gold text-gold-foreground shadow-lg shadow-gold/25 hover:bg-gold hover:brightness-110 transition-all"
                     >
                       {submitting ? (
                         <>
@@ -370,15 +341,15 @@ export function Hero() {
                       )}
                     </Button>
 
-                    <p className="text-[11px] text-center text-muted-foreground flex items-center justify-center gap-1.5">
-                      <ShieldCheck className="h-3.5 w-3.5 text-primary" />
+                    <p className="text-[11px] text-center text-emerald-100/55 flex items-center justify-center gap-1.5">
+                      <ShieldCheck className="h-3.5 w-3.5 text-gold" />
                       {t("privacyNote")}
                     </p>
                   </form>
                 </>
               )}
             </div>
-          </motion.div>
+          </div>
         </div>
       </div>
     </section>

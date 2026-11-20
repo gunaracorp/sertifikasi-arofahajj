@@ -69,7 +69,7 @@ export function PartnerProfitSimulator() {
   return (
     <div className="rounded-2xl border bg-card p-6 sm:p-8">
       <div className="flex items-center gap-3">
-        <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-amber-50 text-amber-800" aria-hidden>
+        <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-emerald-50 text-emerald-900" aria-hidden>
           <Calculator className="h-5 w-5" />
         </span>
         <div>
@@ -130,7 +130,7 @@ export function PartnerProfitSimulator() {
         {/* Target deal */}
         <div>
           <label htmlFor="sim-deals" className="text-sm font-semibold">
-            Target deal terlayani/bulan: <span className="text-amber-800">{deals}</span>
+            Target deal terlayani/bulan: <span className="text-emerald-900">{deals}</span>
           </label>
           <Slider
             id="sim-deals"
@@ -149,20 +149,20 @@ export function PartnerProfitSimulator() {
       </div>
 
       {/* Hasil */}
-      <div className="mt-6 grid gap-4 rounded-xl bg-amber-50/60 p-5 sm:grid-cols-3" aria-live="polite">
+      <div className="mt-6 grid gap-4 rounded-xl bg-emerald-50/60 p-5 sm:grid-cols-3" aria-live="polite">
         <div>
-          <p className="text-xs font-semibold uppercase tracking-wide text-amber-800/80">Estimasi komisi / bulan</p>
-          <p className="mt-1 text-2xl font-extrabold text-amber-900">{fmt(result.monthly)}</p>
+          <p className="text-xs font-semibold uppercase tracking-wide text-emerald-900/80">Estimasi komisi / bulan</p>
+          <p className="mt-1 text-2xl font-extrabold text-emerald-950">{fmt(result.monthly)}</p>
         </div>
         <div>
-          <p className="text-xs font-semibold uppercase tracking-wide text-amber-800/80">Estimasi komisi / tahun</p>
-          <p className="mt-1 text-2xl font-extrabold text-amber-900">{fmt(result.yearly)}</p>
+          <p className="text-xs font-semibold uppercase tracking-wide text-emerald-900/80">Estimasi komisi / tahun</p>
+          <p className="mt-1 text-2xl font-extrabold text-emerald-950">{fmt(result.yearly)}</p>
         </div>
         <div>
-          <p className="text-xs font-semibold uppercase tracking-wide text-amber-800/80">
+          <p className="text-xs font-semibold uppercase tracking-wide text-emerald-900/80">
             {result.payback > 0 ? "Estimasi balik modal" : "Investasi bergabung"}
           </p>
-          <p className="mt-1 flex items-center gap-1.5 text-2xl font-extrabold text-amber-900">
+          <p className="mt-1 flex items-center gap-1.5 text-2xl font-extrabold text-emerald-950">
             <TrendingUp className="h-5 w-5 shrink-0" aria-hidden />
             {result.payback > 0 ? `${result.payback} bulan` : "GRATIS"}
           </p>

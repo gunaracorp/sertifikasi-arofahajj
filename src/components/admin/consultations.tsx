@@ -20,9 +20,9 @@ interface ConsultRow {
   method: string; status: string; createdAt: string;
 }
 const STATUSES = [
-  { value: "PENDING", label: "Menunggu", cls: "bg-amber-500/15 text-amber-300 border-amber-500/30" },
+  { value: "PENDING", label: "Menunggu", cls: "bg-emerald-600/15 text-emerald-300 border-emerald-600/30" },
   { value: "CONFIRMED", label: "Dikonfirmasi", cls: "bg-teal-500/15 text-teal-300 border-teal-500/30" },
-  { value: "DONE", label: "Selesai", cls: "bg-amber-500/15 text-amber-300 border-amber-500/30" },
+  { value: "DONE", label: "Selesai", cls: "bg-emerald-600/15 text-emerald-300 border-emerald-600/30" },
   { value: "CANCELLED", label: "Batal", cls: "bg-rose-500/15 text-rose-300 border-rose-500/30" },
 ];
 
@@ -92,7 +92,7 @@ export function ConsultationsTab() {
                           <a
                             href={waLink(r.whatsapp, `Halo ${r.name}, konfirmasi jadwal konsultasi "${r.topic}" dari Arofahajj Universe — apakah ${r.preferredDate ?? "jadwal yang dipilih"} ${r.preferredTime ?? ""} masih cocok?`)}
                             target="_blank" rel="noopener noreferrer"
-                            className="inline-flex h-8 w-8 items-center justify-center rounded-md text-amber-400 hover:bg-amber-500/10"
+                            className="inline-flex h-8 w-8 items-center justify-center rounded-md text-amber-400 hover:bg-emerald-600/10"
                             aria-label={`Konfirmasi WA ke ${r.name}`}
                             title="Konfirmasi via WhatsApp"
                           >
@@ -109,7 +109,7 @@ export function ConsultationsTab() {
         </CardContent>
       </Card>
       {pending > 0 && (
-        <p className="rounded-xl border border-amber-500/25 bg-amber-500/10 px-4 py-3 text-sm text-amber-300">
+        <p className="rounded-xl border border-emerald-600/25 bg-emerald-600/10 px-4 py-3 text-sm text-emerald-300">
           ⏳ {pending} permintaan menunggu konfirmasi — jangan biarkan calon klien menunggu lebih dari 1 jam.
         </p>
       )}

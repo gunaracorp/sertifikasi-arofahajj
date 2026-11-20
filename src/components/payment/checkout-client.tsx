@@ -288,7 +288,7 @@ export function CheckoutClient({ initialPaket }: { initialPaket: string }) {
                   <div className="min-w-0">
                     <div className="flex items-center gap-2 flex-wrap">
                       <span className="font-bold text-sm">{catalogSvc.name}</span>
-                      <Badge className="rounded-full bg-amber-700 text-white text-[9px] font-bold px-2 py-0">
+                      <Badge className="rounded-full bg-emerald-800 text-white text-[9px] font-bold px-2 py-0">
                         PILIHAN ANDA
                       </Badge>
                     </div>

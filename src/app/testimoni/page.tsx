@@ -247,9 +247,9 @@ export default function TestimoniPage() {
 
       {/* CTA */}
       <section className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 pb-16">
-        <div className="rounded-2xl bg-[oklch(0.23_0.03_78)] p-8 md:p-10 text-amber-50 text-center">
+        <div className="rounded-2xl bg-[oklch(0.23_0.03_78)] p-8 md:p-10 text-emerald-50 text-center">
           <h2 className="text-2xl font-bold">Bergabung dengan 1.247 Klien yang Sudah Puas</h2>
-          <p className="mt-3 text-sm md:text-base text-amber-100/85 max-w-2xl mx-auto leading-relaxed">
+          <p className="mt-3 text-sm md:text-base text-emerald-100/85 max-w-2xl mx-auto leading-relaxed">
             Konsultasi gratis, penawaran transparan sebelum mulai, dan garansi uang kembali 100%.
             Ceritakan kebutuhan Anda — pengalaman seperti di atas bisa jadi milik Anda juga.
           </p>

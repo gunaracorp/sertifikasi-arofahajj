@@ -16,8 +16,8 @@ function Avatar({ initials, featured }: { initials: string; featured?: boolean }
     <div
       className={`flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl font-extrabold tracking-tight shadow-lg ${
         featured
-          ? "h-16 w-16 bg-gradient-to-br from-amber-500 to-amber-800 text-amber-300 text-xl ring-2 ring-amber-400/40"
-          : "bg-gradient-to-br from-amber-500 to-amber-800 text-white"
+          ? "h-16 w-16 bg-gradient-to-br from-emerald-600 to-emerald-900 text-emerald-300 text-xl ring-2 ring-amber-400/40"
+          : "bg-gradient-to-br from-emerald-600 to-emerald-900 text-white"
       }`}
       aria-hidden="true"
     >
@@ -42,7 +42,7 @@ function MemberCard({ member, featured = false, index = 0 }: { member: TeamMembe
       }`}
     >
       {featured && (
-        <span className="absolute right-4 top-4 inline-flex items-center gap-1 rounded-full bg-amber-400/15 px-3 py-1 text-[11px] font-bold uppercase tracking-wider text-amber-500">
+        <span className="absolute right-4 top-4 inline-flex items-center gap-1 rounded-full bg-amber-400/15 px-3 py-1 text-[11px] font-bold uppercase tracking-wider text-emerald-600">
           <Crown className="h-3.5 w-3.5" aria-hidden="true" />
           {lang === "en" ? "Founder" : "Pendiri"}
         </span>
@@ -53,11 +53,11 @@ function MemberCard({ member, featured = false, index = 0 }: { member: TeamMembe
           <h3 className={`font-bold leading-snug ${featured ? "text-lg" : "text-base"}`}>
             {member.name}
           </h3>
-          <p className="mt-0.5 text-sm font-semibold text-amber-700 dark:text-amber-400">
+          <p className="mt-0.5 text-sm font-semibold text-emerald-800 dark:text-amber-400">
             {L(member.title)}
           </p>
           <p className="mt-1 flex items-center gap-1.5 text-xs text-muted-foreground">
-            <ShieldCheck className="h-3.5 w-3.5 text-amber-500" aria-hidden="true" />
+            <ShieldCheck className="h-3.5 w-3.5 text-emerald-600" aria-hidden="true" />
             {member.credentials}
           </p>
         </div>
@@ -69,7 +69,7 @@ function MemberCard({ member, featured = false, index = 0 }: { member: TeamMembe
         {focus.map((f) => (
           <li
             key={f}
-            className="inline-flex items-center gap-1 rounded-full bg-amber-500/10 px-2.5 py-1 text-xs font-medium text-amber-800 dark:text-amber-300"
+            className="inline-flex items-center gap-1 rounded-full bg-emerald-600/10 px-2.5 py-1 text-xs font-medium text-emerald-900 dark:text-emerald-300"
           >
             <BadgeCheck className="h-3.5 w-3.5" aria-hidden="true" />
             {f}
@@ -87,7 +87,7 @@ export function TeamSection() {
     <section id="tim" className="py-20 md:py-28 scroll-mt-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-2xl text-center">
-          <p className="text-xs font-bold uppercase tracking-[0.3em] text-amber-700 dark:text-amber-400">
+          <p className="text-xs font-bold uppercase tracking-[0.3em] text-emerald-800 dark:text-amber-400">
             {lang === "en" ? "Our Consultants" : "Tim Kami"}
           </p>
           <h2 className="mt-3 text-3xl md:text-4xl font-extrabold tracking-tight">

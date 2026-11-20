@@ -107,7 +107,7 @@ export function Testimonials() {
                   </div>
                   <div className="mt-4 pt-4 border-t flex items-center gap-3">
                     <Avatar className="h-10 w-10 border-2 border-primary/20">
-                      <AvatarFallback className="bg-gradient-to-br from-amber-500 to-amber-800 text-white text-xs font-bold">
+                      <AvatarFallback className="bg-gradient-to-br from-emerald-600 to-emerald-900 text-white text-xs font-bold">
                         {initialsOf(t.name)}
                       </AvatarFallback>
                     </Avatar>

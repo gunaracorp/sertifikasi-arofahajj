@@ -98,10 +98,10 @@ export function ActivityFeed() {
         visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2"
       } motion-reduce:transition-none`}
     >
-      <div className="flex items-center gap-3 rounded-full border border-amber-700/30 bg-background/95 py-2 pl-3 pr-4 shadow-lg backdrop-blur supports-[backdrop-filter]:bg-background/80">
+      <div className="flex items-center gap-3 rounded-full border border-emerald-800/30 bg-background/95 py-2 pl-3 pr-4 shadow-lg backdrop-blur supports-[backdrop-filter]:bg-background/80">
         <span className="relative flex h-2.5 w-2.5 shrink-0">
-          <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-amber-500 opacity-60 motion-reduce:animate-none" />
-          <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-amber-500" />
+          <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-600 opacity-60 motion-reduce:animate-none" />
+          <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-emerald-600" />
         </span>
         <p className="min-w-0 text-xs sm:text-sm text-foreground/90">
           <span className="font-bold">{a.initial}</span>{" "}

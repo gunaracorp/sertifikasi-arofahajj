@@ -82,7 +82,7 @@ export function FollowUpPanel() {
   const ch = data?.channels;
 
   return (
-    <Card className="border-amber-950/60 bg-amber-950/20 shadow-none">
+    <Card className="border-emerald-950/60 bg-emerald-950/20 shadow-none">
       <CardContent className="space-y-3 p-4">
         <div className="flex flex-wrap items-center justify-between gap-2">
           <div className="flex items-center gap-2">
@@ -91,7 +91,7 @@ export function FollowUpPanel() {
               <h3 className="text-sm font-semibold text-stone-100">Follow-up 24 Jam — sequence otomatis 3 langkah</h3>
               <p className="text-xs text-stone-500">
                 {data
-                  ? <>{data.stats.due} lead jatuh tempo · <span className="font-semibold text-amber-300">{compactRp(data.stats.pipelineValue)}</span> nilai mengendap · {data.stats.completed} selesai sequence · {data.stats.activeNew} lead aktif</>
+                  ? <>{data.stats.due} lead jatuh tempo · <span className="font-semibold text-emerald-300">{compactRp(data.stats.pipelineValue)}</span> nilai mengendap · {data.stats.completed} selesai sequence · {data.stats.activeNew} lead aktif</>
                   : "Memuat antrean…"}
               </p>
             </div>
@@ -105,7 +105,7 @@ export function FollowUpPanel() {
               {ch?.leadAutoSend ? " · auto-kirim ke lead ON" : ""}
             </span>
             <Button onClick={runSweep} disabled={running} size="sm"
-              className="bg-amber-500 font-semibold text-stone-950 hover:bg-amber-400"
+              className="bg-emerald-600 font-semibold text-stone-950 hover:bg-amber-400"
               aria-label="Jalankan sweep follow-up sekarang">
               <PlayCircle aria-hidden className="mr-1.5 h-4 w-4" />
               {running ? "Menjalankan…" : "Jalankan Sweep"}
@@ -143,11 +143,11 @@ export function FollowUpPanel() {
                       {c.package || "—"}
                       <p className="text-xs text-stone-500">{c.businessType}</p>
                     </TableCell>
-                    <TableCell className="whitespace-nowrap font-semibold text-amber-300">
+                    <TableCell className="whitespace-nowrap font-semibold text-emerald-300">
                       {c.estimatedValue > 0 ? compactRp(c.estimatedValue) : "—"}
                     </TableCell>
                     <TableCell className="whitespace-nowrap text-xs text-stone-400">
-                      {c.ageHours} jam · step <span className="font-semibold text-amber-300">{c.nextStep}/3</span>
+                      {c.ageHours} jam · step <span className="font-semibold text-emerald-300">{c.nextStep}/3</span>
                       <p className="text-stone-600">{relativeTime(c.createdAt)} · kejar {STEP_LABEL[c.nextStep]}</p>
                     </TableCell>
                     <TableCell>
@@ -156,7 +156,7 @@ export function FollowUpPanel() {
                           href={c.prefill}
                           target="_blank" rel="noopener noreferrer"
                           onClick={() => { toast({ title: "WhatsApp terbuka", description: `Pesan step ${c.nextStep} sudah terisi — tinggal tekan kirim.` }); }}
-                          className="inline-flex h-8 items-center rounded-md bg-amber-500/10 px-2.5 text-xs font-semibold text-amber-300 transition hover:bg-amber-500/20"
+                          className="inline-flex h-8 items-center rounded-md bg-emerald-600/10 px-2.5 text-xs font-semibold text-emerald-300 transition hover:bg-emerald-600/20"
                           aria-label={`Chat WhatsApp ${c.name} — pesan step ${c.nextStep} siap kirim`}
                           title="Pesan step sudah ter-dispatch, tinggal kirim"
                         >

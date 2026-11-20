@@ -299,18 +299,24 @@ export function Header() {
     <header
       className={cn(
         "fixed top-0 inset-x-0 z-50 transition-all duration-300",
-        scrolled ? "bg-background/90 backdrop-blur-md border-b shadow-sm" : "bg-transparent"
+        /* Redesign 2026: hero kini band zamrud gelap — header selalu
+           berlatar kertas blur (bukan transparan) agar terbaca di
+           atas hero gelap maupun konten terang, dengan garis emas
+           tipis sebagai tanda tangan identitas baru. */
+        "bg-background/92 backdrop-blur-md border-b",
+        scrolled ? "shadow-md shadow-primary/5" : "shadow-none"
       )}
     >
+      <div aria-hidden="true" className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-gold/45 to-transparent" />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 md:h-[72px]">
           {/* Logo */}
           <a href="/#beranda" className="flex items-center gap-2.5 shrink-0" aria-label="Arofahajj Universe - Beranda">
             <img src="/logo-icon.png" alt="Logo Arofahajj Universe" className="h-9 w-9" />
             <div className="leading-tight">
-              <span className="font-bold text-[15px] md:text-base tracking-tight text-foreground">
-                Arofa<span className="text-primary">hajj</span>
-                <span className="text-gold">Universe</span>
+              <span className="font-display font-semibold text-lg md:text-xl tracking-tight text-foreground">
+                Arofa<em className="text-primary">hajj</em>
+                <span className="text-gold italic"> Universe</span>
               </span>
               <p className="text-[10px] text-muted-foreground font-medium hidden sm:block">
                 {t("headerTagline")}

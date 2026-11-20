@@ -44,12 +44,12 @@ function TierCard({ tier, annual }: { tier: KepatuhanTier; annual: boolean }) {
     <div
       className={`relative flex flex-col rounded-2xl border p-6 ${
         tier.best
-          ? "border-amber-400 bg-amber-50/50 shadow-lg shadow-amber-100 ring-1 ring-amber-300"
+          ? "border-amber-400 bg-emerald-50/50 shadow-lg shadow-emerald-100 ring-1 ring-emerald-300"
           : "border-border bg-card"
       }`}
     >
       {tier.best && (
-        <Badge className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full bg-amber-700 px-4 py-1 text-[11px] font-bold text-white">
+        <Badge className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full bg-emerald-800 px-4 py-1 text-[11px] font-bold text-white">
           <Sparkles className="mr-1 h-3 w-3" /> PALING LARIS
         </Badge>
       )}
@@ -59,11 +59,11 @@ function TierCard({ tier, annual }: { tier: KepatuhanTier; annual: boolean }) {
         <p className="text-[11px] font-semibold uppercase tracking-wide text-muted-foreground">
           {annual ? "Per tahun (12 bulan)" : "Per bulan"}
         </p>
-        <p className="text-3xl font-extrabold text-amber-800">{fmtRupiah(price)}</p>
+        <p className="text-3xl font-extrabold text-emerald-900">{fmtRupiah(price)}</p>
         {strike > price && (
           <p className="mt-0.5 text-xs text-muted-foreground">
             <span className="line-through">{fmtRupiah(strike)}</span>{" "}
-            <span className="font-bold text-amber-800">
+            <span className="font-bold text-emerald-900">
               hemat {fmtRupiah(strike - price)}
             </span>
           </p>
@@ -73,7 +73,7 @@ function TierCard({ tier, annual }: { tier: KepatuhanTier; annual: boolean }) {
       <ul className="mt-5 flex-1 space-y-2.5">
         {tier.highlight.map((f) => (
           <li key={f} className="flex items-start gap-2 text-sm leading-relaxed">
-            <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-amber-700" aria-hidden />
+            <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-emerald-800" aria-hidden />
             <span>{f}</span>
           </li>
         ))}
@@ -81,7 +81,7 @@ function TierCard({ tier, annual }: { tier: KepatuhanTier; annual: boolean }) {
       <div className="mt-6 space-y-2">
         <Link href={`/checkout?paket=${annual ? tier.skuTahunan : tier.sku}`}>
           <Button
-            className={`h-11 w-full rounded-xl font-bold ${tier.best ? "bg-amber-700 hover:bg-amber-800" : ""}`}
+            className={`h-11 w-full rounded-xl font-bold ${tier.best ? "bg-emerald-800 hover:bg-emerald-900" : ""}`}
           >
             {annual ? "Langganan Tahunan" : "Langganan Bulanan"} — {fmtJt(price)}
             <ArrowRight className="ml-1 h-4 w-4" />
@@ -129,7 +129,7 @@ export function KepatuhanProClient() {
               aria-pressed={annual}
               className={`rounded-full px-5 py-2 text-sm font-bold transition ${annual ? "bg-primary text-primary-foreground shadow" : "text-muted-foreground"}`}
             >
-              Tahunan <span className="ml-1 rounded-full bg-amber-100 px-1.5 py-0.5 text-[10px] font-extrabold text-amber-800">2 BULAN GRATIS</span>
+              Tahunan <span className="ml-1 rounded-full bg-emerald-100 px-1.5 py-0.5 text-[10px] font-extrabold text-emerald-900">2 BULAN GRATIS</span>
             </button>
           </div>
         </div>
@@ -144,34 +144,34 @@ export function KepatuhanProClient() {
       </section>
 
       {/* RISIKO */}
-      <section aria-labelledby="risiko" className="border-y bg-amber-50/40">
+      <section aria-labelledby="risiko" className="border-y bg-emerald-50/40">
         <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6">
           <div className="mx-auto max-w-2xl text-center">
-            <Badge variant="outline" className="rounded-full border-amber-300 bg-amber-100 px-4 py-1 text-[11px] font-bold text-amber-800">
+            <Badge variant="outline" className="rounded-full border-emerald-300 bg-emerald-100 px-4 py-1 text-[11px] font-bold text-emerald-900">
               <FileWarning className="mr-1.5 h-3 w-3" /> BIAYA DARI TIDAK MELAKUKAN APA-APA
             </Badge>
             <h2 id="risiko" className="mt-4 text-3xl font-extrabold tracking-tight sm:text-4xl">
-              Kepatuhan yang ditunda itu <span className="text-amber-700">paling mahal</span>
+              Kepatuhan yang ditunda itu <span className="text-emerald-800">paling mahal</span>
             </h2>
           </div>
           <div className="mt-10 grid gap-5 sm:grid-cols-2">
             {KEPATUHAN_RISKS.map((r, i) => (
-              <div key={r.title} className="rounded-2xl border border-amber-200 bg-card p-6">
+              <div key={r.title} className="rounded-2xl border border-emerald-200 bg-card p-6">
                 <div className="flex items-center gap-3">
-                  <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-amber-100 font-extrabold text-amber-800" aria-hidden>
+                  <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-emerald-100 font-extrabold text-emerald-900" aria-hidden>
                     {i + 1}
                   </span>
                   <h3 className="font-bold">{r.title}</h3>
                 </div>
                 <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{r.detail}</p>
-                <p className="mt-3 rounded-lg bg-amber-50 px-3 py-2 text-xs font-bold text-amber-800">
+                <p className="mt-3 rounded-lg bg-emerald-50 px-3 py-2 text-xs font-bold text-emerald-900">
                   <X className="mr-1 inline h-3.5 w-3.5" aria-hidden />{r.cost}
                 </p>
               </div>
             ))}
           </div>
-          <div className="mt-8 rounded-2xl border border-amber-200 bg-amber-50 p-6 text-center">
-            <p className="text-sm font-bold text-amber-950">
+          <div className="mt-8 rounded-2xl border border-emerald-200 bg-emerald-50 p-6 text-center">
+            <p className="text-sm font-bold text-emerald-950">
               <ShieldCheck className="mr-1.5 inline h-5 w-5" aria-hidden />
               KepatuhanPRO menutup keempat risiko itu — mulai {fmtRupiah(650_000)}/bulan.
             </p>
@@ -192,7 +192,7 @@ export function KepatuhanProClient() {
             { icon: TrendingUp, t: "4. Naik Kelas Tenang", d: "Fokus ekspansi usaha — dokumentasi selalu siap saat dicari bank/investor." },
           ].map(({ icon: Icon, t, d }) => (
             <li key={t} className="rounded-2xl border bg-card p-6">
-              <Icon className="h-7 w-7 text-amber-700" aria-hidden />
+              <Icon className="h-7 w-7 text-emerald-800" aria-hidden />
               <h3 className="mt-3 font-bold">{t}</h3>
               <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{d}</p>
             </li>
@@ -215,7 +215,7 @@ export function KepatuhanProClient() {
             ))}
           </Accordion>
           <div className="mt-10 rounded-2xl border bg-card p-6 text-center">
-            <Gavel className="mx-auto h-8 w-8 text-amber-700" aria-hidden />
+            <Gavel className="mx-auto h-8 w-8 text-emerald-800" aria-hidden />
             <p className="mt-3 text-sm text-muted-foreground">
               Sudah kena denda / NIB dibekukan? Kami punya program <strong className="text-foreground">Recovery & Reaktivasi</strong> khusus.
             </p>
@@ -223,7 +223,7 @@ export function KepatuhanProClient() {
               href={waLink(`Halo Arofahajj Universe, izin/NIB usaha saya bermasalah (denda/tertunggak). Mohon bantuan recovery.`)}
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-4 inline-flex min-h-11 items-center gap-2 rounded-xl bg-amber-700 px-6 py-3 text-sm font-bold text-white transition hover:bg-amber-800"
+              className="mt-4 inline-flex min-h-11 items-center gap-2 rounded-xl bg-emerald-800 px-6 py-3 text-sm font-bold text-white transition hover:bg-emerald-900"
             >
               <MessageCircle className="h-4 w-4" /> Konsultasi Recovery Sekarang
             </a>

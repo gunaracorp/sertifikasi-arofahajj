@@ -99,8 +99,8 @@ export default function TentangKamiPage() {
 
           <div className="mt-5 grid gap-4 md:grid-cols-3">
             <div className="animate-fade-up reveal-1 rounded-2xl border border-border/70 bg-card p-5">
-              <span className="flex h-11 w-11 items-center justify-center rounded-full border border-amber-500/30 bg-amber-500/10">
-                <Building2 className="h-5 w-5 text-amber-600 dark:text-amber-400" aria-hidden="true" />
+              <span className="flex h-11 w-11 items-center justify-center rounded-full border border-emerald-600/30 bg-emerald-600/10">
+                <Building2 className="h-5 w-5 text-emerald-700 dark:text-amber-400" aria-hidden="true" />
               </span>
               <h3 className="mt-3 text-base font-extrabold tracking-tight">
                 Kantor Pusat Tasikmalaya
@@ -113,8 +113,8 @@ export default function TentangKamiPage() {
             </div>
 
             <div className="animate-fade-up reveal-2 rounded-2xl border border-border/70 bg-card p-5">
-              <span className="flex h-11 w-11 items-center justify-center rounded-full border border-amber-500/30 bg-amber-500/10">
-                <MapPin className="h-5 w-5 text-amber-600 dark:text-amber-400" aria-hidden="true" />
+              <span className="flex h-11 w-11 items-center justify-center rounded-full border border-emerald-600/30 bg-emerald-600/10">
+                <MapPin className="h-5 w-5 text-emerald-700 dark:text-amber-400" aria-hidden="true" />
               </span>
               <h3 className="mt-3 text-base font-extrabold tracking-tight">
                 Jangkauan Bandung—Jakarta
@@ -127,8 +127,8 @@ export default function TentangKamiPage() {
             </div>
 
             <div className="animate-fade-up reveal-3 rounded-2xl border border-border/70 bg-card p-5">
-              <span className="flex h-11 w-11 items-center justify-center rounded-full border border-amber-500/30 bg-amber-500/10">
-                <Globe2 className="h-5 w-5 text-amber-600 dark:text-amber-400" aria-hidden="true" />
+              <span className="flex h-11 w-11 items-center justify-center rounded-full border border-emerald-600/30 bg-emerald-600/10">
+                <Globe2 className="h-5 w-5 text-emerald-700 dark:text-amber-400" aria-hidden="true" />
               </span>
               <h3 className="mt-3 text-base font-extrabold tracking-tight">
                 Online ke 38 Provinsi
@@ -212,7 +212,7 @@ export default function TentangKamiPage() {
               </li>
             ))}
           </ul>
-          <div className="mt-8 flex items-center gap-3 rounded-2xl bg-gradient-to-r from-primary to-amber-800 p-5 text-primary-foreground">
+          <div className="mt-8 flex items-center gap-3 rounded-2xl bg-gradient-to-r from-primary to-emerald-900 p-5 text-primary-foreground">
             <ShieldCheck className="h-5 w-5 shrink-0" aria-hidden />
             <p className="flex-1 text-sm font-semibold">
               Punya kasus perizinan yang macet atau rumit? Itu spesialisasi kami.

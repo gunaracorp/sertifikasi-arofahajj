@@ -89,7 +89,7 @@ export function KatalogV3Browser() {
               onChange={(e) => { setQ(e.target.value); setShown(BATCH); }}
               placeholder="Cari nama layanan atau kode item (PP3-PN-001)…"
               aria-label="Cari layanan katalog pro"
-              className="w-full rounded-lg border border-stone-300 bg-white py-2.5 pl-9 pr-3 text-sm focus:border-amber-500 focus:outline-none focus:ring-2 focus:ring-amber-500/20"
+              className="w-full rounded-lg border border-stone-300 bg-white py-2.5 pl-9 pr-3 text-sm focus:border-emerald-600 focus:outline-none focus:ring-2 focus:ring-emerald-600/20"
             />
           </div>
           <select
@@ -120,7 +120,7 @@ export function KatalogV3Browser() {
             type="button"
             onClick={() => { setCat("all"); setShown(BATCH); }}
             aria-pressed={cat === "all"}
-            className={`rounded-full px-3.5 py-1.5 text-xs font-bold transition ${cat === "all" ? "bg-amber-800 text-white" : "bg-stone-100 text-stone-700 hover:bg-stone-200"}`}
+            className={`rounded-full px-3.5 py-1.5 text-xs font-bold transition ${cat === "all" ? "bg-emerald-900 text-white" : "bg-stone-100 text-stone-700 hover:bg-stone-200"}`}
           >
             Semua (500)
           </button>
@@ -131,7 +131,7 @@ export function KatalogV3Browser() {
               onClick={() => { setCat(c.code); setShown(BATCH); }}
               aria-pressed={cat === c.code}
               title={c.desc}
-              className={`rounded-full px-3.5 py-1.5 text-xs font-bold transition ${cat === c.code ? "bg-amber-800 text-white" : "bg-stone-100 text-stone-700 hover:bg-stone-200"}`}
+              className={`rounded-full px-3.5 py-1.5 text-xs font-bold transition ${cat === c.code ? "bg-emerald-900 text-white" : "bg-stone-100 text-stone-700 hover:bg-stone-200"}`}
             >
               {c.name} ({c.count})
             </button>
@@ -152,14 +152,14 @@ export function KatalogV3Browser() {
       ) : (
         <div className="mt-5 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {visible.map((s) => (
-            <article key={s.code} className="flex flex-col rounded-2xl border border-stone-200 bg-white p-5 transition hover:border-amber-300 hover:shadow-sm">
+            <article key={s.code} className="flex flex-col rounded-2xl border border-stone-200 bg-white p-5 transition hover:border-emerald-300 hover:shadow-sm">
               <div className="flex items-center justify-between gap-2">
-                <span className="inline-flex items-center gap-1 text-xs font-bold text-amber-800">
+                <span className="inline-flex items-center gap-1 text-xs font-bold text-emerald-900">
                   <BadgeCheck className="h-3.5 w-3.5" aria-hidden />
                   {s.code}
                 </span>
                 {s.discountPct > 0 && (
-                  <span className="rounded bg-amber-50 px-2 py-0.5 text-[11px] font-bold text-amber-800">
+                  <span className="rounded bg-emerald-50 px-2 py-0.5 text-[11px] font-bold text-emerald-900">
                     -{s.discountPct}%
                   </span>
                 )}
@@ -174,11 +174,11 @@ export function KatalogV3Browser() {
                   {s.normalPrice > s.discountPrice && (
                     <p className="text-xs text-stone-400 line-through">{fmtIdr(s.normalPrice)}</p>
                   )}
-                  <p className="text-lg font-extrabold text-amber-800">{fmtIdr(s.discountPrice)}</p>
+                  <p className="text-lg font-extrabold text-emerald-900">{fmtIdr(s.discountPrice)}</p>
                 </div>
                 <Link
                   href={`/layanan/${s.slug}`}
-                  className="inline-flex min-h-9 items-center gap-1 rounded-lg bg-amber-800 px-3 py-1.5 text-xs font-bold text-white transition hover:bg-amber-900"
+                  className="inline-flex min-h-9 items-center gap-1 rounded-lg bg-emerald-900 px-3 py-1.5 text-xs font-bold text-white transition hover:bg-emerald-950"
                   aria-label={`Detail ${s.name}`}
                 >
                   Detail <ArrowRight className="h-3.5 w-3.5" aria-hidden />
@@ -195,7 +195,7 @@ export function KatalogV3Browser() {
           <button
             type="button"
             onClick={() => setShown((n) => n + BATCH)}
-            className="inline-flex min-h-11 items-center gap-2 rounded-xl border border-stone-300 bg-white px-6 py-3 text-sm font-bold text-stone-800 transition hover:border-amber-400 hover:text-amber-900"
+            className="inline-flex min-h-11 items-center gap-2 rounded-xl border border-stone-300 bg-white px-6 py-3 text-sm font-bold text-stone-800 transition hover:border-amber-400 hover:text-emerald-950"
           >
             Muat 24 lagi (sisa {filtered.length - shown})
           </button>
@@ -203,20 +203,20 @@ export function KatalogV3Browser() {
       )}
 
       {/* CTA bawah */}
-      <div className="mt-8 rounded-2xl bg-[oklch(0.23_0.03_78)] p-6 text-amber-50 sm:p-8">
+      <div className="mt-8 rounded-2xl bg-[oklch(0.23_0.03_78)] p-6 text-emerald-50 sm:p-8">
         <div className="flex flex-col items-start gap-4 sm:flex-row sm:items-center sm:justify-between">
           <div>
             <h3 className="flex items-center gap-2 text-lg font-bold text-white">
-              <ShieldCheck className="h-5 w-5 text-amber-300" aria-hidden />
+              <ShieldCheck className="h-5 w-5 text-emerald-300" aria-hidden />
               Total 1.500 layanan dalam 3 katalog — bingung mulai dari mana?
             </h3>
-            <p className="mt-1 text-sm text-amber-100/80">
+            <p className="mt-1 text-sm text-emerald-100/80">
               Konsultasi gratis 30 menit — kami petakan izin yang wajib untuk usaha Anda.
             </p>
           </div>
           <Link
             href="/konsultasi"
-            className="inline-flex min-h-11 shrink-0 items-center gap-2 rounded-xl bg-amber-400 px-5 py-3 text-sm font-bold text-amber-950 transition hover:bg-amber-300"
+            className="inline-flex min-h-11 shrink-0 items-center gap-2 rounded-xl bg-amber-400 px-5 py-3 text-sm font-bold text-emerald-950 transition hover:bg-emerald-300"
           >
             Jadwalkan Sekarang <ArrowRight className="h-4 w-4" aria-hidden />
           </Link>

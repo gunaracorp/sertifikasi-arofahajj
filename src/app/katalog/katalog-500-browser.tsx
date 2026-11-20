@@ -110,7 +110,7 @@ export default function Katalog500Browser() {
               }}
               placeholder="Cari nama layanan atau kode item — mis. NIB, halal, BU-PT-001…"
               aria-label="Cari layanan di katalog 500 layanan"
-              className="w-full rounded-xl border border-stone-300 bg-white py-2.5 pl-9 pr-9 text-sm outline-none transition focus:border-amber-500 focus:ring-2 focus:ring-amber-500/20"
+              className="w-full rounded-xl border border-stone-300 bg-white py-2.5 pl-9 pr-9 text-sm outline-none transition focus:border-emerald-600 focus:ring-2 focus:ring-emerald-600/20"
             />
             {q && (
               <button
@@ -130,7 +130,7 @@ export default function Katalog500Browser() {
               setLimit(PAGE_SIZE);
             }}
             aria-label="Filter kategori besar"
-            className="rounded-xl border border-stone-300 bg-white px-3 py-2.5 text-sm outline-none transition focus:border-amber-500"
+            className="rounded-xl border border-stone-300 bg-white px-3 py-2.5 text-sm outline-none transition focus:border-emerald-600"
           >
             <option value="ALL">Semua Kategori ({LAYANAN_STATS.total})</option>
             {LAYANAN_KATEGORI.map((k) => (
@@ -146,7 +146,7 @@ export default function Katalog500Browser() {
               setLimit(PAGE_SIZE);
             }}
             aria-label="Filter sub-kategori"
-            className="rounded-xl border border-stone-300 bg-white px-3 py-2.5 text-sm outline-none transition focus:border-amber-500"
+            className="rounded-xl border border-stone-300 bg-white px-3 py-2.5 text-sm outline-none transition focus:border-emerald-600"
           >
             <option value="ALL">Semua Sub-Kategori ({subOptions.length})</option>
             {subOptions.map((sk) => (
@@ -164,7 +164,7 @@ export default function Katalog500Browser() {
             {LAYANAN_STATS.diskonMax}%
           </p>
           {(q || kat !== "ALL" || sub !== "ALL") && (
-            <button onClick={reset} className="font-semibold text-amber-800 hover:underline">
+            <button onClick={reset} className="font-semibold text-emerald-900 hover:underline">
               Reset filter
             </button>
           )}
@@ -178,7 +178,7 @@ export default function Katalog500Browser() {
           <p className="mt-1 text-sm text-stone-500">
             Coba kata kunci lain, atau konsultasi gratis — kebutuhan Anda mungkin kami tangani lewat kombinasi layanan.
           </p>
-          <button onClick={reset} className="mt-4 rounded-xl bg-amber-900 px-5 py-2.5 text-sm font-bold text-white hover:bg-amber-800">
+          <button onClick={reset} className="mt-4 rounded-xl bg-emerald-950 px-5 py-2.5 text-sm font-bold text-white hover:bg-emerald-900">
             Reset pencarian
           </button>
         </div>
@@ -188,22 +188,22 @@ export default function Katalog500Browser() {
             <li key={s.kode}>
               <Link
                 href={`/${slugOf(s)}`}
-                className="group flex h-full flex-col rounded-2xl border border-stone-200 bg-white p-5 shadow-sm transition hover:-translate-y-0.5 hover:border-amber-300 hover:shadow-md"
+                className="group flex h-full flex-col rounded-2xl border border-stone-200 bg-white p-5 shadow-sm transition hover:-translate-y-0.5 hover:border-emerald-300 hover:shadow-md"
               >
                 <div className="flex items-center justify-between gap-2">
-                  <span className="font-mono text-[11px] font-bold text-amber-800">{s.kode}</span>
-                  <span className="rounded-full bg-amber-50 px-2 py-0.5 text-[11px] font-bold text-amber-700">
+                  <span className="font-mono text-[11px] font-bold text-emerald-900">{s.kode}</span>
+                  <span className="rounded-full bg-emerald-50 px-2 py-0.5 text-[11px] font-bold text-emerald-800">
                     -{Math.round(s.diskon * 100)}%
                   </span>
                 </div>
-                <h3 className="mt-2 font-bold leading-snug text-stone-900 group-hover:text-amber-900">{s.nama}</h3>
+                <h3 className="mt-2 font-bold leading-snug text-stone-900 group-hover:text-emerald-950">{s.nama}</h3>
                 <p className="mt-1 line-clamp-2 text-xs leading-relaxed text-stone-500">{s.deskripsi}</p>
                 <div className="mt-auto pt-3">
                   <p className="text-sm">
                     <span className="text-stone-400 line-through">{fmtIdr(s.harga)}</span>{" "}
-                    <span className="text-lg font-extrabold text-amber-900">{fmtIdr(s.harga_diskon)}</span>
+                    <span className="text-lg font-extrabold text-emerald-950">{fmtIdr(s.harga_diskon)}</span>
                   </p>
-                  <p className="mt-0.5 text-xs font-semibold text-amber-600">{diskonLabel(s)} · {s.sub}</p>
+                  <p className="mt-0.5 text-xs font-semibold text-emerald-700">{diskonLabel(s)} · {s.sub}</p>
                 </div>
               </Link>
             </li>
@@ -216,7 +216,7 @@ export default function Katalog500Browser() {
         <div className="mt-8 text-center">
           <button
             onClick={() => setLimit((n) => n + PAGE_SIZE)}
-            className="rounded-xl border border-amber-900 px-6 py-3 text-sm font-bold text-amber-900 transition hover:bg-amber-900 hover:text-white"
+            className="rounded-xl border border-emerald-950 px-6 py-3 text-sm font-bold text-emerald-950 transition hover:bg-emerald-950 hover:text-white"
           >
             Tampilkan lebih banyak ({filtered.length - shown.length} lagi)
           </button>
@@ -224,7 +224,7 @@ export default function Katalog500Browser() {
       )}
 
       {/* Download katalog PDF */}
-      <div className="mt-10 rounded-2xl bg-amber-50 p-5 text-center md:p-6">
+      <div className="mt-10 rounded-2xl bg-emerald-50 p-5 text-center md:p-6">
         <p className="font-bold text-stone-900">Ingin versi lengkap untuk dibaca offline?</p>
         <p className="mt-1 text-sm text-stone-600">
           Unduh katalog resmi 500 layanan (edisi {new Date().getFullYear()}) — lengkap dengan kode item & harga kupon.
@@ -232,7 +232,7 @@ export default function Katalog500Browser() {
         <a
           href="/download/katalog-500-layanan-arofahajj.pdf"
           download
-          className="mt-4 inline-flex items-center gap-2 rounded-xl bg-amber-900 px-5 py-3 text-sm font-bold text-white transition hover:bg-amber-800"
+          className="mt-4 inline-flex items-center gap-2 rounded-xl bg-emerald-950 px-5 py-3 text-sm font-bold text-white transition hover:bg-emerald-900"
         >
           <FileDown className="h-4 w-4" aria-hidden />
           Unduh Katalog PDF (500 Layanan)

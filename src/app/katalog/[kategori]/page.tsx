@@ -105,48 +105,48 @@ export default async function KategoriPage({ params }: PageProps) {
       {/* Breadcrumb */}
       <nav aria-label="Breadcrumb" className="border-b border-stone-100 bg-stone-50/60">
         <div className="mx-auto max-w-6xl px-4 py-3 text-sm text-stone-500">
-          <Link href="/" className="hover:text-amber-800">Beranda</Link>
+          <Link href="/" className="hover:text-emerald-900">Beranda</Link>
           <span className="mx-2">/</span>
-          <Link href="/katalog" className="hover:text-amber-800">Katalog Layanan</Link>
+          <Link href="/katalog" className="hover:text-emerald-900">Katalog Layanan</Link>
           <span className="mx-2">/</span>
           <span className="font-medium text-stone-700" aria-current="page">{cat.name}</span>
         </div>
       </nav>
 
       {/* HERO */}
-      <section className="bg-gradient-to-b from-amber-950 via-amber-950 to-amber-900 text-white">
+      <section className="bg-gradient-to-b from-emerald-950 via-emerald-950 to-emerald-950 text-white">
         <div className="mx-auto max-w-6xl px-4 py-12 md:py-16">
           <div className="flex flex-wrap items-center gap-3">
             <span className="text-4xl" aria-hidden>{cat.icon}</span>
             <span className="rounded-md bg-white/15 px-2.5 py-1 text-xs font-bold tracking-wide">Divisi {cat.code}</span>
             {cat.flagship && (
-              <span className="rounded-full bg-amber-400 px-3 py-1 text-[11px] font-bold uppercase tracking-wide text-amber-950">
+              <span className="rounded-full bg-amber-400 px-3 py-1 text-[11px] font-bold uppercase tracking-wide text-emerald-950">
                 ⭐ Flagship Expertise
               </span>
             )}
           </div>
           <h1 className="mt-4 max-w-3xl text-2xl font-bold leading-tight md:text-4xl">{cat.name}</h1>
-          <p className="mt-3 max-w-2xl text-amber-100/90 md:text-lg">{cat.tagline}</p>
+          <p className="mt-3 max-w-2xl text-emerald-100/90 md:text-lg">{cat.tagline}</p>
           <dl className="mt-7 flex flex-wrap gap-3 text-sm">
             <div className="rounded-lg bg-white/10 px-4 py-2.5">
-              <dt className="text-xs text-amber-200/80">Layanan</dt>
+              <dt className="text-xs text-emerald-200/80">Layanan</dt>
               <dd className="font-bold">{cat.services.length}</dd>
             </div>
             {priceMin !== null && (
               <div className="rounded-lg bg-white/10 px-4 py-2.5">
-                <dt className="text-xs text-amber-200/80">Kisaran harga jasa</dt>
+                <dt className="text-xs text-emerald-200/80">Kisaran harga jasa</dt>
                 <dd className="font-bold">{fmtRange(priceMin, priceMax)}</dd>
               </div>
             )}
             <div className="rounded-lg bg-white/10 px-4 py-2.5">
-              <dt className="text-xs text-amber-200/80">Kategori</dt>
+              <dt className="text-xs text-emerald-200/80">Kategori</dt>
               <dd className="font-bold">{cat.tier === "primer" ? "Layanan Primer" : "Layanan Pendukung"}</dd>
             </div>
           </dl>
           <div className="mt-7 flex flex-wrap gap-3">
             <a
               href={waLink(`Halo Arofahajj Universe, saya tertarik dengan layanan divisi ${cat.code} (${cat.name}). Bisa dijelaskan prosesnya?`)}
-              className="rounded-xl bg-amber-400 px-5 py-3 text-sm font-bold text-amber-950 transition hover:bg-amber-300"
+              className="rounded-xl bg-amber-400 px-5 py-3 text-sm font-bold text-emerald-950 transition hover:bg-emerald-300"
             >
               Konsultasi Divisi Ini
             </a>
@@ -176,9 +176,9 @@ export default async function KategoriPage({ params }: PageProps) {
               <div className="flex flex-wrap items-start justify-between gap-3">
                 <div>
                   <div className="flex flex-wrap items-center gap-2">
-                    <span className="rounded-md bg-amber-50 px-2 py-0.5 text-xs font-bold text-amber-900">{s.code}</span>
+                    <span className="rounded-md bg-emerald-50 px-2 py-0.5 text-xs font-bold text-emerald-950">{s.code}</span>
                     {s.badge && (
-                      <span className="rounded-full bg-amber-100 px-2.5 py-0.5 text-[11px] font-bold uppercase tracking-wide text-amber-800">
+                      <span className="rounded-full bg-emerald-100 px-2.5 py-0.5 text-[11px] font-bold uppercase tracking-wide text-emerald-900">
                         {s.badge}
                       </span>
                     )}
@@ -186,7 +186,7 @@ export default async function KategoriPage({ params }: PageProps) {
                   <h3 className="mt-2 text-lg font-bold text-stone-900">{s.name}</h3>
                 </div>
                 <div className="text-right">
-                  <p className="text-lg font-extrabold text-amber-900">{fmtRange(s.priceFrom, s.priceTo)}</p>
+                  <p className="text-lg font-extrabold text-emerald-950">{fmtRange(s.priceFrom, s.priceTo)}</p>
                   {s.timeline && <p className="text-xs text-stone-500">⏱ {s.timeline}</p>}
                 </div>
               </div>
@@ -198,7 +198,7 @@ export default async function KategoriPage({ params }: PageProps) {
                   <ul className="mt-2 grid gap-1.5 sm:grid-cols-2">
                     {s.includes.map((i) => (
                       <li key={i} className="flex items-start gap-2 text-sm text-stone-700">
-                        <span className="mt-0.5 text-amber-700" aria-hidden>✓</span>
+                        <span className="mt-0.5 text-emerald-800" aria-hidden>✓</span>
                         {i}
                       </li>
                     ))}
@@ -220,7 +220,7 @@ export default async function KategoriPage({ params }: PageProps) {
                       {s.variants.map((v) => (
                         <tr key={v.name}>
                           <td className="px-4 py-2.5 font-semibold text-stone-800">{v.name}</td>
-                          <td className="whitespace-nowrap px-4 py-2.5 font-bold text-amber-900">{fmtIdr(v.priceFrom)}</td>
+                          <td className="whitespace-nowrap px-4 py-2.5 font-bold text-emerald-950">{fmtIdr(v.priceFrom)}</td>
                           <td className="px-4 py-2.5 text-stone-600">{v.desc}</td>
                         </tr>
                       ))}
@@ -233,7 +233,7 @@ export default async function KategoriPage({ params }: PageProps) {
               <div className="mt-4 flex flex-wrap items-center gap-3 border-t border-stone-100 pt-4">
                 <Link
                   href={svcLink.href}
-                  className="inline-flex items-center gap-1.5 rounded-lg bg-amber-50 px-3.5 py-2 text-sm font-semibold text-amber-900 transition hover:bg-amber-100"
+                  className="inline-flex items-center gap-1.5 rounded-lg bg-emerald-50 px-3.5 py-2 text-sm font-semibold text-emerald-950 transition hover:bg-emerald-100"
                   aria-label={`Buka halaman lengkap ${s.name}: syarat, proses & biaya`}
                 >
                   Halaman lengkap: syarat, proses &amp; biaya
@@ -243,7 +243,7 @@ export default async function KategoriPage({ params }: PageProps) {
                   href={waLink(`Halo Arofahajj Universe, saya tertarik dengan layanan ${s.name} (${s.code}). Bisa dijelaskan prosesnya?`)}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-sm font-medium text-stone-500 transition hover:text-amber-800"
+                  className="text-sm font-medium text-stone-500 transition hover:text-emerald-900"
                 >
                   Tanya via WhatsApp
                 </a>
@@ -269,7 +269,7 @@ export default async function KategoriPage({ params }: PageProps) {
               <Link
                 key={r.href}
                 href={r.href}
-                className="rounded-full border border-stone-200 bg-white px-4 py-2 text-sm font-medium text-stone-700 transition hover:border-amber-300 hover:text-amber-900"
+                className="rounded-full border border-stone-200 bg-white px-4 py-2 text-sm font-medium text-stone-700 transition hover:border-emerald-300 hover:text-emerald-950"
               >
                 {r.label} →
               </Link>
@@ -285,8 +285,8 @@ export default async function KategoriPage({ params }: PageProps) {
           {cat.faq.map((f) => (
             <details key={f.q} className="group rounded-xl border border-stone-200 bg-white p-5 open:shadow-sm">
               <summary className="cursor-pointer list-none font-semibold text-stone-900">
-                <span className="mr-2 text-amber-800 group-open:hidden" aria-hidden>+</span>
-                <span className="mr-2 hidden text-amber-800 group-open:inline" aria-hidden>−</span>
+                <span className="mr-2 text-emerald-900 group-open:hidden" aria-hidden>+</span>
+                <span className="mr-2 hidden text-emerald-900 group-open:inline" aria-hidden>−</span>
                 {f.q}
               </summary>
               <p className="mt-3 pl-6 text-sm leading-relaxed text-stone-600">{f.a}</p>
@@ -304,11 +304,11 @@ export default async function KategoriPage({ params }: PageProps) {
               <Link
                 key={c.code}
                 href={`/katalog/${c.slug}`}
-                className="group rounded-2xl border border-stone-200 bg-white p-5 transition hover:border-amber-300 hover:shadow-md"
+                className="group rounded-2xl border border-stone-200 bg-white p-5 transition hover:border-emerald-300 hover:shadow-md"
               >
                 <div className="text-2xl" aria-hidden>{c.icon}</div>
-                <h3 className="mt-2 font-bold text-stone-900 group-hover:text-amber-900">{c.name}</h3>
-                <p className="mt-1 text-xs text-amber-800">{c.services.length} layanan</p>
+                <h3 className="mt-2 font-bold text-stone-900 group-hover:text-emerald-950">{c.name}</h3>
+                <p className="mt-1 text-xs text-emerald-900">{c.services.length} layanan</p>
               </Link>
             ))}
           </div>
@@ -316,28 +316,28 @@ export default async function KategoriPage({ params }: PageProps) {
             Lihat semua:{" "}
             {siblingSample.map((c, i) => (
               <span key={c.code}>
-                <Link href={`/katalog/${c.slug}`} className="font-medium text-amber-800 hover:underline">
+                <Link href={`/katalog/${c.slug}`} className="font-medium text-emerald-900 hover:underline">
                   {c.name}
                 </Link>
                 {i < siblingSample.length - 1 ? " · " : " · "}
               </span>
             ))}
-            <Link href="/katalog" className="font-bold text-amber-900 hover:underline">…dan {CATEGORIES.length - 1 - siblingSample.length} divisi lain</Link>
+            <Link href="/katalog" className="font-bold text-emerald-950 hover:underline">…dan {CATEGORIES.length - 1 - siblingSample.length} divisi lain</Link>
           </p>
         </div>
       </section>
 
       {/* CTA */}
       <section className="mx-auto max-w-6xl px-4 py-14">
-        <div className="rounded-3xl bg-gradient-to-r from-amber-950 to-amber-800 p-8 text-white md:p-12">
+        <div className="rounded-3xl bg-gradient-to-r from-emerald-950 to-emerald-900 p-8 text-white md:p-12">
           <h2 className="text-2xl font-bold md:text-3xl">Siap urus {cat.name.toLowerCase()}?</h2>
-          <p className="mt-2 max-w-2xl text-amber-100/90">
+          <p className="mt-2 max-w-2xl text-emerald-100/90">
             Konsultasi 15 menit pertama gratis — kami petakan izin yang wajib, urutannya,
             dan estimasi biaya untuk kasus spesifik Anda.
           </p>
           <a
             href={waLink(`Halo Arofahajj Universe, saya ingin mulai pengurusan di divisi ${cat.code} (${cat.name}).`)}
-            className="mt-6 inline-block rounded-xl bg-amber-400 px-5 py-3 text-sm font-bold text-amber-950 transition hover:bg-amber-300"
+            className="mt-6 inline-block rounded-xl bg-amber-400 px-5 py-3 text-sm font-bold text-emerald-950 transition hover:bg-emerald-300"
           >
             WhatsApp Kami Sekarang
           </a>

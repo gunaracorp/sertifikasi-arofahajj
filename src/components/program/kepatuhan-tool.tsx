@@ -129,7 +129,7 @@ export function KepatuhanTool() {
           <input type="date" value={nibDate} onChange={(e) => setNibDate(e.target.value)} className="h-10 w-full rounded-md border border-input bg-background px-3 text-sm" />
         </label>
         <label className="flex items-end gap-2 text-sm font-medium pb-2">
-          <input type="checkbox" checked={karyawan} onChange={(e) => setKaryawan(e.target.checked)} className="h-4 w-4 accent-amber-700" />
+          <input type="checkbox" checked={karyawan} onChange={(e) => setKaryawan(e.target.checked)} className="h-4 w-4 accent-emerald-800" />
           Punya karyawan (BPJS & JAMSOSTEK 2A)
         </label>
       </div>
@@ -144,7 +144,7 @@ export function KepatuhanTool() {
             {obligations.map((o, i) => (
               <li key={i} className="flex gap-3 rounded-lg border p-3">
                 <span className={`mt-0.5 h-fit rounded px-2 py-0.5 text-[11px] font-bold ${
-                  o.kind === "LKPM" ? "bg-amber-100 text-amber-900" : o.kind === "PAJAK" ? "bg-sky-100 text-sky-900" : "bg-amber-100 text-amber-950"
+                  o.kind === "LKPM" ? "bg-emerald-100 text-emerald-950" : o.kind === "PAJAK" ? "bg-sky-100 text-sky-900" : "bg-emerald-100 text-emerald-950"
                 }`}>{o.kind}</span>
                 <div>
                   <p className="text-sm font-semibold"><time dateTime={o.due}>{fmt(new Date(o.due + "T00:00:00+07:00"))}</time> — {o.label}</p>

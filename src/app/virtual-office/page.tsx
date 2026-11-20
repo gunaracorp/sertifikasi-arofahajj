@@ -218,13 +218,13 @@ export default function VirtualOfficePage() {
       </div>
 
       {/* Hero */}
-      <section className="bg-gradient-to-br from-amber-950 via-[oklch(0.23_0.03_78)] to-amber-950 text-amber-50">
+      <section className="bg-gradient-to-br from-emerald-950 via-[oklch(0.23_0.03_78)] to-emerald-950 text-emerald-50">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-12 md:py-20">
-          <nav aria-label="Breadcrumb" className="mb-6 text-sm text-amber-200/80">
+          <nav aria-label="Breadcrumb" className="mb-6 text-sm text-emerald-200/80">
             <ol className="flex items-center gap-1.5">
-              <li><Link href="/" className="hover:text-amber-50 transition-colors">Beranda</Link></li>
+              <li><Link href="/" className="hover:text-emerald-50 transition-colors">Beranda</Link></li>
               <li aria-hidden>/</li>
-              <li aria-current="page" className="font-medium text-amber-50">Virtual Office</li>
+              <li aria-current="page" className="font-medium text-emerald-50">Virtual Office</li>
             </ol>
           </nav>
 
@@ -235,9 +235,9 @@ export default function VirtualOfficePage() {
             Virtual Office Premium — Alamat Bisnis di{" "}
             <span className="text-gold">SCBD, Sudirman & 48 Lokasi</span> Indonesia
           </h1>
-          <p className="mt-5 max-w-3xl text-base md:text-lg text-amber-100/90 leading-relaxed">
+          <p className="mt-5 max-w-3xl text-base md:text-lg text-emerald-100/90 leading-relaxed">
             Gedung korporat nyata dengan resepsionis, penerimaan surat & papan nama usaha — dokumen
-            resmi untuk <strong className="text-amber-50">NIB, PKP, rekening bank, BPOM & marketplace</strong>.
+            resmi untuk <strong className="text-emerald-50">NIB, PKP, rekening bank, BPOM & marketplace</strong>.
             Mulai <strong className="text-gold">Rp 650rb/bulan</strong>, aktif 1-2 hari kerja, 100% proses daring.
           </p>
 
@@ -253,7 +253,7 @@ export default function VirtualOfficePage() {
             </a>
             <a
               href="#paket"
-              className="flex items-center justify-center gap-2 rounded-xl bg-amber-50/10 border border-amber-100/30 px-6 py-3.5 font-semibold text-amber-50 transition-all hover:bg-amber-50/20 min-h-[44px]"
+              className="flex items-center justify-center gap-2 rounded-xl bg-emerald-50/10 border border-emerald-100/30 px-6 py-3.5 font-semibold text-emerald-50 transition-all hover:bg-emerald-50/20 min-h-[44px]"
             >
               Lihat 6 Paket & Harga
               <ArrowRight className="h-4 w-4" aria-hidden />
@@ -267,10 +267,10 @@ export default function VirtualOfficePage() {
               { n: "6", l: "Paket lengkap" },
               { n: "1-2", l: "Hari kerja aktif" },
             ].map((s) => (
-              <div key={s.l} className="rounded-2xl bg-amber-50/5 border border-amber-100/15 p-4">
+              <div key={s.l} className="rounded-2xl bg-emerald-50/5 border border-emerald-100/15 p-4">
                 <dt className="sr-only">{s.l}</dt>
                 <dd className="text-2xl md:text-3xl font-extrabold text-gold">{s.n}</dd>
-                <dd className="mt-1 text-xs md:text-sm text-amber-100/80">{s.l}</dd>
+                <dd className="mt-1 text-xs md:text-sm text-emerald-100/80">{s.l}</dd>
               </div>
             ))}
           </dl>
@@ -562,13 +562,13 @@ export default function VirtualOfficePage() {
       </section>
 
       {/* CTA Final */}
-      <section className="bg-gradient-to-br from-amber-950 to-[oklch(0.23_0.03_78)] text-amber-50">
+      <section className="bg-gradient-to-br from-emerald-950 to-[oklch(0.23_0.03_78)] text-emerald-50">
         <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 py-14 text-center">
           <Landmark className="mx-auto h-10 w-10 text-gold" aria-hidden />
           <h2 className="mt-4 text-2xl md:text-4xl font-extrabold tracking-tight">
             Alamat Anda yang Membisnis — Mulai Hari Ini
           </h2>
-          <p className="mt-4 text-amber-100/85 max-w-2xl mx-auto leading-relaxed">
+          <p className="mt-4 text-emerald-100/85 max-w-2xl mx-auto leading-relaxed">
             Konsultasi gratis: ceritakan usaha Anda, dan tim kami rekomendasikan lokasi + paket yang
             paling strategis. Aktivasi 1-2 hari kerja, dokumen legal lengkap, garansi uang kembali 100%.
           </p>
@@ -584,7 +584,7 @@ export default function VirtualOfficePage() {
             </a>
             <a
               href="/konsultasi"
-              className="flex items-center justify-center gap-2 rounded-xl bg-amber-50/10 border border-amber-100/30 px-6 py-3.5 font-semibold transition-all hover:bg-amber-50/20 min-h-[44px]"
+              className="flex items-center justify-center gap-2 rounded-xl bg-emerald-50/10 border border-emerald-100/30 px-6 py-3.5 font-semibold transition-all hover:bg-emerald-50/20 min-h-[44px]"
             >
               Form Konsultasi Lengkap
             </a>

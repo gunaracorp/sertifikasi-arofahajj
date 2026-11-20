@@ -762,12 +762,12 @@ export default async function ServiceDetailPage({
               </dl>
             </div>
 
-            <div className="rounded-2xl bg-[oklch(0.23_0.03_78)] p-5 text-amber-50">
+            <div className="rounded-2xl bg-[oklch(0.23_0.03_78)] p-5 text-emerald-50">
               <p className="text-sm leading-relaxed">
-                <strong className="text-amber-300">1.247+ klien</strong> di 38 provinsi sudah kami bantu dengan rating{" "}
-                <strong className="text-amber-300">4,9/5</strong>.
+                <strong className="text-emerald-300">1.247+ klien</strong> di 38 provinsi sudah kami bantu dengan rating{" "}
+                <strong className="text-emerald-300">4,9/5</strong>.
               </p>
-              <p className="mt-2 text-xs text-amber-100/70 leading-relaxed">
+              <p className="mt-2 text-xs text-emerald-100/70 leading-relaxed">
                 3.899+ izin terbit · Garansi 100% · Support WhatsApp setelah selesai
               </p>
             </div>

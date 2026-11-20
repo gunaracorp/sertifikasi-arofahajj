@@ -211,7 +211,7 @@ function UmkmCalculator() {
           <div className="flex items-start justify-between gap-3">
             <dt className="text-muted-foreground">Status kuota Rp4,8 M</dt>
             <dd>
-              <Badge className={result.melewatiBatas ? "bg-red-100 text-red-800 border border-red-200" : "bg-amber-100 text-amber-900 border border-amber-200"}>
+              <Badge className={result.melewatiBatas ? "bg-red-100 text-red-800 border border-red-200" : "bg-emerald-100 text-emerald-950 border border-emerald-200"}>
                 {result.melewatiBatas ? "Melewati batas" : `Sisa kuota ${formatNumber(result.sisaKuota / 1_000_000)} jt`}
               </Badge>
             </dd>

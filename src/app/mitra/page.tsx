@@ -383,7 +383,7 @@ export default function MitraPage() {
 
           {/* HERO */}
           <header className="max-w-3xl">
-            <p className="inline-flex items-center gap-2 rounded-full bg-amber-50 px-3 py-1 text-xs font-bold text-amber-800">
+            <p className="inline-flex items-center gap-2 rounded-full bg-emerald-50 px-3 py-1 text-xs font-bold text-emerald-900">
               <Sparkles className="h-3.5 w-3.5" aria-hidden />
               PUSAT PARTNER NETWORK • KUOTA WILAYAH TERBATAS
             </p>
@@ -427,7 +427,7 @@ export default function MitraPage() {
           <section aria-label="Rekam jejak nasional" className="mt-8 grid grid-cols-2 gap-3 sm:grid-cols-5">
             {TRUST_STRIP.map((s) => (
               <div key={s.label} className="rounded-xl border bg-card p-4 text-center">
-                <p className="text-xl font-extrabold text-amber-800 sm:text-2xl">{s.value}</p>
+                <p className="text-xl font-extrabold text-emerald-900 sm:text-2xl">{s.value}</p>
                 <p className="mt-0.5 text-xs text-muted-foreground">{s.label}</p>
               </div>
             ))}
@@ -447,11 +447,11 @@ export default function MitraPage() {
               {[BRANCH_DUTIES, HQ_DUTIES].map((col, i) => (
                 <article
                   key={col.title}
-                  className={`rounded-2xl border p-6 ${i === 1 ? "bg-amber-50/50" : "bg-card"}`}
+                  className={`rounded-2xl border p-6 ${i === 1 ? "bg-emerald-50/50" : "bg-card"}`}
                 >
                   <div className="flex items-center gap-3">
                     <span
-                      className={`flex h-11 w-11 items-center justify-center rounded-xl ${i === 1 ? "bg-amber-700 text-white" : "bg-amber-50 text-amber-800"}`}
+                      className={`flex h-11 w-11 items-center justify-center rounded-xl ${i === 1 ? "bg-emerald-800 text-white" : "bg-emerald-50 text-emerald-900"}`}
                       aria-hidden
                     >
                       {i === 0 ? <Store className="h-5 w-5" /> : <Landmark className="h-5 w-5" />}
@@ -464,7 +464,7 @@ export default function MitraPage() {
                   <ul className="mt-4 space-y-2.5">
                     {col.items.map((item) => (
                       <li key={item} className="flex items-start gap-2.5 text-sm leading-relaxed">
-                        <CheckCircle2 className={`mt-0.5 h-4 w-4 shrink-0 ${i === 1 ? "text-amber-700" : "text-amber-500"}`} aria-hidden />
+                        <CheckCircle2 className={`mt-0.5 h-4 w-4 shrink-0 ${i === 1 ? "text-emerald-800" : "text-emerald-600"}`} aria-hidden />
                         <span>{item}</span>
                       </li>
                     ))}
@@ -482,7 +482,7 @@ export default function MitraPage() {
             <div className="mt-6 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
               {BENEFITS.map((b) => (
                 <article key={b.title} className="rounded-2xl border bg-card p-6">
-                  <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-amber-50 text-amber-800" aria-hidden>
+                  <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-emerald-50 text-emerald-900" aria-hidden>
                     <b.icon className="h-5 w-5" />
                   </span>
                   <h3 className="mt-3 font-bold leading-snug">{b.title}</h3>
@@ -514,7 +514,7 @@ export default function MitraPage() {
                   )}
                   <h3 className="mt-3 text-xl font-extrabold">{t.name}</h3>
                   <p className="mt-2">
-                    <span className="text-3xl font-extrabold text-amber-800">{t.rate}</span>
+                    <span className="text-3xl font-extrabold text-emerald-900">{t.rate}</span>
                     <span className="text-sm text-muted-foreground"> komisi nilai kontrak</span>
                   </p>
                   <p className="mt-1 text-sm">
@@ -524,7 +524,7 @@ export default function MitraPage() {
                   <ul className="mt-4 space-y-2 border-t pt-4">
                     {t.features.map((f) => (
                       <li key={f} className="flex items-start gap-2 text-sm leading-relaxed">
-                        <BadgeCheck className="mt-0.5 h-4 w-4 shrink-0 text-amber-700" aria-hidden />
+                        <BadgeCheck className="mt-0.5 h-4 w-4 shrink-0 text-emerald-800" aria-hidden />
                         <span>{f}</span>
                       </li>
                     ))}
@@ -572,7 +572,7 @@ export default function MitraPage() {
                   {COMMISSION_TABLE.map((row) => (
                     <tr key={row.service} className="border-b last:border-0">
                       <th scope="row" className="px-4 py-3 text-left font-semibold">{row.service}</th>
-                      <td className="px-4 py-3 font-bold text-amber-800">{row.avg}</td>
+                      <td className="px-4 py-3 font-bold text-emerald-900">{row.avg}</td>
                       <td className="px-4 py-3 text-muted-foreground">{row.note}</td>
                     </tr>
                   ))}
@@ -593,8 +593,8 @@ export default function MitraPage() {
               {STEPS.map((s) => (
                 <li key={s.step} className="rounded-xl border bg-card p-5">
                   <div className="flex items-center gap-2">
-                    <span className="flex h-8 w-8 items-center justify-center rounded-full bg-amber-700 text-sm font-bold text-white" aria-hidden>{s.step}</span>
-                    <s.icon className="h-5 w-5 text-amber-800" aria-hidden />
+                    <span className="flex h-8 w-8 items-center justify-center rounded-full bg-emerald-800 text-sm font-bold text-white" aria-hidden>{s.step}</span>
+                    <s.icon className="h-5 w-5 text-emerald-900" aria-hidden />
                   </div>
                   <h3 className="mt-3 font-semibold leading-snug">{s.title}</h3>
                   <p className="mt-1 text-sm text-muted-foreground">{s.desc}</p>
@@ -615,22 +615,22 @@ export default function MitraPage() {
                 <ul className="mt-4 space-y-2.5">
                   {REQUIREMENTS.map((r) => (
                     <li key={r} className="flex items-start gap-2.5 text-sm leading-relaxed">
-                      <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-amber-700" aria-hidden />
+                      <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-emerald-800" aria-hidden />
                       <span>{r}</span>
                     </li>
                   ))}
                 </ul>
               </div>
-              <div className="rounded-xl bg-amber-50/60 p-5">
+              <div className="rounded-xl bg-emerald-50/60 p-5">
                 <h3 className="flex items-center gap-2 font-bold">
-                  <Award className="h-5 w-5 text-amber-800" aria-hidden />
+                  <Award className="h-5 w-5 text-emerald-900" aria-hidden />
                   Yang Anda Terima Setelah Lolos
                 </h3>
                 <ul className="mt-3 space-y-2 text-sm leading-relaxed">
-                  <li className="flex gap-2"><BookOpenCheck className="mt-0.5 h-4 w-4 shrink-0 text-amber-700" aria-hidden /> Sertifikat “Konsultan Bersertifikat Arofahajj Universe”</li>
-                  <li className="flex gap-2"><CalendarCheck className="mt-0.5 h-4 w-4 shrink-0 text-amber-700" aria-hidden /> Jadwal akademi & grand opening yang Anda tentukan</li>
-                  <li className="flex gap-2"><Target className="mt-0.5 h-4 w-4 shrink-0 text-amber-700" aria-hidden /> Target 90 hari pertama + pendampingan mentor</li>
-                  <li className="flex gap-2"><Megaphone className="mt-0.5 h-4 w-4 shrink-0 text-amber-700" aria-hidden /> Paket peluncuran: materi sosial media & pengumuman komunitas</li>
+                  <li className="flex gap-2"><BookOpenCheck className="mt-0.5 h-4 w-4 shrink-0 text-emerald-800" aria-hidden /> Sertifikat “Konsultan Bersertifikat Arofahajj Universe”</li>
+                  <li className="flex gap-2"><CalendarCheck className="mt-0.5 h-4 w-4 shrink-0 text-emerald-800" aria-hidden /> Jadwal akademi & grand opening yang Anda tentukan</li>
+                  <li className="flex gap-2"><Target className="mt-0.5 h-4 w-4 shrink-0 text-emerald-800" aria-hidden /> Target 90 hari pertama + pendampingan mentor</li>
+                  <li className="flex gap-2"><Megaphone className="mt-0.5 h-4 w-4 shrink-0 text-emerald-800" aria-hidden /> Paket peluncuran: materi sosial media & pengumuman komunitas</li>
                 </ul>
               </div>
             </div>
@@ -643,7 +643,7 @@ export default function MitraPage() {
               {FAQS.map((f, i) => (
                 <details key={i} className="group rounded-xl border bg-card px-5 py-4 open:shadow-sm">
                   <summary className="cursor-pointer list-none font-semibold leading-snug marker:hidden">
-                    <span className="mr-2 inline-block text-amber-700 transition group-open:rotate-90" aria-hidden>▸</span>
+                    <span className="mr-2 inline-block text-emerald-800 transition group-open:rotate-90" aria-hidden>▸</span>
                     {f.q}
                   </summary>
                   <p className="mt-3 pl-6 text-sm leading-relaxed text-muted-foreground">{f.a}</p>
@@ -688,7 +688,7 @@ export default function MitraPage() {
                 <Link
                   key={l.href}
                   href={l.href}
-                  className="rounded-xl border bg-card p-4 transition hover:border-amber-300 hover:bg-accent"
+                  className="rounded-xl border bg-card p-4 transition hover:border-emerald-300 hover:bg-accent"
                 >
                   <p className="font-bold">{l.label}</p>
                   <p className="mt-1 text-xs text-muted-foreground">{l.desc}</p>

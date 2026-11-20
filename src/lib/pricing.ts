@@ -338,6 +338,80 @@ export const PACKAGES: PaketLayanan[] = [
       "Nomor izin edar resmi dikirim",
     ],
   },
+
+  // ============ SERTIFIKASI TRAVEL IBADAH — PRODUK ANDALAN ============
+  // Permintaan owner: Sertifikasi BPW, PPIU & PIHK harus LIVE dan
+  // bisa dipesan langsung dari beranda (tiket produk band zamrud).
+  // Harga GO UMRAH & GO HAJI PLUS = daftar resmi PT Arofah Global
+  // Sistem (identitas perusahaan); anchor strike = harga pasar.
+  // IATA mengikuti harga publik pusatperizinan.com: mulai Rp 13jt,
+  // 45-90 hari (disamakan persis sesuai instruksi owner).
+  {
+    id: "bpw",
+    name: "Sertifikasi BPW",
+    tagline: "Legalitas Biro Perjalanan Wisata — NIB KBLI 79121 + sertifikat standar, tiket masuk resmi industri pariwisata.",
+    price: 455_000,
+    strike: 780_000,
+    duration: "1-2 hari kerja",
+    category: "sertifikasi",
+    popular: true,
+    features: [
+      "NIB BPW via OSS-RBA dengan KBLI 79121",
+      "Sertifikat Standar sesuai tingkat risiko usaha",
+      "Panduan TDAU & sertifikasi usaha pariwisata",
+      "Checklist kewajiban pasca-terbit (LKPM dll.)",
+      "Dokumen resmi dikirim via WA & email",
+    ],
+    nextSteps: [
+      "Tim mengambil data usaha + identitas via WhatsApp",
+      "Pengajuan NIB KBLI 79121 di OSS-RBA",
+      "NIB BPW + sertifikat standar dikirim hari itu juga",
+    ],
+  },
+  {
+    id: "ppi-u",
+    name: "GO UMRAH — Sertifikasi PPIU",
+    tagline: "Paket lengkap siap operasi umroh: PT travel + NIB + SIPU/SPPU Kemenag + SIMPONI + rekening kolektif jamaah.",
+    price: 45_000_000,
+    strike: 58_500_000,
+    duration: "30-45 hari",
+    category: "sertifikasi",
+    popular: true,
+    features: [
+      "Pendirian PT travel + NIB (KBLI 79122)",
+      "SPPU & SIPU ke Kemenag provinsi",
+      "Pendaftaran SIMPONI / e-Katalog",
+      "Rekening kolektif jamaah & kontrak maktab",
+      "Pendampingan ONH & pembinaan Kemenag",
+    ],
+    nextSteps: [
+      "Tim mengambil dokumen pendiri & rencana usaha via WhatsApp",
+      "Pendirian PT + NIB, lalu pengajuan SPPU/SIPU Kemenag",
+      "Izin terbit + pendampingan operasional pertama",
+    ],
+  },
+  {
+    id: "pihk",
+    name: "GO HAJI PLUS — Sertifikasi PIHK",
+    tagline: "Puncak legalitas travel ibadah: izin PIHK (PPIH) Kemenag sesuai PMHU 2/2026 — siap jual paket haji plus.",
+    price: 80_000_000,
+    strike: 104_000_000,
+    duration: "60-120 hari",
+    category: "sertifikasi",
+    popular: true,
+    features: [
+      "Audit kelayakan modal & legalitas usaha",
+      "Pengajuan izin PIHK/PPIH ke Kemenag",
+      "SISKOPATUH & rekening kolektif jamaah",
+      "Uji kelayakan + SK PIHK & penempatan PPUMI",
+      "Pendampingan kontrak maktab & keberangkatan",
+    ],
+    nextSteps: [
+      "Audit kesiapan modal, dokumen & legalitas via WhatsApp",
+      "Pengajuan PIHK ke Kemenag + uji kelayakan",
+      "SK PIHK terbit + pendampingan PPUMI & maktab",
+    ],
+  },
 ];
 
 export function getPackage(id: string): PaketLayanan | undefined {

@@ -38,7 +38,7 @@ export function Process() {
                   className="relative text-center"
                 >
                   <div className="relative inline-flex">
-                    <div className="h-[72px] w-[72px] rounded-2xl bg-gradient-to-br from-primary to-amber-800 text-primary-foreground shadow-xl shadow-primary/25 flex items-center justify-center rotate-3">
+                    <div className="h-[72px] w-[72px] rounded-2xl bg-gradient-to-br from-primary to-emerald-900 text-primary-foreground shadow-xl shadow-primary/25 flex items-center justify-center rotate-3">
                       <Icon className="h-8 w-8" aria-hidden="true" />
                     </div>
                     <div className="absolute -top-2 -right-2 h-7 w-7 rounded-full bg-gold text-gold-foreground text-sm font-extrabold flex items-center justify-center shadow-md border-2 border-white dark:border-card">

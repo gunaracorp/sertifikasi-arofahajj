@@ -44,13 +44,13 @@ export function AdminLogin() {
     <main className="relative flex min-h-screen items-center justify-center overflow-hidden bg-stone-950 px-4">
       {/* Ambient emerald glow */}
       <div aria-hidden className="pointer-events-none absolute inset-0">
-        <div className="absolute left-1/2 top-1/3 h-72 w-72 -translate-x-1/2 rounded-full bg-amber-500/10 blur-3xl" />
-        <div className="absolute bottom-10 right-10 h-56 w-56 rounded-full bg-amber-500/5 blur-3xl" />
+        <div className="absolute left-1/2 top-1/3 h-72 w-72 -translate-x-1/2 rounded-full bg-emerald-600/10 blur-3xl" />
+        <div className="absolute bottom-10 right-10 h-56 w-56 rounded-full bg-emerald-600/5 blur-3xl" />
       </div>
 
       <section className="relative w-full max-w-sm">
         <div className="mb-8 text-center">
-          <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-2xl border border-amber-500/30 bg-amber-500/10">
+          <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-2xl border border-emerald-600/30 bg-emerald-600/10">
             <ShieldCheck className="h-8 w-8 text-amber-400" aria-hidden />
           </div>
           <h1 className="text-2xl font-extrabold tracking-tight text-stone-100">Mission Control</h1>
@@ -73,7 +73,7 @@ export function AdminLogin() {
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 placeholder="••••••••••"
-                className="min-h-[44px] border-stone-700 bg-stone-950/80 pl-10 text-stone-100 placeholder:text-stone-600 focus-visible:ring-amber-500/40"
+                className="min-h-[44px] border-stone-700 bg-stone-950/80 pl-10 text-stone-100 placeholder:text-stone-600 focus-visible:ring-emerald-600/40"
                 autoFocus
                 required
               />
@@ -89,7 +89,7 @@ export function AdminLogin() {
           <Button
             type="submit"
             disabled={loading || password.length === 0}
-            className="mt-5 min-h-[44px] w-full bg-amber-500 font-semibold text-stone-950 hover:bg-amber-400"
+            className="mt-5 min-h-[44px] w-full bg-emerald-600 font-semibold text-stone-950 hover:bg-amber-400"
           >
             {loading ? (
               <>

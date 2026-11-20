@@ -103,7 +103,7 @@ export default function BandingkanIndexPage() {
               <span className="font-extrabold text-foreground">vs</span>
               <span className="rounded-full bg-gold/10 text-gold px-2.5 py-1">{t.parties[1].short}</span>
               <span className="font-extrabold text-foreground">vs</span>
-              <span className="rounded-full bg-amber-500/10 text-amber-700 px-2.5 py-1">{t.parties[2].short}</span>
+              <span className="rounded-full bg-emerald-600/10 text-emerald-800 px-2.5 py-1">{t.parties[2].short}</span>
               <span className="ml-auto rounded-full bg-primary text-primary-foreground px-2.5 py-1">Paling dicari</span>
             </div>
             <h2 className="font-bold text-lg leading-snug">

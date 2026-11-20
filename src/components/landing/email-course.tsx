@@ -136,7 +136,7 @@ export function EmailCourse() {
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
           {/* Kiri: pitch + kurikulum */}
           <div>
-            <span className="inline-flex items-center gap-1.5 rounded-full border border-gold/40 bg-gold/10 px-4 py-1 text-xs font-bold text-amber-300">
+            <span className="inline-flex items-center gap-1.5 rounded-full border border-gold/40 bg-gold/10 px-4 py-1 text-xs font-bold text-emerald-300">
               <GraduationCap className="h-3.5 w-3.5" />
               {t("courseBadge")}
             </span>
@@ -144,7 +144,7 @@ export function EmailCourse() {
               {t("courseT1")}{" "}
               <span className="text-amber-400">{t("courseTHigh")}</span>
             </h2>
-            <p className="mt-4 text-amber-100/75 text-lg leading-relaxed">
+            <p className="mt-4 text-emerald-100/75 text-lg leading-relaxed">
               {t("courseSub")}
             </p>
 
@@ -158,29 +158,29 @@ export function EmailCourse() {
                   transition={{ delay: i * 0.05 }}
                   className="flex items-start gap-3.5"
                 >
-                  <span className="mt-0.5 h-8 w-8 shrink-0 rounded-full bg-gold/15 border border-gold/30 text-amber-300 text-xs font-extrabold flex items-center justify-center">
+                  <span className="mt-0.5 h-8 w-8 shrink-0 rounded-full bg-gold/15 border border-gold/30 text-emerald-300 text-xs font-extrabold flex items-center justify-center">
                     {d.n}
                   </span>
                   <div>
                     <p className="text-sm font-bold text-white">{d.title}</p>
-                    <p className="text-xs text-amber-100/65 mt-0.5 leading-relaxed">{d.desc}</p>
+                    <p className="text-xs text-emerald-100/65 mt-0.5 leading-relaxed">{d.desc}</p>
                   </div>
                 </motion.li>
               ))}
               <li className="flex items-start gap-3.5 rounded-xl border border-gold/30 bg-gold/10 p-3.5">
                 <Gift className="h-8 w-8 shrink-0 text-amber-400" aria-hidden />
                 <div>
-                  <p className="text-sm font-bold text-amber-300">
+                  <p className="text-sm font-bold text-emerald-300">
                     Bonus Hari ke-8: Template Checklist 47 Izin per Sektor (PDF)
                   </p>
-                  <p className="text-xs text-amber-100/65 mt-0.5">
+                  <p className="text-xs text-emerald-100/65 mt-0.5">
                     Panduan saku yang Anda bisa cetak & tempel di meja kerja.
                   </p>
                 </div>
               </li>
             </ol>
 
-            <p className="mt-7 flex items-center gap-2 text-sm text-amber-100/70">
+            <p className="mt-7 flex items-center gap-2 text-sm text-emerald-100/70">
               <Users className="h-4.5 w-4.5 text-amber-400 shrink-0" aria-hidden />
               <span>
                 <strong className="text-white">{count.toLocaleString("id-ID")}+ pengusaha</strong> sudah bergabung & belajar setiap pagi
@@ -196,7 +196,7 @@ export function EmailCourse() {
                 <h3 className="mt-5 text-xl font-extrabold text-white">
                   {t("courseSuccessTitle")}
                 </h3>
-                <p className="mt-3 text-sm text-amber-100/75 leading-relaxed">
+                <p className="mt-3 text-sm text-emerald-100/75 leading-relaxed">
                   Materi <strong className="text-white">Hari 1</strong> sedang meluncur ke{" "}
                   <strong className="text-white">{email}</strong>. Belum muncul dalam 5 menit?
                   Cek folder <em>spam</em> / <em>promosi</em> ya.
@@ -215,17 +215,17 @@ export function EmailCourse() {
                   <h3 className="text-lg font-extrabold text-white">
                     {t("courseFormTitle")}
                   </h3>
-                  <p className="text-xs text-amber-100/60 mt-1">
+                  <p className="text-xs text-emerald-100/60 mt-1">
                     {t("courseFormSub")}
                   </p>
                 </div>
 
                 <div className="space-y-1.5">
-                  <Label htmlFor="kursus-nama" className="text-amber-100/80 text-xs font-semibold">
+                  <Label htmlFor="kursus-nama" className="text-emerald-100/80 text-xs font-semibold">
                     Nama Lengkap *
                   </Label>
                   <div className="relative">
-                    <User2 className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-amber-100/40" aria-hidden />
+                    <User2 className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-emerald-100/40" aria-hidden />
                     <Input
                       id="kursus-nama"
                       required
@@ -233,17 +233,17 @@ export function EmailCourse() {
                       value={name}
                       onChange={(e) => setName(e.target.value)}
                       placeholder="cth: Budi Santoso"
-                      className="pl-9 bg-white/10 border-white/15 text-white placeholder:text-amber-100/30 focus-visible:ring-gold/50"
+                      className="pl-9 bg-white/10 border-white/15 text-white placeholder:text-emerald-100/30 focus-visible:ring-gold/50"
                     />
                   </div>
                 </div>
 
                 <div className="space-y-1.5">
-                  <Label htmlFor="kursus-email" className="text-amber-100/80 text-xs font-semibold">
+                  <Label htmlFor="kursus-email" className="text-emerald-100/80 text-xs font-semibold">
                     Email Aktif *
                   </Label>
                   <div className="relative">
-                    <Mail className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-amber-100/40" aria-hidden />
+                    <Mail className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-emerald-100/40" aria-hidden />
                     <Input
                       id="kursus-email"
                       required
@@ -251,24 +251,24 @@ export function EmailCourse() {
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
                       placeholder="nama@perusahaan.com"
-                      className="pl-9 bg-white/10 border-white/15 text-white placeholder:text-amber-100/30 focus-visible:ring-gold/50"
+                      className="pl-9 bg-white/10 border-white/15 text-white placeholder:text-emerald-100/30 focus-visible:ring-gold/50"
                     />
                   </div>
                 </div>
 
                 <div className="space-y-1.5">
-                  <Label htmlFor="kursus-wa" className="text-amber-100/80 text-xs font-semibold">
+                  <Label htmlFor="kursus-wa" className="text-emerald-100/80 text-xs font-semibold">
                     No. WhatsApp <span className="font-normal">(opsional — untuk checklist PDF)</span>
                   </Label>
                   <div className="relative">
-                    <MessageSquare className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-amber-100/40" aria-hidden />
+                    <MessageSquare className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-emerald-100/40" aria-hidden />
                     <Input
                       id="kursus-wa"
                       type="tel"
                       value={whatsapp}
                       onChange={(e) => setWhatsapp(e.target.value)}
                       placeholder="0812xxxxxxx"
-                      className="pl-9 bg-white/10 border-white/15 text-white placeholder:text-amber-100/30 focus-visible:ring-gold/50"
+                      className="pl-9 bg-white/10 border-white/15 text-white placeholder:text-emerald-100/30 focus-visible:ring-gold/50"
                     />
                   </div>
                 </div>
@@ -282,7 +282,7 @@ export function EmailCourse() {
                 <Button
                   type="submit"
                   disabled={loading}
-                  className="w-full rounded-full bg-amber-400 text-amber-950 font-extrabold hover:bg-amber-300 shadow-lg shadow-amber-400/25 h-11"
+                  className="w-full rounded-full bg-amber-400 text-emerald-950 font-extrabold hover:bg-emerald-300 shadow-lg shadow-amber-400/25 h-11"
                 >
                   {loading ? (
                     <>
@@ -297,7 +297,7 @@ export function EmailCourse() {
                   )}
                 </Button>
 
-                <p className="flex items-center justify-center gap-1.5 text-[11px] text-amber-100/50">
+                <p className="flex items-center justify-center gap-1.5 text-[11px] text-emerald-100/50">
                   <ShieldCheck className="h-3.5 w-3.5 shrink-0" aria-hidden />
                   Email Anda aman. Tidak pernah spam — berhenti kapan saja dengan 1 klik.
                 </p>

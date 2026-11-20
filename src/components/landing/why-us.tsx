@@ -68,7 +68,7 @@ export function WhyUs() {
               delay={(i % 3) * STAGGER}
               className="group rounded-2xl border border-border/70 bg-card p-6 hover:shadow-xl hover:shadow-primary/5 hover:border-primary/25 transition-all duration-300"
             >
-              <div className="h-12 w-12 rounded-xl bg-gradient-to-br from-primary to-amber-800 text-primary-foreground flex items-center justify-center shadow-md shadow-primary/20 group-hover:scale-110 group-hover:rotate-3 transition-transform duration-300">
+              <div className="h-12 w-12 rounded-xl bg-gradient-to-br from-primary to-emerald-900 text-primary-foreground flex items-center justify-center shadow-md shadow-primary/20 group-hover:scale-110 group-hover:rotate-3 transition-transform duration-300">
                 <reason.icon className="h-6 w-6" aria-hidden="true" />
               </div>
               <h3 className="mt-5 text-lg font-bold tracking-tight">{reason.title}</h3>

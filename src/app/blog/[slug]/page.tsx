@@ -264,9 +264,9 @@ export default async function BlogArticlePage({
       <article className="mx-auto max-w-3xl px-4 py-12 sm:px-6 sm:py-16">
         {/* Banner pratinjau draft — hanya untuk admin (tidak pernah tampil ke publik) */}
         {found.isDraft && (
-          <div className="mb-8 flex flex-wrap items-center gap-3 rounded-2xl border border-amber-500/40 bg-amber-500/10 px-5 py-4 text-sm">
-            <Eye aria-hidden className="h-4 w-4 shrink-0 text-amber-600" />
-            <p className="flex-1 font-semibold text-amber-700 dark:text-amber-400">
+          <div className="mb-8 flex flex-wrap items-center gap-3 rounded-2xl border border-emerald-600/40 bg-emerald-600/10 px-5 py-4 text-sm">
+            <Eye aria-hidden className="h-4 w-4 shrink-0 text-emerald-700" />
+            <p className="flex-1 font-semibold text-emerald-800 dark:text-amber-400">
               Mode Pratinjau Admin — artikel ini masih DRAFT dan belum terlihat pengunjung
               atau mesin pencari.
             </p>
@@ -428,7 +428,7 @@ export default async function BlogArticlePage({
         )}
 
         {/* CTA penutup */}
-        <div className="mt-12 flex flex-col sm:flex-row items-center gap-3 rounded-2xl bg-gradient-to-r from-primary to-amber-800 p-6 text-primary-foreground">
+        <div className="mt-12 flex flex-col sm:flex-row items-center gap-3 rounded-2xl bg-gradient-to-r from-primary to-emerald-900 p-6 text-primary-foreground">
           <Sparkles className="h-5 w-5 shrink-0 hidden sm:block" aria-hidden />
           <p className="text-sm font-semibold flex-1 text-center sm:text-left">
             Tidak mau repot? Serahkan semuanya ke tim ahli kami — garansi 100% uang kembali.

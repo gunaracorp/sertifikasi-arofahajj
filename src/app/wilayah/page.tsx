@@ -88,13 +88,13 @@ export default function WilayahHubPage() {
       <Header />
       <main className="flex-1">
         {/* HERO */}
-        <section className="border-b bg-gradient-to-b from-amber-50/60 via-background to-background">
+        <section className="border-b bg-gradient-to-b from-emerald-50/60 via-background to-background">
           <div className="mx-auto max-w-6xl px-4 py-14 text-center sm:px-6">
-            <p className="mx-auto inline-flex items-center gap-2 rounded-full border border-amber-200 bg-white px-4 py-1.5 text-xs font-bold text-amber-800 shadow-sm">
+            <p className="mx-auto inline-flex items-center gap-2 rounded-full border border-emerald-200 bg-white px-4 py-1.5 text-xs font-bold text-emerald-900 shadow-sm">
               <MapPin className="h-3.5 w-3.5" aria-hidden /> JANGKAUAN NASIONAL
             </p>
             <h1 className="mx-auto mt-5 max-w-3xl text-4xl font-extrabold tracking-tight sm:text-5xl">
-              Jasa Pengurusan Perizinan di <span className="text-amber-700">Seluruh Indonesia</span>
+              Jasa Pengurusan Perizinan di <span className="text-emerald-800">Seluruh Indonesia</span>
             </h1>
             <p className="mx-auto mt-4 max-w-2xl text-lg leading-relaxed text-muted-foreground">
               {TOTAL_PROVINCES} provinsi · {TOTAL_KABKOTA} kabupaten/kota. Pilih provinsi Anda untuk melihat
@@ -109,7 +109,7 @@ export default function WilayahHubPage() {
               ].map(([v, l]) => (
                 <div key={String(l)} className="rounded-2xl border bg-card p-4">
                   <dt className="sr-only">{String(l)}</dt>
-                  <dd className="text-2xl font-extrabold text-amber-800">{v}</dd>
+                  <dd className="text-2xl font-extrabold text-emerald-900">{v}</dd>
                   <dd className="mt-0.5 text-[11px] text-muted-foreground">{l}</dd>
                 </div>
               ))}
@@ -129,7 +129,7 @@ export default function WilayahHubPage() {
               return (
                 <div key={island}>
                   <h3 className="flex items-center gap-2 text-sm font-extrabold uppercase tracking-wider text-muted-foreground">
-                    <Building2 className="h-4 w-4 text-amber-700" aria-hidden /> {island}
+                    <Building2 className="h-4 w-4 text-emerald-800" aria-hidden /> {island}
                     <span className="rounded-full bg-muted px-2 py-0.5 text-[11px] font-bold">{list.length} provinsi</span>
                   </h3>
                   <div className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
@@ -139,13 +139,13 @@ export default function WilayahHubPage() {
                       // adalah HTML invalid & merusak hidrasi React.
                       <div
                         key={w.slug}
-                        className="rounded-xl border bg-card p-4 transition hover:border-amber-300 hover:shadow-md"
+                        className="rounded-xl border bg-card p-4 transition hover:border-emerald-300 hover:shadow-md"
                       >
                         <Link
                           href={w.hubHref}
                           className="group block"
                         >
-                          <p className="text-sm font-bold leading-snug group-hover:text-amber-800">
+                          <p className="text-sm font-bold leading-snug group-hover:text-emerald-900">
                             Jasa Perizinan di {w.name}
                           </p>
                           <p className="mt-1.5 flex flex-wrap gap-1.5">
@@ -162,7 +162,7 @@ export default function WilayahHubPage() {
                         {/* ROADMAP-99 langkah 25: internal-link ke SELURUH
                             kab/kota — <details> = ringan, tetap crawlable */}
                         <details className="mt-2">
-                          <summary className="cursor-pointer select-none text-[11px] font-bold text-amber-800 hover:text-amber-900">
+                          <summary className="cursor-pointer select-none text-[11px] font-bold text-emerald-900 hover:text-emerald-950">
                             {w.kabkotaHrefs.length} kabupaten/kota dilayani — lihat semua
                           </summary>
                           <div className="mt-2 flex flex-wrap gap-1.5">
@@ -170,7 +170,7 @@ export default function WilayahHubPage() {
                               <Link
                                 key={k.href}
                                 href={k.href}
-                                className="rounded-full border bg-background px-2 py-0.5 text-[10px] font-semibold text-muted-foreground transition hover:border-amber-300 hover:text-amber-800"
+                                className="rounded-full border bg-background px-2 py-0.5 text-[10px] font-semibold text-muted-foreground transition hover:border-emerald-300 hover:text-emerald-900"
                               >
                                 {k.name}
                               </Link>
@@ -179,7 +179,7 @@ export default function WilayahHubPage() {
                         </details>
                         <Link
                           href={w.hubHref}
-                          className="mt-2 inline-flex items-center gap-1 text-[11px] font-bold text-amber-800"
+                          className="mt-2 inline-flex items-center gap-1 text-[11px] font-bold text-emerald-900"
                         >
                           Lihat semua layanan <ArrowRight className="h-3 w-3" aria-hidden />
                         </Link>
@@ -195,7 +195,7 @@ export default function WilayahHubPage() {
         {/* TRUST STRIP */}
         <section className="border-t bg-muted/30">
           <div className="mx-auto max-w-4xl px-4 py-12 text-center sm:px-6">
-            <ShieldCheck className="mx-auto h-8 w-8 text-amber-700" aria-hidden />
+            <ShieldCheck className="mx-auto h-8 w-8 text-emerald-800" aria-hidden />
             <h2 className="mt-3 text-2xl font-extrabold tracking-tight">Proses 100% Online, Tim di 2 Kota</h2>
             <p className="mx-auto mt-3 max-w-2xl text-sm leading-relaxed text-muted-foreground">
               Koordinasi via WhatsApp &amp; email, dokumen digital. Kantor fisik di SCBD Jakarta &amp; Bandung —
@@ -204,7 +204,7 @@ export default function WilayahHubPage() {
             <div className="mt-6 flex flex-wrap items-center justify-center gap-3">
               <Link
                 href="/konsultasi"
-                className="inline-flex min-h-11 items-center gap-2 rounded-xl bg-amber-700 px-6 py-3 text-sm font-bold text-white transition hover:bg-amber-800"
+                className="inline-flex min-h-11 items-center gap-2 rounded-xl bg-emerald-800 px-6 py-3 text-sm font-bold text-white transition hover:bg-emerald-900"
               >
                 Konsultasi Gratis — Pilih Wilayah Saya
               </Link>

@@ -79,10 +79,10 @@ export function LeadForm({ source, needs, cta = "Kirim — Respons < 15 Menit", 
 
   if (done) {
     return (
-      <div className="rounded-xl border border-amber-200 bg-amber-50 p-6 text-center" role="status">
-        <CheckCircle2 className="mx-auto h-10 w-10 text-amber-700" aria-hidden />
-        <p className="mt-3 font-semibold text-amber-950">Terima kasih, {form.name}!</p>
-        <p className="mt-1 text-sm text-amber-900">
+      <div className="rounded-xl border border-emerald-200 bg-emerald-50 p-6 text-center" role="status">
+        <CheckCircle2 className="mx-auto h-10 w-10 text-emerald-800" aria-hidden />
+        <p className="mt-3 font-semibold text-emerald-950">Terima kasih, {form.name}!</p>
+        <p className="mt-1 text-sm text-emerald-950">
           Tim senior kami akan menghubungi WhatsApp Anda dalam 1×24 jam (biasanya &lt; 15 menit di jam kerja).
         </p>
       </div>

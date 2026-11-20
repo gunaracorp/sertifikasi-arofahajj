@@ -224,14 +224,14 @@ export function RoadmapWizard() {
               ))}
             </ul>
           </div>
-          <div className="rounded-2xl border border-amber-200 bg-amber-50/50 dark:border-amber-950/40 dark:bg-amber-950/20 p-5">
-            <h3 className="flex items-center gap-2 font-bold text-amber-950 dark:text-amber-300 mb-3">
+          <div className="rounded-2xl border border-emerald-200 bg-emerald-50/50 dark:border-emerald-950/40 dark:bg-emerald-950/20 p-5">
+            <h3 className="flex items-center gap-2 font-bold text-emerald-950 dark:text-emerald-300 mb-3">
               <Target className="h-4.5 w-4.5" aria-hidden /> Langkah Berikutnya
             </h3>
             <ol className="space-y-2">
               {roadmap.nextSteps.map((s, i) => (
-                <li key={i} className="text-sm text-amber-950/80 dark:text-amber-300/80 leading-relaxed flex gap-2">
-                  <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-amber-700 text-[10px] font-bold text-white mt-0.5">{i + 1}</span>
+                <li key={i} className="text-sm text-emerald-950/80 dark:text-emerald-300/80 leading-relaxed flex gap-2">
+                  <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-emerald-800 text-[10px] font-bold text-white mt-0.5">{i + 1}</span>
                   {s}
                 </li>
               ))}
@@ -240,10 +240,10 @@ export function RoadmapWizard() {
         </div>
 
         {/* CTA */}
-        <div className="rounded-2xl bg-[oklch(0.23_0.03_78)] p-6 md:p-8 text-center text-amber-50">
+        <div className="rounded-2xl bg-[oklch(0.23_0.03_78)] p-6 md:p-8 text-center text-emerald-50">
           <Rocket className="h-8 w-8 text-amber-400 mx-auto mb-3" aria-hidden />
           <h3 className="text-xl font-bold text-white">Siap jalankan roadmap ini? Kami yang urus semuanya.</h3>
-          <p className="mt-2 text-sm text-amber-100/80 max-w-xl mx-auto">
+          <p className="mt-2 text-sm text-emerald-100/80 max-w-xl mx-auto">
             Kirim roadmap ini ke konsultan kami — tim Arofahajj Universe (1.247+ klien, rating 4,9/5) akan memberikan penawaran lengkap tanpa komitmen.
           </p>
           <div className="mt-5 flex flex-wrap justify-center gap-3">
@@ -259,7 +259,7 @@ export function RoadmapWizard() {
             <button
               type="button"
               onClick={() => { setRoadmap(null); setStep(1); }}
-              className="inline-flex items-center gap-2 rounded-xl border border-white/20 bg-white/5 px-6 py-3.5 font-semibold text-amber-50 transition-all hover:bg-white/10 min-h-[44px]"
+              className="inline-flex items-center gap-2 rounded-xl border border-white/20 bg-white/5 px-6 py-3.5 font-semibold text-emerald-50 transition-all hover:bg-white/10 min-h-[44px]"
             >
               <ArrowLeft className="h-4 w-4" aria-hidden />
               Buat Roadmap Lain

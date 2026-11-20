@@ -113,7 +113,7 @@ function renderPreview(tpl: string): string {
 
 function ChannelDot({ active }: { active: boolean }) {
   return active ? (
-    <span className="inline-flex items-center gap-1.5 rounded-full border border-amber-500/30 bg-amber-500/10 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider text-amber-300">
+    <span className="inline-flex items-center gap-1.5 rounded-full border border-emerald-600/30 bg-emerald-600/10 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider text-emerald-300">
       <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-amber-400" /> AKTIF
     </span>
   ) : (
@@ -264,7 +264,7 @@ export function NotificationsTab() {
         {[
           { label: "Terkirim hari ini", value: stats?.todaySent ?? 0, icon: CheckCircle2, cls: "text-amber-400" },
           { label: "Gagal hari ini", value: stats?.todayFailed ?? 0, icon: XCircle, cls: "text-rose-400" },
-          { label: "Terkirim 7 hari", value: stats?.weekSent ?? 0, icon: Zap, cls: "text-amber-300" },
+          { label: "Terkirim 7 hari", value: stats?.weekSent ?? 0, icon: Zap, cls: "text-emerald-300" },
           { label: "Gagal 7 hari", value: stats?.weekFailed ?? 0, icon: RotateCcw, cls: "text-stone-400" },
         ].map((k) => {
           const Icon = k.icon;
@@ -364,10 +364,10 @@ export function NotificationsTab() {
         </div>
 
         {/* WhatsApp */}
-        <div className="rounded-xl border border-amber-900/40 bg-stone-900/50 p-5">
+        <div className="rounded-xl border border-emerald-950/40 bg-stone-900/50 p-5">
           <div className="mb-4 flex items-center justify-between gap-2">
             <div className="flex items-center gap-3">
-              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-amber-500/10 text-amber-400 ring-1 ring-amber-500/30">
+              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-emerald-600/10 text-amber-400 ring-1 ring-emerald-600/30">
                 <MessageCircle aria-hidden className="h-5 w-5" />
               </div>
               <div>
@@ -438,7 +438,7 @@ export function NotificationsTab() {
               size="sm"
               onClick={() => action({ action: "test-whatsapp", apiToken: waToken, target: waTarget, provider: waProvider }, "Uji WhatsApp")}
               disabled={busy === "test-whatsapp"}
-              className="w-full border-amber-800/50 bg-amber-500/10 text-amber-300 hover:bg-amber-500/20"
+              className="w-full border-emerald-900/50 bg-emerald-600/10 text-emerald-300 hover:bg-emerald-600/20"
             >
               {busy === "test-whatsapp" ? <Loader2 aria-hidden className="mr-2 h-4 w-4 animate-spin" /> : <BellRing aria-hidden className="mr-2 h-4 w-4" />}
               Kirim Pesan Uji
@@ -472,7 +472,7 @@ export function NotificationsTab() {
                   type="button"
                   onClick={() => insertToken(t.token)}
                   title={t.desc}
-                  className="rounded-md border border-amber-900/50 bg-amber-500/10 px-2 py-1 font-mono text-[11px] text-amber-300 transition-colors hover:bg-amber-500/20"
+                  className="rounded-md border border-emerald-950/50 bg-emerald-600/10 px-2 py-1 font-mono text-[11px] text-emerald-300 transition-colors hover:bg-emerald-600/20"
                 >
                   {t.token}
                 </button>
@@ -497,11 +497,11 @@ export function NotificationsTab() {
       </div>
 
       {/* ---------- simpan ---------- */}
-      <div className="flex items-center justify-between gap-3 rounded-xl border border-amber-900/40 bg-amber-500/5 p-4">
+      <div className="flex items-center justify-between gap-3 rounded-xl border border-emerald-950/40 bg-emerald-600/5 p-4">
         <p className="text-sm text-stone-400">
           {dirty ? "Ada perubahan yang belum tersimpan." : "Semua pengaturan tersimpan. Notifikasi aktif tiap lead baru masuk."}
         </p>
-        <Button onClick={saveAll} disabled={saveBusy || !dirty} className="shrink-0 bg-amber-700 text-white hover:bg-amber-800">
+        <Button onClick={saveAll} disabled={saveBusy || !dirty} className="shrink-0 bg-emerald-800 text-white hover:bg-emerald-900">
           {saveBusy ? <Loader2 aria-hidden className="mr-2 h-4 w-4 animate-spin" /> : <Save aria-hidden className="mr-2 h-4 w-4" />}
           Simpan Pengaturan
         </Button>
@@ -548,7 +548,7 @@ export function NotificationsTab() {
                     data-testid="notif-log"
                   >
                     <div className={`mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-lg ring-1 ${
-                      isTg ? "bg-sky-500/10 text-sky-400 ring-sky-500/25" : "bg-amber-500/10 text-amber-400 ring-amber-500/25"
+                      isTg ? "bg-sky-500/10 text-sky-400 ring-sky-500/25" : "bg-emerald-600/10 text-amber-400 ring-emerald-600/25"
                     }`}>
                       <Icon aria-hidden className="h-4 w-4" />
                     </div>
@@ -561,7 +561,7 @@ export function NotificationsTab() {
                         </span>
                       </div>
                       <div className="mt-0.5 flex flex-wrap items-center gap-x-2 text-xs text-stone-500">
-                        <a href={`https://wa.me/${log.leadWa.replace(/[^0-9]/g, "")}`} target="_blank" rel="noopener noreferrer" className="text-stone-400 underline-offset-2 hover:text-amber-300 hover:underline">
+                        <a href={`https://wa.me/${log.leadWa.replace(/[^0-9]/g, "")}`} target="_blank" rel="noopener noreferrer" className="text-stone-400 underline-offset-2 hover:text-emerald-300 hover:underline">
                           {log.leadWa}
                         </a>
                         <span>·</span>
@@ -582,7 +582,7 @@ export function NotificationsTab() {
                         size="sm"
                         onClick={() => action({ action: "retry", logId: log.id }, "Kirim ulang")}
                         disabled={busy === "retry"}
-                        className="h-8 shrink-0 px-2 text-xs text-amber-300 hover:bg-amber-500/10 hover:text-amber-200"
+                        className="h-8 shrink-0 px-2 text-xs text-emerald-300 hover:bg-emerald-600/10 hover:text-emerald-200"
                       >
                         <RotateCcw aria-hidden className="mr-1 h-3.5 w-3.5" /> Ulangi
                       </Button>
@@ -605,7 +605,7 @@ export function NotificationsTab() {
             </DialogDescription>
           </DialogHeader>
           {detected.length === 0 ? (
-            <p className="rounded-lg border border-amber-800/50 bg-amber-500/10 p-4 text-sm text-amber-300">
+            <p className="rounded-lg border border-emerald-900/50 bg-emerald-600/10 p-4 text-sm text-emerald-300">
               Belum ada chat terdeteksi. Buka Telegram → cari bot kamu → tekan <b>Start</b> / kirim pesan apa pun, lalu klik Deteksi lagi.
             </p>
           ) : (
@@ -614,13 +614,13 @@ export function NotificationsTab() {
                 <button
                   key={c.id}
                   onClick={() => { setTgChatId(c.id); touch(); setDetectOpen(false); }}
-                  className="flex w-full items-center justify-between rounded-lg border border-stone-700 bg-stone-950/60 p-3 text-left transition-colors hover:border-amber-700/50 hover:bg-amber-500/5"
+                  className="flex w-full items-center justify-between rounded-lg border border-stone-700 bg-stone-950/60 p-3 text-left transition-colors hover:border-emerald-800/50 hover:bg-emerald-600/5"
                 >
                   <div>
                     <p className="text-sm font-semibold">{c.title}</p>
                     <p className="text-xs text-stone-500">{c.type} · {c.id}</p>
                   </div>
-                  <Badge variant="outline" className="border-amber-800/50 bg-amber-500/10 text-amber-300">Pakai</Badge>
+                  <Badge variant="outline" className="border-emerald-900/50 bg-emerald-600/10 text-emerald-300">Pakai</Badge>
                 </button>
               ))}
             </div>

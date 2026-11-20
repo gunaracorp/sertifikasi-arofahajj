@@ -72,7 +72,7 @@ export default function PaketUsahaPage() {
         </nav>
 
         <header className="max-w-3xl">
-          <p className="inline-flex items-center gap-2 rounded-full bg-amber-50 px-3 py-1 text-xs font-bold text-amber-800">IZIN-IN-A-BOX • GARANSI TERTULIS</p>
+          <p className="inline-flex items-center gap-2 rounded-full bg-emerald-50 px-3 py-1 text-xs font-bold text-emerald-900">IZIN-IN-A-BOX • GARANSI TERTULIS</p>
           <h1 className="mt-4 text-3xl font-extrabold tracking-tight sm:text-4xl">
             Pilih Usahanya, Kami Siapkan Semua Izinnya
           </h1>
@@ -87,7 +87,7 @@ export default function PaketUsahaPage() {
           {VERTICALS.map((v) => (
             <article key={v.name} className="flex flex-col rounded-2xl border bg-card p-6 shadow-sm transition-shadow hover:shadow-md">
               <div className="flex items-center gap-3">
-                <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-amber-50 text-amber-800" aria-hidden><v.icon className="h-5 w-5" /></span>
+                <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-emerald-50 text-emerald-900" aria-hidden><v.icon className="h-5 w-5" /></span>
                 <div>
                   <h2 className="font-bold">{v.name}</h2>
                   <p className="text-sm text-muted-foreground">{v.audience}</p>
@@ -95,7 +95,7 @@ export default function PaketUsahaPage() {
               </div>
               <ul className="mt-4 flex-1 space-y-2">
                 {v.includes.map((i) => (
-                  <li key={i} className="flex gap-2 text-sm"><Check className="mt-0.5 h-4 w-4 shrink-0 text-amber-700" aria-hidden /><span>{i}</span></li>
+                  <li key={i} className="flex gap-2 text-sm"><Check className="mt-0.5 h-4 w-4 shrink-0 text-emerald-800" aria-hidden /><span>{i}</span></li>
                 ))}
               </ul>
               <div className="mt-5 flex items-end justify-between border-t pt-4">
@@ -105,7 +105,7 @@ export default function PaketUsahaPage() {
                 </div>
                 <a
                   href={`https://wa.me/6281222345856?text=${encodeURIComponent(`Halo, saya tertarik Paket Usaha "${v.name}". Mohon info lengkapnya.`)}`}
-                  className="rounded-lg bg-amber-700 px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-amber-800"
+                  className="rounded-lg bg-emerald-800 px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-emerald-900"
                 >
                   Ambil Paket Ini
                 </a>

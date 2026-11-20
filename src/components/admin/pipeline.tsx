@@ -74,9 +74,9 @@ export function PipelineTab() {
                 }}
                 className={`flex w-[270px] shrink-0 flex-col rounded-2xl border p-2.5 transition-colors ${
                   overCol === col.value
-                    ? "border-amber-500/50 bg-amber-500/5"
+                    ? "border-emerald-600/50 bg-emerald-600/5"
                     : won
-                      ? "border-amber-500/20 bg-stone-900/60"
+                      ? "border-emerald-600/20 bg-stone-900/60"
                       : lost
                         ? "border-rose-500/15 bg-stone-900/40"
                         : "border-stone-800 bg-stone-900/50"
@@ -115,11 +115,11 @@ export function PipelineTab() {
                             <p className="truncate text-sm font-semibold text-stone-100">{l.name}</p>
                             <p className="truncate text-xs text-stone-500">{l.businessType} · {relativeTime(l.createdAt)}</p>
                             <div className="mt-2 flex items-center justify-between gap-2">
-                              <span className="text-xs font-bold text-amber-300">{formatRp(l.estimatedValue)}</span>
+                              <span className="text-xs font-bold text-emerald-300">{formatRp(l.estimatedValue)}</span>
                               <a
                                 href={waLink(l.whatsapp, `Halo ${l.name}, ada update dari Arofahajj Universe untuk kebutuhan ${l.businessType} Anda.`)}
                                 target="_blank" rel="noopener noreferrer"
-                                className="inline-flex h-7 w-7 items-center justify-center rounded-md text-amber-400 hover:bg-amber-500/10"
+                                className="inline-flex h-7 w-7 items-center justify-center rounded-md text-amber-400 hover:bg-emerald-600/10"
                                 aria-label={`Chat ${l.name}`}
                                 title="Chat WhatsApp"
                                 onClick={(e) => e.stopPropagation()}

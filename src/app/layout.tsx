@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist_Mono, Playfair_Display, Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 import { Toaster } from "@/components/ui/toaster";
 import { SeoJsonLd } from "@/components/landing/seo-jsonld";
@@ -12,9 +12,23 @@ import { LanguageProvider } from "@/lib/i18n/language-provider";
 import { SITE_URL, LEGAL_ENTITY } from "@/lib/site";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+// ============================================================
+// REDESIGN 2026 — Tipografi "Zamrud & Emas Editorial"
+// Display: Playfair Display (serif mewah — judul besar berkelas
+// hotel/biro perjalanan premium) · Body: Plus Jakarta Sans
+// (sans humanis karya desainer Indonesia — sangat cocok untuk
+// brand Indonesia, beda total dari Geist geometric lama).
+// Mono tetap Geist Mono untuk angka/kode teknis.
+// ============================================================
+const jakarta = Plus_Jakarta_Sans({
+  variable: "--font-jakarta",
   subsets: ["latin"],
+});
+
+const playfair = Playfair_Display({
+  variable: "--font-playfair",
+  subsets: ["latin"],
+  style: ["normal", "italic"],
 });
 
 const geistMono = Geist_Mono({
@@ -159,7 +173,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#b45309",
+  themeColor: "#0b3d30",
   width: "device-width",
   initialScale: 1,
   maximumScale: 5,
@@ -222,7 +236,7 @@ export default function RootLayout({
         />
       </head>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-background text-foreground`}
+        className={`${jakarta.variable} ${playfair.variable} ${geistMono.variable} antialiased bg-background text-foreground`}
       >
         {/* MotionProvider: MotionConfig reducedMotion="user" — seluruh animasi
             framer-motion situs otomatis dinonaktifkan bagi pengguna

@@ -58,7 +58,7 @@ export default function SolusiKorporatPage() {
         </nav>
 
         <header className="max-w-3xl">
-          <p className="inline-flex items-center gap-2 rounded-full bg-amber-50 px-3 py-1 text-xs font-bold text-amber-800">B2B • SLA TERTULIS • NDA STANDAR</p>
+          <p className="inline-flex items-center gap-2 rounded-full bg-emerald-50 px-3 py-1 text-xs font-bold text-emerald-900">B2B • SLA TERTULIS • NDA STANDAR</p>
           <h1 className="mt-4 text-3xl font-extrabold tracking-tight sm:text-4xl">
             Legalitas Ribuan Debitur & Penyewa — Satu Mitra yang Menjaga
           </h1>
@@ -73,7 +73,7 @@ export default function SolusiKorporatPage() {
         <section className="mt-10 grid gap-5 sm:grid-cols-2" aria-label="Layanan korporat">
           {SERVICES.map((s) => (
             <article key={s.title} className="rounded-2xl border bg-card p-6">
-              <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-amber-50 text-amber-800" aria-hidden><s.icon className="h-5 w-5" /></span>
+              <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-emerald-50 text-emerald-900" aria-hidden><s.icon className="h-5 w-5" /></span>
               <h2 className="mt-3 font-bold">{s.title}</h2>
               <p className="mt-1 text-sm leading-relaxed text-muted-foreground">{s.desc}</p>
             </article>

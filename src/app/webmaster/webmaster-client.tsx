@@ -89,7 +89,7 @@ function priorityBadgeClass(p: string): string {
     case "P0":
       return "bg-red-100 text-red-700 border-red-200";
     case "P1":
-      return "bg-amber-100 text-amber-700 border-amber-200";
+      return "bg-emerald-100 text-emerald-800 border-emerald-200";
     case "P2":
       return "bg-slate-100 text-slate-700 border-slate-200";
     default:
@@ -117,7 +117,7 @@ function CopyButton({ text, small }: { text: string; small?: boolean }) {
       }}
     >
       {copied ? (
-        <CheckCircle2 className="h-3.5 w-3.5 text-amber-700" />
+        <CheckCircle2 className="h-3.5 w-3.5 text-emerald-800" />
       ) : (
         <Copy className="h-3.5 w-3.5" />
       )}
@@ -156,7 +156,7 @@ function EngineCard({
 
   return (
     <Card
-      className={`flex flex-col transition-all ${done ? "border-amber-300 bg-amber-50/40" : ""}`}
+      className={`flex flex-col transition-all ${done ? "border-emerald-300 bg-emerald-50/40" : ""}`}
     >
       <CardHeader className="pb-3">
         <div className="flex flex-wrap items-start justify-between gap-2">
@@ -191,14 +191,14 @@ function EngineCard({
         <ul className="space-y-1.5">
           {engine.methods.map((m) => (
             <li key={m} className="flex items-start gap-2 text-xs text-slate-600">
-              <CheckCircle2 className="mt-0.5 h-3.5 w-3.5 shrink-0 text-amber-700" />
+              <CheckCircle2 className="mt-0.5 h-3.5 w-3.5 shrink-0 text-emerald-800" />
               <span>{m}</span>
             </li>
           ))}
         </ul>
 
         {engine.indexNow ? (
-          <Badge variant="outline" className="w-fit border-amber-200 bg-amber-50 text-xs text-amber-700">
+          <Badge variant="outline" className="w-fit border-emerald-200 bg-emerald-50 text-xs text-emerald-800">
             <Zap className="mr-1 h-3 w-3" /> IndexNow didukung — ping instan
           </Badge>
         ) : null}
@@ -210,11 +210,11 @@ function EngineCard({
                 Tag verifikasi
               </span>
               {verificationCode ? (
-                <Badge className="border-amber-200 bg-amber-100 text-xs text-amber-800">
+                <Badge className="border-emerald-200 bg-emerald-100 text-xs text-emerald-900">
                   ✓ Aktif di &lt;head&gt;
                 </Badge>
               ) : (
-                <Badge className="border-amber-200 bg-amber-100 text-xs text-amber-700">
+                <Badge className="border-emerald-200 bg-emerald-100 text-xs text-emerald-800">
                   Belum di-set (env)
                 </Badge>
               )}
@@ -235,7 +235,7 @@ function EngineCard({
 
         <div className="mt-auto flex flex-wrap items-center gap-2 pt-1">
           {engine.portal ? (
-            <Button asChild size="sm" className="bg-amber-700 hover:bg-amber-800">
+            <Button asChild size="sm" className="bg-emerald-800 hover:bg-emerald-900">
               <a href={engine.portal} target="_blank" rel="noopener noreferrer">
                 <ExternalLink className="mr-1 h-3.5 w-3.5" />
                 {engine.portalLabel ?? "Buka Portal"}
@@ -254,7 +254,7 @@ function EngineCard({
             size="sm"
             type="button"
             variant={done ? "default" : "ghost"}
-            className={done ? "bg-amber-700 hover:bg-amber-800" : "text-slate-600"}
+            className={done ? "bg-emerald-800 hover:bg-emerald-900" : "text-slate-600"}
             onClick={onToggle}
             aria-pressed={done}
           >
@@ -382,10 +382,10 @@ export function WebmasterClient({
   return (
     <main className="min-h-screen bg-slate-50">
       {/* ── HERO ── */}
-      <section className="bg-gradient-to-br from-amber-800 via-amber-700 to-amber-500 pb-10 pt-12 text-white">
+      <section className="bg-gradient-to-br from-emerald-900 via-emerald-800 to-emerald-600 pb-10 pt-12 text-white">
         <div className="mx-auto max-w-6xl px-4">
           <div className="flex flex-wrap items-center gap-2">
-            <Badge className="border-0 bg-amber-400 text-amber-950">
+            <Badge className="border-0 bg-amber-400 text-emerald-950">
               <ShieldCheck className="mr-1 h-3.5 w-3.5" /> Alat Internal Owner
             </Badge>
             <Badge className="border-0 bg-white/15 text-white">
@@ -398,7 +398,7 @@ export function WebmasterClient({
           <h1 className="mt-4 text-3xl font-black leading-tight sm:text-4xl">
             🔎 Webmaster Tools Master
           </h1>
-          <p className="mt-2 max-w-3xl text-amber-50">
+          <p className="mt-2 max-w-3xl text-emerald-50">
             Satu panel untuk verifikasi <strong>arofahajj.com</strong> di seluruh
             mesin pencari dunia — <strong>Google diprioritaskan</strong>, lalu Bing
             (menutupi 6+ mesin sekaligus), Yandex, mesin regional, dan mesin jawaban AI
@@ -413,7 +413,7 @@ export function WebmasterClient({
                   ? `Progres verifikasi: ${verifiedCount} / ${SEARCH_ENGINES.length} mesin (${pct}%)`
                   : "Memuat progres…"}
               </span>
-              <span className="text-amber-100">
+              <span className="text-emerald-100">
                 {readyOk} / {siteChecks.length} infrastruktur situs siap
               </span>
             </div>
@@ -438,7 +438,7 @@ export function WebmasterClient({
           <CardHeader className="bg-slate-900 text-white">
             <CardTitle className="flex flex-wrap items-center gap-2 text-lg">
               🌍 Ada berapa mesin pencari di dunia?
-              <Badge className="bg-amber-400 text-amber-950">
+              <Badge className="bg-amber-400 text-emerald-950">
                 {SEARCH_ENGINE_STATS.totalActive} aktif
               </Badge>
             </CardTitle>
@@ -457,7 +457,7 @@ export function WebmasterClient({
                     <span className="text-sm font-bold text-slate-800">
                       {c.emoji} {c.label}
                     </span>
-                    <span className="text-lg font-black text-amber-700">
+                    <span className="text-lg font-black text-emerald-800">
                       {c.count}
                     </span>
                   </div>
@@ -467,9 +467,9 @@ export function WebmasterClient({
                 </div>
               ))}
             </div>
-            <div className="mt-4 flex items-start gap-2 rounded-xl border border-amber-200 bg-amber-50 p-4">
-              <Info className="mt-0.5 h-4 w-4 shrink-0 text-amber-800" />
-              <p className="text-sm leading-relaxed text-amber-950">
+            <div className="mt-4 flex items-start gap-2 rounded-xl border border-emerald-200 bg-emerald-50 p-4">
+              <Info className="mt-0.5 h-4 w-4 shrink-0 text-emerald-900" />
+              <p className="text-sm leading-relaxed text-emerald-950">
                 <strong>Intinya:</strong> {SEARCH_ENGINE_STATS.verdict} Hanya{" "}
                 <strong>{SEARCH_ENGINE_STATS.independentIndex}</strong> mesin yang punya
                 index &amp; crawler sendiri — sisanya &quot;meminjam&quot; hasil. Karena
@@ -495,12 +495,12 @@ export function WebmasterClient({
               {siteChecks.map((c) => (
                 <li
                   key={c.label}
-                  className={`flex items-start gap-2 rounded-lg border p-3 text-sm ${c.ok ? "border-amber-200 bg-amber-50/50" : "border-amber-200 bg-amber-50/50"}`}
+                  className={`flex items-start gap-2 rounded-lg border p-3 text-sm ${c.ok ? "border-emerald-200 bg-emerald-50/50" : "border-emerald-200 bg-emerald-50/50"}`}
                 >
                   {c.ok ? (
-                    <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-amber-700" />
+                    <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-emerald-800" />
                   ) : (
-                    <Sparkles className="mt-0.5 h-4 w-4 shrink-0 text-amber-600" />
+                    <Sparkles className="mt-0.5 h-4 w-4 shrink-0 text-emerald-700" />
                   )}
                   <span className="text-slate-700">
                     {c.label}
@@ -530,7 +530,7 @@ export function WebmasterClient({
 
           {/* ===== TAB GOOGLE ===== */}
           <TabsContent value="google" className="space-y-6">
-            <Card className="border-red-200 bg-gradient-to-br from-red-50 to-amber-50">
+            <Card className="border-red-200 bg-gradient-to-br from-red-50 to-emerald-50">
               <CardHeader>
                 <CardTitle className="flex flex-wrap items-center gap-2 text-xl">
                   🔍 Google Search Console
@@ -555,7 +555,7 @@ export function WebmasterClient({
                 >
                   <AccordionTrigger className="text-left">
                     <span className="flex items-center gap-3">
-                      <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-amber-700 text-sm font-black text-white">
+                      <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-emerald-800 text-sm font-black text-white">
                         {i + 1}
                       </span>
                       <span className="font-bold text-slate-800">{step.title}</span>
@@ -563,7 +563,7 @@ export function WebmasterClient({
                   </AccordionTrigger>
                   <AccordionContent className="space-y-2 pl-11">
                     <p className="text-sm leading-relaxed text-slate-600">{step.desc}</p>
-                    <p className="rounded-lg bg-amber-50 p-2.5 text-xs leading-relaxed text-amber-900">
+                    <p className="rounded-lg bg-emerald-50 p-2.5 text-xs leading-relaxed text-emerald-950">
                       💡 {step.tip}
                     </p>
                   </AccordionContent>
@@ -579,7 +579,7 @@ export function WebmasterClient({
               <CardContent className="space-y-2">
                 {verifications.google ? (
                   <>
-                    <Badge className="bg-amber-100 text-amber-800">
+                    <Badge className="bg-emerald-100 text-emerald-900">
                       ✓ Aktif di &lt;head&gt; seluruh situs
                     </Badge>
                     <div className="flex flex-wrap items-center gap-2 rounded-lg bg-slate-50 p-3">
@@ -594,7 +594,7 @@ export function WebmasterClient({
                   </>
                 ) : (
                   <>
-                    <Badge variant="outline" className="border-amber-200 bg-amber-50 text-amber-700">
+                    <Badge variant="outline" className="border-emerald-200 bg-emerald-50 text-emerald-800">
                       ⚠️ Belum di-set — salin template, isi kode dari GSC
                     </Badge>
                     <div className="flex flex-wrap items-center gap-2 rounded-lg bg-slate-50 p-3">
@@ -626,7 +626,7 @@ export function WebmasterClient({
                   <CardTitle className="text-base">
                     🗺️ 15 Sitemap siap submit ({sitemapUrls.length} baris)
                   </CardTitle>
-                  <Button asChild size="sm" className="bg-amber-700 hover:bg-amber-800">
+                  <Button asChild size="sm" className="bg-emerald-800 hover:bg-emerald-900">
                     <a href={GSC_LINKS[1].url} target="_blank" rel="noopener noreferrer">
                       <ExternalLink className="mr-1 h-3.5 w-3.5" />
                       Buka GSC → Sitemaps
@@ -672,7 +672,7 @@ export function WebmasterClient({
                     href={l.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center justify-between rounded-lg border bg-white px-3 py-2.5 text-sm font-medium text-slate-700 shadow-sm transition-colors hover:border-amber-300 hover:bg-amber-50"
+                    className="flex items-center justify-between rounded-lg border bg-white px-3 py-2.5 text-sm font-medium text-slate-700 shadow-sm transition-colors hover:border-emerald-300 hover:bg-emerald-50"
                   >
                     <span>
                       {l.emoji} {l.label}
@@ -723,7 +723,7 @@ export function WebmasterClient({
               <CardHeader>
                 <CardTitle className="flex flex-wrap items-center gap-2 text-lg">
                   ⚡ IndexNow — Ping Instan
-                  <Badge variant="outline" className="bg-amber-50 text-amber-700">
+                  <Badge variant="outline" className="bg-emerald-50 text-emerald-800">
                     HTTP 200 = langsung masuk antrian crawl
                   </Badge>
                 </CardTitle>
@@ -743,18 +743,18 @@ export function WebmasterClient({
                 </div>
 
                 <div
-                  className={`rounded-xl border p-4 ${indexNowConfigured ? "border-amber-200 bg-amber-50/60" : "border-amber-200 bg-amber-50/60"}`}
+                  className={`rounded-xl border p-4 ${indexNowConfigured ? "border-emerald-200 bg-emerald-50/60" : "border-emerald-200 bg-emerald-50/60"}`}
                 >
                   <div className="flex flex-wrap items-center justify-between gap-2">
                     <span className="text-sm font-bold text-slate-800">
                       Status kunci di server (.env INDEXNOW_KEY)
                     </span>
                     {indexNowConfigured ? (
-                      <Badge className="bg-amber-100 text-amber-800">
+                      <Badge className="bg-emerald-100 text-emerald-900">
                         ✓ Terkonfigurasi
                       </Badge>
                     ) : (
-                      <Badge className="bg-amber-100 text-amber-700">Belum di-set</Badge>
+                      <Badge className="bg-emerald-100 text-emerald-800">Belum di-set</Badge>
                     )}
                   </div>
                   {indexNowKeyUrl ? (
@@ -814,7 +814,7 @@ export function WebmasterClient({
                     <Button
                       onClick={pingIndexNow}
                       disabled={pinging}
-                      className="bg-amber-700 hover:bg-amber-800"
+                      className="bg-emerald-800 hover:bg-emerald-900"
                     >
                       <Send className="mr-1 h-3.5 w-3.5" />
                       {pinging ? "Mengirim…" : "Kirim ke IndexNow"}
@@ -831,7 +831,7 @@ export function WebmasterClient({
                   </div>
                   {pingResult ? (
                     <div
-                      className={`mt-3 rounded-lg border p-3 text-sm ${pingResult.ok ? "border-amber-200 bg-amber-50 text-amber-900" : "border-red-200 bg-red-50 text-red-700"}`}
+                      className={`mt-3 rounded-lg border p-3 text-sm ${pingResult.ok ? "border-emerald-200 bg-emerald-50 text-emerald-950" : "border-red-200 bg-red-50 text-red-700"}`}
                       role="status"
                     >
                       {pingResult.message}
@@ -860,7 +860,7 @@ export function WebmasterClient({
                       <div className="text-xs font-bold text-slate-600">
                         {TIER_META[t].emoji} {TIER_META[t].label}
                       </div>
-                      <div className="mt-1 text-2xl font-black text-amber-700">
+                      <div className="mt-1 text-2xl font-black text-emerald-800">
                         {tierDone(t)}
                         <span className="text-sm font-semibold text-slate-400">
                           /{tierCount(t)}
@@ -879,7 +879,7 @@ export function WebmasterClient({
                       <span className="flex min-w-0 items-center gap-2 text-sm">
                         <input
                           type="checkbox"
-                          className="h-4 w-4 accent-amber-700"
+                          className="h-4 w-4 accent-emerald-800"
                           checked={Boolean(done[e.id])}
                           onChange={() => toggle(e.id)}
                           aria-label={`Tandai ${e.name} terverifikasi`}
@@ -919,7 +919,7 @@ export function WebmasterClient({
               <code>/api/indexnow</code> · halaman noindex (alat internal).
             </span>
             <span>
-              📚 Situs: <strong className="text-amber-800">arofahajj.com</strong> ·
+              📚 Situs: <strong className="text-emerald-900">arofahajj.com</strong> ·
               11.207 URL · 14 seksi sitemap · 26 mesin terkurasi
             </span>
           </CardContent>

@@ -49,13 +49,13 @@ export function CollectionsTab() {
   return (
     <Tabs defaultValue="subs" className="space-y-4">
       <TabsList className="border border-stone-800 bg-stone-900/60">
-        <TabsTrigger value="subs" className="gap-1.5 data-[state=active]:bg-amber-500/15 data-[state=active]:text-amber-300">
+        <TabsTrigger value="subs" className="gap-1.5 data-[state=active]:bg-emerald-600/15 data-[state=active]:text-emerald-300">
           <Mail aria-hidden className="h-4 w-4" /> Subscriber ({subs?.rows.length ?? 0})
         </TabsTrigger>
-        <TabsTrigger value="road" className="gap-1.5 data-[state=active]:bg-amber-500/15 data-[state=active]:text-amber-300">
+        <TabsTrigger value="road" className="gap-1.5 data-[state=active]:bg-emerald-600/15 data-[state=active]:text-emerald-300">
           <Map aria-hidden className="h-4 w-4" /> Roadmap ({road?.rows.length ?? 0})
         </TabsTrigger>
-        <TabsTrigger value="testi" className="gap-1.5 data-[state=active]:bg-amber-500/15 data-[state=active]:text-amber-300">
+        <TabsTrigger value="testi" className="gap-1.5 data-[state=active]:bg-emerald-600/15 data-[state=active]:text-emerald-300">
           <Star aria-hidden className="h-4 w-4" /> Testimoni DB ({testi?.rows.length ?? 0})
         </TabsTrigger>
       </TabsList>
@@ -152,8 +152,8 @@ export function CollectionsTab() {
 
       {/* ---------- Testimoni (DB) ---------- */}
       <TabsContent value="testi">
-        <p className="mb-3 rounded-xl border border-amber-500/25 bg-amber-500/10 px-4 py-3 text-xs text-amber-200">
-          Ini testimoni yang tersimpan di database (hasil koleksi asli via follow-up WA). Testimoni statis di halaman situs dikelola terpisah di <code className="text-amber-300">src/lib/testimonials-data.ts</code>.
+        <p className="mb-3 rounded-xl border border-emerald-600/25 bg-emerald-600/10 px-4 py-3 text-xs text-emerald-200">
+          Ini testimoni yang tersimpan di database (hasil koleksi asli via follow-up WA). Testimoni statis di halaman situs dikelola terpisah di <code className="text-emerald-300">src/lib/testimonials-data.ts</code>.
         </p>
         {testiLoading && !testi ? (
           <SkeletonRows rows={4} />

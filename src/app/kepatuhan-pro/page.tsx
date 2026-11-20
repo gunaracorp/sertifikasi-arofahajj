@@ -110,13 +110,13 @@ export default function KepatuhanProPage() {
       <Header />
       <main className="flex-1">
         {/* HERO */}
-        <section className="relative overflow-hidden border-b bg-gradient-to-b from-amber-50/60 via-background to-background">
+        <section className="relative overflow-hidden border-b bg-gradient-to-b from-emerald-50/60 via-background to-background">
           <div className="mx-auto max-w-6xl px-4 pb-16 pt-14 text-center sm:px-6 sm:pt-20">
-            <div className="mx-auto inline-flex items-center gap-2 rounded-full border border-amber-200 bg-white px-4 py-1.5 text-xs font-bold text-amber-800 shadow-sm">
+            <div className="mx-auto inline-flex items-center gap-2 rounded-full border border-emerald-200 bg-white px-4 py-1.5 text-xs font-bold text-emerald-900 shadow-sm">
               <ShieldCheck className="h-3.5 w-3.5" aria-hidden /> LANGGANAN KEPATUHAN #1 INDONESIA
             </div>
             <h1 className="mx-auto mt-6 max-w-3xl text-4xl font-extrabold tracking-tight sm:text-5xl">
-              Izinmu Sudah Terbit. <span className="text-amber-700">Sekarang Jaga agar Tidak Dicabut.</span>
+              Izinmu Sudah Terbit. <span className="text-emerald-800">Sekarang Jaga agar Tidak Dicabut.</span>
             </h1>
             <p className="mx-auto mt-5 max-w-2xl text-lg leading-relaxed text-muted-foreground">
               KepatuhanPRO menjaga LKPM, pajak bulanan, dan masa berlaku seluruh izinmu —
@@ -125,7 +125,7 @@ export default function KepatuhanProPage() {
             </p>
             <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
               <Link href="#harga-pro">
-                <span className="inline-flex min-h-11 items-center gap-2 rounded-xl bg-amber-700 px-7 py-3 text-sm font-bold text-white shadow-lg shadow-amber-200 transition hover:bg-amber-800">
+                <span className="inline-flex min-h-11 items-center gap-2 rounded-xl bg-emerald-800 px-7 py-3 text-sm font-bold text-white shadow-lg shadow-emerald-200 transition hover:bg-emerald-900">
                   Lihat Paket Langganan <ArrowRight className="h-4 w-4" />
                 </span>
               </Link>
@@ -143,7 +143,7 @@ export default function KepatuhanProPage() {
               ].map(([v, l]) => (
                 <div key={String(l)} className="rounded-2xl border bg-card p-4">
                   <dt className="sr-only">{String(l)}</dt>
-                  <dd className="text-xl font-extrabold text-amber-800 sm:text-2xl">{v}</dd>
+                  <dd className="text-xl font-extrabold text-emerald-900 sm:text-2xl">{v}</dd>
                   <dd className="mt-1 text-[11px] leading-tight text-muted-foreground">{l}</dd>
                 </div>
               ))}
@@ -159,14 +159,14 @@ export default function KepatuhanProPage() {
           <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
             {COVERAGE.map(({ icon: Icon, t, d }) => (
               <div key={t} className="rounded-2xl border bg-card p-6">
-                <Icon className="h-7 w-7 text-amber-700" aria-hidden />
+                <Icon className="h-7 w-7 text-emerald-800" aria-hidden />
                 <h3 className="mt-3 font-bold">{t}</h3>
                 <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{d}</p>
               </div>
             ))}
           </div>
           <p className="mx-auto mt-8 flex max-w-2xl items-center justify-center gap-2 text-center text-sm text-muted-foreground">
-            <CheckCircle2 className="h-4 w-4 shrink-0 text-amber-700" aria-hidden />
+            <CheckCircle2 className="h-4 w-4 shrink-0 text-emerald-800" aria-hidden />
             Ditangani konsultan bersertifikat — bukan bot, bukan template.
           </p>
         </section>

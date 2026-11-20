@@ -58,7 +58,7 @@ export default function KalenderKepatuhanPage() {
         </nav>
 
         <header>
-          <p className="inline-flex items-center gap-2 rounded-full bg-amber-50 px-3 py-1 text-xs font-bold text-amber-800">GRATIS • TANPA SYARAT • 60 DETIK</p>
+          <p className="inline-flex items-center gap-2 rounded-full bg-emerald-50 px-3 py-1 text-xs font-bold text-emerald-900">GRATIS • TANPA SYARAT • 60 DETIK</p>
           <h1 className="mt-4 text-3xl font-extrabold tracking-tight sm:text-4xl">
             Kalender Kepatuhan Usaha — Jangan Biarkan NIB Anda Dibekukan
           </h1>

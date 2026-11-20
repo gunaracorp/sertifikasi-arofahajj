@@ -1,10 +1,17 @@
 "use client";
 
+// ============================================================
+// SERVICES — Redesign 2026: Indeks Layanan Editorial
+// Sengaja MENINGGALKAN pola grid-kartu template lama (yang
+// identik dengan kompetitor). Kini daftar indeks bernomor
+// bergaya editorial: garis rambut tipis, nomor serif emas,
+// baris melebar saat hover — seperti katalog majalah premium.
+// Data, harga, jangkar SEO (#layanan-<id>) & tombol Pesan
+// dipertahankan persis.
+// ============================================================
+
 import { useState } from "react";
-import { Clock, ArrowRight, Flame, ChevronDown, Wallet } from "lucide-react";
-import { Badge } from "@/components/ui/badge";
-import { Card, CardContent } from "@/components/ui/card";
-import { RevealScale, STAGGER } from "@/components/motion/reveal";
+import { ArrowRight, ChevronDown, Clock, Wallet } from "lucide-react";
 import { SERVICES } from "@/lib/landing-data";
 import { PACKAGES } from "@/lib/pricing";
 import { useLanguage } from "@/lib/i18n/language-provider";
@@ -18,108 +25,108 @@ export function Services() {
   const { t } = useLanguage();
   const [showAll, setShowAll] = useState(false);
   const visibleServices = showAll ? SERVICES : SERVICES.slice(0, INITIAL_VISIBLE);
+
   return (
     <section id="layanan" className="py-20 md:py-28 scroll-mt-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Section header */}
-        <div className="text-center max-w-2xl mx-auto">
-          <Badge variant="outline" className="rounded-full border-primary/30 bg-primary/5 text-primary font-semibold px-4 py-1">
-            Layanan Kami
-          </Badge>
-          <h2 className="mt-5 text-3xl md:text-4xl font-extrabold tracking-tight">
-            {t("servicesT1")} <span className="text-gradient-brand">{t("servicesTHigh")}</span> {t("servicesT2")}
-          </h2>
-          <p className="mt-4 text-muted-foreground text-lg">
+        {/* Header editorial — rata kiri, kicker emas, judul serif */}
+        <div className="grid md:grid-cols-[1.2fr_0.8fr] gap-6 md:items-end">
+          <div>
+            <p className="text-[11px] font-bold uppercase tracking-[0.22em] text-gold">
+              Indeks Layanan
+            </p>
+            <h2 className="mt-3 font-display text-3xl md:text-5xl font-medium tracking-tight leading-[1.1]">
+              {t("servicesT1")}{" "}
+              <em className="text-primary">{t("servicesTHigh")}</em>{" "}
+              {t("servicesT2")}
+            </h2>
+          </div>
+          <p className="text-muted-foreground text-base md:text-lg md:pb-1.5">
             {t("servicesSub")}
           </p>
         </div>
 
-        {/* Services grid */}
-        <div className="mt-14 grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
-          {visibleServices.map((service, i) => (
-            <RevealScale
-              key={service.id}
-              /* Stagger per-baris (grid 3 kolom): baris berikutnya memasuki
-                 viewport lewat pemicu whileInView masing-masing, jadi delay
-                 tetap pendek walau semua 36 layanan dibuka */
-              delay={(i % 3) * STAGGER}
-            >
-              <Card
+        {/* Indeks layanan — baris bernomor dengan garis rambut */}
+        <ul className="mt-12 border-t border-border">
+          {visibleServices.map((service, i) => {
+            const sellable = SELLABLE.has(service.id);
+            return (
+              <li
+                key={service.id}
                 id={`layanan-${service.id}`}
-                className={`group relative h-full hover:shadow-xl hover:shadow-primary/10 hover:-translate-y-1 transition-all duration-300 border-border/70 scroll-mt-24 ${
-                  service.popular ? "ring-1 ring-primary/40" : ""
-                }`}
+                className="group border-b border-border scroll-mt-24 transition-colors hover:bg-secondary/60"
               >
-                {service.popular && (
-                  <div className="absolute -top-2.5 left-5 z-10">
-                    <Badge className="rounded-full bg-gold text-gold-foreground font-bold text-[10px] px-3 py-0.5 shadow-md">
-                      <Flame className="h-3 w-3 mr-1" />
-                      TERLARIS
-                    </Badge>
+                <div className="grid grid-cols-[2.4rem_1fr_auto] md:grid-cols-[3rem_2.75rem_1fr_auto_auto] items-center gap-x-3 md:gap-x-5 gap-y-2 py-5 px-2 sm:px-4">
+                  {/* Nomor indeks — serif emas */}
+                  <span className="font-display text-lg md:text-xl text-gold/90 tabular-nums">
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+
+                  {/* Ikon — kotak zamrud */}
+                  <div className="hidden md:flex h-11 w-11 shrink-0 items-center justify-center rounded-lg border border-primary/15 bg-primary/8 text-primary transition-colors group-hover:bg-primary group-hover:text-primary-foreground">
+                    <service.icon className="h-5 w-5" aria-hidden="true" />
                   </div>
-                )}
-                <CardContent className="p-6 flex flex-col h-full">
-                  <div className="flex items-start justify-between">
-                    <div
-                      className={`h-12 w-12 rounded-xl flex items-center justify-center transition-transform group-hover:scale-110 ${
-                        service.popular
-                          ? "bg-primary text-primary-foreground shadow-lg shadow-primary/25"
-                          : "bg-primary/10 text-primary"
-                      }`}
+
+                  {/* Judul + deskripsi (tautan detail) */}
+                  <div className="min-w-0">
+                    <a
+                      href={`/layanan/${service.id}`}
+                      className="inline-flex flex-wrap items-center gap-2 font-bold tracking-tight text-foreground hover:text-primary"
                     >
-                      <service.icon className="h-6 w-6" aria-hidden="true" />
-                    </div>
-                    <div className="text-right">
-                      <p className="text-lg font-extrabold text-foreground">{service.price}</p>
-                      <p className="flex items-center justify-end gap-1 text-[11px] text-muted-foreground">
-                        <Clock className="h-3 w-3" />
-                        {service.duration}
-                      </p>
-                    </div>
+                      <span className="text-[15px] md:text-lg">{service.title}</span>
+                      {service.popular && (
+                        <span className="rounded-full bg-gold px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wide text-gold-foreground shadow-sm">
+                          Terlaris
+                        </span>
+                      )}
+                    </a>
+                    <p className="mt-1 text-sm text-muted-foreground leading-relaxed line-clamp-2">
+                      {service.desc}
+                    </p>
                   </div>
 
-                  <h3 className="mt-4 text-lg font-bold tracking-tight">{service.title}</h3>
-                  <p className="mt-1.5 text-sm text-muted-foreground leading-relaxed">{service.desc}</p>
+                  {/* Harga + durasi — angka tegas rata kanan */}
+                  <div className="text-right">
+                    <p className="font-display text-xl md:text-2xl text-primary whitespace-nowrap">
+                      {service.price}
+                    </p>
+                    <p className="mt-0.5 flex items-center justify-end gap-1 text-[11px] text-muted-foreground whitespace-nowrap">
+                      <Clock className="h-3 w-3" aria-hidden="true" />
+                      {service.duration}
+                    </p>
+                  </div>
 
-                  <ul className="mt-4 space-y-1.5 flex-1">
-                    {service.features.slice(0, 3).map((f, j) => (
-                      <li key={j} className="flex items-start gap-2 text-[13px] text-foreground/75">
-                        <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-primary/60" />
-                        {f}
-                      </li>
-                    ))}
-                  </ul>
-
-                  <div className="mt-5 space-y-2">
-                    {SELLABLE.has(service.id) && (
+                  {/* Aksi: Pesan (bila bisa dibayar langsung) + detail */}
+                  <div className="col-start-3 md:col-start-auto flex md:flex-col items-center justify-end gap-2">
+                    {sellable && (
                       <a
                         href={`/checkout?paket=${service.id}`}
-                        className="flex w-full items-center justify-center gap-1.5 rounded-xl bg-primary px-4 py-2.5 text-sm font-bold text-primary-foreground shadow-md shadow-primary/20 transition-all hover:shadow-lg hover:brightness-110"
+                        className="inline-flex items-center gap-1.5 rounded-md bg-primary px-3 py-1.5 text-xs font-bold text-primary-foreground shadow-sm transition-all hover:shadow-md hover:brightness-110"
                       >
-                        <Wallet className="h-4 w-4" />
-                        Pesan Sekarang
+                        <Wallet className="h-3.5 w-3.5" aria-hidden="true" />
+                        Pesan
                       </a>
                     )}
                     <a
                       href={`/layanan/${service.id}`}
-                      className="flex w-full items-center justify-center gap-1.5 text-sm font-semibold text-primary hover:gap-2.5 transition-all"
+                      className="inline-flex h-8 w-8 items-center justify-center rounded-full border border-border text-muted-foreground transition-all group-hover:border-primary/40 group-hover:bg-primary/10 group-hover:text-primary"
+                      aria-label={`Lihat detail ${service.title}`}
                     >
-                      Lihat detail layanan
-                      <ArrowRight className="h-4 w-4" />
+                      <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" aria-hidden="true" />
                     </a>
                   </div>
-                </CardContent>
-              </Card>
-            </RevealScale>
-          ))}
-        </div>
+                </div>
+              </li>
+            );
+          })}
+        </ul>
 
-        {/* Show more toggle */}
+        {/* Toggle tampilkan semua */}
         {!showAll ? (
           <div className="mt-10 text-center">
             <button
               onClick={() => setShowAll(true)}
-              className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/5 px-6 py-3 text-sm font-semibold text-primary hover:bg-primary/10 transition-colors"
+              className="inline-flex items-center gap-2 rounded-lg border border-primary/30 bg-primary/5 px-6 py-3 text-sm font-semibold text-primary hover:bg-primary/10 transition-colors"
               aria-expanded={showAll}
             >
               Tampilkan semua {SERVICES.length} layanan
@@ -130,15 +137,15 @@ export function Services() {
           <div className="mt-10 text-center">
             <a
               href="/layanan"
-              className="inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground shadow-md hover:shadow-lg transition-all"
+              className="inline-flex items-center gap-2 rounded-lg bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground shadow-md hover:shadow-lg transition-all"
             >
-              Buka Katalog Lengkap: Perizinan × Wilayah, Pajak & Kerja LN
+              Buka Katalog Lengkap: Perizinan × Wilayah, Pajak &amp; Kerja LN
               <ArrowRight className="h-4 w-4" aria-hidden="true" />
             </a>
           </div>
         )}
 
-        {/* Bottom note */}
+        {/* Catatan bawah */}
         <div className="mt-10 text-center">
           <p className="text-sm text-muted-foreground">
             Butuh izin yang tidak tercantum?{" "}
