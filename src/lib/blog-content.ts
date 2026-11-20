@@ -833,7 +833,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
         heading: "Timeline 45-90 Hari dan Jalur Bertahap yang Realistis",
         paragraphs: [
           "Proses akreditasi melibatkan biaya registrasi awal IATA, annual fee tahunan, audit dokumen, hingga verifikasi kantor oleh Area Office IATA Singapura yang membawahi Indonesia. Secara realistis siapkan 45-90 hari, tergantung kecepatan penerbitan bank guarantee.",
-          "Paket jasa pendampingan kami mulai Rp 10 juta di luar biaya resmi IATA dan bank guarantee. Bagi travel baru, jalur sub-agent lebih dulu — menjual tiket melalui agen IATA lain — tetap wajar untuk mengumpulkan riwayat penjualan yang nantinya memperkecil bank guarantee Anda.",
+          "Paket jasa pendampingan kami mulai Rp 13 juta di luar biaya resmi IATA dan bank guarantee. Bagi travel baru, jalur sub-agent lebih dulu — menjual tiket melalui agen IATA lain — tetap wajar untuk mengumpulkan riwayat penjualan yang nantinya memperkecil bank guarantee Anda.",
         ],
       },
     ],

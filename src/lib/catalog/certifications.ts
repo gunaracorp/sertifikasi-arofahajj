@@ -1,6 +1,6 @@
 // ============================================================
 // AROFAHAJJ UNIVERSE — KATALOG SERTIFIKASI TERLENGKAP
-// 43 layanan: travel ibadah haji-umrah (PPIU/PIHK/PMHU 2/2026),
+// 46 layanan: travel ibadah haji-umrah (BPW/PPIU/PIHK/PMHU 2/2026),
 // ISO sistem manajemen (termasuk ISO 9001:2026 edisi terbaru),
 // halal jasa (PP 42/2024), pangan, lab & kesehatan, badan usaha.
 // Sumber: PMHU 2/2026, PP 42/2024, standar ISO terkini, riset 2026.
@@ -51,7 +51,193 @@ export interface CertEntry {
 export const CERTS: CertEntry[] = [
   // ==========================================================
   // TRAVEL IBADAH HAJI & UMRAH — PMHU 2/2026 era KHU
+  // Tiga produk inti live: Sertifikasi BPW → PPIU → PIHK
+  // (jalur hulu ke hilir satu pelanggan ideal travel ibadah)
   // ==========================================================
+  {
+    id: "sertifikasi-bpw",
+    name: "Sertifikasi BPW — Biro Perjalanan Wisata (KBLI 79121)",
+    code: "Sertifikat Standar KBLI 79121",
+    group: "travel-ibadah",
+    price: "Rp 3,25 juta",
+    duration: "14-21 hari kerja",
+    desc: "Gerbang masuk semua travel: Sertifikat Standar KBLI 79121 yang membuat NIB Anda sah beroperasi sebagai biro perjalanan wisata dan membuka jalan naik kelas PPIU.",
+    audience: [
+      "Travel baru & UMKM",
+      "Biro tiket dan paket wisata",
+      "Calon PPIU yang membangun rekam jejak",
+    ],
+    longDesc: [
+      "BPW (Biro Perjalanan Wisata) adalah usaha jasa perjalanan wisata umum: tiket, paket wisata, dan tour lokal maupun luar negeri. Posisinya strategis karena menjadi gerbang masuk seluruh bisnis travel — untuk bisa mengajukan PPIU nanti, perusahaan wajib sudah beroperasi aktif sebagai BPW (KBLI 79121) minimal 1-2 tahun. Yang sering keliru: banyak pemilik usaha mengira NIB saja sudah cukup. Kenyataannya, NIB KBLI 79121 belum membuat usaha sah beroperasi — wajib lanjut Sertifikat Standar (SS) KBLI 79121 yang diverifikasi pemerintah/LSPr, mencakup kesiapan kantor dan penanggung jawab teknis.",
+      "Sejak KBLI 2025 berlaku untuk pendaftaran baru (16 Juni 2026), istilah TDUP (Tanda Daftar Usaha Pariwisata) sudah dihapus — cukup NIB dan Sertifikat Standar. Kebingungan istilah lama-baru ini justru sering membuat pengajuan macet di OSS karena pemilihan kode dan status kelayakan yang tidak konsisten. Kami menyetirkannya sejak awal: struktur badan usaha yang tepat (PT paling kredibel, CV, atau PT Perorangan sesuai skala), NIB dengan KBLI yang benar, sampai SS terbit.",
+      "Hilirnya jelas: laporan LKPM berkala dan kepatuhan pajak selama beroperasi, lalu rekam jejak BPW menjadi modal utama saat naik kelas ke PPIU (KBLI 79122). Untuk biro yang belum genap 1-2 tahun, ada jalur jembatan legal — kemitraan kantor cabang resmi PPIU: menginduk pada PPIU berizin lewat perjanjian kerja sama notaris dan NIB cabang, sehingga bisa memasarkan paket umrah lebih cepat dengan tetap 100% legal tanpa menempatkan bank garansi mandiri.",
+    ],
+    features: [
+      "NIB KBLI 79121 via OSS-RBA termasuk konsultasi KBLI terbaik",
+      "Pengajuan Sertifikat Standar (SS) diverifikasi pemerintah/LSPr",
+      "Penyiapan kesiapan kantor & penanggung jawab teknis",
+      "Checklist LKPM berkala & kepatuhan pajak dasar",
+      "Peta jalan naik kelas BPW → PPIU (KBLI 79122)",
+      "Opsi jalur kemitraan kantor cabang PPIU resmi (PKS notaris)",
+    ],
+    requirements: [
+      "KTP & NPWP pemilik/penanggung jawab usaha",
+      "Nama usaha & alamat kantor operasional",
+      "Bukti tempat usaha (milik sendiri atau sewa)",
+      "Data penanggung jawab teknis pariwisata",
+      "Dokumen badan usaha bila sudah berbadan hukum (PT/CV/PT Perorangan)",
+      "Foto kantor dengan papan nama (bila sudah ada)",
+    ],
+    steps: [
+      "Konsultasi & penetapan KBLI terbaik (79121 dan pendukungnya)",
+      "Pendaftaran NIB via OSS-RBA (1 hari kerja)",
+      "Penyiapan dokumen Sertifikat Standar (kantor & penanggung jawab teknis)",
+      "Verifikasi pemerintah/LSPr (standar 14 hari kerja)",
+      "Sertifikat Standar terbit — usaha sah beroperasi + panduan kepatuhan",
+    ],
+    faq: [
+      {
+        q: "Sudah punya NIB, bisa langsung jual paket umrah?",
+        a: "Belum sah, Pak/Bu. NIB KBLI 79121 hanya untuk BPW wisata umum; menjual paket umrah butuh PPIU KBLI 79122 plus rekam jejak. Jalan legalnya tiga: bangun rekam jejak BPW 1-2 tahun, ambil kemitraan kantor cabang PPIU resmi, atau ajak kami kaji kelayakan usaha Anda hari ini juga.",
+      },
+      {
+        q: "Apakah masih perlu TDUP seperti dulu?",
+        a: "Tidak lagi. Sejak KBLI 2025 berlaku untuk pendaftaran baru (16 Juni 2026), istilah TDUP dihapus — cukup NIB dan Sertifikat Standar KBLI 79121 yang kami urus sampai terbit. Dokumen lama yang masih berlaku tidak perlu diterbitkan ulang, cukup disesuaikan datanya di OSS.",
+      },
+      {
+        q: "Berapa lama rekam jejak BPW yang dibutuhkan sebelum naik ke PPIU?",
+        a: "Umumnya 1-2 tahun beroperasi aktif. Selama itu kami dampingi LKPM dan kepatuhannya supaya rekam jejak Anda bersih. Kalau ingin mulai memasarkan paket umrah lebih cepat, kami rancang jalur kantor cabang resmi PPIU — tetap legal tanpa menunggu rekam jejak penuh.",
+      },
+    ],
+    legalBasis: "PP 28/2025 (perizinan berusaha berbasis risiko), KBLI 2025 (berlaku pendaftaran baru 16 Juni 2026), PP 5/2021 (OSS-RBA)",
+    authority: "OSS-RBA + Lembaga Sertifikasi Usaha Pariwisata (LSPr) / pemerintah",
+    keywords: ["sertifikasi bpw", "biro perjalanan wisata", "kbli 79121", "izin pariwisata", "sertifikat standar travel"],
+    idealFor: ["Travel baru", "Agen tiket", "Calon pemilik PPIU"],
+    synergy: ["sertifikasi-ppiu", "sertifikasi-pembimbing-ibadah-umrah", "halal-jasa-travel-haji-umrah"],
+  },
+  {
+    id: "sertifikasi-ppiu",
+    name: "Sertifikasi PPIU — Izin Penyelenggara Perjalanan Ibadah Umrah (KBLI 79122)",
+    code: "SK Izin Operasional PPIU — KBLI 79122",
+    group: "travel-ibadah",
+    price: "Rp 15,6 juta",
+    duration: "30-45 hari kerja",
+    desc: "Jual paket umrah secara legal penuh: SK Izin Operasional PPIU dari Kementerian Haji dan Umrah lewat jalur resmi 100% — dengan garansi uang kembali bila gagal karena kesalahan proses kami.",
+    audience: [
+      "Travel BPW yang naik kelas",
+      "Pemilik travel umrah baru",
+      "Investor bisnis ibadah",
+    ],
+    longDesc: [
+      "PPIU adalah perusahaan penyelenggara perjalanan ibadah umrah berbadan hukum PT — izin yang WAJIB dipegang setiap biro yang menjual paket umrah. Menjual umrah tanpa izin adalah tindak pidana: pidana penjara maksimal 6 tahun dan/atau denda hingga Rp 6 miliar, bahkan menghimpun atau menerima setoran jemaah tanpa hak bisa dipidana hingga 8 tahun. Kode usahanya KBLI 79122 (Aktivitas Biro Perjalanan Ibadah Umrah dan Haji Khusus), kategori risiko tinggi di OSS-RBA. Penting dipahami: sejak UU 14/2025 dan Perpres 92/2025, kewenangan PPIU/PIHK resmi pindah dari Kementerian Agama ke Kementerian Haji dan Umrah (KHU RI) — klien yang masih menyebut \"izin Kemenag\" tinggal kami luruskan: dulu Kemenag, sekarang Kemenhaj, prosesnya kami yang urus sampai terbit.",
+      "Syarat yang kami bantu penuhi berurutan: PT berakta Kemenkumham dengan 100% saham-direksi-komisaris WNI Muslim (tidak boleh rangkap di PPIU lain), rekam jejak beroperasi aktif sebagai BPW 1-2 tahun, kantor fisik minimal 50 meter persegi dengan papan nama resmi, minimal 3 staf tetap bersertifikat kompetensi BNSP (Tour Leader, Tour Guide, Pembimbing Ibadah Umrah), laporan keuangan yang diaudit Kantor Akuntan Publik dengan opini WTP plus Surat Keterangan Fiskal bebas tunggakan, bank garansi Rp 100.000.000 dari bank syariah BPS Bipih dengan masa penjaminan 6 tahun, serta kontrak kerja sama dengan maktab/operator resmi di Arab Saudi sesuai standar PMHU 2/2026.",
+      "Alurnya enam langkah dan kami dampingi penuh: (1) konsultasi kelayakan gratis dan audit kesiapan, (2) pemutakhiran NIB di OSS-RBA menambah KBLI 79122, (3) berkas permohonan ke Kanwil provinsi dan visitasi faktual ke kantor, (4) Surat Rekomendasi Kanwil terbit (berlaku 3 bulan), (5) penerbitan bank garansi dan unggah seluruh berkas ke sistem kementerian (SISKOPATUH) dengan validasi silang OSS-RBA, (6) SK Izin Operasional PPIU terbit. Hilirnya wajib diantisipasi sejak awal: sertifikasi LSUHK terakreditasi KAN paling lambat 2 tahun sejak SK, resertifikasi tiap 5 tahun, surveilans bulan ke-28 s.d. 32 — lalai berujung pembekuan 6 bulan, dan tetap lalai SK dicabut permanen. Layanan KepatuhanPRO kami mengingatkan semua deadline via WhatsApp.",
+    ],
+    features: [
+      "Konsultasi kelayakan gratis & audit kesiapan perusahaan",
+      "Pemutakhiran NIB KBLI 79122 via OSS-RBA",
+      "Pendampingan berkas Kanwil & visitasi faktual kantor",
+      "Koordinasi bank garansi Rp 100 juta bank syariah BPS Bipih",
+      "Unggah & validasi SISKOPATUH + validasi silang OSS-RBA",
+      "Dampingi sampai SK Izin Operasional PPIU terbit + kesiapan LSUHK",
+    ],
+    requirements: [
+      "Akta PT & SK Kemenkumham, 100% saham-direksi-komisaris WNI Muslim",
+      "Rekam jejak operasional aktif sebagai BPW (KBLI 79121) 1-2 tahun",
+      "Kantor fisik minimal 50 m², papan nama resmi, bukti milik/sewa jangka panjang",
+      "Minimal 3 staf tetap bersertifikat BNSP (Tour Leader, Tour Guide, Pembimbing Ibadah Umrah)",
+      "Laporan keuangan diaudit KAP opini WTP + Surat Keterangan Fiskal",
+      "Dokumen kerja sama maktab/operator resmi di Arab Saudi",
+    ],
+    steps: [
+      "Konsultasi kelayakan gratis dan audit kesiapan perusahaan",
+      "Pemutakhiran NIB di OSS-RBA: tambah izin KBLI 79122",
+      "Berkas permohonan ke Kanwil provinsi + visitasi faktual tim pengawas",
+      "Surat Rekomendasi Kanwil terbit (berlaku 3 bulan)",
+      "Bank garansi BPS Bipih + unggah berkas SISKOPATUH & validasi silang OSS-RBA",
+      "SK Izin Operasional PPIU & Sertifikat Standar KBLI 79122 terbit",
+    ],
+    faq: [
+      {
+        q: "Berapa biaya jadi PPIU?",
+        a: "Mulai Rp 15,6 juta jasa konsultan kami. Biaya pemerintah, notaris, dan bank garansi Rp 100 juta yang ditempatkan di bank syariah BPS Bipih dipisahkan secara transparan di penawaran resmi — angka final setelah konsultasi, karena setiap kasus bisa beda kompleksitas.",
+      },
+      {
+        q: "Berapa lama prosesnya sampai bisa jualan?",
+        a: "Estimasi 30-45 hari kerja sejak dokumen lengkap untuk SK terbit. Realistisnya travel siap operasional sekitar 90-120 hari karena ada visitasi faktual dan penerbitan bank garansi. Kami tidak pernah menjanjikan lebih cepat dari timeline resmi ini.",
+      },
+      {
+        q: "Izinnya sekarang Kemenag atau Kementerian Haji dan Umrah?",
+        a: "Betul, dulu Kemenag; sejak UU 14/2025 dan Perpres 92/2025 resminya sudah pindah ke Kementerian Haji dan Umrah (KHU RI). Prosesnya kami yang urus sampai terbit, termasuk penyesuaian sistem pelaporan seperti SISKOPATUH di masa transisi kelembagaan.",
+      },
+    ],
+    legalBasis: "UU 8/2019 jo. UU 14/2025, Perpres 92/2025, PP 28/2025, PMHU 2/2026, KMA 539 & 540/2021 (bank garansi BPS Bipih)",
+    authority: "Kementerian Haji dan Umrah (KHU) RI / Kanwil + OSS-RBA + BPS Bipih",
+    keywords: ["sertifikasi ppiu", "izin umroh", "kbli 79122", "izin ppiu kementerian haji dan umrah", "biaya izin umroh 2026"],
+    idealFor: ["Travel BPW mapan", "Travel umrah baru", "Grup usaha ibadah"],
+    synergy: ["sertifikasi-bpw", "sertifikasi-pembimbing-ibadah-umrah", "upgrade-ppiu-ke-pihk"],
+  },
+  {
+    id: "sertifikasi-pihk",
+    name: "Sertifikasi PIHK — Penyelenggara Ibadah Haji Khusus (Haji Plus)",
+    code: "SK Penyelenggara PIHK (SPPPHK)",
+    group: "travel-ibadah",
+    price: "Rp 32,5 juta",
+    duration: "60-120 hari",
+    desc: "Naik kelas dari PPIU ke izin haji khusus resmi — masa tunggu jauh lebih pendek dari haji reguler, dengan skema percepatan resmi KMA 74/2025 dan pendampingan sampai SK terbit plus penempatan PPUMI.",
+    audience: [
+      "PPIU yang naik kelas",
+      "Travel yang mengejar revenue haji plus",
+      "Grup usaha ibadah serius",
+    ],
+    longDesc: [
+      "PIHK (Penyelenggara Ibadah Haji Khusus) adalah izin bagi PPIU yang lolos seleksi untuk menyelenggarakan haji khusus — dulu disebut ONH Plus. Ini jalan tol revenue bisnis travel ibadah: masa tunggunya jauh lebih pendek dari haji reguler (yang bisa 10-40 tahun), sementara haji khusus umumnya beberapa tahun dengan program percepatan resmi. Pasarnya nyata: kuota haji Indonesia 1447H/2026 sekitar 221.000 jamaah dengan porsi haji khusus sekitar 17.000-an, dan paket haji khusus di pasar berkisar USD 11.500-44.000 per jamaah tergantung fasilitas PIHK.",
+      "Syarat naik kelas menuntut klien \"tuntas dulu sebagai PPIU\": telah beroperasi minimal 3 tahun sebagai PPIU ATAU telah memberangkatkan minimal 1.000 jemaah umrah. Bank garansi naik dari Rp 100 juta menjadi Rp 250 juta via bank syariah BPS Bipih dengan masa penjaminan 6 tahun — angka ini mengendap di bank, bukan hilang. PT tetap harus 100% WNI Muslim, keuangan bersih dengan audit WTP, SKF aktif, fasilitas layanan jemaah layak, serta kesiapan mengikuti pembinaan dan verifikasi kementerian termasuk uji kelayakan.",
+      "Regulasi yang membuat klien antusias: KMA 74/2025 (petunjuk teknis pengisian kuota haji khusus). Pengisian mengikuti urutan pendaftaran nasional; bila kuota tidak terisi penuh, sisa kuota dialokasikan untuk pendamping jamaah lanjut usia, jamaah yang terpisah dari mahram, jamaah penyandang disabilitas (dengan syarat nomor porsi terdaftar minimal 2 tahun), lalu jamaah haji khusus urutan berikutnya — verifikasi lewat SISKOHAT. Artinya makin cepat jamaah mendaftar dan punya nomor porsi, makin besar peluang percepatan. Layanan ini mencakup audit kelayakan modal dan legalitas, pengajuan ke kementerian, pendampingan uji kelayakan, sampai SK terbit dan penempatan PPUMI.",
+    ],
+    features: [
+      "Analisis kelayakan naik kelas PPIU → PIHK",
+      "Audit kelayakan modal & legalitas lengkap",
+      "Pengajuan resmi ke Kementerian Haji dan Umrah",
+      "Pendampingan pembinaan & uji kelayakan kementerian",
+      "Koordinasi bank garansi Rp 250 juta bank syariah BPS Bipih",
+      "Dampingi sampai SK terbit + penempatan PPUMI & onboarding SISKOHAT",
+    ],
+    requirements: [
+      "SK Izin Operasional PPIU aktif & dokumen pendukungnya",
+      "Beroperasi minimal 3 tahun sebagai PPIU atau memberangkatkan minimal 1.000 jemaah umrah",
+      "Bank garansi Rp 250 juta via bank syariah BPS Bipih (penjaminan 6 tahun)",
+      "Audit WTP & Surat Keterangan Fiskal aktif",
+      "Fasilitas layanan jemaah layak",
+      "Kesiapan mengikuti pembinaan & verifikasi kementerian",
+    ],
+    steps: [
+      "Analisis kelayakan naik kelas: rekam jejak, keuangan, kesiapan dokumen",
+      "Penyiapan dokumentasi lengkap & audit kelayakan modal",
+      "Pengajuan resmi ke Kementerian Haji dan Umrah",
+      "Pembinaan, verifikasi & uji kelayakan kementerian",
+      "SK PIHK terbit + penempatan PPUMI + onboarding SISKOHAT",
+    ],
+    faq: [
+      {
+        q: "Bisakah langsung jadi PIHK tanpa PPIU?",
+        a: "Jalurnya lewat PPIU dulu: harus 3 tahun beroperasi atau sudah memberangkatkan 1.000 jemaah umrah. Kalau Anda klien baru, kami rancang dari BPW-ke-PPIU sekalian paket pendirian travel, sambil membangun rekam jejak — dua fase bisa direncanakan sekaligus.",
+      },
+      {
+        q: "Berapa bank garansinya?",
+        a: "Rp 250 juta untuk PIHK, diterbitkan bank syariah BPS Bipih dengan masa penjaminan 6 tahun. Angka ini mengendap di bank, bukan hilang — dan kami bantu koordinasi penerbitannya sampai valid.",
+      },
+      {
+        q: "Antriannya berapa lama?",
+        a: "Haji khusus jauh lebih pendek dari haji reguler, dan ada skema percepatan resmi KMA 74/2025 saat kuota tidak terisi penuh — syarat kuncinya nomor porsi terdaftar minimal 2 tahun yang terverifikasi SISKOHAT. Estimasi proses izinnya sendiri 60-120 hari sejak dokumen lengkap; kami bantu jamaah lewat PIHK resmi saja agar aman.",
+      },
+    ],
+    legalBasis: "UU 8/2019 jo. UU 14/2025, Perpres 154/2024 (Badan Penyelenggara Haji), Perpres 92/2025, KMA 74/2025, KMA 539 & 540/2021",
+    authority: "Kementerian Haji dan Umrah (KHU) RI + BPS Bipih + SISKOHAT",
+    keywords: ["sertifikasi pihk", "haji khusus", "haji plus", "izin pihk", "biaya haji khusus 2026"],
+    idealFor: ["PPIU mapan", "Travel haji plus", "Konglomerasi ibadah"],
+    synergy: ["upgrade-ppiu-ke-pihk", "ppmp-pihk", "sertifikasi-ppiu"],
+  },
   {
     id: "paket-pendirian-travel-umrah",
     name: "Paket Pendirian Travel Umrah Lengkap (PT + PPIU)",

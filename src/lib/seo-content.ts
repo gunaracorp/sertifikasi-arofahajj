@@ -562,7 +562,7 @@ export const PERMIT_GUIDES: PermitGuide[] = [
       "IATA (International Air Transport Association) adalah asosiasi maskapai penerbangan dunia. Akreditasi IATA Agent membuat travel Anda resmi sebagai penerbit tiket: akses langsung ke BSP (Billing and Settlement Plan) untuk tiket domestik/internasional dan CASS untuk kargo, ID IATA resmi, komisi & nett fare langsung dari maskapai, serta kredibilitas kelas dunia di mata korporasi. Kuncinya: legalitas badan usaha travel, kesehatan keuangan dengan financial security (umumnya bank guarantee dalam USD sesuai proyeksi penjualan), personel yang bersertifikat kompetensi tiket (mis. IATA Foundation), dan kantor operasional layak. Untuk agen yang belum siap akreditasi penuh, tersedia TIDS (Travel Industry Designator Service) sebagai ID resmi IATA untuk transaksi non-BSP — strategi awal yang cerdas sebelum full accreditation.",
     authority: "IATA — International Air Transport Association (Area Office Singapura untuk Indonesia)",
     legalBasis: "Kriteria akreditasi IATA Passenger Agent / TIDS Resolution + regulasi lokal penjualan tiket",
-    cost: "Mulai Rp 10 juta + biaya resmi IATA (registration & annual) + bank guarantee (USD)",
+    cost: "Mulai Rp 13 juta + biaya resmi IATA (registration & annual) + bank guarantee (USD)",
     timeline: "45-90 hari (tergantung bank guarantee & audit IATA)",
     requirements: [
       "Badan usaha legal (PT/CV) dengan objek kegiatan travel + NIB",
