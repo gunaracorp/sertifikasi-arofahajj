@@ -1,0 +1,576 @@
+     1→"use client";
+     2→
+     3→// ============================================================
+     4→// AROFAHAJJ UNIVERSE — Header Sitewide (NAV TERKELOMPOKAN)
+     5→// ============================================================
+     6→// IA (information architecture) — 5 kelompok menu, tidak lagi
+     7→// 11 link datar yang membingungkan:
+     8→//   1. Layanan      → MEGA DROPDOWN 3 kolom + rail konsultasi
+     9→//   2. Paket & Biaya → dropdown (paket, bandingkan, biaya)
+    10→//   3. Informasi    → dropdown (blog, panduan, KBLI, syarat, dst)
+    11→//   4. Alat         → dropdown (Cek Izin AI, kalkulator, cek dokumen)
+    12→//   5. Perusahaan   → dropdown (tentang kami, kontak, testimoni, mitra, karier)
+    13→//
+    14→// Aturan penting:
+    15→//   • Semua anchor beranda memakai path absolut "/#xxx" sehingga
+    16→//     berfungsi dari HALAMAN MANA PUN (sebelumnya "#xxx" mati di
+    17→//     halaman selain beranda).
+    18→//   • Breakpoint: nav desktop tampil di xl+, hamburger xl:hidden —
+    19→//     menutup celah 1024–1280px yang sebelumnya tidak punya akses
+    20→//     menu sama sekali (bug lama: nav xl:flex tapi hamburger lg:hidden).
+    21→//   • Dropdown: hover-intent + klik + keyboard (Escape), aria-expanded,
+    22→//     animasi compositor-only (opacity/transform) — hormat
+    23→//     prefers-reduced-motion via MotionProvider global.
+    24→//   • i18n: kunci t() yang sudah ada dipakai bila tersedia; label baru
+    25→//     bilingual inline {id,en} — 28 bahasa lain fallback ke Indonesia
+    26→//     (pola konsisten dengan TeamSection).
+    27→// ============================================================
+    28→
+    29→import { useCallback, useEffect, useRef, useState } from "react";
+    30→import { AnimatePresence, motion } from "framer-motion";
+    31→import {
+    32→  ArrowLeftRight,
+    33→  ArrowRight,
+    34→  Award,
+    35→  Banknote,
+    36→  BookMarked,
+    37→  Bot,
+    38→  Briefcase,
+    39→  Building2,
+    40→  CalendarCheck,
+    41→  Calculator,
+    42→  ChevronDown,
+    43→  Compass,
+    44→  Database,
+    45→  FileSearch,
+    46→  FileText,
+    47→  Globe2,
+    48→  HeartHandshake,
+    49→  Info,
+    50→  Landmark,
+    51→  LayoutGrid,
+    52→  MapPin,
+    53→  Menu,
+    54→  MessageSquareQuote,
+    55→  Newspaper,
+    56→  PhoneCall,
+    57→  Plane,
+    58→  Quote,
+    59→  Receipt,
+    60→  Route,
+    61→  ShieldCheck,
+    62→  Sparkles,
+    63→  Stamp,
+    64→  Star,
+    65→  Users,
+    66→  Wallet,
+    67→  X,
+    68→  type LucideIcon,
+    69→} from "lucide-react";
+    70→import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+    71→import { Button } from "@/components/ui/button";
+    72→import { cn } from "@/lib/utils";
+    73→import { useLanguage } from "@/lib/i18n/language-provider";
+    74→import { LanguageSwitcher } from "@/components/landing/language-switcher";
+    75→
+    76→const WA_LINK =
+    77→  "https://wa.me/6281222345856?text=Halo%20Arofahajj Universe%2C%20saya%20ingin%20konsultasi%20gratis";
+    78→
+    79→interface NavItem {
+    80→  icon: LucideIcon;
+    81→  label: string;
+    82→  href: string;
+    83→  desc?: string;
+    84→}
+    85→interface NavColumn {
+    86→  title: string;
+    87→  items: NavItem[];
+    88→}
+    89→interface NavGroup {
+    90→  id: string;
+    91→  label: string;
+    92→  mega?: boolean;
+    93→  columns?: NavColumn[];
+    94→  items?: NavItem[];
+    95→}
+    96→
+    97→/** Easing standar motion system Task 6 */
+    98→const EASE = [0.22, 1, 0.36, 1] as const;
+    99→
+   100→export function Header() {
+   101→  const [scrolled, setScrolled] = useState(false);
+   102→  const [mobileOpen, setMobileOpen] = useState(false);
+   103→  const [openGroup, setOpenGroup] = useState<string | null>(null);
+   104→  const { t, lang } = useLanguage();
+   105→  const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+   106→  const openTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+   107→  const navRef = useRef<HTMLElement | null>(null);
+   108→  /** true jika menu terbuka lewat hover (desktop) — klik pertama tidak menutupnya */
+   109→  const openedByHover = useRef(false);
+   110→
+   111→  const L = useCallback((id: string, en: string) => (lang === "en" ? en : id), [lang]);
+   112→
+   113→  useEffect(() => {
+   114→    const onScroll = () => setScrolled(window.scrollY > 16);
+   115→    window.addEventListener("scroll", onScroll, { passive: true });
+   116→    return () => window.removeEventListener("scroll", onScroll);
+   117→  }, []);
+   118→
+   119→  // Tutup dropdown saat navigasi hash/anchor (klik item)
+   120→  useEffect(() => {
+   121→    const close = () => setOpenGroup(null);
+   122→    window.addEventListener("hashchange", close);
+   123→    return () => window.removeEventListener("hashchange", close);
+   124→  }, []);
+   125→
+   126→  // Klik di luar nav menutup dropdown (penting untuk perangkat sentuh
+   127→  // yang tidak punya mouseleave)
+   128→  useEffect(() => {
+   129→    if (!openGroup) return;
+   130→    const onDocClick = (e: MouseEvent) => {
+   131→      if (navRef.current && !navRef.current.contains(e.target as Node)) {
+   132→        setOpenGroup(null);
+   133→      }
+   134→    };
+   135→    document.addEventListener("click", onDocClick);
+   136→    return () => document.removeEventListener("click", onDocClick);
+   137→  }, [openGroup]);
+   138→
+   139→  const clearTimers = () => {
+   140→    if (closeTimer.current) clearTimeout(closeTimer.current);
+   141→    if (openTimer.current) clearTimeout(openTimer.current);
+   142→  };
+   143→
+   144→  const onEnter = (id: string) => {
+   145→    clearTimers();
+   146→    openTimer.current = setTimeout(() => {
+   147→      openedByHover.current = true;
+   148→      setOpenGroup(id);
+   149→    }, 40);
+   150→  };
+   151→  const onLeave = () => {
+   152→    clearTimers();
+   153→    closeTimer.current = setTimeout(() => setOpenGroup(null), 140);
+   154→  };
+   155→  /**
+   156→   * Klik trigger: idempotent saat dibuka via hover (tidak toggle-close),
+   157→   * toggle penuh untuk perangkat sentuh (klik ke-2 menutup).
+   158→   */
+   159→  const onTriggerClick = (id: string) => {
+   160→    setOpenGroup((prev) => {
+   161→      if (prev === id && !openedByHover.current) return null;
+   162→      openedByHover.current = false;
+   163→      return id;
+   164→    });
+   165→  };
+   166→  const onKeyDown = (e: React.KeyboardEvent) => {
+   167→    if (e.key === "Escape") setOpenGroup(null);
+   168→  };
+   169→  // Keyboard/focus: tutup jika fokus keluar dari area nav
+   170→  const onBlurArea = (e: React.FocusEvent) => {
+   171→    if (navRef.current && !navRef.current.contains(e.relatedTarget as Node)) {
+   172→      setOpenGroup(null);
+   173→    }
+   174→  };
+   175→
+   176→  // ============================================================
+   177→  // DATA MENU — 5 kelompok (35 halaman terpetakan)
+   178→  // ============================================================
+   179→  const GROUPS: NavGroup[] = [
+   180→    {
+   181→      id: "layanan",
+   182→      label: t("navServices"),
+   183→      mega: true,
+   184→      columns: [
+   185→        {
+   186→          title: L("Perizinan & Legalitas", "Permits & Legal"),
+   187→          items: [
+   188→            { icon: ShieldCheck, label: L("KepatuhanPRO — Langganan", "CompliancePRO — Subscription"), href: "/kepatuhan-pro", desc: L("LKPM & pajak dijaga tiap bulan, mulai Rp 650rb", "Monthly LKPM & tax care, from Rp 650k") },
+   189→            { icon: LayoutGrid, label: L("Semua Layanan", "All Services"), href: "/layanan", desc: L("1.500+ halaman layanan hulu-hilir", "1,500+ end-to-end service pages") },
+   190→            { icon: FileText, label: L("Katalog Layanan", "Service Catalog"), href: "/katalog", desc: L("1.500 layanan · 3 edisi katalog", "1,500 services · 3 catalog editions") },
+   191→            { icon: Compass, label: L("Layanan per Industri", "Services by Industry"), href: "/industri", desc: L("Regulasi khusus sektor usaha", "Sector-specific regulations") },
+   192→            { icon: Stamp, label: L("Pendaftaran Merek", "Trademark Registration"), href: "/layanan/merek", desc: "DJKI Kemenkumham" },
+   193→            { icon: Award, label: L("Sertifikasi & ISO", "Certifications & ISO"), href: "/layanan/kategori/sertifikasi", desc: L("43+ sertifikasi, halal & SMK3", "43+ certifications, halal & SMK3") },
+   194→          ],
+   195→        },
+   196→        {
+   197→          title: L("Bisnis & Korporasi", "Business & Corporate"),
+   198→          items: [
+   199→            { icon: Building2, label: L("Pendirian PT, CV & PT Perorangan", "PT, CV & Sole PT Setup"), href: "/layanan/pt", desc: L("Badan usaha legal & siap operasi", "Legal entities ready to operate") },
+   200→            { icon: Globe2, label: L("PMA — Investor Asing", "PMA — Foreign Investors"), href: "/pma-company-registration", desc: L("English-speaking consultants", "English-speaking consultants") },
+   201→            { icon: Landmark, label: L("Solusi Korporat B2B", "Corporate Solutions B2B"), href: "/solusi-korporat", desc: L("Kepatuhan portofolio perusahaan", "Corporate compliance portfolio") },
+   202→            { icon: MapPin, label: L("Virtual Office", "Virtual Office"), href: "/virtual-office", desc: L("Alamat bergengsi SCBD Jakarta", "Premium SCBD Jakarta address") },
+   203→            { icon: Users, label: L("BUMDes & Desa", "BUMDes & Village Entities"), href: "/bumdes", desc: L("Legalitas unit usaha desa", "Village business entity legalities") },
+   204→          ],
+   205→        },
+   206→        {
+   207→          title: L("Spesialisasi", "Specializations"),
+   208→          items: [
+   209→            { icon: Receipt, label: L("Jasa Pajak", "Tax Services"), href: "/layanan/kategori/pajak", desc: "NPWP, SPT, PKP, Coretax" },
+   210→            { icon: Plane, label: L("Kerja Luar Negeri (PMI)", "Work Abroad (Migrant)"), href: "/layanan/kategori/kerja-luar-negeri", desc: L("Penempatan legal ke 17 negara", "Legal placement to 17 countries") },
+   211→            { icon: ShieldCheck, label: "PPTKIS / P3MI", href: "/layanan/pptkis", desc: L("Izin perusahaan penempatan PMI", "Migrant placement company permits") },
+   212→            { icon: Award, label: L("Izin Umroh & Haji", "Umrah & Hajj Licenses"), href: "/layanan/ppi-umroh", desc: "PPIU & PPIH Kemenag" },
+   213→            { icon: Briefcase, label: "RPTKA & KITAS Expatriat", href: "/layanan/rptka-kitas", desc: L("Tenaga kerja asing legal penuh", "Fully legal foreign hires") },
+   214→          ],
+   215→        },
+   216→      ],
+   217→    },
+   218→    {
+   219→      id: "paket",
+   220→      label: L("Paket & Biaya", "Packages & Pricing"),
+   221→      items: [
+   222→        { icon: Star, label: L("Paket & Harga", "Packages & Pricing"), href: "/paket", desc: L("Transparan, tanpa biaya tersembunyi", "Transparent, no hidden fees") },
+   223→        { icon: ArrowLeftRight, label: L("Bandingkan Paket", "Compare Packages"), href: "/bandingkan", desc: L("Temukan paket paling efisien", "Find the most efficient plan") },
+   224→        { icon: Briefcase, label: L("Paket Usaha Siap Jalan", "Ready-to-Run Business Packs"), href: "/paket-usaha", desc: L("Pendirian + izin dalam satu paket", "Incorporation + permits in one pack") },
+   225→        { icon: Banknote, label: L("Rincian Biaya", "Cost Breakdown"), href: "/biaya", desc: L("Estimasi biaya per layanan", "Cost estimates per service") },
+   226→      ],
+   227→    },
+   228→    {
+   229→      id: "informasi",
+   230→      label: L("Informasi", "Resources"),
+   231→      items: [
+   232→        { icon: Newspaper, label: L("Blog & Artikel", "Blog & Articles"), href: "/blog", desc: L("Kabar regulasi terbaru", "Latest regulatory updates") },
+   233→        { icon: FileText, label: L("Panduan Perizinan", "Permit Guides"), href: "/panduan", desc: L("Panduan praktik per jenis izin", "Practical guides per permit type") },
+   234→        { icon: Database, label: L("Kode KBLI", "KBLI Code Database"), href: "/kbli", desc: L("Cari kode lapangan usaha", "Find your business field code") },
+   235→        { icon: BookMarked, label: L("Glosarium Perizinan", "Licensing Glossary"), href: "/glosarium", desc: L("Kamus 200+ istilah perizinan", "Dictionary of 200+ licensing terms") },
+   236→        { icon: MapPin, label: L("Wilayah Layanan 38 Provinsi", "Coverage — 38 Provinces"), href: "/wilayah", desc: L("Jasa perizinan per provinsi & kota", "Licensing services per province & city") },
+   237→        { icon: Compass, label: L("Syarat & Prosedur", "Requirements & Procedures"), href: "/syarat", desc: L("Dokumen yang perlu disiapkan", "Documents you need to prepare") },
+   238→        { icon: CalendarCheck, label: L("Kalender Kepatuhan", "Compliance Calendar"), href: "/kalender-kepatuhan", desc: L("Jatuh tempo lapor & pajak", "Filing & tax deadlines") },
+   239→        { icon: ShieldCheck, label: L("Kanal Resmi Pemerintah", "Official Government Channels"), href: "/kanal-resmi", desc: L("Portal & cek status otentik", "Authentic portals & status checks") },
+   240→        { icon: MessageSquareQuote, label: "FAQ", href: "/faq", desc: L("Pertanyaan yang sering diajukan", "Frequently asked questions") },
+   241→      ],
+   242→    },
+   243→    {
+   244→      id: "alat",
+   245→      label: L("Alat", "Tools"),
+   246→      items: [
+   247→        { icon: Bot, label: L("Cek Izin AI", "AI License Check"), href: "/cek-izin", desc: L("Analisis kebutuhan izin 60 detik", "60-second permit needs analysis") },
+   248→        { icon: Calculator, label: L("Kalkulator Biaya", "Cost Calculator"), href: "/kalkulator", desc: L("Hitung estimasi anggaran izin", "Estimate your permit budget") },
+   249→        { icon: Receipt, label: L("Kalkulator Pajak", "Tax Calculator"), href: "/kalkulator-pajak", desc: "PPh 21, PPN & PPh final" },
+   250→        { icon: FileSearch, label: L("Cek Dokumen", "Document Check"), href: "/cek-dokumen", desc: L("Validasi kelengkapan berkas", "Validate document completeness") },
+   251→        { icon: Route, label: "AI Roadmap Digitalisasi", href: "/roadmap", desc: L("Peta jalan digital usaha Anda", "Your business digital roadmap") },
+   252→      ],
+   253→    },
+   254→    {
+   255→      id: "perusahaan",
+   256→      label: L("Perusahaan", "Company"),
+   257→      items: [
+   258→        { icon: Info, label: L("Tentang Kami", "About Us"), href: "/tentang-kami", desc: L("Profil, legalitas & kantor kami", "Profile, licenses & our offices") },
+   259→        { icon: MapPin, label: L("Kontak", "Contact"), href: "/kontak", desc: L("WhatsApp, telepon, email & SCBD", "WhatsApp, phone, email & SCBD") },
+   260→        { icon: Quote, label: L("Testimoni Klien", "Client Testimonials"), href: "/testimoni", desc: L("Cerita 2.500+ klien", "Stories from 2,500+ clients") },
+   261→        { icon: HeartHandshake, label: L("Jadi Mitra", "Become a Partner"), href: "/mitra", desc: L("Buka cabang resmi di kota Anda — pusat yang mengurus", "Open an official branch — HQ runs everything") },
+   262→        { icon: Briefcase, label: L("Karier", "Careers"), href: "/lowongan-kerja", desc: L("Lowongan khusus wanita — IT & perizinan", "Women-only careers — IT & licensing") },
+   263→      ],
+   264→    },
+   265→  ];
+   266→
+   267→  const megaRail = (
+   268→    <div className="flex h-full flex-col justify-between gap-4 rounded-xl border border-primary/20 bg-gradient-to-br from-primary/10 via-primary/5 to-transparent p-5">
+   269→      <div>
+   270→        <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-primary">
+   271→          {L("Butuh arahan?", "Not sure where to start?")}
+   272→        </p>
+   273→        <p className="mt-2 text-sm leading-relaxed text-foreground/80">
+   274→          {L(
+   275→            "Konsultasi gratis 15 menit — tim kami pilihkan jalur izin paling efisien untuk bisnis Anda.",
+   276→            "Free 15-minute consultation — our team picks the most efficient licensing route for your business."
+   277→          )}
+   278→        </p>
+   279→      </div>
+   280→      <div className="flex flex-col gap-2">
+   281→        <Button asChild size="sm" className="w-full rounded-full font-semibold shadow-md shadow-primary/25">
+   282→          <a href={WA_LINK} target="_blank" rel="noopener noreferrer">
+   283→            <PhoneCall className="h-4 w-4" />
+   284→            {t("ctaFree")}
+   285→          </a>
+   286→        </Button>
+   287→        <a
+   288→          href="/cek-izin"
+   289→          className="group/link inline-flex items-center justify-center gap-1 text-[13px] font-semibold text-primary hover:text-primary/80 transition-colors"
+   290→        >
+   291→          {L("Coba Cek Izin AI", "Try AI License Check")}
+   292→          <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover/link:translate-x-0.5" aria-hidden="true" />
+   293→        </a>
+   294→      </div>
+   295→    </div>
+   296→  );
+   297→
+   298→  return (
+   299→    <header
+   300→      className={cn(
+   301→        "fixed top-0 inset-x-0 z-50 transition-all duration-300",
+   302→        /* Redesign 2026: hero kini band zamrud gelap — header selalu
+   303→           berlatar kertas blur (bukan transparan) agar terbaca di
+   304→           atas hero gelap maupun konten terang, dengan garis emas
+   305→           tipis sebagai tanda tangan identitas baru. */
+   306→        "bg-background/92 backdrop-blur-md border-b",
+   307→        scrolled ? "shadow-md shadow-primary/5" : "shadow-none"
+   308→      )}
+   309→    >
+   310→      <div aria-hidden="true" className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-gold/45 to-transparent" />
+   311→      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+   312→        <div className="flex items-center justify-between h-16 md:h-[72px]">
+   313→          {/* Logo */}
+   314→          <a href="/#beranda" className="flex items-center gap-2.5 shrink-0" aria-label="Arofahajj Universe - Beranda">
+   315→            <img src="/logo-icon.png" alt="Logo Arofahajj Universe" className="h-9 w-9" />
+   316→            <div className="leading-tight">
+   317→              <span className="font-display font-semibold text-lg md:text-xl tracking-tight text-foreground">
+   318→                Arofa<em className="text-primary">hajj</em>
+   319→                <span className="text-gold italic"> Universe</span>
+   320→              </span>
+   321→              <p className="text-[10px] text-muted-foreground font-medium hidden sm:block">
+   322→                {t("headerTagline")}
+   323→              </p>
+   324→            </div>
+   325→          </a>
+   326→
+   327→          {/* Desktop Nav — 5 kelompok */}
+   328→          <nav
+   329→            className="hidden xl:flex items-center gap-0.5 h-full"
+   330→            aria-label="Navigasi utama"
+   331→            ref={navRef}
+   332→            onKeyDown={onKeyDown}
+   333→            onBlur={onBlurArea}
+   334→          >
+   335→            {GROUPS.map((group) => {
+   336→              const isOpen = openGroup === group.id;
+   337→              return (
+   338→                <div
+   339→                  key={group.id}
+   340→                  className="relative h-full flex items-center"
+   341→                  onMouseEnter={() => onEnter(group.id)}
+   342→                  onMouseLeave={onLeave}
+   343→                >
+   344→                  <button
+   345→                    type="button"
+   346→                    aria-expanded={isOpen}
+   347→                    aria-haspopup="true"
+   348→                    aria-controls={`menu-${group.id}`}
+   349→                    onClick={() => onTriggerClick(group.id)}
+   350→                    className={cn(
+   351→                      "px-2.5 py-2 text-[13px] font-medium rounded-md transition-colors whitespace-nowrap inline-flex items-center gap-1",
+   352→                      isOpen ? "text-primary bg-accent" : "text-foreground/75 hover:text-primary hover:bg-accent"
+   353→                    )}
+   354→                  >
+   355→                    {group.label}
+   356→                    <ChevronDown
+   357→                      className={cn("h-3.5 w-3.5 transition-transform duration-200", isOpen && "rotate-180")}
+   358→                      aria-hidden="true"
+   359→                    />
+   360→                  </button>
+   361→
+   362→                  <AnimatePresence>
+   363→                    {isOpen && (
+   364→                      <div
+   365→                        id={`menu-${group.id}`}
+   366→                        className="absolute left-0 top-full pt-2 z-50"
+   367→                      >
+   368→                        <motion.div
+   369→                          initial={{ opacity: 0, y: -6, scale: 0.99 }}
+   370→                          animate={{ opacity: 1, y: 0, scale: 1 }}
+   371→                          exit={{ opacity: 0, y: -4, scale: 0.99 }}
+   372→                          transition={{ duration: 0.18, ease: EASE }}
+   373→                          className={cn(
+   374→                            "rounded-2xl border border-border/70 bg-background/95 backdrop-blur-xl shadow-2xl shadow-black/5 p-5",
+   375→                            group.mega
+   376→                              ? "w-[min(860px,calc(100vw-2rem))]"
+   377→                              : "w-[330px]"
+   378→                          )}
+   379→                        >
+   380→                          {group.mega && group.columns ? (
+   381→                            /* ===== MEGA MENU: 3 kolom + rail konsultasi ===== */
+   382→                            <div className="grid grid-cols-[1fr_1fr_1fr_224px] gap-6">
+   383→                              {group.columns.map((col) => (
+   384→                                <div key={col.title}>
+   385→                                  <p className="text-[10px] font-bold uppercase tracking-[0.18em] text-muted-foreground px-2 pb-2">
+   386→                                    {col.title}
+   387→                                  </p>
+   388→                                  <ul className="space-y-0.5">
+   389→                                    {col.items.map((item) => (
+   390→                                      <li key={item.href + item.label}>
+   391→                                        <a
+   392→                                          href={item.href}
+   393→                                          onClick={() => setOpenGroup(null)}
+   394→                                          className="group/item flex items-start gap-2.5 rounded-lg px-2 py-2 hover:bg-accent transition-colors"
+   395→                                        >
+   396→                                          <item.icon
+   397→                                            className="mt-0.5 h-4 w-4 shrink-0 text-primary/70 group-hover/item:text-primary transition-colors"
+   398→                                            aria-hidden="true"
+   399→                                          />
+   400→                                          <span className="min-w-0">
+   401→                                            <span className="block text-[13px] font-semibold leading-snug">
+   402→                                              {item.label}
+   403→                                            </span>
+   404→                                            {item.desc && (
+   405→                                              <span className="mt-0.5 block text-[11.5px] leading-snug text-muted-foreground">
+   406→                                                {item.desc}
+   407→                                              </span>
+   408→                                            )}
+   409→                                          </span>
+   410→                                        </a>
+   411→                                      </li>
+   412→                                    ))}
+   413→                                  </ul>
+   414→                                </div>
+   415→                              ))}
+   416→                              <div>{megaRail}</div>
+   417→                            </div>
+   418→                          ) : (
+   419→                            /* ===== DROPDOWN BIASA ===== */
+   420→                            <ul className="space-y-0.5">
+   421→                              {group.items?.map((item) => (
+   422→                                <li key={item.href + item.label}>
+   423→                                  <a
+   424→                                    href={item.href}
+   425→                                    onClick={() => setOpenGroup(null)}
+   426→                                    className="group/item flex items-start gap-3 rounded-lg px-2.5 py-2 hover:bg-accent transition-colors"
+   427→                                  >
+   428→                                    <item.icon
+   429→                                      className="mt-0.5 h-4 w-4 shrink-0 text-primary/70 group-hover/item:text-primary transition-colors"
+   430→                                      aria-hidden="true"
+   431→                                    />
+   432→                                    <span className="min-w-0">
+   433→                                      <span className="block text-[13px] font-semibold leading-snug">
+   434→                                        {item.label}
+   435→                                      </span>
+   436→                                      {item.desc && (
+   437→                                        <span className="mt-0.5 block text-[11.5px] leading-snug text-muted-foreground">
+   438→                                          {item.desc}
+   439→                                        </span>
+   440→                                      )}
+   441→                                    </span>
+   442→                                  </a>
+   443→                                </li>
+   444→                              ))}
+   445→                            </ul>
+   446→                          )}
+   447→                        </motion.div>
+   448→                      </div>
+   449→                    )}
+   450→                  </AnimatePresence>
+   451→                </div>
+   452→              );
+   453→            })}
+   454→          </nav>
+   455→
+   456→          {/* CTA */}
+   457→          <div className="hidden lg:flex items-center gap-2.5">
+   458→            <LanguageSwitcher />
+   459→            <a
+   460→              href={WA_LINK}
+   461→              target="_blank"
+   462→              rel="noopener noreferrer"
+   463→              className="hidden 2xl:flex items-center gap-1.5 text-sm font-medium text-primary hover:text-primary/80 transition-colors"
+   464→            >
+   465→              <PhoneCall className="h-4 w-4" />
+   466→              0812-2234-5856
+   467→            </a>
+   468→            <Button
+   469→              asChild
+   470→              size="sm"
+   471→              variant="outline"
+   472→              className="rounded-full px-4 font-semibold border-primary/40 text-primary hover:bg-primary/10"
+   473→            >
+   474→              <a href="/checkout">
+   475→                <Wallet className="h-4 w-4" />
+   476→                {L("Pesan & Bayar", "Order & Pay")}
+   477→              </a>
+   478→            </Button>
+   479→            <Button asChild size="sm" className="rounded-full px-5 font-semibold shadow-md shadow-primary/25">
+   480→              <a href="/konsultasi">
+   481→                <Sparkles className="h-4 w-4" />
+   482→                {t("ctaFree")}
+   483→              </a>
+   484→            </Button>
+   485→          </div>
+   486→
+   487→          {/* Mobile toggle — xl:hidden (menutup celah 1024–1280) */}
+   488→          <button
+   489→            className="xl:hidden p-2 rounded-md hover:bg-accent transition-colors"
+   490→            onClick={() => setMobileOpen(!mobileOpen)}
+   491→            aria-label={mobileOpen ? L("Tutup menu", "Close menu") : L("Buka menu", "Open menu")}
+   492→            aria-expanded={mobileOpen}
+   493→          >
+   494→            {mobileOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+   495→          </button>
+   496→        </div>
+   497→      </div>
+   498→
+   499→      {/* Mobile menu — accordion terkelompokan */}
+   500→      <AnimatePresence>
+   501→        {mobileOpen && (
+   502→          <motion.div
+   503→            initial={{ opacity: 0, y: -8 }}
+   504→            animate={{ opacity: 1, y: 0 }}
+   505→            exit={{ opacity: 0, y: -8 }}
+   506→            transition={{ duration: 0.2, ease: EASE }}
+   507→            className="xl:hidden border-t bg-background/95 backdrop-blur-md max-h-[calc(100vh-4rem)] overflow-y-auto scrollbar-thin"
+   508→          >
+   509→            <nav className="px-4 py-4 flex flex-col gap-1" aria-label="Navigasi mobile">
+   510→              <div className="flex items-center justify-between gap-3 pb-3 mb-2 border-b">
+   511→                <LanguageSwitcher />
+   512→                <a
+   513→                  href={WA_LINK}
+   514→                  target="_blank"
+   515→                  rel="noopener noreferrer"
+   516→                  className="flex items-center gap-1.5 text-sm font-medium text-primary"
+   517→                >
+   518→                  <PhoneCall className="h-4 w-4" />
+   519→                  0812-2234-5856
+   520→                </a>
+   521→              </div>
+   522→
+   523→              <Accordion type="single" collapsible className="w-full">
+   524→                {GROUPS.map((group) => (
+   525→                  <AccordionItem key={group.id} value={group.id} className="border-b border-border/60">
+   526→                    <AccordionTrigger className="px-3 py-3 text-sm font-semibold hover:no-underline [&>svg:last-child]:text-muted-foreground">
+   527→                      {group.label}
+   528→                    </AccordionTrigger>
+   529→                    <AccordionContent className="pb-2">
+   530→                      <ul className="flex flex-col gap-0.5">
+   531→                        {(group.columns
+   532→                          ? group.columns.flatMap((c) => c.items)
+   533→                          : group.items ?? []
+   534→                        ).map((item) => (
+   535→                          <li key={item.href + item.label}>
+   536→                            <a
+   537→                              href={item.href}
+   538→                              onClick={() => setMobileOpen(false)}
+   539→                              className="flex items-start gap-3 rounded-lg px-3 py-2.5 text-sm font-medium hover:bg-accent transition-colors"
+   540→                            >
+   541→                              <item.icon
+   542→                                className="mt-0.5 h-4 w-4 shrink-0 text-primary/70"
+   543→                                aria-hidden="true"
+   544→                              />
+   545→                              <span>{item.label}</span>
+   546→                            </a>
+   547→                          </li>
+   548→                        ))}
+   549→                      </ul>
+   550→                    </AccordionContent>
+   551→                  </AccordionItem>
+   552→                ))}
+   553→              </Accordion>
+   554→
+   555→              <div className="mt-4 flex flex-col gap-2.5">
+   556→                <Button asChild variant="outline" className="rounded-full font-semibold border-primary/40 text-primary">
+   557→                  <a href="/checkout" onClick={() => setMobileOpen(false)}>
+   558→                    <Wallet className="h-4 w-4" />
+   559→                    {L("Pesan & Bayar Langsung", "Order & Pay Now")}
+   560→                  </a>
+   561→                </Button>
+   562→                <Button asChild className="rounded-full font-semibold">
+   563→                  <a href="/konsultasi" onClick={() => setMobileOpen(false)}>
+   564→                    <Sparkles className="h-4 w-4" />
+   565→                    {t("ctaFree")}
+   566→                  </a>
+   567→                </Button>
+   568→              </div>
+   569→            </nav>
+   570→          </motion.div>
+   571→        )}
+   572→      </AnimatePresence>
+   573→    </header>
+   574→  );
+   575→}
+   576→

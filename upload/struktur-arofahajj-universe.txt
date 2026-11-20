@@ -1,0 +1,95 @@
+arofahajj-universe/
+│
+├── 00_metadata/                                # 🔐 Metadata global utk seluruh proyek; dipakai oleh Pandoc & pipeline analitik
+│   ├── global-metadata.yaml                    # → Identitas organisasi, versi dokumen, brand fields, company info
+│   ├── classification.yaml                     # → Level kerahasiaan (Public, Internal, Confidential, Secret)
+│   ├── contributors.yaml                       # → Daftar penulis, reviewer, role, tanggal kontribusi
+│   ├── revision-history.yaml                   # → Catatan perubahan versi (changelog) semua dokumen
+│   └── document-index-34.yaml                  # → Daftar 34 dokumen kitab bisnis + status penyelesaian
+│
+├── 01_vision-foundation/                       # 🌙 Level 1: Spirit organisasi, identitas, ruh perusahaan
+│   ├── vision-statement.md                     # → Visi jangka panjang (apa yg ingin dicapai 10–20 tahun)
+│   ├── founders-philosophy.md                  # → Nilai pendiri, prinsip etika, filosofi dasar
+│   ├── story-origin.md                         # → Narasi asal-usul perusahaan, story of origin
+│   ├── purpose-doctrine.md                     # → WHY statement (alasan eksistensi organisasi)
+│   └── brand-narrative-framework.md            # → Arsitektur brand, tone of voice, messaging guide
+│
+├── 02_strategic-blueprint/                     # 🧠 Level 2: Dokumen riset & strategy architecture
+│   ├── whitepaper.md                           # → Dokumen riset inti; masalah → solusi → analisis makro
+│   ├── masterplan-10yr.md                      # → Rencana besar 5–10 tahun; roadmap timeline
+│   ├── business-model-architecture.md          # → Value chain, revenue model, cost structure
+│   ├── go-to-market-strategy.md                # → Cara menembus pasar dan akuisisi user
+│   ├── compliance-map.md                       # → Peta regulasi Indonesia–Saudi–ASEAN
+│   ├── ecosystem-strategy.md                   # → Strategi bangun ekosistem lintas portal (visa, booking, sertifikasi)
+│   ├── international-expansion.md              # → Strategi ekspansi negara-negara baru
+│   ├── governance-charter.md                   # → Charter tata kelola: peran founder, komite, dewan
+│   └── product-strategy-playbook.md            # → North Star Metric, fokus produk 3–5 tahun
+│
+├── 03_product-tech/                            # ⚙️ Level 3: Mesin teknologi & operasional
+│   ├── prd.md                                  # → Product Requirements Document, fitur per modul
+│   ├── system-architecture.md                  # → Diagram sistem; devops, API, infra
+│   ├── api-playbook.md                         # → Integrasi internal & eksternal (Nusuk, Erajasa, payment gateway)
+│   ├── data-governance.md                      # → Kebijakan data, keamanan, enkripsi, retensi data
+│   ├── risk-management.md                      # → Risiko operasional & mitigasi
+│   ├── financial-projection.md                 # → Proyeksi keuangan 5–10 tahun
+│   ├── unit-economics.md                       # → LTV, CAC, margin, profitabilitas tiap user/product
+│   ├── monetization-playbook.md                # → Pricing strategy, paket premium, komisi, subscription
+│   ├── partnership-playbook.md                 # → SOP untuk vendor, maskapai, hotel, syarikat Saudi
+│   ├── sop/                                    # → SOP operasional seluruh modul
+│   │   ├── sop-visa.md                         # → SOP pengurusan visa
+│   │   ├── sop-paket.md                        # → SOP paket & layanan travel
+│   │   ├── sop-service.md                      # → SOP customer service
+│   │   └── sop-backoffice.md                   # → SOP admin & travel partner
+│   ├── kpi-dashboard.md                        # → KPI/OKR dashboard, measurement, scoring
+│   ├── enterprise-security-manual.md           # → Manual keamanan enterprise (Zero Trust, IAM, encryption)
+│   └── bcp-drp.md                              # → Business Continuity Plan / Disaster Recovery Plan
+│
+├── 04_people-org/                              # 👥 Level 4: SDM & organisasi
+│   ├── talent-leadership-framework.md          # → Framework leadership, kompetensi, pipeline talenta
+│   ├── organizational-structure.md             # → Struktur organisasi: sekarang → target 3 tahun
+│   ├── training-certification-framework.md     # → Sistem sertifikasi internal (MUHDIN)
+│   └── community-engagement.md                 # → Strategi bangun komunitas jamaah, agen, keluarga
+│
+├── 05_ecosystem-business/                      # 🌐 Level 5: Ekosistem & tata kelola
+│   ├── marketplace-governance.md               # → Regulasi marketplace, vendor rules
+│   ├── security-privacy-cyber.md               # → Kepatuhan PDPL, GDPR, cybersecurity
+│   ├── ai-ethics-policy.md                     # → Etika penggunaan AI
+│   ├── ecosystem-governance.md                 # → Tata kelola lintas portal & integrasi
+│   └── day90-execution-roadmap.md              # → Roadmap 90 hari; prioritas eksekusi
+│
+├── 06_investor-relations/                      # 💰 Level 6: Investor & modal
+│   ├── investor-memorandum.md                  # → Dokumen resmi untuk investor (IM)
+│   ├── pitchdeck/                              # → Presentasi investor
+│   │   ├── pitchdeck-v1.pdf                    # → Pitchdeck versi final
+│   │   └── pitch-narrative.md                  # → Naskah untuk presentasi
+│   └── financial-models/                       # → Excel model, sensitivitas, valuation
+│       ├── model-master.xlsx
+│       └── sensitivity.xlsx
+│
+├── 07_assets/                                  # 🎨 Level 7: Visual, brand, grafis
+│   ├── logos/                                  # → Logo PNG/SVG
+│   ├── diagrams/                               # → Diagram BPMN, arsitektur, sequence
+│   ├── illustrations/                          # → Ilustrasi & icon
+│   └── brand-kit/                              # → Warna brand, font, styleguide
+│
+├── 08_export/                                  # 📤 Output final (otomatis dari pipeline)
+│   ├── pdf/                                    # → Hasil konversi PDF
+│   ├── html/                                   # → Hasil konversi HTML
+│   └── epub/                                   # → Ebook (opsional)
+│
+└── 09_pipeline/                                # 🏗️ MESIN PEMBUAT PDF/HTML (Arofahajj-Docs-Pro)
+    ├── pandoc-config.yaml                      # → Konfigurasi global Pandoc (TOC, fonts, spacing)
+    ├── pipeline.md                             # → Penjelasan lengkap cara pakai pipeline
+    ├── template/                               # → Template styling PDF/HTML
+    │   ├── arofahajj-v2.tex                    # → Template LaTeX Premium Arofahajj Universe
+    │   ├── metadata.yaml                       # → Metadata dasar (title, author, company, classification)
+    │   ├── arofahajj.css                       # → Styling HTML premium
+    │   └── logo.png                            # → Logo default untuk cover PDF
+    ├── scripts/                                # → Script otomatis convert
+    │   ├── export-pdf.bat                      # → Windows: convert Markdown → PDF
+    │   ├── export-html.bat                     # → Windows: convert → HTML
+    │   ├── export-pdf.sh                       # → Mac/Linux: convert → PDF
+    │   └── export-html.sh                      # → Mac/Linux: convert → HTML
+    └── temp/                                   # → folder sementara sebelum hasil final dipindahkan
+        ├── pdf/                                # → PDF sementara (staging)
+        └── html/                               # → HTML sementara (staging)
