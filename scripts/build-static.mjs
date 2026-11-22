@@ -65,6 +65,7 @@ const DYNAMIC_PARAMS_FILES = [
   "src/app/sitemap/[id]/route.ts",
   "src/app/[slug]/page.tsx",
   "src/app/blog/[slug]/page.tsx",
+  "src/app/p/[slug]/page.tsx", // STUDIO CMS v2.4.0 — halaman mandiri
   "src/app/layanan/[...slug]/page.tsx",
   "src/app/kbli/[...slug]/page.tsx",
 ];
@@ -144,6 +145,18 @@ console.log("📦 BUILD STATIC EXPORT — arofahajj.com (tanpa Node.js di hostin
 console.log("──────────────────────────────────────────────────────────────────────");
 if (LIGHT) {
   console.log("🪶 Mode: PACK_LIGHT — rute dinamis long-tail digeser (paket ringan)");
+}
+
+// 0. Bersihkan artefak sesi dev yang bisa mengacaukan type check build.
+//    [fix v2.4.0] `.next/dev/types/validator.ts` dibuat `next dev` dan
+//    mereferensikan SEMUA route termasuk API yang akan digeser di bawah
+//    → `next build` gagal "Cannot find module .../api/.../route.js".
+//    Folder ini murni artefak dev (diregenerasi otomatis saat dev server
+//    hidup lagi), jadi aman dihapus sebelum build produksi.
+const DEV_ARTIFACTS = path.join(ROOT, ".next", "dev");
+if (existsSync(DEV_ARTIFACTS)) {
+  rmSync(DEV_ARTIFACTS, { recursive: true, force: true });
+  console.log("🧹 Artefak dev (.next/dev) dibersihkan — mencegah type check salah referensi");
 }
 
 // 1. Geser API routes keluar dari build (fitur runtime — tidak dibutuhkan hosting statis)

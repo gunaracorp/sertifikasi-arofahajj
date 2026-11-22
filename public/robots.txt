@@ -72,6 +72,7 @@ Allow: /
 Sitemap: https://arofahajj.com/sitemap.xml
 Sitemap: https://arofahajj.com/sitemap/static.xml
 Sitemap: https://arofahajj.com/sitemap/blog.xml
+Sitemap: https://arofahajj.com/sitemap/halaman.xml
 Sitemap: https://arofahajj.com/sitemap/panduan.xml
 Sitemap: https://arofahajj.com/sitemap/testimoni.xml
 Sitemap: https://arofahajj.com/sitemap/layanan.xml

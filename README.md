@@ -15,7 +15,7 @@
   <a href="./docs/HOSTINGER-NODEJS-DEPLOY.md">🚀 Panduan Deploy</a>
 </p>
 
-<a id="badge-versi" href="./CHANGELOG.md#v2-3-0"><img src="https://img.shields.io/badge/Versi-v2.3.0_Rumah_Baru-f59e0b?style=for-the-badge&logo=semanticweb&logoColor=1c1917" alt="Versi v2.3.0 Rumah Baru"/></a>
+<a id="badge-versi" href="./CHANGELOG.md#v2-4-0"><img src="https://img.shields.io/badge/Versi-v2.4.0_Studio_CMS-f59e0b?style=for-the-badge&logo=semanticweb&logoColor=1c1917" alt="Versi v2.4.0 Studio CMS"/></a>
 <img src="https://img.shields.io/badge/Status-stable-1c1917?style=for-the-badge" alt="Status stable"/>
 <img src="https://img.shields.io/badge/Next.js-16-f59e0b?style=flat-square&logo=nextdotjs&logoColor=1c1917" alt="Next.js 16"/>
 <img src="https://img.shields.io/badge/React-19-f59e0b?style=flat-square&logo=react&logoColor=1c1917" alt="React 19"/>
@@ -155,10 +155,10 @@ Setiap rilis **wajib** menyinkronkan kedelapan titik ini sebelum commit (dijalan
 4. `CHANGELOG.md` — badge, entri ber-anker, ladder tabel lengkap
 5. `WORKLOG.md` — entri Task ID di akhir berkas
 6. `STATE.md` — baris versi aplikasi
-7. `README.md` — badge versi ( Anda di sini → **v2.3.0 "Rumah Baru"** )
+7. `README.md` — badge versi ( Anda di sini → **v2.4.0 "Studio CMS"** )
 8. Kontrak Prisma — `bun run db:verify` hijau
 
-Hingga v2.3.0: **52 rilis** tercatat (0.1.0 → 2.3.0) dan **58 entri worklog** — semua terlacak di [CHANGELOG](./CHANGELOG.md) & [WORKLOG](./WORKLOG.md).
+Hingga v2.4.0: **53 rilis** tercatat (0.1.0 → 2.4.0) dan **59 entri worklog** — semua terlacak di [CHANGELOG](./CHANGELOG.md) & [WORKLOG](./WORKLOG.md).
 
 ## 🗺️ ROADMAP 99 PERFECT
 
@@ -176,7 +176,7 @@ arofahajj/
 ├── generated/prisma8/       # kontrak terkompilasi (artifact, tidak di-commit)
 ├── scripts/                 # ensure-pg.sh, release-v*.py, ver.json, smoke-prisma8.ts
 ├── docs/                    # deploy Hostinger, status migrasi Prisma 8, SEO
-├── CHANGELOG.md             # 52 rilis terdokumentasi penuh
+├── CHANGELOG.md             # 53 rilis terdokumentasi penuh
 ├── WORKLOG.md               # jejak audit per Task ID
 └── ROADMAP-99.md            # 12 fase · 99 langkah
 ```

@@ -258,6 +258,40 @@ model NotificationLog {
   @@index([status])
 }
 
+// CmsPage: halaman mandiri ala WordPress ("Studio CMS" v2.4.0) — Tentang,
+// Kebijakan, Landing khusus, dst. URL publik /p/{slug}. Konten terstruktur
+// sama dengan Post (sections/faq JSON) agar renderer & skor SEO dipakai ulang.
+model CmsPage {
+  id              String   @id @onCreate(cuid(2))
+  slug            String   @unique // URL /p/{slug}
+  title           String
+  metaTitle       String?  // SEO title (fallback: title)
+  metaDescription String?  // SEO description (fallback: paragraf pertama)
+  focusKeyword    String?  // kata kunci utk skor SEO live
+  keywords        String?  // dipisah koma — meta keywords + JSON-LD
+  sections        String   @default("[]") // JSON [{heading, paragraphs[], bullets?[]}]
+  faq             String   @default("[]") // JSON [{question, answer}]
+  cta             String?  // JSON {text, anchor}
+  status          String   @default("DRAFT") // DRAFT | PUBLISHED
+  noindex         Boolean  @default(false)
+  showInFooter    Boolean  @default(false) // tampil otomatis di kolom footer
+  sortOrder       Int      @default(0) // urutan tampil di footer (kecil = atas)
+  publishedAt     DateTime @default(now())
+  createdAt       DateTime @default(now())
+  updatedAt       temporal.updatedAt()
+
+  @@index([status])
+  @@index([updatedAt])
+}
+
+// SiteSetting: key/value penyimpanan pengaturan situs ala wp_options —
+// dipakai untuk tema aktif ("activeTheme"), tagline, dsb. Satu baris = satu setting.
+model SiteSetting {
+  key       String   @id
+  value     String
+  updatedAt temporal.updatedAt()
+}
+
 // EditorialSlot: satu sel kalender editorial blog (langkah 35) —
 // ritme 3×/minggu: Senin=Panduan, Rabu=Regulasi (berita), Jumat=Tips Pajak.
 // Siklus: PLANNED → DRAFTED (draft Post dibuat via CMS) → PUBLISHED; SKIPPED = topik dilewati.

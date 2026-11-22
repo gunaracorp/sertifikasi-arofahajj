@@ -29,6 +29,8 @@ const MODEL_NAMES = {
   recoveryLog: "RecoveryLog",
   notificationLog: "NotificationLog",
   editorialSlot: "EditorialSlot",
+  cmsPage: "CmsPage",
+  siteSetting: "SiteSetting",
 } as const;
 
 type ModelName = keyof typeof MODEL_NAMES;

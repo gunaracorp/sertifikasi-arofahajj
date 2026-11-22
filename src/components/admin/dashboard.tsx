@@ -8,7 +8,7 @@ import { useToast } from "@/hooks/use-toast";
 import {
   Gauge, Users, Target, CalendarClock, MessageSquare, SearchCheck, BookUser,
   RefreshCw, LogOut, Menu, Database, Trash2, Radio, ShieldCheck,
-  Bell, Volume2, VolumeX, Flame, Wallet, Newspaper,
+  Bell, Volume2, VolumeX, Flame, Wallet, Newspaper, Palette,
 } from "lucide-react";
 import { triggerRefresh, timeWIB, relativeTime } from "@/components/admin/shared";
 import { OverviewTab } from "@/components/admin/overview";
@@ -21,6 +21,7 @@ import { CollectionsTab } from "@/components/admin/collections";
 import { NotificationsTab } from "@/components/admin/notifications";
 import { OrdersTab } from "@/components/admin/orders";
 import { CmsTab } from "@/components/admin/cms";
+import { StudioTab } from "@/components/admin/studio";
 
 // ============================================================
 // MISSION CONTROL — shell utama (sidebar + header + tab)
@@ -29,6 +30,7 @@ import { CmsTab } from "@/components/admin/cms";
 const NAV = [
   { id: "overview", label: "Mission Control", icon: Gauge },
   { id: "cms", label: "Konten & SEO", icon: Newspaper },
+  { id: "studio", label: "Studio Tema", icon: Palette },
   { id: "orders", label: "Pesanan 💳", icon: Wallet },
   { id: "leads", label: "Leads", icon: Users },
   { id: "pipeline", label: "Pipeline", icon: Target },
@@ -389,6 +391,7 @@ export function AdminDashboard() {
         <main className="min-w-0 flex-1 p-4 md:p-6">
           {tab === "overview" && <OverviewTab />}
           {tab === "cms" && <CmsTab />}
+          {tab === "studio" && <StudioTab />}
           {tab === "orders" && <OrdersTab />}
           {tab === "leads" && <LeadsTab />}
           {tab === "pipeline" && <PipelineTab />}

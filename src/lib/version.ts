@@ -17,11 +17,11 @@ export const APP_TAGLINE =
   "Haji & Umrah, Perizinan Usaha & Sertifikasi — Satu Pintu Terlengkap Indonesia";
 
 /** Versi berjalan — tanpa prefiks "v" (SemVer murni). */
-export const APP_VERSION = "2.3.0";
+export const APP_VERSION = "2.4.0";
 /** Nama rilis berjalan. */
-export const RELEASE_NAME = "Rumah Baru";
+export const RELEASE_NAME = "Studio CMS";
 /** Tanggal rilis berjalan (WIB — Asia/Jakarta). */
-export const RELEASE_DATE = "2026-10-30";
+export const RELEASE_DATE = "2026-11-22";
 /** Channel rilis: stable | beta | alpha. */
 export const RELEASE_CHANNEL = "stable" as const;
 
@@ -46,6 +46,19 @@ export interface ReleaseEntry {
  * Sumber: CHANGELOG.md (1:1 dengan WORKLOG.md).
  */
 export const RELEASES: ReleaseEntry[] = [
+  {
+    version: "2.4.0",
+    date: "2026-11-22",
+    type: "minor",
+    name: "Studio CMS",
+    taskId: "55",
+    highlights: [
+      "Studio CMS ala WordPress: tab Studio Tema di Mission Control — katalog 5 tema situs (Zamrud default, Kiswah Malam gelap, Emas Nusantara, Tirta Zamrud, Terra Tasik) yang mengganti identitas visual seluruh halaman publik lewat data-theme CSS variable tanpa menyentuh kode",
+      "Halaman CMS mandiri /p/[slug] ala WordPress Pages: CRUD lengkap dari admin (model CmsPage baru — sections/faq/cta terstruktur, metaTitle/metaDescription/focusKeyword, noindex, showInFooter+sortOrder terhubung ke footer), JSON-LD WebPage+Breadcrumb+FAQPage, sitemap seksi “halaman”, dan bake otomatis saat build statis",
+      "Pipeline hosting statis hidup kembali (bug kritis): next.config.ts kini menghormati BUILD_STATIC=1 (output:“export” + rewrites/redirects dinonaktifkan) yang sejak v2.3.0 diabaikan sehingga build-static.mjs selalu gagal; plus pembersihan artefak .next/dev sebelum build agar type check tidak salah referensi",
+      "Perbaikan guard ensure-pg.sh: deteksi DATABASE_URL tahan format kutip (template SQLite file:... dulu keliru dianggap “remote” sehingga .env sandbox tidak pernah dipulihkan) + marker .pgdata/.schema-ready membuat init skema idempoten",
+    ],
+  },
   {
     version: "2.3.0",
     date: "2026-10-30",

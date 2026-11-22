@@ -31,7 +31,7 @@ import {
   getArticle,
   getRelatedArticles,
 } from "@/lib/blog-content";
-import { safeGetCmsPostBySlug } from "@/lib/blog-cms";
+import { safeGetCmsPostBySlug, safeGetPublishedPosts } from "@/lib/blog-cms";
 import { ADMIN_COOKIE, verifyToken } from "@/lib/admin-auth";
 import { PERMIT_GUIDES } from "@/lib/seo-content";
 import { WHATSAPP_NUMBER, WHATSAPP_DISPLAY } from "@/lib/landing-data";
@@ -47,8 +47,15 @@ import { SITE_URL, CONTACT } from "@/lib/site";
 
 export const dynamicParams = true;
 
-export function generateStaticParams(): { slug: string }[] {
-  return BLOG_ARTICLES.map((a) => ({ slug: a.slug }));
+export async function generateStaticParams(): Promise<{ slug: string }[]> {
+  // [v2.4.0] Static CMS: post PUBLISHED dari database ikut di-bake saat
+  // build statis/standalone — bukan hanya artikel statis repo. Build
+  // tanpa DB tetap aman (safe wrapper → hanya artikel statis).
+  const staticParams = BLOG_ARTICLES.map((a) => ({ slug: a.slug }));
+  const cmsPosts = await safeGetPublishedPosts();
+  const cmsParams = cmsPosts.map((p) => ({ slug: p.slug }));
+  const seen = new Set(staticParams.map((s) => s.slug));
+  return [...staticParams, ...cmsParams.filter((s) => !seen.has(s.slug))];
 }
 
 // ----------------------------------------------------------

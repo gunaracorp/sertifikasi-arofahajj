@@ -12,7 +12,7 @@
 | Website | arofahajj.com — **Arofahajj Universe** (Haji & Umrah, Perizinan Usaha & Sertifikasi) — PT AROFAH GLOBAL SISTEM |
 | Repositori | https://github.com/gunaracorp/arofahajj (origin utuh, remote terpasang) |
 | Lokasi sandbox | `/home/z/my-project` (= root repositori, `.git` utuh) |
-| Versi aplikasi | v2.3.0 "Rumah Baru" (`src/lib/version.ts`, `package.json`) |
+| Versi aplikasi | v2.4.0 "Studio CMS" (`src/lib/version.ts`, `package.json`) |
 | Stack | Next.js 16.4 (Turbopack dev) · React 19 · TypeScript 5 · Tailwind 4 · shadcn/ui · Prisma ORM 8 RC (`@prisma/orm-postgres 8.0.0-rc.20`) · PostgreSQL embedded |
 | Database | Embedded PostgreSQL (`node_modules/@embedded-postgres/linux-x64`), cluster di `.pgdata/`, port 5432, user `postgres` (trust), DB `arofahajj` |
 | Model data | 14 model (Lead, Consultation, ChatMessage, LicenseCheck, Subscriber, Testimonial, DocumentCheck, RoadmapRequest, NotificationSetting, Order, Post, FollowUpLog, RecoveryLog, NotificationLog, EditorialSlot) |

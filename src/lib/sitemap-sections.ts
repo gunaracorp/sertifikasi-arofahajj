@@ -8,6 +8,7 @@ import { TESTIMONIAL_CATEGORIES } from "@/lib/testimonials-data";
 import { PERMIT_GUIDES } from "@/lib/seo-content";
 import { BLOG_ARTICLES } from "@/lib/blog-content";
 import { safeGetPublishedPosts } from "@/lib/blog-cms";
+import { safeGetPublishedPages } from "@/lib/cms-pages"; // STUDIO CMS v2.4.0
 import { CATEGORIES } from "@/lib/katalog-lengkap";
 import { ALL_LAYANAN_SLUGS } from "@/lib/layanan-500";
 import { KATALOG_V2_SLUGS } from "@/lib/katalog-v2";
@@ -42,6 +43,7 @@ export interface SitemapEntry {
 export const SITEMAP_SECTION_IDS = [
   "static",
   "blog",
+  "halaman", // STUDIO CMS v2.4.0 — halaman mandiri /p/{slug}
   "panduan",
   "testimoni",
   "layanan",
@@ -65,6 +67,8 @@ export function buildSection(id: SitemapSectionId): Promise<SitemapEntry[]> | Si
       return buildStaticPages();
     case "blog":
       return buildBlogPages();
+    case "halaman":
+      return buildCmsPages(); // STUDIO CMS v2.4.0
     case "panduan":
       return PERMIT_GUIDES.map((g) => entry(`/panduan/${g.id}`, "monthly", 0.85));
     case "testimoni":
@@ -233,4 +237,18 @@ async function buildBlogPages(): Promise<SitemapEntry[]> {
     }));
 
   return [...blogPages, ...cmsBlogPages];
+}
+
+// STUDIO CMS (v2.4.0) — halaman mandiri /p/{slug}: PUBLISHED + tidak noindex.
+// Tanpa DB (build statis di laptop tanpa database) → daftar kosong, aman.
+async function buildCmsPages(): Promise<SitemapEntry[]> {
+  const pages = await safeGetPublishedPages();
+  return pages
+    .filter((p) => !p.noindex)
+    .map((p) => ({
+      url: `${SITE_URL}/p/${p.slug}`,
+      lastModified: new Date(p.updatedAt),
+      changeFrequency: "monthly" as const,
+      priority: 0.75,
+    }));
 }

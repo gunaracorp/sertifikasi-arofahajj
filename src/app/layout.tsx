@@ -11,6 +11,9 @@ import VitalsReporter from "@/components/seo/vitals-reporter";
 import { LanguageProvider } from "@/lib/i18n/language-provider";
 import { SITE_URL, LEGAL_ENTITY } from "@/lib/site";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import { getActiveThemeId } from "@/lib/site-settings";
+import { getTheme, DEFAULT_THEME_ID } from "@/lib/themes";
+import { ThemeBridge } from "@/components/theme-bridge";
 
 // ============================================================
 // REDESIGN 2026 — Tipografi "Zamrud & Emas Editorial"
@@ -179,13 +182,27 @@ export const viewport: Viewport = {
   maximumScale: 5,
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  // STUDIO CMS (v2.4.0): tema aktif dibaca dari tabel SiteSetting (ala
+  // wp_options). Selalu "aman": DB mati / build statis → tema default.
+  // Tema non-default menempel data-theme di <html>; tema gelap juga
+  // menerima class .dark (token di globals.css).
+  const themeId = await getActiveThemeId();
+  const theme = getTheme(themeId);
+  const themeAttr = themeId !== DEFAULT_THEME_ID ? themeId : undefined;
+  const darkClass = theme.dark ? "dark" : undefined;
+
   return (
-    <html lang="id" suppressHydrationWarning>
+    <html
+      lang="id"
+      suppressHydrationWarning
+      data-theme={themeAttr}
+      className={darkClass}
+    >
       <head>
         {/* RESOURCE HINTS — preconnect ke origin pihak ketiga kritis
             (analytics + WhatsApp CTA): hemat DNS+TLS ~100-300ms,
@@ -243,6 +260,8 @@ export default function RootLayout({
             prefers-reduced-motion (WCAG 2.2). */}
         <MotionProvider>
           <LanguageProvider>
+            {/* Studio CMS v2.4.0: pratinjau tema klien (?theme= / localStorage) */}
+            <ThemeBridge />
             {children}
             <SeoJsonLd />
             <Analytics />

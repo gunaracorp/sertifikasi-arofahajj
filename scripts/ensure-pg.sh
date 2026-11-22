@@ -12,15 +12,22 @@ EXPECTED_URL='postgresql://postgres@127.0.0.1:5432/arofahajj'
 
 # 0. Mode remote: bila .env menunjuk database cloud (bukan localhost),
 #    JANGAN pernah menimpa .env remote dan lewati cluster lokal sepenuhnya.
+#    [fix v2.4.0] Deteksi URL kini tangguh: buang tanda kutip dengan sed
+#    (dulu cut -d'"' -f2 — .env tanpa kutip mengembalikan string salah,
+#    membuat template SQLite `DATABASE_URL=file:...` keliru dianggap
+#    "remote" sehingga .env sandbox tidak pernah dipulihkan).
 if grep -q '^DATABASE_URL=' .env 2>/dev/null; then
-  CURRENT_URL=$(grep '^DATABASE_URL=' .env | head -1 | cut -d'"' -f2)
+  CURRENT_URL=$(grep '^DATABASE_URL=' .env | head -1 | sed 's/^DATABASE_URL=//; s/^"//; s/"$//')
   case "$CURRENT_URL" in
     *@127.0.0.1:*|*@localhost:*)
       : ;; # lokal embedded → lanjut alur sandbox di bawah
-    *)
+    postgresql://*|postgres://*)
       echo "[ensure-pg] Mode remote: DATABASE_URL menunjuk database cloud — cluster lokal dilewati, .env remote dipertahankan."
       exit 0
       ;;
+    *)
+      echo "[ensure-pg] DATABASE_URL tidak dikenal ('${CURRENT_URL:-kosong}') — dianggap template rusak, .env sandbox dipulihkan."
+      ;; # file:/template/koang → lanjut pemulihan sandbox di bawah
   esac
 fi
 
@@ -45,14 +52,28 @@ if ! $PGBIN/pg_ctl -D .pgdata status >/dev/null 2>&1; then
   $PGBIN/pg_ctl -D .pgdata -l .pgdata/postgres.log -o "-p 5432 -c listen_addresses=127.0.0.1" start >/dev/null 2>&1
 fi
 
-# 4. Cluster segar → buat database + inisialisasi skema Prisma 8
+# 4. Cluster segar → buat database. Skema Prisma diinisialisasi bila
+#    marker .pgdata/.schema-ready belum ada [fix v2.4.0]: dulu hanya
+#    jalan saat FRESH=1 — bila initdb sukses tetapi `prisma db init`
+#    gagal (mis. contract.json belum di-emit), re-run guard tidak
+#    pernah memperbaiki skema. Marker membuat langkah ini idempoten.
+SCHEMA_READY=0
+if [ -f .pgdata/.schema-ready ]; then SCHEMA_READY=1; fi
 if [ "$FRESH" = "1" ]; then
   $PGBIN/pg_ctl -D .pgdata stop -m fast >/dev/null 2>&1
   echo "CREATE DATABASE arofahajj;" | $PGBIN/postgres --single -D .pgdata postgres >/dev/null 2>&1
   $PGBIN/pg_ctl -D .pgdata -l .pgdata/postgres.log -o "-p 5432 -c listen_addresses=127.0.0.1" start >/dev/null 2>&1
-  bunx prisma db init >> .pgdata-init.log 2>&1
-  bunx prisma db sign >> .pgdata-init.log 2>&1
-  echo "[ensure-pg] Database arofahajj + skema 14 model diinisialisasi"
+fi
+if [ "$FRESH" = "1" ] || [ "$SCHEMA_READY" = "0" ]; then
+  if [ ! -f generated/prisma8/contract.json ]; then
+    echo "[ensure-pg] contract.json belum ada — prisma contract emit..."
+    bunx prisma contract emit >> .pgdata-init.log 2>&1
+  fi
+  bunx prisma db init >> .pgdata-init.log 2>&1 && \
+    bunx prisma db sign >> .pgdata-init.log 2>&1 && \
+    touch .pgdata/.schema-ready && \
+    echo "[ensure-pg] Database arofahajj + skema 17 model diinisialisasi" || \
+    echo "[ensure-pg] ⚠️ init skema gagal — jalankan 'bun run prisma8:emit && bun run db:init' manual"
 fi
 
 echo "[ensure-pg] PostgreSQL siap di 127.0.0.1:5432"

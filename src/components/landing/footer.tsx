@@ -28,6 +28,7 @@ import { WHATSAPP_DISPLAY } from "@/lib/landing-data";
 import { useLanguage } from "@/lib/i18n/language-provider";
 import { LanguageSwitcher } from "@/components/landing/language-switcher";
 import { SUPPORT_SYSTEM_URL } from "@/lib/site";
+import { useFooterCmsPages } from "@/components/landing/use-footer-pages";
 
 // ============================================================
 // Footer v6 "Mahkota" — God Mode Tier Max (v1.20.0 / Task 46)
@@ -325,6 +326,10 @@ const FOOTER_STYLES = `
 export function Footer() {
   const { t } = useLanguage();
   const wibTime = useWibClock();
+  // STUDIO CMS (v2.4.0): halaman mandiri /p/… yang dicentang
+  // “Tampil di footer” — di-fetch sekali per sesi; di hosting statis
+  // (tanpa API) hasilnya kosong dan footer tetap utuh.
+  const cmsPages = useFooterCmsPages();
 
   return (
     <footer className="relative mt-auto overflow-hidden bg-[oklch(0.972_0.014_150)] text-foreground/90">
@@ -664,6 +669,22 @@ export function Footer() {
                 → Profil Lengkap Perusahaan
               </a>
             </li>
+            {cmsPages.length > 0 && (
+              <li>
+                <ul className="mt-2 space-y-2.5 border-t border-border/40 pt-2">
+                  {cmsPages.map((cp) => (
+                    <li key={cp.slug}>
+                      <a
+                        href={`/p/${cp.slug}`}
+                        className="text-sm text-foreground/70 hover:text-primary transition-colors"
+                      >
+                        {cp.title}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </li>
+            )}
           </FooterLinkColumn>
 
           <FooterLinkColumn

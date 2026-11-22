@@ -7,17 +7,17 @@
     "url": "https://arofahajj.com"
   },
   "version": {
-    "current": "2.3.0",
-    "label": "v2.3.0 — Rumah Baru",
-    "releaseName": "Rumah Baru",
-    "releasedAt": "2026-10-30",
+    "current": "2.4.0",
+    "label": "v2.4.0 — Studio CMS",
+    "releaseName": "Studio CMS",
+    "releasedAt": "2026-11-22",
     "channel": "stable",
     "timezone": "Asia/Jakarta (WIB)",
     "semverValid": true
   },
   "stats": {
     "indexedUrls": 11873,
-    "sitemapSections": 15,
+    "sitemapSections": 16,
     "orderableServices": 1500,
     "subscriptionSkus": 6,
     "languages": 30,
@@ -32,14 +32,26 @@
     "nextRelease": "v2.4.0 (Unreleased — antrean ROADMAP-99)"
   },
   "releases": {
-    "total": 52,
+    "total": 53,
     "current": {
-      "version": "2.3.0",
-      "date": "2026-10-30",
+      "version": "2.4.0",
+      "date": "2026-11-22",
       "type": "minor",
-      "name": "Rumah Baru"
+      "name": "Studio CMS"
     },
     "history": [
+      {
+        "version": "2.3.0",
+        "date": "2026-10-30",
+        "type": "minor",
+        "name": "Rumah Baru",
+        "taskId": "54",
+        "highlights": [
+          "Migrasi database produksi ke Prisma Postgres cloud (pooled.db.prisma.io, sslmode=require) — smoke test 15/15 model PASS",
+          "Guard sandbox anti-tabrakan: scripts/ensure-pg.sh kini punya mode remote — .env cloud tidak pernah ditimpa templat sandbox",
+          "README ditulis ulang total bergaya Kiswah & Emas"
+        ]
+      },
       {
         "version": "1.20.0",
         "date": "2026-10-29",

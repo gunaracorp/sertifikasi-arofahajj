@@ -127,6 +127,179 @@
   --sidebar-ring: oklch(0.80 0.12 160);
 }
 
+/* ============================================================
+   STUDIO CMS — TEMA (v2.4.0)
+   Setiap tema = satu blok html[data-theme="<id>"] yang menimpa
+   token :root. Tema default "zamrud" TIDAK punya blok — tanpa
+   atribut data-theme, situs memakai :root persis seperti v2.3.
+   Tema gelap ("kiswah-malam") tidak menimpa token: layout
+   memberi class .dark — nilai diambil dari blok .dark di atas.
+   Menambah tema baru: tambah blok serupa di bawah + entri di
+   src/lib/themes.ts. Kontras target WCAG AA+.
+   ============================================================ */
+
+/* Tema "emas-nusantara" — gading hangat + perunggu premium */
+html[data-theme="emas-nusantara"] {
+  --background: oklch(0.975 0.02 85);
+  --foreground: oklch(0.25 0.03 70);
+  --card: oklch(0.985 0.012 85);
+  --card-foreground: oklch(0.25 0.03 70);
+  --popover: oklch(0.985 0.012 85);
+  --popover-foreground: oklch(0.25 0.03 70);
+  --primary: oklch(0.48 0.10 65);
+  --primary-foreground: oklch(0.985 0.01 85);
+  --secondary: oklch(0.93 0.035 80);
+  --secondary-foreground: oklch(0.33 0.06 65);
+  --muted: oklch(0.94 0.015 85);
+  --muted-foreground: oklch(0.45 0.02 75);
+  --accent: oklch(0.92 0.045 82);
+  --accent-foreground: oklch(0.33 0.06 65);
+  --border: oklch(0.88 0.025 80);
+  --input: oklch(0.88 0.025 80);
+  --ring: oklch(0.55 0.11 65);
+  --chart-1: oklch(0.48 0.10 65);
+  --chart-2: oklch(0.62 0.10 70);
+  --chart-3: oklch(0.38 0.07 60);
+  --chart-4: oklch(0.55 0.105 45);
+  --chart-5: oklch(0.55 0.04 75);
+  --gold: oklch(0.47 0.11 60);
+  --gold-foreground: oklch(0.99 0.005 85);
+  --sidebar: oklch(0.975 0.02 85);
+  --sidebar-foreground: oklch(0.25 0.03 70);
+  --sidebar-primary: oklch(0.48 0.10 65);
+  --sidebar-primary-foreground: oklch(0.985 0.01 85);
+  --sidebar-accent: oklch(0.93 0.035 80);
+  --sidebar-accent-foreground: oklch(0.33 0.06 65);
+  --sidebar-border: oklch(0.88 0.025 80);
+  --sidebar-ring: oklch(0.55 0.11 65);
+}
+html[data-theme="emas-nusantara"] .hero-gradient {
+  background:
+    radial-gradient(ellipse 80% 60% at 70% -10%, oklch(0.60 0.09 70/ 0.12), transparent),
+    radial-gradient(ellipse 60% 50% at 10% 110%, oklch(0.50 0.10 60/ 0.08), transparent),
+    linear-gradient(180deg, oklch(0.972 0.02 85) 0%, oklch(0.988 0.012 85) 100%);
+}
+html[data-theme="emas-nusantara"] .band-sun {
+  background:
+    radial-gradient(ellipse 90% 70% at 88% -10%, oklch(0.90 0.07 80/ 0.50), transparent 55%),
+    radial-gradient(ellipse 70% 55% at 6% 110%, oklch(0.90 0.05 65/ 0.45), transparent 60%),
+    linear-gradient(180deg, oklch(0.970 0.025 80) 0%, oklch(0.988 0.012 85) 100%);
+}
+html[data-theme="emas-nusantara"] .text-gradient-brand {
+  background: linear-gradient(100deg, oklch(0.45 0.09 65) 15%, oklch(0.52 0.09 72) 55%, oklch(0.48 0.105 55) 90%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Tema "tirta" — putih kabut + teal segar */
+html[data-theme="tirta"] {
+  --background: oklch(0.985 0.008 200);
+  --foreground: oklch(0.24 0.03 210);
+  --card: oklch(0.995 0.004 200);
+  --card-foreground: oklch(0.24 0.03 210);
+  --popover: oklch(0.995 0.004 200);
+  --popover-foreground: oklch(0.24 0.03 210);
+  --primary: oklch(0.52 0.10 200);
+  --primary-foreground: oklch(0.985 0.01 200);
+  --secondary: oklch(0.94 0.025 195);
+  --secondary-foreground: oklch(0.32 0.05 205);
+  --muted: oklch(0.95 0.01 200);
+  --muted-foreground: oklch(0.45 0.02 210);
+  --accent: oklch(0.93 0.03 195);
+  --accent-foreground: oklch(0.32 0.05 205);
+  --border: oklch(0.89 0.02 200);
+  --input: oklch(0.89 0.02 200);
+  --ring: oklch(0.60 0.11 200);
+  --chart-1: oklch(0.52 0.10 200);
+  --chart-2: oklch(0.64 0.10 190);
+  --chart-3: oklch(0.40 0.07 210);
+  --chart-4: oklch(0.55 0.105 80);
+  --chart-5: oklch(0.55 0.03 200);
+  --gold: oklch(0.55 0.10 80);
+  --gold-foreground: oklch(0.99 0.005 85);
+  --sidebar: oklch(0.985 0.008 200);
+  --sidebar-foreground: oklch(0.24 0.03 210);
+  --sidebar-primary: oklch(0.52 0.10 200);
+  --sidebar-primary-foreground: oklch(0.985 0.01 200);
+  --sidebar-accent: oklch(0.94 0.025 195);
+  --sidebar-accent-foreground: oklch(0.32 0.05 205);
+  --sidebar-border: oklch(0.89 0.02 200);
+  --sidebar-ring: oklch(0.60 0.11 200);
+}
+html[data-theme="tirta"] .hero-gradient {
+  background:
+    radial-gradient(ellipse 80% 60% at 70% -10%, oklch(0.60 0.09 200/ 0.12), transparent),
+    radial-gradient(ellipse 60% 50% at 10% 110%, oklch(0.50 0.10 190/ 0.07), transparent),
+    linear-gradient(180deg, oklch(0.980 0.010 200) 0%, oklch(0.992 0.004 200) 100%);
+}
+html[data-theme="tirta"] .band-sun {
+  background:
+    radial-gradient(ellipse 90% 70% at 88% -10%, oklch(0.90 0.06 190/ 0.50), transparent 55%),
+    radial-gradient(ellipse 70% 55% at 6% 110%, oklch(0.90 0.05 205/ 0.45), transparent 60%),
+    linear-gradient(180deg, oklch(0.972 0.014 195) 0%, oklch(0.988 0.008 200) 100%);
+}
+html[data-theme="tirta"] .text-gradient-brand {
+  background: linear-gradient(100deg, oklch(0.48 0.09 205) 15%, oklch(0.54 0.09 195) 55%, oklch(0.52 0.10 80) 90%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Tema "terra" — pasir hangat + terakota Tasikmalaya */
+html[data-theme="terra"] {
+  --background: oklch(0.975 0.012 55);
+  --foreground: oklch(0.26 0.03 40);
+  --card: oklch(0.99 0.008 55);
+  --card-foreground: oklch(0.26 0.03 40);
+  --popover: oklch(0.99 0.008 55);
+  --popover-foreground: oklch(0.26 0.03 40);
+  --primary: oklch(0.55 0.13 40);
+  --primary-foreground: oklch(0.99 0.005 55);
+  --secondary: oklch(0.93 0.03 45);
+  --secondary-foreground: oklch(0.35 0.06 40);
+  --muted: oklch(0.94 0.012 55);
+  --muted-foreground: oklch(0.46 0.025 45);
+  --accent: oklch(0.92 0.04 50);
+  --accent-foreground: oklch(0.35 0.06 40);
+  --border: oklch(0.88 0.02 50);
+  --input: oklch(0.88 0.02 50);
+  --ring: oklch(0.60 0.12 40);
+  --chart-1: oklch(0.55 0.13 40);
+  --chart-2: oklch(0.65 0.11 50);
+  --chart-3: oklch(0.42 0.08 35);
+  --chart-4: oklch(0.50 0.10 65);
+  --chart-5: oklch(0.55 0.04 45);
+  --gold: oklch(0.48 0.10 65);
+  --gold-foreground: oklch(0.99 0.005 55);
+  --sidebar: oklch(0.975 0.012 55);
+  --sidebar-foreground: oklch(0.26 0.03 40);
+  --sidebar-primary: oklch(0.55 0.13 40);
+  --sidebar-primary-foreground: oklch(0.99 0.005 55);
+  --sidebar-accent: oklch(0.93 0.03 45);
+  --sidebar-accent-foreground: oklch(0.35 0.06 40);
+  --sidebar-border: oklch(0.88 0.02 50);
+  --sidebar-ring: oklch(0.60 0.12 40);
+}
+html[data-theme="terra"] .hero-gradient {
+  background:
+    radial-gradient(ellipse 80% 60% at 70% -10%, oklch(0.60 0.10 40/ 0.12), transparent),
+    radial-gradient(ellipse 60% 50% at 10% 110%, oklch(0.50 0.10 65/ 0.08), transparent),
+    linear-gradient(180deg, oklch(0.972 0.014 55) 0%, oklch(0.990 0.008 55) 100%);
+}
+html[data-theme="terra"] .band-sun {
+  background:
+    radial-gradient(ellipse 90% 70% at 88% -10%, oklch(0.90 0.06 50/ 0.50), transparent 55%),
+    radial-gradient(ellipse 70% 55% at 6% 110%, oklch(0.90 0.05 65/ 0.45), transparent 60%),
+    linear-gradient(180deg, oklch(0.970 0.016 50) 0%, oklch(0.988 0.010 55) 100%);
+}
+html[data-theme="terra"] .text-gradient-brand {
+  background: linear-gradient(100deg, oklch(0.50 0.12 40) 15%, oklch(0.56 0.10 50) 55%, oklch(0.48 0.10 65) 90%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
 @layer base {
   * {
     @apply border-border outline-ring/50;

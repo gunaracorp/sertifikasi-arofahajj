@@ -5,19 +5,19 @@
 
 <br>
 
-[![Versi Saat Ini](https://img.shields.io/badge/Versi_Saat_Ini-v2.3.0_Rumah_Baru-059669?style=for-the-badge&logo=semanticweb&logoColor=white)](#v2-3-0)
+[![Versi Saat Ini](https://img.shields.io/badge/Versi_Saat_Ini-v2.4.0_Studio_CMS-059669?style=for-the-badge&logo=semanticweb&logoColor=white)](#v2-4-0)
 [![SemVer](https://img.shields.io/badge/Versioning-Semantic_2.0.0-3178C6?style=for-the-badge&logo=semver&logoColor=white)](#aturan)
 [![Format](https://img.shields.io/badge/Format-Keep_a_Changelog_1.1.0-8B5CF6?style=for-the-badge&logo=markdown&logoColor=white)](#aturan)
 [![Status](https://img.shields.io/badge/Channel-stable-059669?style=for-the-badge&logo=vercel&logoColor=white)](#top)
 
-![Total Rilis](https://img.shields.io/badge/Total_Rilis-52_(0.1.0_%E2%86%92_2.3.0)-059669?style=flat-square)
-![Entri Worklog](https://img.shields.io/badge/Entri_Worklog-58_ber_versi-059669?style=flat-square)
+![Total Rilis](https://img.shields.io/badge/Total_Rilis-53_(0.1.0_%E2%86%92_2.4.0)-059669?style=flat-square)
+![Entri Worklog](https://img.shields.io/badge/Entri_Worklog-59_ber_versi-059669?style=flat-square)
 ![Rilis Berikutnya](https://img.shields.io/badge/Rilis_Berikutnya-v2.4.0_(Unreleased)-f59e0b?style=flat-square)
 ![Zona Waktu](https://img.shields.io/badge/Zona_Waktu-Asia%2FJakarta_(WIB)-059669?style=flat-square)
 
 <br>
 
-**📆 `arofahajj.com` → sekarang berjalan di `v2.3.0 — "Rumah Baru"`**
+**📆 `arofahajj.com` → sekarang berjalan di `v2.4.0 — "Studio CMS"`**
 
 <sub>Versi terlihat hidup di: footer setiap halaman (11.873 URL) · <a href="/api/version"><code>GET /api/version</code></a> · <code>package.json</code> · JSON-LD <code>softwareVersion</code> · dokumen ini</sub>
 
@@ -39,9 +39,37 @@
 | Presisi tanggal | Era `0.x` (Sesi 1–2) direkonstruksi dari metadata file & jejak invoice (`INV-20261021`) → presisi bulan; era `1.x` → presisi hari (terverifikasi) |
 | Rilis berikutnya | **`v1.21.0`** — diisi dari seksi `[Unreleased]` saat ROADMAP-99 lanjut dieksekusi |
 
-> 🔗 Navigasi cepat: **[Tabel Lengkap 52 Rilis](#ladder)** · **[Aturan Versioning](#aturan)** · **[WORKLOG.md](./WORKLOG.md)** · **[README.md](./README.md)** · **[ROADMAP-99.md](./ROADMAP-99.md)**
+> 🔗 Navigasi cepat: **[Tabel Lengkap 53 Rilis](#ladder)** · **[Aturan Versioning](#aturan)** · **[WORKLOG.md](./WORKLOG.md)** · **[README.md](./README.md)** · **[ROADMAP-99.md](./ROADMAP-99.md)**
 
 ---
+
+<a id="v2-4-0"></a>
+
+## [2.4.0] — 2026-11-22 — 🎨 "Studio CMS" (Task 55)
+
+**MINOR fitur** (perintah owner: *"buatkan cms seperti wordpress, buatkan thema, tutorial pengembangan dari hulu ke hilir agar full seo"*): Studio CMS dibangun di atas Mission Control, pipeline hosting statis dihidupkan kembali, dua bug lama ditutup.
+
+### 🎨 Added
+- **Studio CMS ala WordPress**: tab Studio Tema di Mission Control — katalog 5 tema situs (Zamrud default, Kiswah Malam gelap, Emas Nusantara, Tirta Zamrud, Terra Tasik) yang mengganti identitas visual seluruh halaman publik lewat data-theme CSS variable tanpa menyentuh kode
+- **Halaman CMS mandiri /p/[slug] ala WordPress Pages**: CRUD lengkap dari admin (model CmsPage baru — sections/faq/cta terstruktur, metaTitle/metaDescription/focusKeyword, noindex, showInFooter+sortOrder terhubung ke footer), JSON-LD WebPage+Breadcrumb+FAQPage, sitemap seksi "halaman", dan bake otomatis saat build statis
+- **Pipeline hosting statis hidup kembali (bug kritis)**: next.config.ts kini menghormati BUILD_STATIC=1 (output:"export" + rewrites/redirects dinonaktifkan) yang sejak v2.3.0 diabaikan sehingga build-static.mjs selalu gagal; plus pembersihan artefak .next/dev sebelum build agar type check tidak salah referensi
+- **Perbaikan guard ensure-pg.sh**: deteksi DATABASE_URL tahan format kutip (template SQLite file:... dulu keliru dianggap "remote" sehingga .env sandbox tidak pernah dipulihkan) + marker .pgdata/.schema-ready membuat init skema idempoten
+- API Studio: `/api/admin/pages` + `/api/admin/pages/[id]` (CRUD halaman), `/api/admin/theme` (GET/PUT tema aktif — validasi ketat), `/api/admin/cms-export` (unduh seluruh konten CMS sebagai JSON, ala Export WordPress), `/api/cms/footer-pages` (publik, untuk footer).
+- Blog & sitemap: `generateStaticParams` blog kini menyertakan post PUBLISHED dari DB (bake CMS saat build statis); seksi sitemap baru `halaman.xml` (total 16 seksi) + sinkron robots.txt.
+- Tema diterapkan lewat `<html data-theme>` dari tabel `SiteSetting` (ala wp_options) dengan pratinjau klien `?theme=`/localStorage via ThemeBridge — nol regresi bila DB mati (fallback tema default).
+
+### 🗄️ Database
+- 2 model baru di `contract.prisma`: **CmsPage** (halaman mandiri) & **SiteSetting** (key/value pengaturan situs) → 17 model total; pipeline `contract emit → db:init → db:sign → db:verify` hijau.
+
+### 🐛 Fixed
+- **Static export mati sejak v2.3.0**: `next.config.ts` mengabaikan env `BUILD_STATIC` sehingga `PACK_LIGHT=1 node scripts/build-static.mjs` selalu gagal (output:"standalone" mengunci). Kini `BUILD_STATIC=1 → output:"export"` + rewrites/redirects dikosongkan (tak didukung mode export).
+- **Type check build statis salah referensi**: artefak dev `.next/dev/types/validator.ts` mereferensikan route API yang digeser saat build → `build-static.mjs` kini membersihkan `.next/dev` sebelum build.
+- **`ensure-pg.sh` salah klasifikasi**: `cut -d'"' -f2` gagal pada `.env` tanpa kutip sehingga template SQLite `DATABASE_URL=file:...` dianggap "remote" dan sandbox tak pernah dipulihkan → deteksi diganti sed tahan kutip; init skema kini idempoten via marker `.pgdata/.schema-ready`.
+
+### ✅ Verified
+- `bunx tsc --noEmit`: 0 error · `bun run lint`: bersih · `bun run db:verify` + `db:smoke` 17/17 PASS.
+- Build statis end-to-end: `PACK_LIGHT=1 node scripts/build-static.mjs` → **out/** 268 halaman HTML (termasuk `/p/tentang-kami` hasil CMS), sitemap di-prune 4 seksi, `deploy-pack.mjs` → `arofahajj-static-hosting.tar.gz` 29,29 MB (MD5 97cf2cf2…).
+- Verifikasi browser: halaman `/p/tentang-kami` render (tema Tirta & Kiswah Malam diuji), admin Studio Tema CRUD halaman, ekspor JSON, footer link otomatis.
 
 <a id="v2-3-0"></a>
 
@@ -959,7 +987,8 @@ Rilis pertama dengan **identitas versi resmi**. Seluruh proyek kini punya nomor 
 
 | # | Versi | Tanggal (WIB) | Tipe | Nama Rilis | Task WORKLOG | Status |
 |---|---|---|---|---|---|---|
-| 52 | **v2.3.0** ⭐ | **2026-10-30** | minor | **Rumah Baru** | Task 54 | **🟢 AKTIF — versi berjalan** |
+| 52 | **v2.3.0** ⭐ | **2026-10-30** | minor | **Rumah Baru** | Task 54 | stable |
+| 53 | **v2.4.0** ⭐ | **2026-11-22** | minor | **Studio CMS** | Task 55 | **🟢 AKTIF — versi berjalan** |
 | 51 | v2.2.2 | 2026-10-30 | patch | Tanpa Jejak | Task 53 | ✅ Rilis |
 | 50 | v2.2.1 | 2026-10-30 | patch | Fokus Beranda | Task 52 | ✅ Rilis |
 | 49 | v2.2.0 | 2026-10-30 | minor | Revaluasi Harga | Task 51 | ✅ Rilis |

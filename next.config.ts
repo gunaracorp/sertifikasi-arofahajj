@@ -1,11 +1,20 @@
 // ============================================================
 // AROFAHAJJ.COM — Next Config
 // DEV/PRODUCTION: Next.js standalone output for Node.js hosting.
+// STATIC EXPORT: bila env BUILD_STATIC=1 (dipasang scripts/
+// build-static.mjs), output beralih ke "export" dan rewrites/
+// redirects dinonaktifkan — keduanya TIDAK didukung output export.
+// [fix v2.4.0] Dulu config ini mengabaikan BUILD_STATIC sepenuhnya
+// sehingga pipeline hosting statis (idwebhost/cPanel) gagal —
+// build-static.mjs menunggu folder out/ yang tidak pernah dibuat.
 // Use Webpack for production builds to avoid the Hostinger Turbopack
 // CSS worker process failure observed in the deployment logs.
 // ============================================================
 
 import type { NextConfig } from "next";
+
+// BUILD_STATIC=1 → static export murni (HTML+CSS+JS, folder out/)
+const isStaticExport = process.env.BUILD_STATIC === "1";
 
 // NEXT_CPU_COUNT is an application-defined build variable (not a built-in
 // Next.js environment variable). Default to 2 on constrained builders and
@@ -19,7 +28,7 @@ const buildCpus =
 
 const nextConfig: NextConfig = {
   serverExternalPackages: ["@prisma/orm-postgres"],
-  output: "standalone",
+  output: isStaticExport ? "export" : "standalone",
   // Izinkan host preview sandbox memuat aset dev Next.js (font, HMR)
   // — tanpa ini font next/font/google diblokir cross-origin di preview.
   allowedDevOrigins: ["*.space-z.ai", "space-z.ai"],
@@ -29,6 +38,9 @@ const nextConfig: NextConfig = {
     staticGenerationMaxConcurrency: 2,
   },
   async rewrites() {
+    // Static export tidak mendukung rewrites — sitemap index ditulis
+    // langsung sebagai out/sitemap.xml oleh postProcessSeo().
+    if (isStaticExport) return { beforeFiles: [], afterFiles: [], fallback: [] };
     return {
       beforeFiles: [
         { source: "/sitemap.xml", destination: "/api/sitemap-index" },
@@ -38,6 +50,9 @@ const nextConfig: NextConfig = {
     };
   },
   async redirects() {
+    // Static export tidak mendukung redirects — rute lama tak relevan
+    // di paket statis (sitemap sudah di-prune oleh build-static).
+    if (isStaticExport) return [];
     return [
       // ========================================================
       // PULIHAN GSC "Tidak ditemukan (404)": 12 slug lowongan lama
