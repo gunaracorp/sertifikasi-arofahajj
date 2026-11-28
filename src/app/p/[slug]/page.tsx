@@ -47,6 +47,11 @@ export const dynamicParams = true;
 export async function generateStaticParams(): Promise<{ slug: string }[]> {
   // Halaman CMS terpublikasi ikut di-bake (build statis & standalone).
   const pages = await safeGetPublishedPages();
+  // [fix] output:"export" menolak array kosong ("at least one route must be
+  // generated") — pada clone baru/database belum memiliki halaman CMS,
+  // kembalikan placeholder yang di-render notFound() (404) agar pipeline
+  // build statis (build-static.mjs) tetap hijau tanpa halaman CMS apa pun.
+  if (pages.length === 0) return [{ slug: "_cms-empty" }];
   return pages.map((p) => ({ slug: p.slug }));
 }
 

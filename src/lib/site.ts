@@ -16,8 +16,11 @@
 // KBLI 79121 — Aktivitas Biro Perjalanan Wisata (risiko menengah rendah).
 // ============================================================
 
-/** Canonical host — satu-satunya bentuk URL yang diindeks. */
-export const SITE_URL = "https://arofahajj.com";
+/** Canonical host — satu-satunya bentuk URL yang diindeks.
+ *  Dapat dioverride per-target build lewat env NEXT_PUBLIC_SITE_URL
+ *  (mis. https://sertifikasi.arofahajj.com) — tanpa env, default apex
+ *  arofahajj.com tetap dipakai (backward compatible). */
+export const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://arofahajj.com";
 
 /** Tahun berjalan untuk pola konten freshness ("Biaya & Proses 2026").
  *  Dihitung saat module load — generator tidak perlu diedit tiap tahun.

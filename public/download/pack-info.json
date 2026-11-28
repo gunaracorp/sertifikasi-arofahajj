@@ -1,14 +1,14 @@
 {
   "schema": 2,
   "file": "arofahajj-static-hosting.tar.gz",
-  "sizeBytes": 30718010,
-  "sizeLabel": "29.29 MB",
-  "md5": "97cf2cf201d89fd1905cbbf03b7d25e2",
-  "fileCount": 1701,
+  "sizeBytes": 31015480,
+  "sizeLabel": "29.58 MB",
+  "md5": "0802b34439f66e56445dab81597f0524",
+  "fileCount": 1700,
   "htmlCount": 268,
   "mode": "light",
   "modeLabel": "LIGHT — halaman inti + direktori + artikel blog (ringan, cepat di-upload cPanel)",
-  "builtAt": "2026-11-22T14:42:05.130Z",
+  "builtAt": "2026-11-28T04:26:14.742Z",
   "target": "idwebhost shared hosting (cPanel) — tanpa Node.js",
   "note": "Upload & extract ke public_html. Lihat DEPLOY-IDWEBHOST.md.",
   "files": [
@@ -16,9 +16,33 @@
       "name": "arofahajj-static-hosting.tar.gz",
       "kind": "pack",
       "label": "Paket deploy utama (upload & extract)",
-      "bytes": 30718010,
-      "sizeLabel": "29.29 MB",
-      "mtime": "2026-11-22T14:42:04.186Z"
+      "bytes": 31015480,
+      "sizeLabel": "29.58 MB",
+      "mtime": "2026-11-28T04:26:13.809Z"
+    },
+    {
+      "name": "DEPLOY-IDWEBHOST.md",
+      "kind": "doc",
+      "label": "Panduan deploy cPanel (± 5 menit)",
+      "bytes": 6261,
+      "sizeLabel": "0.01 MB",
+      "mtime": "2026-11-28T03:26:30.451Z"
+    },
+    {
+      "name": "ISI-PACK.txt",
+      "kind": "doc",
+      "label": "Checklist isi paket",
+      "bytes": 3639,
+      "sizeLabel": "0.00 MB",
+      "mtime": "2026-11-28T03:26:30.452Z"
+    },
+    {
+      "name": "pack-info.json",
+      "kind": "meta",
+      "label": "Manifest paket (ukuran, MD5, tanggal)",
+      "bytes": 756,
+      "sizeLabel": "0.00 MB",
+      "mtime": "2026-11-28T03:26:30.573Z"
     }
   ]
 }
